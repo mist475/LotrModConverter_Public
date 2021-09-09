@@ -1,7 +1,6 @@
 package misterymob475;
 
 import lib.jnbt.jnbt.*;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;

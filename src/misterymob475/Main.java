@@ -74,12 +74,12 @@ public class Main {
                 return pathnames[input-1];
             }
             else {
-                System.out.println("no worlds found, are you sure you placed this file in the right directory?");
+                System.out.println("no legacy worlds found, are you sure you placed this file in the right directory?");
                 return "";
             }
         }
         else {
-            System.out.println("no worlds found, are you sure you placed this file in the right directory?");
+            System.out.println("no legacy worlds found, are you sure you placed this file in the right directory?");
             return "";
         }
     }
@@ -117,12 +117,12 @@ public class Main {
                 return pathnames[input-1];
             }
             else {
-                System.out.println("no worlds found, are you sure you placed this file in the right directory?");
+                System.out.println("no renewed worlds found, are you sure you placed this file in the right directory?");
                 return "";
             }
         }
         else {
-            System.out.println("no worlds found, are you sure you placed this file in the right directory?");
+            System.out.println("no renewed worlds found, are you sure you placed this file in the right directory?");
             return "";
         }
     }
