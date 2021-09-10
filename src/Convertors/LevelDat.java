@@ -1,6 +1,7 @@
 package Convertors;
 
 import lib.jnbt.jnbt.*;
+import misterymob475.Data;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -9,18 +10,19 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class LevelDat implements Convertor{
     String pathName;
-    HashMap<Integer,String> LegacyIds;
-    HashMap<String, List<String>> ItemNames;
+    Map<Integer,String> LegacyIds;
+    //HashMap<String, List<String>> ItemNames;
+    Data Data;
 
-    public LevelDat(String pathname,HashMap<Integer,String> legacyIds,HashMap<String, List<String>> itemNames) {
+    public LevelDat(Data data, String pathname,Map<Integer,String> legacyIds) {
+        this.Data = data;
         pathName = pathname;
         LegacyIds = legacyIds;
-        ItemNames = itemNames;
+        //ItemNames = itemNames;
     }
 
     @Override
@@ -168,7 +170,7 @@ public class LevelDat implements Convertor{
                 if (Data.containsKey("Player") && Data1.containsKey("Player")) {
                     CompoundTag Player_tag = (CompoundTag) Data1.get("Player");
                     Map<String,Tag> Player = new HashMap<>(Player_tag.getValue());
-                    PlayerData.playerFixer(Player, LegacyIds, ItemNames);
+                    PlayerData.playerFixer(Player, LegacyIds, this.Data.ItemNames());
                     Data.replace("Player",new CompoundTag("Player",Player));
                 }
                 newData.replace("Data",new CompoundTag("Data",Data));

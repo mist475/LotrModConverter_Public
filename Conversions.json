@@ -1,0 +1,1769 @@
+{
+    "Waypoints": 
+    {
+        "LAST_BRIDGE": "lotr:last_bridge",
+        "DOL_GULDUR": "lotr:dol_guldur",
+        "HIGH_PASS": "lotr:high_pass",
+        "THARBAD": "lotr:tharbad",
+        "LONG_LAKE": "lotr:long_lake",
+        "ARCHET": "lotr:archet",
+        "UMBAR_CITY": "lotr:umbar",
+        "NOBOTTLE": "lotr:nobottle",
+        "DUNHARROW": "lotr:dunharrow",
+        "OLD_RHOVANION": "lotr:old_rhovanion",
+        "FORSAKEN_INN": "lotr:forsaken_inn",
+        "EAST_PEAK": "lotr:east_peak",
+        "IMLOTH_MELUI": "lotr:imloth_melui",
+        "HARLOND": "lotr:harlond",
+        "EASTERN_GUARD": "lotr:eastern_guard",
+        "BUCKLEBURY": "lotr:bucklebury",
+        "GATE_FUINUR": "lotr:gate_of_fuinur",
+        "HAY_GATE": "lotr:hay_gate",
+        "CALENHAD": "lotr:calenhad",
+        "OLD_ELF_WAY": "lotr:old_elven_way",
+        "HELMS_DEEP": "lotr:helms_deep",
+        "ANNUMINAS": "lotr:annuminas",
+        "HALIFIRIEN": "lotr:halifirien",
+        "CERIN_AMROTH": "lotr:cerin_amroth",
+        "SARN_FORD": "lotr:sarn_ford",
+        "DOL_AMROTH": "lotr:dol_amroth",
+        "HENNETH_ANNUN": "lotr:henneth_annun",
+        "ARVEDUI_MINES": "lotr:arveduis_mines",
+        "MITHLOND_SOUTH": "lotr:south_mithlond",
+        "STADDLE": "lotr:staddle",
+        "COAST_FORTRESS": "lotr:azrazain",
+        "STOCK": "lotr:stock",
+        "ARGONATH": "lotr:argonath",
+        "BROCKENBORINGS": "lotr:brockenborings",
+        "MINAS_MORGUL": "lotr:minas_morgul",
+        "RAUROS": "lotr:rauros",
+        "ISENGARD": "lotr:isengard",
+        "FORNOST": "lotr:fornost",
+        "EAGLES_EYRIE": "lotr:eagles_eyrie",
+        "NORTH_DUNLAND": "lotr:duneard",
+        "BEORN": "lotr:beorns_halls",
+        "ERECH": "lotr:erech",
+        "SOUTH_DUNLAND": "lotr:firwold",
+        "NORTH_MITHLOND": "lotr:north_mithlond",
+        "HARNEN_BLACK_TOWN": "lotr:ugri_zadin",
+        "FELLBEASTS": "lotr:vale_of_the_fell_beasts",
+        "WOLD": "lotr:woldhall",
+        "BARDHAVEN": "lotr:bardhaven",
+        "TOL_MORWEN": "lotr:tol_morwen",
+        "THE_TROLLSHAWS": "lotr:trolls_cave",
+        "DORWINION_COURT": "lotr:vinter_court",
+        "DORWINION_HILLS": "lotr:amon_gwin",
+        "TUCKBOROUGH": "lotr:tuckborough",
+        "NEEDLEHOLE": "lotr:needlehole",
+        "MOUNT_GUNDABAD": "lotr:mount_gundabad",
+        "DORWINION_CROSSROADS": "lotr:dorwinion_crossroads",
+        "SOUTH_FOROCHEL": "lotr:south_forochel",
+        "MICHEL_DELVING": "lotr:michel_delving",
+        "OATBARTON": "lotr:oatbarton",
+        "HOBBITON": "lotr:hobbiton",
+        "NURNEN_EASTERN_SHORE": "lotr:rhunurnen",
+        "WITHYWINDLE_VALLEY": "lotr:withywindle_valley",
+        "DESERT_TOWN": "lotr:ijdi_ilel",
+        "DORWINION_FORD": "lotr:golden_ford",
+        "PELARGIR": "lotr:pelargir",
+        "AMON_ANGREN": "lotr:amon_angren",
+        "MOUNT_CELEBDIL": "lotr:mount_celebdil",
+        "NURNEN_SOUTHERN_SHORE": "lotr:harnurnen",
+        "DALE": "lotr:dale",
+        "ETHRING": "lotr:ethring",
+        "RUNNING_FORD": "lotr:running_ford",
+        "HAYSEND": "lotr:haysend",
+        "COMBE": "lotr:combe",
+        "WITHERED_HEATH": "lotr:withered_heath",
+        "LINHIR": "lotr:linhir",
+        "FRAMSBURG": "lotr:framsburg",
+        "VALLEY_OF_SPIDERS": "lotr:valley_of_spiders",
+        "ALDBURG": "lotr:aldburg",
+        "FORLOND": "lotr:forlond",
+        "TOLFALAS": "lotr:tolfalas",
+        "CARROCK": "lotr:carrock",
+        "HELMS_CROSSROADS": "lotr:deeping_comb",
+        "HIMLING": "lotr:himling",
+        "DORWINION_PORT": "lotr:mirulond",
+        "NOGROD": "lotr:nogrod",
+        "TIGHFIELD": "lotr:tighfield",
+        "FROGMORTON": "lotr:frogmorton",
+        "FRECA_HOLD": "lotr:frecas_hold",
+        "ENEDWAITH_ROAD": "lotr:old_south_road",
+        "OSGILIATH_EAST": "lotr:east_osgiliath",
+        "MOUTHS_ISEN": "lotr:mouths_of_isen",
+        "CROSSINGS_OF_HARAD": "lotr:crossings_of_harnen",
+        "CIRITH_UNGOL": "lotr:cirith_ungol",
+        "UMBAR_GATE": "lotr:gate_of_umbar",
+        "BREE": "lotr:bree",
+        "MINRIMMON": "lotr:min_rimmon",
+        "WHITFURROWS": "lotr:whitfurrows",
+        "DALE_CROSSROADS": "lotr:great_dalish_crossroads",
+        "AMON_LHAW": "lotr:amon_lhaw",
+        "CORSAIRS_LANDING": "lotr:corsairs_landing",
+        "WULFBURG": "lotr:wulfburg",
+        "EMYN_ARNEN": "lotr:emyn_arnen",
+        "RIVENDELL": "lotr:rivendell",
+        "EILENACH": "lotr:eilenach",
+        "FORD_BRUINEN": "lotr:ford_of_bruinen",
+        "WEATHERTOP": "lotr:weathertop",
+        "AMON_HEN": "lotr:amon_hen",
+        "CAPE_OF_FOROCHEL": "lotr:cape_of_forochel",
+        "EREBOR": "lotr:erebor",
+        "MOUNT_GRAM": "lotr:mount_gram",
+        "WEST_GATE": "lotr:west_gate",
+        "WELLINGHALL": "lotr:wellinghall",
+        "NARDOL": "lotr:nardol",
+        "MORANNON": "lotr:black_gate",
+        "REDWATER_FORD": "lotr:redwater_ford",
+        "BARAD_DUR": "lotr:barad_dur",
+        "WEST_PEAK": "lotr:west_peak",
+        "CARAS_GALADHON": "lotr:caras_galadhon",
+        "AMON_EREB": "lotr:amon_ereb",
+        "BYWATER": "lotr:bywater",
+        "ERELAS": "lotr:erelas",
+        "SEREGOST": "lotr:seregost",
+        "BRANDYWINE_BRIDGE": "lotr:brandywine_bridge",
+        "LONGBOTTOM": "lotr:longbottom",
+        "NURNEN_WESTERN_SHORE": "lotr:dunurnen",
+        "RAS_MORTHIL": "lotr:ras_morthil",
+        "OVERHILL": "lotr:overhill",
+        "DWARROWVALE": "lotr:dwarrowvale",
+        "THAURBAND": "lotr:thorband",
+        "MOUNT_RERIR": "lotr:mount_rerir",
+        "RIVER_GATE": "lotr:river_gate",
+        "CAIR_ANDROS": "lotr:cair_andros",
+        "GOBLIN_TOWN": "lotr:goblin_town",
+        "GRIMSLADE": "lotr:grimslade",
+        "THORIN_HALLS": "lotr:thorins_halls)",
+        "SCARY": "lotr:scary",
+        "MOUNT_METHEDRAS": "lotr:mount_methedras",
+        "CROSSINGS_ERUI": "lotr:crossings_of_erui",
+        "OSGILIATH_WEST": "lotr:west_osgiliath",
+        "THRAIN_HALLS": "lotr:thrains_halls",
+        "ANDUIN_MOUTH": "lotr:ethir_anduin",
+        "LITTLE_DELVING": "lotr:little_delving",
+        "GARDENS_BERUTHIEL": "lotr:gardens_of_beruthiel",
+        "FORDS_OF_ISEN": "lotr:fords_of_isen",
+        "MOUNT_FANUIDHOL": "lotr:mount_fanuidhol",
+        "DURTHANG": "lotr:durthang",
+        "MERING_STREAM": "lotr:mering_stream",
+        "WILLOWBOTTOM": "lotr:willowbottom",
+        "NORTH_UNDEEP": "lotr:north_undeep",
+        "TOL_FUIN": "lotr:tol_fuin",
+        "EDHELLOND": "lotr:edhellond",
+        "CARACH_ANGREN": "lotr:carach_angren",
+        "HARNEN_ROAD_TOWN": "lotr:an_batina",
+        "GREENHOLM": "lotr:greenholm",
+        "HARNEN_RIVER_TOWN": "lotr:ninzadin",
+        "CROSSROADS_ITHILIEN": "lotr:crossroads_of_the_fallen_king",
+        "HARNEN_SEA_TOWN": "lotr:belkadar",
+        "AMON_DIN": "lotr:amon_din",
+        "FOREST_GATE": "lotr:forest_gate",
+        "NIMRODEL": "lotr:house_of_nimrodel",
+        "AIN_AL_HARAD": "lotr:ain_an_ahar",
+        "NARGROTH": "lotr:narroth",
+        "DIMRILL_DALE": "lotr:dimrill_dale",
+        "OST_IN_EDHIL": "lotr:ost_in_edhil",
+        "CROSSINGS_OF_POROS": "lotr:crossings_of_poros",
+        "WAYMEET": "lotr:waymeet",
+        "LOND_DAER": "lotr:lond_daer",
+        "MOUNT_CARADHRAS": "lotr:mount_caradhras",
+        "FIELD_OF_CELEBRANT": "lotr:field_of_celebrant",
+        "MINAS_TIRITH": "lotr:minas_tirith",
+        "TOWER_HILLS": "lotr:elostirion",
+        "OLD_FORD": "lotr:old_ford",
+        "SCATHA": "lotr:scathas_lair",
+        "EDORAS": "lotr:edoras",
+        "NURNEN_NORTHERN_SHORE": "lotr:fornurnen",
+        "CALEMBEL": "lotr:calembel",
+        "TREEBEARD_HILL": "lotr:treebeards_hill",
+        "DERNDINGLE": "lotr:derndingle",
+        "RHOSGOBEL": "lotr:rhosgobel",
+        "DEEPHALLOW": "lotr:deephallow",
+        "GREENWAY_CROSSROADS": "lotr:greenway_crossroads",
+        "ENTWADE": "lotr:entwade",
+        "MOUNT_DOLMED": "lotr:mount_dolmed",
+        "GATE_HERUMOR": "lotr:gate_herumor",
+        "THRANDUIL_HALLS": "lotr:thranduils_halls",
+        "SOUTH_UNDEEP": "lotr:south_undeep",
+        "TARLANG": "lotr:tarlangs_neck",
+        "DAINS_HALLS": "lotr:dains_halls",
+        "MORIGOST": "lotr:mornost",
+        "TARNOST": "lotr:tarnost",
+        "BELEGOST": "lotr:belegost",
+        "ENCHANTED_RIVER": "lotr:enchanted_river",
+        "MOUNT_DOOM": "lotr:mount_doom",
+        "CARN_DUM": "lotr:carn_dum"
+    },
+    "Factions" :
+    {
+        "DOL_GULDUR": "lotr:dol_guldur",
+        "BLUE_MOUNTAINS": "lotr:blue_mountains",
+        "HOSTILE": "lotr:hostile",
+        "ANGMAR": "lotr:angmar",
+        "MORDOR": "lotr:mordor",
+        "ISENGARD": "lotr:isengard",
+        "DORWINION": "lotr:dorwinion",
+        "TAURETHRIM": "lotr:taurethrim",
+        "FANGORN": "lotr:fangorn",
+        "DURINS_FOLK": "lotr:durins_folk",
+        "MORWAITH": "lotr:morwaith",
+        "HIGH_ELF": "lotr:high_elves",
+        "GONDOR": "lotr:gondor",
+        "LOTHLORIEN": "lotr:lothlorien",
+        "WOOD_ELF": "lotr:woodland_realm",
+        "HOBBIT": "lotr:hobbits",
+        "RHUDEL": "lotr:rhudel",
+        "DALE": "lotr:dale",
+        "DUNLAND": "lotr:dunland",
+        "NEAR_HARAD": "lotr:near_harad",
+        "RANGER_NORTH": "lotr:dunedain_north",
+        "UNALIGNED": "lotr:unaligned",
+        "BREE": "lotr:bree",
+        "ROHAN": "lotr:rohan",
+        "GUNDABAD": "lotr:northern_orcs",
+        "HALF_TROLL": "lotr:half_trolls"
+    },
+    "Regions":
+    {
+        "PUKEL": "lotr:druwaith_iaur",
+        "NINDALF": "lotr:nindalf",
+        "TROLLSHAWS": "lotr:trollshaws",
+        "UMBAR": "lotr:umbar",
+        "BLUE_MOUNTAINS": "lotr:blue_mountains",
+        "EREGION": "lotr:eregion",
+        "VALES_OF_ANDUIN": "lotr:vales_of_anduin",
+        "ANGMAR": "lotr:angmar",
+        "COLDFELLS": "lotr:coldfells",
+        "ITHILIEN": "lotr:ithilien",
+        "LAMEDON": "lotr:lamedon",
+        "HARNEDOR": "lotr:harnennor",
+        "LEBENNIN": "lotr:lebennin",
+        "WOODLAND_REALM": "lotr:woodland_realm",
+        "MIRKWOOD": "lotr:mirkwood",
+        "DORWINION": "lotr:dorwinion",
+        "ERIADOR": "lotr:eriador",
+        "BLACKROOT_VALE": "lotr:blackroot_vale",
+        "LOSTLADEN": "lotr:lostladen",
+        "LOTHLORIEN": "lotr:lothlorien",
+        "OCEAN": "lotr:sea",
+        "FORODWAITH": "lotr:forodwaith",
+        "DALE": "lotr:dale",
+        "ROHAN": "lotr:rohan",
+        "DOR_EN_ERNIL": "lotr:dor_er_ernil",
+        "BREE_LAND": "lotr:breeland",
+        "HARONDOR": "lotr:harondor",
+        "LONE_LANDS": "lotr:lone_lands",
+        "EMYN_MUIL": "lotr:emyn_muil",
+        "WILDERLAND": "lotr:wilderland",
+        "MISTY_MOUNTAINS": "lotr:misty_mountains",
+        "LOSSARNACH": "lotr:lossarnach",
+        "TOLFALAS": "lotr:tolfalas",
+        "LINDON": "lotr:lindon",
+        "IRON_HILLS": "lotr:iron_hills",
+        "MORDOR": "lotr:mordor",
+        "FANGORN": "lotr:fangorn",
+        "RIVENDELL_VALE": "lotr:rivendell",
+        "PINNATH_GELIN": "lotr:pinnath_gelin",
+        "ENEDWAITH": "lotr:enedwaith",
+        "NURN": "lotr:nurn",
+        "NAN_CURUNIR": "lotr:nan_curunir",
+        "DUNLAND": "lotr:dunland",
+        "WHITE_MOUNTAINS": "lotr:white_mountains",
+        "ETTENMOORS": "lotr:ettenmoors",
+        "DAGORLAD": "lotr:dagorlad",
+        "BROWN_LANDS": "lotr:brown_lands",
+        "HARAD_DESERT": "lotr:harad_dessert",
+        "SHIRE": "lotr:shire",
+        "SOUTHRON_COASTS": "lotr:southron_coasts",
+        "OLD_FOREST": "lotr:old_forest",
+        "GREY_MOUNTAINS": "lotr:grey_mountains"
+    },
+    "Items" : {
+        "lotr:item.spearRivendell": [
+            "lotr:rivendell_spear"
+        ],
+        "minecraft:wooden_button": [
+            "minecraft:oak_button"
+        ],
+        "lotr:item.rabbitRaw": [
+            "minecraft:rabbit"
+        ],
+        "lotr:item.mithrilRing": [
+            "lotr:mithril_ring"
+        ],
+        "lotr:item.tin": [
+            "lotr:tin_ingot"
+        ],
+        "minecraft:wooden_door": [
+            "minecraft:oak_door"
+        ],
+        "lotr:item.bootsDwarven": [
+            "lotr:dwarven_boots"
+        ],
+        "lotr:item.bootsOrc": [
+            "lotr:mordor_boots"
+        ],
+        "lotr:item.naurite": [
+            "lotr:durnor"
+        ],
+        "lotr:item.urukSteel": [
+            "lotr:uruk_steel_ingot"
+        ],
+        "lotr:item.axeUruk": [
+            "lotr:uruk_axe"
+        ],
+        "lotr:item.legsDwarven": [
+            "lotr:dwarven_leggings"
+        ],
+        "lotr:item.salt": [
+            "lotr:salt"
+        ],
+        "lotr:tile.bronzeBars": [
+            "lotr:bronze_bars"
+        ],
+        "lotr:tile.bookshelfStorage": [
+            "minecraft:bookshelf"
+        ],
+        "minecraft:written_book": [
+            "minecraft:written_book"
+        ],
+        "lotr:item.daggerRivendell": [
+            "lotr:rivendell_dagger"
+        ],
+        "lotr:item.legsGondor": [
+            "lotr:gondor_leggings"
+        ],
+        "lotr:item.daggerUruk": [
+            "lotr:uruk_dagger"
+        ],
+        "lotr:item.pickaxeHighElven": [
+            "lotr:lindon_pickaxe"
+        ],
+        "minecraft:wool": [
+            "minecraft:white_wool",
+            "minecraft:orange_wool",
+            "minecraft:magenta_wool",
+            "minecraft:light_blue_wool",
+            "minecraft:yellow_wool",
+            "minecraft:lime_wool",
+            "minecraft:pink_wool",
+            "minecraft:gray_wool",
+            "minecraft:light_gray_wool",
+            "minecraft:cyan_wool",
+            "minecraft:purple_wool",
+            "minecraft:blue_wool",
+            "minecraft:brown_wool",
+            "minecraft:green_wool",
+            "minecraft:red_wool",
+            "minecraft:black_wool"
+        ],
+        "lotr:item.pickaxeOrc": [
+            "lotr:mordor_pickaxe"
+        ],
+        "lotr:item.spearUruk": [
+            "lotr:uruk_spear"
+        ],
+        "lotr:item.helmetBronze": [
+            "lotr:bronze_helmet"
+        ],
+        "lotr:item.bodyRanger": [
+            "lotr:ranger_north_chestplate"
+        ],
+        "lotr:item.dwarfSteel": [
+            "lotr:dwarven_steel_ingot"
+        ],
+        "lotr:tile.fallenLeaves": [
+            "lotr:fallen_oak_leaves",
+            "lotr:fallen_spruce_leaves",
+            "lotr:fallen_birch_leaves",
+            "lotr:fallen_jungle_leaves",
+            "lotr:fallen_acacia_leaves",
+            "lotr:fallen_dark_oak_leaves"
+        ],
+        "lotr:item.helmetDolAmroth": [
+            "lotr:dol_amroth_helmet"
+        ],
+        "minecraft:tnt": [
+            "minecraft:tnt"
+        ],
+        "lotr:item.helmetMithril": [
+            "lotr:mithril_helmet"
+        ],
+        "lotr:item.helmetDunlending": [
+            "lotr:dunlending_helmet"
+        ],
+        "lotr:item.shovelElven": [
+            "lotr:galadhrim_shovel"
+        ],
+        "lotr:item.spearBlueDwarven": [
+            "lotr:blue_dwarven_spear"
+        ],
+        "lotr:tile.doorShirePine": [
+            "lotr:pine_door"
+        ],
+        "lotr:item.legsRangerIthilien": [
+            "lotr:ranger_ithilien_leggings"
+        ],
+        "lotr:item.daggerDorwinionElfPoisoned": [
+            "lotr:dorwinion_elven_dagger"
+        ],
+        "lotr:item.pickaxeMithril": [
+            "lotr:mithril_pickaxe"
+        ],
+        "lotr:tile.dirtPath": [
+            "minecraft:grass_path"
+        ],
+        "lotr:item.gobletGold": [
+            "lotr:golden_goblet"
+        ],
+        "lotr:tile.elvenForge": [
+            "lotr:elven_forge"
+        ],
+        "lotr:tile.blueDwarfBars": [
+            "lotr:blue_dwarven_bars"
+        ],
+        "lotr:item.spearMithril": [
+            "lotr:mithril_spear"
+        ],
+        "lotr:item.bootsBone": [
+            "lotr:bone_boots"
+        ],
+        "lotr:item.bootsDwarvenSilver": [
+            "lotr:silver_trimmed_dwarven_boots"
+        ],
+        "lotr:item.helmetHarnedor": [
+            "lotr:harnennor_helmet"
+        ],
+        "lotr:item.bootsWarg": [
+            "lotr:fur_boots"
+        ],
+        "lotr:item.legsDorwinionElf": [
+            "lotr:dorwinion_elven_leggings"
+        ],
+        "lotr:item.axeHighElven": [
+            "lotr:lindon_axe"
+        ],
+        "lotr:tile.doorPine": [
+            "lotr:pine_door"
+        ],
+        "lotr:tile.fenceGateSpruce": [
+            "minecraft:spruce_fence_gate"
+        ],
+        "lotr:item.cram": [
+            "lotr:cram"
+        ],
+        "lotr:item.orcSteel": [
+            "lotr:orc_steel_ingot"
+        ],
+        "lotr:item.swordRivendell": [
+            "lotr:rivendell_sword"
+        ],
+        "lotr:item.aleHorn": [
+            "lotr:ale_horn"
+        ],
+        "lotr:item.quenditeCrystal": [
+            "lotr:edhelvir"
+        ],
+        "lotr:tile.doorAcacia": [
+            "minecraft:acacia_door"
+        ],
+        "lotr:item.pear": [
+            "lotr:pear"
+        ],
+        "lotr:item.swordMallorn": [
+            "lotr:mallorn_sword"
+        ],
+        "lotr:item.bootsRangerIthilien": [
+            "lotr:ranger_ithilien_boots"
+        ],
+        "lotr:item.helmetNearHarad": [
+            "lotr:harad_helmet"
+        ],
+        "lotr:item.blueDwarfSteel": [
+            "lotr:dwarven_steel_ingot"
+        ],
+        "lotr:tile.doorDarkOak": [
+            "minecraft:dark_oak_door"
+        ],
+        "lotr:tile.fenceGatePine": [
+            "lotr:pine_fence_gate"
+        ],
+        "lotr:item.legsHighElven": [
+            "lotr:lindon_leggings"
+        ],
+        "lotr:item.mug": [
+            "lotr:wooden_mug"
+        ],
+        "lotr:item.spearWoodElven": [
+            "lotr:wood_elven_spear"
+        ],
+        "lotr:item.bodyRohan": [
+            "lotr:rohan_chestplate"
+        ],
+        "lotr:tile.fenceGateLarch": [
+            "lotr:larch_fence_gate"
+        ],
+        "lotr:tile.buttonBlueRock": [
+            "lotr:blue_rock_button"
+        ],
+        "lotr:tile.beacon": [
+            "lotr:gondor_beacon"
+        ],
+        "lotr:item.mallornStick": [
+            "lotr:mallorn_stick"
+        ],
+        "lotr:item.legsHarnedor": [
+            "lotr:harnennor_leggings"
+        ],
+        "lotr:tile.fenceGateBeech": [
+            "lotr:beech_fence_gate"
+        ],
+        "lotr:item.swordWoodElven": [
+            "lotr:wood_elven_sword"
+        ],
+        "lotr:item.flax": [
+            "lotr:flax"
+        ],
+        "lotr:tile.fenceGateCharred": [
+            "lotr:charred_fence_gate"
+        ],
+        "minecraft:yellow_flower": [
+            "minecraft:dandelion"
+        ],
+        "lotr:item.legsRivendell": [
+            "lotr:rivendell_leggings"
+        ],
+        "lotr:tile.dunlendingCraftingTable": [
+            "lotr:dunlending_crafting_table"
+        ],
+        "lotr:item.silverRing": [
+            "lotr:silver_ring"
+        ],
+        "lotr:tile.dwarfBars": [
+            "lotr:dwarven_bars"
+        ],
+        "lotr:item.hoeBronze": [
+            "lotr:bronze_hoe"
+        ],
+        "minecraft:water": [
+            "minecraft:water"
+        ],
+        "lotr:item.shovelOrc": [
+            "lotr:mordor_shovel"
+        ],
+        "minecraft:tnt_minecart": [
+            "minecraft:tnt_minecart"
+        ],
+        "lotr:tile.brick": [
+            "lotr:mordor_brick",
+            "lotr:gondor_brick",
+            "lotr:mossy_gondor_brick",
+            "lotr:cracked_gondor_brick",
+            "lotr:rohan_brick",
+            "lotr:carved_gondor_brick",
+            "lotr:dwarven_brick",
+            "lotr:cracked_mordor_brick",
+            "lotr:silver_trimmed_dwarven_brick",
+            "lotr:gold_trimmed_dwarven_brick",
+            "lotr:mithril_trimmed_dwarven_brick",
+            "lotr:galadhrim_brick",
+            "lotr:mossy_galadhrim_brick",
+            "lotr:cracked_galadhrim_brick",
+            "lotr:blue_brick",
+            "lotr:harad_brick"
+        ],
+        "lotr:item.bodyMithril": [
+            "lotr:mithril_chestplate"
+        ],
+        "lotr:tile.dwarvenForge": [
+            "lotr:dwarven_forge"
+        ],
+        "lotr:tile.doorPear": [
+            "lotr:pear_door"
+        ],
+        "lotr:item.bodyNearHarad": [
+            "lotr:harad_chestplate"
+        ],
+        "lotr:tile.doorRotten": [
+            "lotr:rotten_door"
+        ],
+        "lotr:item.aleHornGold": [
+            "lotr:golden_ale_horn"
+        ],
+        "lotr:item.legsUmbar": [
+            "lotr:umbar_leggings"
+        ],
+        "lotr:tile.fence": [
+            "lotr:pine_fence",
+            "lotr:mallorn_fence",
+            "lotr:mirk_oak_fence",
+            "lotr:charred_fence",
+            "lotr:apple_fence",
+            "lotr:pear_fence",
+            "lotr:cherry_fence",
+            "",
+            "lotr:lebethron_fence",
+            "lotr:beech_fence",
+            "lotr:holly_fence",
+            "",
+            "lotr:maple_fence",
+            "lotr:larch_fence",
+            "",
+            ""
+        ],
+        "lotr:item.muttonRaw": [
+            "minecraft:mutton"
+        ],
+        "lotr:item.daggerRohan": [
+            "lotr:rohan_dagger"
+        ],
+        "lotr:item.axeDwarven": [
+            "lotr:dwarven_axe"
+        ],
+        "lotr:item.helmetRanger": [
+            "lotr:ranger_north_helmet"
+        ],
+        "lotr:item.pickaxeUruk": [
+            "lotr:uruk_pickaxe"
+        ],
+        "lotr:item.bodyUmbar": [
+            "lotr:umbar_chestplate"
+        ],
+        "lotr:item.bodyBronze": [
+            "lotr:bronze_chestplate"
+        ],
+        "lotr:tile.fenceGatePear": [
+            "lotr:pear_fence_gate"
+        ],
+        "lotr:item.dunlendingClub": [
+            "lotr:dunlending_club"
+        ],
+        "lotr:item.bootsRivendell": [
+            "lotr:rivendell_boots"
+        ],
+        "lotr:tile.doorFir": [
+            "lotr:fir_door"
+        ],
+        "lotr:item.pipeweedLeaf": [
+            "lotr:pipeweed_leaf"
+        ],
+        "lotr:item.daggerDwarven": [
+            "lotr:dwarven_dagger"
+        ],
+        "lotr:item.pickaxeWoodElven": [
+            "lotr:wood_elven_pickaxe"
+        ],
+        "lotr:tile.ceramicMug": [
+            "lotr:ceramic_mug"
+        ],
+        "lotr:item.bootsUmbar": [
+            "lotr:umbar_boots"
+        ],
+        "lotr:item.shovelMallorn": [
+            "lotr:mallorn_shovel"
+        ],
+        "lotr:item.bodyDwarvenMithril": [
+            "lotr:mithril_trimmed_dwarven_chestplate"
+        ],
+        "lotr:item.axeOrc": [
+            "lotr:mordor_axe"
+        ],
+        "lotr:item.daggerArnor": [
+            "lotr:arnor_dagger"
+        ],
+        "lotr:tile.athelas": [
+            "lotr:athelas"
+        ],
+        "lotr:item.bodyGondor": [
+            "lotr:gondor_chestplate"
+        ],
+        "lotr:item.legsDolAmroth": [
+            "lotr:dol_amroth_leggings"
+        ],
+        "lotr:item.bootsBlueDwarven": [
+            "lotr:blue_dwarven_boots"
+        ],
+        "lotr:item.flaxSeeds": [
+            "lotr:flax_seeds"
+        ],
+        "lotr:item.bootsDwarvenGold": [
+            "lotr:gold_trimmed_dwarven_boots"
+        ],
+        "lotr:item.bodyDolAmroth": [
+            "lotr:dol_amroth_chestplate"
+        ],
+        "lotr:tile.fenceGateAspen": [
+            "lotr:aspen_fence_gate"
+        ],
+        "lotr:item.legsRohan": [
+            "lotr:rohan_leggings"
+        ],
+        "lotr:item.helmetDwarvenMithril": [
+            "lotr:mithril_trimmed_dwarven_helmet"
+        ],
+        "lotr:tile.fenceGateMaple": [
+            "lotr:maple_fence_gate"
+        ],
+        "lotr:tile.angmarCraftingTable": [
+            "lotr:angmar_crafting_table"
+        ],
+        "lotr:item.bodyElven": [
+            "lotr:galadhrim_chestplate"
+        ],
+        "lotr:tile.doorAspen": [
+            "lotr:aspen_door"
+        ],
+        "minecraft:wooden_pickaxe": [
+            "minecraft:wooden_pickaxe"
+        ],
+        "lotr:item.waterskin": [
+            "lotr:waterskin"
+        ],
+        "lotr:item.bootsWoodElven": [
+            "lotr:wood_elven_boots"
+        ],
+        "lotr:item.mithril": [
+            "lotr:mithril_ingot"
+        ],
+        "lotr:item.shovelUruk": [
+            "lotr:uruk_shovel"
+        ],
+        "lotr:item.legsBlueDwarven": [
+            "lotr:blue_dwarven_leggings"
+        ],
+        "lotr:item.swordElven": [
+            "lotr:galadhrim_sword"
+        ],
+        "lotr:item.bootsHarnedor": [
+            "lotr:harnennor_boots"
+        ],
+        "lotr:item.bodyArnor": [
+            "lotr:arnor_chestplate"
+        ],
+        "lotr:item.bodyUruk": [
+            "lotr:uruk_chestplate"
+        ],
+        "lotr:item.bootsRanger": [
+            "lotr:ranger_north_boots"
+        ],
+        "lotr:item.daggerBlueDwarven": [
+            "lotr:blue_dwarven_dagger"
+        ],
+        "lotr:item.redBook": [
+            "lotr:red_book"
+        ],
+        "lotr:item.sulfur": [
+            "lotr:sulfur"
+        ],
+        "lotr:item.daggerIron": [
+            "lotr:iron_dagger"
+        ],
+        "lotr:item.spearHighElven": [
+            "lotr:lindon_spear"
+        ],
+        "lotr:tile.blueDwarvenCraftingTable": [
+            "lotr:blue_mountains_crafting_table"
+        ],
+        "lotr:tile.buttonRedRock": [
+            "lotr:red_rock_button"
+        ],
+        "lotr:item.daggerElven": [
+            "lotr:galadhrim_dagger"
+        ],
+        "lotr:item.bootsDorwinion": [
+            "lotr:dorwinion_boots"
+        ],
+        "lotr:item.shovelMithril": [
+            "lotr:mithril_shovel"
+        ],
+        "lotr:tile.doorLairelosse": [
+            "lotr:lairelosse_door"
+        ],
+        "lotr:item.hoeWoodElven": [
+            "lotr:wood_elven_hoe"
+        ],
+        "lotr:item.silver": [
+            "lotr:silver_ingot"
+        ],
+        "lotr:item.swordBlueDwarven": [
+            "lotr:blue_dwarven_sword"
+        ],
+        "lotr:tile.doorCharred": [
+            "lotr:charred_door"
+        ],
+        "lotr:tile.fence2": [
+            "",
+            "",
+            "lotr:cedar_fence",
+            "lotr:fir_fence",
+            "lotr:pine_fence",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "lotr:cypress_fence",
+            "",
+            "lotr:aspen_fence",
+            "lotr:green_oak_fence",
+            "lotr:lairelosse_fence",
+            ""
+        ],
+        "lotr:tile.fence3": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "lotr:item.pickaxeBronze": [
+            "lotr:bronze_pickaxe"
+        ],
+        "lotr:item.helmetHighElven": [
+            "lotr:lindon_helmet"
+        ],
+        "lotr:item.bronze": [
+            "lotr:bronze_ingot"
+        ],
+        "lotr:item.helmetUmbar": [
+            "lotr:umbar_helmet"
+        ],
+        "lotr:item.bootsDorwinionElf": [
+            "lotr:dorwinion_elven_boots"
+        ],
+        "lotr:item.cherryPie": [
+            "lotr:cherry_pie"
+        ],
+        "lotr:tile.clover": [
+            "lotr:clover",
+            "lotr:four_leaf_clover"
+        ],
+        "lotr:item.sulfurMatch": [
+            "lotr:pocket_match"
+        ],
+        "lotr:tile.fenceGateHolly": [
+            "lotr:holly_fence_gate"
+        ],
+        "lotr:item.guldurilCrystal": [
+            "lotr:gulduril"
+        ],
+        "minecraft:wooden_pressure_plate": [
+            "minecraft:oak_pressure_plate"
+        ],
+        "lotr:tile.daleCraftingTable": [
+            "lotr:dale_crafting_table"
+        ],
+        "lotr:item.legsDorwinion": [
+            "lotr:dorwinion_leggings"
+        ],
+        "lotr:tile.boneBlock": [
+            "minecraft:bone_block"
+        ],
+        "lotr:item.swordGondor": [
+            "lotr:gondor_sword"
+        ],
+        "lotr:item.spearArnor": [
+            "lotr:arnor_spear"
+        ],
+        "lotr:item.legsWarg": [
+            "lotr:fur_leggings"
+        ],
+        "lotr:tile.dolAmrothCraftingTable": [
+            "lotr:dol_amroth_crafting_table"
+        ],
+        "lotr:item.pickaxeBlueDwarven": [
+            "lotr:blue_dwarven_pickaxe"
+        ],
+        "lotr:item.daggerBronze": [
+            "lotr:bronze_dagger"
+        ],
+        "lotr:tile.fenceGateFir": [
+            "lotr:fir_fence_gate"
+        ],
+        "lotr:tile.fenceGateJungle": [
+            "minecraft:jungle_fence_gate"
+        ],
+        "lotr:item.hobbitPipe": [
+            "lotr:smoking_pipe"
+        ],
+        "lotr:item.spearBronze": [
+            "lotr:bronze_spear"
+        ],
+        "lotr:item.bodyBone": [
+            "lotr:bone_chestplate"
+        ],
+        "lotr:item.helmetRangerIthilien": [
+            "lotr:ranger_ithilien_helmet"
+        ],
+        "lotr:item.bootsRohanMarshal": [
+            "lotr:rohan_marshal_boots"
+        ],
+        "lotr:tile.dwarfHerb": [
+            "lotr:dwarfwort"
+        ],
+        "lotr:tile.fenceGateCypress": [
+            "lotr:cypress_fence_gate"
+        ],
+        "minecraft:wooden_axe": [
+            "minecraft:wooden_axe"
+        ],
+        "lotr:tile.fenceGateMirkOak": [
+            "lotr:mirk_oak_fence_gate"
+        ],
+        "lotr:item.legsBronze": [
+            "lotr:bronze_leggings"
+        ],
+        "minecraft:wooden_sword": [
+            "minecraft:wooden_sword"
+        ],
+        "lotr:tile.chandelier": [
+            "lotr:bronze_chandelier",
+            "lotr:iron_chandelier",
+            "lotr:silver_chandelier",
+            "lotr:gold_chandelier",
+            "lotr:mithril_chandelier",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "lotr:tile.coralReef": [
+            "minecraft:fire_coral_block"
+        ],
+        "minecraft:tripwire_hook": [
+            "minecraft:tripwire_hook"
+        ],
+        "lotr:tile.cobblebrick": [
+            "lotr:drystone"
+        ],
+        "lotr:item.ceramicMug": [
+            "lotr:ceramic_mug"
+        ],
+        "lotr:item.gobletWood": [
+            "lotr:wooden_cup"
+        ],
+        "lotr:item.daggerMithril": [
+            "lotr:mithril_dagger"
+        ],
+        "lotr:item.bodyWarg": [
+            "lotr:fur_chestplate"
+        ],
+        "lotr:item.axeBlueDwarven": [
+            "lotr:blue_dwarven_axe"
+        ],
+        "lotr:item.pickaxeRivendell": [
+            "lotr:rivendell_pickaxe"
+        ],
+        "lotr:item.helmetWarg": [
+            "lotr:fur_helmet"
+        ],
+        "lotr:item.shovelBlueDwarven": [
+            "lotr:blue_dwarven_shovel"
+        ],
+        "lotr:item.swordHarad": [
+            "lotr:harad_sword"
+        ],
+        "lotr:tile.doorBeech": [
+            "lotr:beech_door"
+        ],
+        "lotr:tile.buttonMordorRock": [
+            "lotr:mordor_rock_button"
+        ],
+        "lotr:item.spearElven": [
+            "lotr:galadhrim_spear"
+        ],
+        "lotr:item.legsNearHarad": [
+            "lotr:harad_leggings"
+        ],
+        "lotr:tile.fenceGateRotten": [
+            "lotr:rotten_fence_gate"
+        ],
+        "minecraft:writable_book": [
+            "minecraft:writable_book"
+        ],
+        "lotr:item.helmetUrukBerserker": [
+            "lotr:uruk_berserker_helmet"
+        ],
+        "lotr:tile.doorGreenOak": [
+            "lotr:green_oak_door"
+        ],
+        "lotr:item.bodyDwarvenSilver": [
+            "lotr:silver_trimmed_dwarven_chestplate"
+        ],
+        "minecraft:wooden_slab": [
+            "minecraft:oak_slab",
+            "minecraft:spruce_slab",
+            "minecraft:birch_slab",
+            "minecraft:jungle_slab",
+            "minecraft:acacia_slab",
+            "minecraft:dark_oak_slab"
+        ],
+        "lotr:item.legsWoodElven": [
+            "lotr:wood_elven_leggings"
+        ],
+        "lotr:item.pipeweed": [
+            "lotr:pipeweed"
+        ],
+        "lotr:item.swordArnor": [
+            "lotr:arnor_sword"
+        ],
+        "lotr:item.helmetBone": [
+            "lotr:bone_helmet"
+        ],
+        "lotr:tile.bluebell": [
+            "lotr:bluebell"
+        ],
+        "lotr:item.shovelRivendell": [
+            "lotr:rivendell_shovel"
+        ],
+        "lotr:item.shovelHighElven": [
+            "lotr:lindon_shovel"
+        ],
+        "lotr:item.legsBone": [
+            "lotr:bone_leggings"
+        ],
+        "lotr:item.clayMug": [
+            "lotr:clay_mug"
+        ],
+        "lotr:item.bootsRohan": [
+            "lotr:rohan_boots"
+        ],
+        "lotr:item.cherry": [
+            "lotr:cherry"
+        ],
+        "lotr:item.legsDwarvenSilver": [
+            "lotr:silver_trimmed_dwarven_leggings"
+        ],
+        "lotr:item.appleGreen": [
+            "lotr:green_apple"
+        ],
+        "lotr:item.bootsNearHarad": [
+            "lotr:harad_boots"
+        ],
+        "lotr:item.pickaxeMallorn": [
+            "lotr:mallorn_pickaxe"
+        ],
+        "lotr:item.spearGondor": [
+            "lotr:gondor_spear"
+        ],
+        "lotr:tile.doorMallorn": [
+            "lotr:mallorn_door"
+        ],
+        "lotr:item.swordBronze": [
+            "lotr:bronze_sword"
+        ],
+        "lotr:item.helmetUruk": [
+            "lotr:uruk_helmet"
+        ],
+        "lotr:item.swordDorwinionElf": [
+            "lotr:dorwinion_elven_sword"
+        ],
+        "lotr:item.legsMithril": [
+            "lotr:mithril_leggings"
+        ],
+        "lotr:tile.doorJungle": [
+            "minecraft:jungle_door"
+        ],
+        "lotr:item.bootsGondor": [
+            "lotr:gondor_boots"
+        ],
+        "lotr:item.helmetDwarvenGold": [
+            "lotr:gold_trimmed_dwarven_helmet"
+        ],
+        "lotr:item.spearHarad": [
+            "lotr:harad_spear"
+        ],
+        "lotr:item.pickaxeDwarven": [
+            "lotr:dwarven_pickaxe"
+        ],
+        "lotr:item.helmetDorwinionElf": [
+            "lotr:dorwinion_elven_helmet"
+        ],
+        "lotr:item.coral": [
+            "minecraft:bubble_coral"
+        ],
+        "lotr:item.spearOrc": [
+            "lotr:mordor_spear"
+        ],
+        "lotr:item.helmetDwarven": [
+            "lotr:dwarven_helmet"
+        ],
+        "lotr:item.gobletCopper": [
+            "lotr:copper_goblet"
+        ],
+        "lotr:tile.cherryPie": [
+            "lotr:cherry_pie"
+        ],
+        "lotr:item.helmetBlueDwarven": [
+            "lotr:blue_dwarven_helmet"
+        ],
+        "lotr:item.bootsDwarvenMithril": [
+            "lotr:mithril_trimmed_dwarven_boots"
+        ],
+        "lotr:item.helmetRohan": [
+            "lotr:rohan_helmet"
+        ],
+        "lotr:item.bootsMithril": [
+            "lotr:mithril_boots"
+        ],
+        "lotr:item.bootsDolAmroth": [
+            "lotr:dol_amroth_boots"
+        ],
+        "lotr:item.swordDolAmroth": [
+            "lotr:dol_amroth_sword"
+        ],
+        "lotr:tile.buttonRohanRock": [
+            "lotr:rohan_rock_button"
+        ],
+        "lotr:item.bootsDale": [
+            "lotr:dale_boots"
+        ],
+        "lotr:item.mithrilMail": [
+            "lotr:mithril_mail"
+        ],
+        "lotr:item.daggerDale": [
+            "lotr:dale_dagger"
+        ],
+        "lotr:item.manFlesh": [
+            "lotr:man_flesh"
+        ],
+        "minecraft:wooden_hoe": [
+            "minecraft:wooden_hoe"
+        ],
+        "lotr:item.hoeOrc": [
+            "lotr:mordor_hoe"
+        ],
+        "lotr:tile.buttonGondorRock": [
+            "lotr:gondor_rock_button"
+        ],
+        "lotr:tile.doorLarch": [
+            "lotr:larch_door"
+        ],
+        "lotr:item.swordDale": [
+            "lotr:dale_sword"
+        ],
+        "lotr:tile.clayTile": [
+            "lotr:clay_tiling"
+        ],
+        "lotr:item.swordHighElven": [
+            "lotr:lindon_sword"
+        ],
+        "lotr:tile.fallenLeavesLOTR": [
+            "lotr:fallen_pine_leaves",
+            "lotr:fallen_mallorn_leaves",
+            "lotr:fallen_mirk_oak_leaves",
+            "lotr:fallen_red_oak_leaves",
+            "lotr:fallen_apple_leaves",
+            "lotr:fallen_pear_leaves",
+            "lotr:fallen_cherry_leaves",
+            "",
+            "lotr:fallen_lebethron_leaves",
+            "lotr:fallen_beech_leaves",
+            "lotr:fallen_holly_leaves",
+            "",
+            "lotr:fallen_maple_leaves",
+            "lotr:fallen_larch_leaves",
+            "",
+            ""
+        ],
+        "lotr:item.silverNugget": [
+            "lotr:silver_nugget"
+        ],
+        "lotr:tile.aridGrass": [
+            "lotr:arid_grass"
+        ],
+        "lotr:item.legsUruk": [
+            "lotr:uruk_leggings"
+        ],
+        "lotr:tile.fenceGateCherry": [
+            "lotr:cherry_fence_gate"
+        ],
+        "lotr:item.helmetRivendell": [
+            "lotr:rivendell_helmet"
+        ],
+        "lotr:item.axeElven": [
+            "lotr:galadhrim_axe"
+        ],
+        "lotr:item.clayPlate": [
+            "lotr:clay_plate"
+        ],
+        "lotr:item.bodyRohanMarshal": [
+            "lotr:rohan_marshal_chestplate"
+        ],
+        "lotr:tile.doorCypress": [
+            "lotr:cypress_door"
+        ],
+        "lotr:tile.fenceGateShirePine": [
+            "lotr:pine_fence_gate"
+        ],
+        "lotr:tile.fenceGateLebethron": [
+            "lotr:lebethron_fence_gate"
+        ],
+        "lotr:item.lettuce": [
+            "lotr:lettuce"
+        ],
+        "lotr:item.shovelWoodElven": [
+            "lotr:wood_elven_shovel"
+        ],
+        "lotr:item.hoeElven": [
+            "lotr:galadhrim_hoe"
+        ],
+        "lotr:item.bodyHarnedor": [
+            "lotr:harnennor_chestplate"
+        ],
+        "lotr:tile.fenceGateGreenOak": [
+            "lotr:green_oak_fence_gate"
+        ],
+        "lotr:tile.aleHorn": [
+            "lotr:ale_horn"
+        ],
+        "lotr:item.bodyRangerIthilien": [
+            "lotr:ranger_ithilien_chestplate"
+        ],
+        "lotr:item.mithrilNugget": [
+            "lotr:mithril_nugget"
+        ],
+        "lotr:item.helmetGondorWinged": [
+            "lotr:winged_gondor_helmet"
+        ],
+        "lotr:item.bodyDunlending": [
+            "lotr:dunlending_chestplate"
+        ],
+        "lotr:tile.driedReeds": [
+            "lotr:dried_reeds"
+        ],
+        "lotr:item.gateGear": [
+            "lotr:gate_gear"
+        ],
+        "lotr:item.helmetOrc": [
+            "lotr:mordor_helmet"
+        ],
+        "lotr:item.blacksmithHammer": [
+            "lotr:blacksmith_hammer"
+        ],
+        "lotr:tile.appleCrumble": [
+            "lotr:apple_crumble"
+        ],
+        "lotr:item.bodyDorwinion": [
+            "lotr:dorwinion_chestplate"
+        ],
+        "lotr:tile.barrel": [
+            "lotr:keg"
+        ],
+        "lotr:item.daggerHarad": [
+            "lotr:harad_dagger"
+        ],
+        "minecraft:vine": [
+            "minecraft:vine"
+        ],
+        "lotr:tile.doorBirch": [
+            "minecraft:birch_door"
+        ],
+        "lotr:tile.doorCherry": [
+            "lotr:cherry_door"
+        ],
+        "lotr:item.gobletSilver": [
+            "lotr:silver_goblet"
+        ],
+        "lotr:item.shovelBronze": [
+            "lotr:bronze_shovel"
+        ],
+        "minecraft:web": [
+            "minecraft:web"
+        ],
+        "minecraft:wooden_shovel": [
+            "minecraft:wooden_shovel"
+        ],
+        "lotr:item.blackrootStick": [
+            "lotr:blackroot_stick"
+        ],
+        "minecraft:trapped_chest": [
+            "minecraft:trapped_chest"
+        ],
+        "lotr:item.helmetDwarvenSilver": [
+            "lotr:silver_trimmed_dwarven_helmet"
+        ],
+        "lotr:item.hoeDwarven": [
+            "lotr:dwarven_hoe"
+        ],
+        "lotr:tile.doorLebethron": [
+            "lotr:lebethron_door"
+        ],
+        "lotr:item.daggerHighElven": [
+            "lotr:lindon_dagger"
+        ],
+        "lotr:tile.dorwinionCraftingTable": [
+            "lotr:dorwinion_crafting_table"
+        ],
+        "lotr:item.helmetRohanMarshal": [
+            "lotr:rohan_marshal_helmet"
+        ],
+        "lotr:item.axeBronze": [
+            "lotr:bronze_axe"
+        ],
+        "lotr:item.swanFeather": [
+            "lotr:swan_feather"
+        ],
+        "lotr:item.spearIron": [
+            "lotr:iron_spear"
+        ],
+        "lotr:item.bodyWoodElven": [
+            "lotr:wood_elven_chestplate"
+        ],
+        "lotr:item.scimitarOrc": [
+            "lotr:mordor_scimitar"
+        ],
+        "lotr:tile.armorStand": [
+            "minecraft:armor_stand"
+        ],
+        "lotr:item.daggerOrc": [
+            "lotr:mordor_dagger"
+        ],
+        "lotr:tile.fenceGateCedar": [
+            "lotr:cedar_fence_gate"
+        ],
+        "lotr:item.bootsHighElven": [
+            "lotr:lindon_boots"
+        ],
+        "lotr:tile.doubleFlower": [
+            "",
+            "lotr:yellow_iris",
+            "lotr:hibiscus",
+            "lotr:flame_of_harad"
+        ],
+        "lotr:item.swordMithril": [
+            "lotr:mithril_sword"
+        ],
+        "lotr:tile.fenceGateMallorn": [
+            "lotr:mallorn_fence_gate"
+        ],
+        "lotr:tile.elvenCraftingTable": [
+            "lotr:galadhrim_crafting_table"
+        ],
+        "lotr:item.bootsElven": [
+            "lotr:galadhrim_boots"
+        ],
+        "lotr:item.rabbitStew": [
+            "minecraft:rabbit_stew"
+        ],
+        "lotr:tile.doorCedar": [
+            "lotr:cedar_door"
+        ],
+        "minecraft:wheat_seeds": [
+            "minecraft:wheat_seeds"
+        ],
+        "lotr:item.rabbitCooked": [
+            "minecraft:cooked_rabbit"
+        ],
+        "lotr:item.goldRing": [
+            "lotr:gold_ring"
+        ],
+        "minecraft:trapdoor": [
+            "minecraft:trapdoor"
+        ],
+        "lotr:tile.doorSpruce": [
+            "minecraft:spruce_door"
+        ],
+        "minecraft:wheat": [
+            "minecraft:wheat"
+        ],
+        "lotr:item.helmetArnor": [
+            "lotr:arnor_helmet"
+        ],
+        "minecraft:waterlily": [
+            "minecraft:waterlily"
+        ],
+        "lotr:item.axeWoodElven": [
+            "lotr:wood_elven_axe"
+        ],
+        "lotr:item.hoeMithril": [
+            "lotr:mithril_hoe"
+        ],
+        "lotr:item.bodyDorwinionElf": [
+            "lotr:dorwinion_elven_chestplate"
+        ],
+        "lotr:tile.fenceGateAcacia": [
+            "minecraft:acacia_fence_gate"
+        ],
+        "lotr:item.shovelDwarven": [
+            "lotr:dwarven_shovel"
+        ],
+        "lotr:item.daggerGondor": [
+            "lotr:gondor_dagger"
+        ],
+        "lotr:item.maggotyBread": [
+            "lotr:maggoty_bread"
+        ],
+        "lotr:tile.fenceGateApple": [
+            "lotr:apple_fence_gate"
+        ],
+        "lotr:tile.fallenLeavesLOTR2": [
+            "",
+            "",
+            "lotr:fallen_cedar_leaves",
+            "lotr:fallen_fir_leaves",
+            "lotr:fallen_pine_leaves",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "lotr:fallen_cypress_leaves",
+            "",
+            "lotr:fallen_aspen_leaves",
+            "lotr:fallen_green_oak_leaves",
+            "lotr:fallen_lairelosse_leaves",
+            ""
+        ],
+        "lotr:tile.fallenLeavesLOTR3": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "lotr:item.armorStand": [
+            "minecraft:armor_stand"
+        ],
+        "lotr:item.spearRohan": [
+            "lotr:rohan_spear"
+        ],
+        "lotr:item.ironNugget": [
+            "minecraft:iron_nugget"
+        ],
+        "lotr:item.bodyOrc": [
+            "lotr:mordor_chestplate"
+        ],
+        "lotr:tile.clayTileDyed": [
+            "lotr:white_clay_tiling",
+            "lotr:orange_clay_tiling",
+            "lotr:magenta_clay_tiling",
+            "lotr:light_blue_clay_tiling",
+            "lotr:yellow_clay_tiling",
+            "lotr:lime_clay_tiling",
+            "lotr:pink_clay_tiling",
+            "lotr:gray_clay_tiling",
+            "lotr:light_gray_clay_tiling",
+            "lotr:cyan_clay_tiling",
+            "lotr:purple_clay_tiling",
+            "lotr:blue_clay_tiling",
+            "lotr:brown_clay_tiling",
+            "lotr:green_clay_tiling",
+            "lotr:red_clay_tiling",
+            "lotr:black_clay_tiling"
+        ],
+        "lotr:tile.doorApple": [
+            "lotr:apple_door"
+        ],
+        "lotr:item.bootsDunlending": [
+            "lotr:dunlending_boots"
+        ],
+        "lotr:item.swordRohan": [
+            "lotr:rohan_sword"
+        ],
+        "lotr:item.axeRivendell": [
+            "lotr:rivendell_axe"
+        ],
+        "lotr:item.bodyBlueDwarven": [
+            "lotr:blue_dwarven_chestplate"
+        ],
+        "lotr:item.hoeMallorn": [
+            "lotr:mallorn_hoe"
+        ],
+        "lotr:item.legsRohanMarshal": [
+            "lotr:rohan_marshal_leggings"
+        ],
+        "lotr:item.helmetNearHaradWarlord": [
+            "lotr:harad_warlord_helmet"
+        ],
+        "lotr:tile.doorMirkOak": [
+            "lotr:mirk_oak_door"
+        ],
+        "lotr:item.legsDwarvenGold": [
+            "lotr:gold_trimmed_dwarven_leggings"
+        ],
+        "lotr:item.orcTorch": [
+            "lotr:orc_torch"
+        ],
+        "lotr:tile.brick5": [
+            "",
+            "lotr:dale_brick",
+            "lotr:dorwinion_brick",
+            "lotr:carved_rohan_brick",
+            "lotr:mossy_dorwinion_brick",
+            "lotr:cracked_dorwinion_brick",
+            "",
+            "",
+            "lotr:gondor_cobblebrick",
+            "lotr:mossy_gondor_cobblebrick",
+            "lotr:cracked_gondor_cobblebrick",
+            "lotr:",
+            "lotr:",
+            "lotr:",
+            "lotr:",
+            "lotr:"
+        ],
+        "lotr:item.helmetElven": [
+            "lotr:galadhrim_helmet"
+        ],
+        "lotr:tile.brick4": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "lotr:cracked_dwarven_brick",
+            "lotr:carved_numenorean_brick",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "lotr:chalk_brick"
+        ],
+        "lotr:tile.brick3": [
+            "lotr:carved_blue_brick",
+            "lotr:carved_red_brick",
+            "lotr:high_elven_brick",
+            "lotr:mossy_high_elven_brick",
+            "lotr:cracked_high_elven_brick",
+            "lotr:wood_elven_brick",
+            "lotr:mossy_wood_elven_brick",
+            "lotr:cracked_wood_elven_brick",
+            "",
+            "lotr:dol_amroth_brick",
+            "",
+            "",
+            "lotr:glowing_dwarven_brick",
+            "lotr:red_harad_brick",
+            "",
+            ""
+        ],
+        "lotr:tile.brick2": [
+            "lotr:angmar_brick",
+            "lotr:cracked_angmar_brick",
+            "lotr:red_rock",
+            "lotr:arnor_brick",
+            "lotr:mossy_arnor_brick",
+            "lotr:cracked_arnor_brick",
+            "lotr:carved_arnor_brick",
+            "lotr:uruk_brick",
+            "",
+            "",
+            "lotr:carved_mordor_brick",
+            "lotr:numenorean_brick",
+            "lotr:lotr:carved_dwarven_brick",
+            "lotr:carved_high_elven_brick",
+            "lotr:carved_wood_elven_brick",
+            "lotr:carved_galadhrim_brick"
+        ],
+        "lotr:tile.buttonChalk": [
+            "lotr:chalk_button"
+        ],
+        "lotr:tile.brick6": [
+            "",
+            "",
+            "",
+            "lotr:mossy_dale_brick",
+            "lotr:cracked_dale_brick",
+            "lotr:carved_dale_brick",
+            "lotr:umbar_brick",
+            "lotr:cracked_umbar_brick",
+            "",
+            "lotr:carved_numenorean_brick",
+            "lotr:snowy_angmar_brick",
+            "",
+            "",
+            ""
+        ],
+        "lotr:tile.doorHolly": [
+            "lotr:holly_door"
+        ],
+        "lotr:item.axeMithril": [
+            "lotr:mithril_axe"
+        ],
+        "lotr:item.bootsBronze": [
+            "lotr:bronze_boots"
+        ],
+        "lotr:item.appleCrumble": [
+            "lotr:apple_crumble"
+        ],
+        "lotr:item.legsOrc": [
+            "lotr:mordor_leggings"
+        ],
+        "lotr:item.swordDwarven": [
+            "lotr:dwarven_sword"
+        ],
+        "lotr:item.pipeweedSeeds": [
+            "lotr:pipeweed_seeds"
+        ],
+        "lotr:item.spearDwarven": [
+            "lotr:dwarven_spear"
+        ],
+        "lotr:tile.fenceRotten": [
+            "lotr:rotten_fence_gate"
+        ],
+        "lotr:item.muttonCooked": [
+            "minecraft:cooked_mutton"
+        ],
+        "lotr:item.pickaxeElven": [
+            "lotr:galadhrim_pickaxe"
+        ],
+        "lotr:item.lembas": [
+            "lotr:lembas"
+        ],
+        "lotr:tile.fenceGateBirch": [
+            "minecraft:birch_fence_gate"
+        ],
+        "lotr:item.legsDale": [
+            "lotr:dale_leggings"
+        ],
+        "lotr:item.hoeHighElven": [
+            "lotr:lindon_hoe"
+        ],
+        "lotr:item.mallornNut": [
+            "lotr:mallorn_nut"
+        ],
+        "lotr:tile.aleHornGold": [
+            "lotr:golden_ale_horn"
+        ],
+        "lotr:item.bodyRivendell": [
+            "lotr:rivendell_chestplate"
+        ],
+        "lotr:item.legsArnor": [
+            "lotr:arnor_leggings"
+        ],
+        "lotr:tile.alloyForge": [
+            "lotr:alloy_forge"
+        ],
+        "lotr:tile.fenceGateDarkOak": [
+            "minecraft:dark_oak_fence_gate"
+        ],
+        "lotr:item.helmetDorwinion": [
+            "lotr:dorwinion_helmet"
+        ],
+        "lotr:tile.doorMaple": [
+            "lotr:maple_door"
+        ],
+        "lotr:tile.elanor": [
+            "lotr:elanor"
+        ],
+        "lotr:item.axeMallorn": [
+            "lotr:mallorn_axe"
+        ],
+        "lotr:item.helmetWoodElven": [
+            "lotr:wood_elven_helmet"
+        ],
+        "lotr:item.horn": [
+            "lotr:horn"
+        ],
+        "lotr:item.legsRanger": [
+            "lotr:ranger_north_leggings"
+        ],
+        "lotr:item.hoeUruk": [
+            "lotr:uruk_hoe"
+        ],
+        "lotr:item.crossbowBolt": [
+            "minecraft:arrow"
+        ],
+        "lotr:item.legsDwarvenMithril": [
+            "lotr:mithril_trimmed_dwarven_leggings"
+        ],
+        "lotr:item.pouch": [
+            "minecraft:shulker_box"
+        ],
+        "minecraft:torch": [
+            "minecraft:torch"
+        ],
+        "lotr:item.daggerWoodElven": [
+            "lotr:wood_elven_dagger"
+        ],
+        "lotr:item.bodyDwarvenGold": [
+            "lotr:gold_trimmed_dwarven_chestplate"
+        ],
+        "lotr:item.bodyHighElven": [
+            "lotr:lindon_chestplate"
+        ],
+        "lotr:item.spearStone": [
+            "lotr:stone_spear"
+        ],
+        "lotr:tile.blackroot": [
+            "lotr:blackroot"
+        ],
+        "lotr:item.helmetGondor": [
+            "lotr:gondor_helmet"
+        ],
+        "lotr:item.spearDale": [
+            "lotr:dale_spear"
+        ],
+        "lotr:tile.asphodel": [
+            "lotr:asphodel"
+        ],
+        "lotr:item.legsDunlending": [
+            "lotr:dunlending_leggings"
+        ],
+        "lotr:item.hoeRivendell": [
+            "lotr:rivendell_hoe"
+        ],
+        "lotr:item.gammon": [
+            "lotr:gammon"
+        ],
+        "lotr:tile.dwarvenCraftingTable": [
+            "lotr:dwarven_crafting_table"
+        ],
+        "lotr:item.copper": [
+            "lotr:copper_ingot"
+        ],
+        "lotr:tile.fenceGateLairelosse": [
+            "lairelosse:_fence_gate"
+        ],
+        "lotr:item.daggerDolAmroth": [
+            "lotr:dol_amroth_dagger"
+        ],
+        "lotr:item.mapleSyrup": [
+            "lotr:maple_syrup"
+        ],
+        "minecraft:water_bucket": [
+            "minecraft:water_bucket"
+        ],
+        "lotr:item.helmetDale": [
+            "lotr:dale_helmet"
+        ],
+        "lotr:item.kineArawHorn": [
+            "lotr:kine_of_araw_horn"
+        ],
+        "lotr:item.legsElven": [
+            "lotr:galadhrim_leggings"
+        ],
+        "lotr:item.woodPlate": [
+            "lotr:wooden_plate"
+        ],
+        "lotr:item.bodyDwarven": [
+            "lotr:dwarven_chestplate"
+        ],
+        "lotr:tile.daub": [
+            "lotr:wattle_and_daub"
+        ]
+    }
+}
+
+
+
+
+
+

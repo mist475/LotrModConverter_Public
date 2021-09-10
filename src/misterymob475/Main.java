@@ -1,14 +1,16 @@
 package misterymob475;
 
 import Convertors.*;
+import com.google.gson.Gson;
+
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -19,6 +21,13 @@ public class Main {
         System.out.println("Welcome to the Legacy to Renewed world convertor for the LOTR mod by Mevans\nHow to use: unzip the zip file and place the created folder in your saves folder (or a different folder where you put you world).\n Create a new world in the most recent version of renewed (1.16.5 as of now), copy this world as the same folder as the world you want to upgrade. Doubleclick the .bat(windows) or .sh(macOS/Linux) file.\nOpen the generated output in the same version opf renewed as the new world you just created\nIf something doesn't work as planned please check if said feature is actually supported.\nOtherwise mention it on the #issues channel on my discord:rppMgSHaTe");
 
         //now create a new folder with the name of $worldName_converted
+
+            Gson gson = new Gson();
+            Reader reader = Files.newBufferedReader(Paths.get("Conversions.json"));
+            Map<?, ?> map = gson.fromJson(reader, Map.class);
+            reader.close();
+
+            Data data = new Data(map);
             //used for copying data over
             String legacyWorld = legacyWorldSelection();
             //basis for the new level.dat (modifying data is easier in this case then generating from scratch)
@@ -30,10 +39,10 @@ public class Main {
                 }
                 Files.createDirectories(Paths.get("../"+selectedWorld.getName()+"_Converted"));
                 Path launchDir = Paths.get(".").toAbsolutePath().normalize().getParent();
-                HashMap<Integer,String> LegacyIds = Data.LegacyIds(Paths.get(launchDir + "/" + legacyWorld+ "/level.dat").toAbsolutePath().toString());
-                HashMap<String, List<String>> ItemNames = Data.ItemNames();
+                Map<Integer,String> LegacyIds = Data.LegacyIds(Paths.get(launchDir + "/" + legacyWorld+ "/level.dat").toAbsolutePath().toString());
+                //HashMap<String, List<String>> ItemNames = Data.ItemNames();
                 //fancy way of looping through the implementations of the Convertor interface, this way I only have to change this line instead of adding an init, and the calling of the 2 functions per implementation
-                for (Convertor c : new Convertor[]{new LotrData(),new PlayerData(LegacyIds,ItemNames),new LevelDat(renewedWorld,LegacyIds,ItemNames)}) {
+                for (Convertor c : new Convertor[]{new LotrData(data),new PlayerData(data,LegacyIds),new LevelDat(data,renewedWorld,LegacyIds)}) {
                     c.copier(launchDir,selectedWorld.getName());
                     c.modifier(launchDir,selectedWorld.getName());
                 }

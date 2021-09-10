@@ -11,12 +11,12 @@ import java.util.*;
 
 //this class fixes the regular player data (the files in the playerdata folder) and the level.dat file (mainly because playerdata is also stored in there)
 public class PlayerData implements Convertor {
-    HashMap<Integer,String> LegacyIds;
-    HashMap<String,List<String>> ItemNames;
+    Data Data;
+    Map<Integer,String> LegacyIds;
 
-    public PlayerData(HashMap<Integer,String> legacyIds,HashMap<String, List<String>> itemNames) {
+    public PlayerData(Data data,Map<Integer,String> legacyIds) {
+        this.Data = data;
         LegacyIds = legacyIds;
-        ItemNames = itemNames;
     }
     public static void copyDirectory(String sourceDirectoryLocation, String destinationDirectoryLocation)
             throws IOException {
@@ -41,8 +41,8 @@ public class PlayerData implements Convertor {
 
     @Override
     public void modifier(Path p, String FileName) throws IOException {
-        HashMap<Integer,String> LegacyIds = Data.LegacyIds(Paths.get(p + "/" + FileName+ "/level.dat").toAbsolutePath().toString());
-        HashMap<String,List<String>> ItemNames = Data.ItemNames();
+        Map<Integer,String> LegacyIds = misterymob475.Data.LegacyIds(Paths.get(p + "/" + FileName+ "/level.dat").toAbsolutePath().toString());
+        Map<String,List<String>> ItemNames = Data.ItemNames();
         //level.dat fixer/modifier
         //File renewedWorld = new File(p+"/"+this.pathName+"/level.dat");
 
@@ -95,7 +95,7 @@ public class PlayerData implements Convertor {
 
 
 
-    public static Map<String,Tag> playerFixer(Map<String,Tag> newData,HashMap<Integer,String> legacyids, HashMap<String, List<String>> itemnames) throws IOException {
+    public static void playerFixer(Map<String,Tag> newData, Map<Integer,String> legacyids, Map<String, List<String>> itemnames) throws IOException {
         boolean inUtumno = false;
         //not needed in renewed
         newData.remove("ForgeData");
@@ -149,13 +149,12 @@ public class PlayerData implements Convertor {
             newData.remove("UUIDMost");
             newData.put("UUID",new IntArrayTag("UUID",new int[]{Long.valueOf(Long.toHexString(UUIDMost).substring(0,8),16).intValue(),Long.valueOf(Long.toHexString(UUIDMost).substring(8),16).intValue(),Long.valueOf(Long.toHexString(UUIDLeast).substring(0,8),16).intValue(),Long.valueOf(Long.toHexString(UUIDLeast).substring(8),16).intValue()}));
         }
-        return newData;
     }
 
 
 
 
-    public static List<Tag> RecurItemFixer(List<Tag> l, HashMap<Integer,String> legacyids, HashMap<String, List<String>> itemnames, Integer depth, String exceptionMessage) throws IOException {
+    public static List<Tag> RecurItemFixer(List<Tag> l, Map<Integer,String> legacyids, Map<String, List<String>> itemnames, Integer depth, String exceptionMessage) throws IOException {
         try {
             List<Tag> builder = new ArrayList<>();
             if (depth++<7) {

@@ -11,6 +11,12 @@ import java.util.*;
 
 //this class fixes the data in the LOTR folder, this also means it renames the folder to lotr (so to lower case)
 public class LotrData implements Convertor {
+	public Data Data;
+	public LotrData(Data data) {
+		this.Data = data;
+	}
+
+
 	//directory copying without using commons-io (sigh)
 	public static void copyDirectory(String sourceDirectoryLocation, String destinationDirectoryLocation)
 			throws IOException {
@@ -38,13 +44,14 @@ public class LotrData implements Convertor {
 		Files.deleteIfExists(Paths.get(src+"/factionbounties"));
 		Files.deleteIfExists(Paths.get(src+"/faction_relations.dat"));
 		Files.deleteIfExists(Paths.get(src+"/spawn_damping.dat"));
+		Files.deleteIfExists(Paths.get(src+"/fellowships"));
 	}
 
 	@Override
 	public void modifier(Path p, String FileName) throws IOException {
-		HashMap<String,String> Waypoints = Data.Waypoints();
-		HashMap<String,String> Regions = Data.Regions();
-		HashMap<String,String> FacNames = Data.FacNames();
+		Map<String,String> Waypoints = Data.Waypoints();
+		Map<String,String> Regions = Data.Regions();
+		Map<String,String> FacNames = Data.FacNames();
 
 		//current working folder
 		File currentFolder = new File(Paths.get(p +"/"+FileName+"_Converted/lotr").toString());
@@ -304,17 +311,19 @@ public class LotrData implements Convertor {
 				originalData.remove("LastBiome");
 				originalData.remove("MiniQuestTrack");
 				originalData.remove("MQCompleteCount");
-				originalData.remove("MQCompleteBounties");
+				originalData.remove("MQCompletedBounties");
 				originalData.remove("Pre35Align");
 				originalData.remove("ShowHiddenSWP");
 				originalData.remove("StructuresBanned");
+				originalData.remove("ChatBoundFellowship");
+				originalData.remove("DeathDim");
 
 				originalData.replace("AlignmentMap",new ListTag("AlignmentMap",CompoundTag.class, AlignmentMap_builder));
 				originalData.replace("FactionStats",new ListTag("FactionStats",CompoundTag.class, FactionStats_builder));
 				originalData.replace("PrevRegionFactions",new ListTag("PrevRegionFactions",CompoundTag.class, PrevRegionFactions_builder));
 				originalData.replace("UnlockedFTRegions",new ListTag("UnlockedFTRegions",StringTag.class, UnlockedFTRegions_Builder));
 				originalData.replace("WPUses",new ListTag("WPUses",CompoundTag.class, WPUses_builder));
-				originalData.replace("CurrentFaction",new StringTag("CurrentFaction",Data.getOrDefault(FacNames,originalData.get("CurrentFaction").getValue().toString(),"lotr:hobbit")));
+				originalData.replace("CurrentFaction",new StringTag("CurrentFaction",FacNames.getOrDefault(originalData.get("CurrentFaction").getValue().toString(),"lotr:hobbit")));
 
 				if (Objects.equals(originalData.get("TeleportedME").getValue(), (byte) 1)) {
 					originalData.replace("TeleportedME",(new ByteTag("InitialSpawnedIntoME", (byte) 0)));
@@ -322,7 +331,6 @@ public class LotrData implements Convertor {
 				else {
 					originalData.replace("TeleportedME",(new ByteTag("InitialSpawnedIntoME", (byte) 1)));
 				}
-				System.out.println();
 
 				//Byte in legacy, string in renewed, because of this you can replace it in the stream
 				if (Objects.equals(originalData.get("FemRankOverride").getValue(), (byte) 0)) {

@@ -6,312 +6,39 @@ import java.io.IOException;
 import java.util.*;
 
 public class Data {
-
-    public static String getOrDefault(HashMap<String,String> map, String key, String defaultValue) {
-        return map.getOrDefault(key, defaultValue);
+    public Map<?,?> Conversions;
+    public Data(Map<?,?> conversions) {
+        this.Conversions = conversions;
     }
-    public static HashMap<String,String> Waypoints() {
-        HashMap<String,String> Waypoints = new HashMap<>();
-        Waypoints.put("AIN_AL_HARAD","lotr:ain_an_ahar");
-        //doesn't exist in legacy so ignored
+
+    public Map<String,String> Waypoints() {
+        //missing:
         //Waypoints.put("","lotr:ajtiaz_an_ahar");
-        Waypoints.put("ALDBURG","lotr:aldburg");
-        Waypoints.put("AMON_ANGREN","lotr:amon_angren");
-        Waypoints.put("AMON_DIN","lotr:amon_din");
-        Waypoints.put("AMON_EREB","lotr:amon_ereb");
-        Waypoints.put("DORWINION_HILLS","lotr:amon_gwin");
-        Waypoints.put("AMON_HEN","lotr:amon_hen");
-        Waypoints.put("AMON_LHAW","lotr:amon_lhaw");
-        Waypoints.put("HARNEN_ROAD_TOWN","lotr:an_batina");
-        Waypoints.put("ANNUMINAS","lotr:annuminas");
-        Waypoints.put("ARCHET","lotr:archet");
-        Waypoints.put("ARGONATH","lotr:argonath");
-        Waypoints.put("ARVEDUI_MINES","lotr:arveduis_mines");
-        Waypoints.put("BARAD_DUR","lotr:barad_dur");
-        Waypoints.put("BARDHAVEN","lotr:bardhaven");
-        Waypoints.put("BELEGOST","lotr:belegost");
-        Waypoints.put("HARNEN_SEA_TOWN","lotr:belkadar");
-        Waypoints.put("BEORN","lotr:beorns_halls");
-        Waypoints.put("MORANNON","lotr:black_gate");
-        Waypoints.put("BRANDYWINE_BRIDGE","lotr:brandywine_bridge");
-        Waypoints.put("BREE","lotr:bree");
-        Waypoints.put("BROCKENBORINGS","lotr:brockenborings");
-        Waypoints.put("BUCKLEBURY","lotr:bucklebury");
-        Waypoints.put("BYWATER","lotr:bywater");
-        Waypoints.put("CAIR_ANDROS","lotr:cair_andros");
-        Waypoints.put("CALEMBEL","lotr:calembel");
-        Waypoints.put("CALENHAD","lotr:calenhad");
-        Waypoints.put("CAPE_OF_FOROCHEL","lotr:cape_of_forochel");
-        Waypoints.put("CARACH_ANGREN","lotr:carach_angren");
-        Waypoints.put("CARAS_GALADHON","lotr:caras_galadhon");
-        Waypoints.put("CARN_DUM","lotr:carn_dum");
-        Waypoints.put("CARROCK","lotr:carrock");
-        Waypoints.put("CERIN_AMROTH","lotr:cerin_amroth");
-        Waypoints.put("CIRITH_UNGOL","lotr:cirith_ungol");
-        Waypoints.put("COMBE","lotr:combe");
-        Waypoints.put("CORSAIRS_LANDING","lotr:corsairs_landing");
-        Waypoints.put("CROSSINGS_ERUI","lotr:crossings_of_erui");
-        Waypoints.put("CROSSINGS_OF_HARAD","lotr:crossings_of_harnen");
-        Waypoints.put("CROSSINGS_OF_POROS","lotr:crossings_of_poros");
-        Waypoints.put("CROSSROADS_ITHILIEN","lotr:crossroads_of_the_fallen_king");
-        Waypoints.put("DAINS_HALLS","lotr:dains_halls");
-        Waypoints.put("DALE","lotr:dale");
-        Waypoints.put("DEEPHALLOW","lotr:deephallow");
-        Waypoints.put("HELMS_CROSSROADS","lotr:deeping_comb");
-        Waypoints.put("DERNDINGLE","lotr:derndingle");
-        Waypoints.put("DIMRILL_DALE","lotr:dimrill_dale");
-        Waypoints.put("DOL_AMROTH","lotr:dol_amroth");
-        Waypoints.put("DOL_GULDUR","lotr:dol_guldur");
-        Waypoints.put("DORWINION_CROSSROADS","lotr:dorwinion_crossroads");
-        Waypoints.put("NORTH_DUNLAND","lotr:duneard");
-        Waypoints.put("DUNHARROW","lotr:dunharrow");
-        Waypoints.put("NURNEN_WESTERN_SHORE","lotr:dunurnen");
-        Waypoints.put("DURTHANG","lotr:durthang");
-        Waypoints.put("DWARROWVALE","lotr:dwarrowvale");
-        Waypoints.put("EAGLES_EYRIE","lotr:eagles_eyrie");
-        Waypoints.put("OSGILIATH_EAST","lotr:east_osgiliath");
-        Waypoints.put("EAST_PEAK","lotr:east_peak");
-        Waypoints.put("EASTERN_GUARD","lotr:eastern_guard");
-        Waypoints.put("EDHELLOND","lotr:edhellond");
-        Waypoints.put("EDORAS","lotr:edoras");
-        Waypoints.put("EILENACH","lotr:eilenach");
-        Waypoints.put("TOWER_HILLS","lotr:elostirion");
-        Waypoints.put("EMYN_ARNEN","lotr:emyn_arnen");
-        Waypoints.put("ENCHANTED_RIVER","lotr:enchanted_river");
-        Waypoints.put("ENTWADE","lotr:entwade");
-        Waypoints.put("EREBOR","lotr:erebor");
-        Waypoints.put("ERECH","lotr:erech");
-        Waypoints.put("ERELAS","lotr:erelas");
-        Waypoints.put("ANDUIN_MOUTH","lotr:ethir_anduin");
-        Waypoints.put("ETHRING","lotr:ethring");
-        Waypoints.put("FIELD_OF_CELEBRANT","lotr:field_of_celebrant");
-        Waypoints.put("SOUTH_DUNLAND","lotr:firwold");
-        Waypoints.put("FORD_BRUINEN","lotr:ford_of_bruinen");
-        Waypoints.put("FORDS_OF_ISEN","lotr:fords_of_isen");
-        Waypoints.put("FOREST_GATE","lotr:forest_gate");
-        Waypoints.put("FORLOND","lotr:forlond");
-        Waypoints.put("FORNOST","lotr:fornost");
-        Waypoints.put("NURNEN_NORTHERN_SHORE","lotr:fornurnen");
-        Waypoints.put("FORSAKEN_INN","lotr:forsaken_inn");
-        Waypoints.put("FRAMSBURG","lotr:framsburg");
-        Waypoints.put("FRECA_HOLD","lotr:frecas_hold");
-        Waypoints.put("FROGMORTON","lotr:frogmorton");
-        Waypoints.put("GARDENS_BERUTHIEL","lotr:gardens_of_beruthiel");
-        Waypoints.put("GATE_FUINUR","lotr:gate_of_fuinur");
-        Waypoints.put("GATE_HERUMOR","lotr:gate_herumor");
-        Waypoints.put("UMBAR_GATE","lotr:gate_of_umbar");
-        Waypoints.put("COAST_FORTRESS","lotr:azrazain");
-        Waypoints.put("GOBLIN_TOWN","lotr:goblin_town");
-        Waypoints.put("DORWINION_FORD","lotr:golden_ford");
-        Waypoints.put("DALE_CROSSROADS","lotr:great_dalish_crossroads");
-        Waypoints.put("GREENHOLM","lotr:greenholm");
-        Waypoints.put("GREENWAY_CROSSROADS","lotr:greenway_crossroads");
-        Waypoints.put("GRIMSLADE","lotr:grimslade");
-        Waypoints.put("HALIFIRIEN","lotr:halifirien");
-        Waypoints.put("HARLOND","lotr:harlond");
-        Waypoints.put("NURNEN_SOUTHERN_SHORE","lotr:harnurnen");
-        Waypoints.put("HAY_GATE","lotr:hay_gate");
-        Waypoints.put("HAYSEND","lotr:haysend");
-        Waypoints.put("HELMS_DEEP","lotr:helms_deep");
-        Waypoints.put("HENNETH_ANNUN","lotr:henneth_annun");
-        Waypoints.put("HIGH_PASS","lotr:high_pass");
-        Waypoints.put("HIMLING","lotr:himling");
-        //not in legacy
         //Waypoints.put("","lotr:hirluins_halls");
-        Waypoints.put("HOBBITON","lotr:hobbiton");
-        Waypoints.put("NIMRODEL","lotr:house_of_nimrodel");
-        Waypoints.put("DESERT_TOWN","lotr:ijdi_ilel");
-        Waypoints.put("IMLOTH_MELUI","lotr:imloth_melui");
-        Waypoints.put("ISENGARD","lotr:isengard");
-        Waypoints.put("LAST_BRIDGE","lotr:last_bridge");
-        Waypoints.put("LINHIR","lotr:linhir");
-        Waypoints.put("LITTLE_DELVING","lotr:little_delving");
-        Waypoints.put("LOND_DAER","lotr:lond_daer");
-        Waypoints.put("LONG_LAKE","lotr:long_lake");
-        Waypoints.put("LONGBOTTOM","lotr:longbottom");
-        Waypoints.put("MERING_STREAM","lotr:mering_stream");
-        Waypoints.put("MICHEL_DELVING","lotr:michel_delving");
-        Waypoints.put("MINRIMMON","lotr:min_rimmon");
-        Waypoints.put("MINAS_MORGUL","lotr:minas_morgul");
-        Waypoints.put("MINAS_TIRITH","lotr:minas_tirith");
-        Waypoints.put("DORWINION_PORT","lotr:mirulond");
-        Waypoints.put("MORIGOST","lotr:mornost");
-        Waypoints.put("MOUNT_CARADHRAS","lotr:mount_caradhras");
-        Waypoints.put("MOUNT_CELEBDIL","lotr:mount_celebdil");
-        Waypoints.put("MOUNT_DOLMED","lotr:mount_dolmed");
-        Waypoints.put("MOUNT_DOOM","lotr:mount_doom");
-        Waypoints.put("MOUNT_FANUIDHOL","lotr:mount_fanuidhol");
-        Waypoints.put("MOUNT_GRAM","lotr:mount_gram");
-        Waypoints.put("MOUNT_GUNDABAD","lotr:mount_gundabad");
-        Waypoints.put("MOUNT_METHEDRAS","lotr:mount_methedras");
-        Waypoints.put("MOUNT_RERIR","lotr:mount_rerir");
-        Waypoints.put("MOUTHS_ISEN","lotr:mouths_of_isen");
-        Waypoints.put("NARDOL","lotr:nardol");
-        Waypoints.put("NARGROTH","lotr:narroth");
-        Waypoints.put("NEEDLEHOLE","lotr:needlehole");
-        Waypoints.put("HARNEN_RIVER_TOWN","lotr:ninzadin");
-        Waypoints.put("NOBOTTLE","lotr:nobottle");
-        Waypoints.put("NOGROD","lotr:nogrod");
-        Waypoints.put("NORTH_MITHLOND","lotr:north_mithlond");
-        Waypoints.put("NORTH_UNDEEP","lotr:north_undeep");
-        Waypoints.put("OATBARTON","lotr:oatbarton");
-        Waypoints.put("OLD_ELF_WAY","lotr:old_elven_way");
-        Waypoints.put("OLD_FORD","lotr:old_ford");
-        Waypoints.put("OLD_RHOVANION","lotr:old_rhovanion");
-        Waypoints.put("ENEDWAITH_ROAD","lotr:old_south_road");
-        Waypoints.put("OST_IN_EDHIL","lotr:ost_in_edhil");
-        Waypoints.put("OVERHILL","lotr:overhill");
-        Waypoints.put("PELARGIR","lotr:pelargir");
-        Waypoints.put("RAS_MORTHIL","lotr:ras_morthil");
-        Waypoints.put("RAUROS","lotr:rauros");
-        Waypoints.put("REDWATER_FORD","lotr:redwater_ford");
-        Waypoints.put("RHOSGOBEL","lotr:rhosgobel");
-        Waypoints.put("NURNEN_EASTERN_SHORE","lotr:rhunurnen");
-        Waypoints.put("RIVENDELL","lotr:rivendell");
-        Waypoints.put("RIVER_GATE","lotr:river_gate");
-        Waypoints.put("RUNNING_FORD","lotr:running_ford");
-        Waypoints.put("SARN_FORD","lotr:sarn_ford");
-        Waypoints.put("SCARY","lotr:scary");
-        Waypoints.put("SCATHA","lotr:scathas_lair");
-        Waypoints.put("SEREGOST","lotr:seregost");
-        Waypoints.put("SOUTH_FOROCHEL","lotr:south_forochel");
-        Waypoints.put("MITHLOND_SOUTH","lotr:south_mithlond");
-        Waypoints.put("SOUTH_UNDEEP","lotr:south_undeep");
-        Waypoints.put("STADDLE","lotr:staddle");
-        Waypoints.put("STOCK","lotr:stock");
-        Waypoints.put("TARLANG","lotr:tarlangs_neck");
-        Waypoints.put("TARNOST","lotr:tarnost");
-        Waypoints.put("THARBAD","lotr:tharbad");
-        Waypoints.put("THAURBAND","lotr:thorband");
-        Waypoints.put("THORIN_HALLS","lotr:thorins_halls)");
-        Waypoints.put("THRAIN_HALLS","lotr:thrains_halls");
-        Waypoints.put("THRANDUIL_HALLS","lotr:thranduils_halls");
-        Waypoints.put("TIGHFIELD","lotr:tighfield");
-        Waypoints.put("TOL_FUIN","lotr:tol_fuin");
-        Waypoints.put("TOL_MORWEN","lotr:tol_morwen");
-        Waypoints.put("TOLFALAS","lotr:tolfalas");
-        Waypoints.put("TREEBEARD_HILL","lotr:treebeards_hill");
-        Waypoints.put("THE_TROLLSHAWS","lotr:trolls_cave");
-        Waypoints.put("TUCKBOROUGH","lotr:tuckborough");
-        Waypoints.put("HARNEN_BLACK_TOWN","lotr:ugri_zadin");
-        Waypoints.put("UMBAR_CITY","lotr:umbar");
-        Waypoints.put("FELLBEASTS","lotr:vale_of_the_fell_beasts");
-        Waypoints.put("VALLEY_OF_SPIDERS","lotr:valley_of_spiders");
-        Waypoints.put("DORWINION_COURT","lotr:vinter_court");
-        Waypoints.put("WAYMEET","lotr:waymeet");
-        Waypoints.put("WEATHERTOP","lotr:weathertop");
-        Waypoints.put("WELLINGHALL","lotr:wellinghall");
-        Waypoints.put("WEST_GATE","lotr:west_gate");
-        Waypoints.put("OSGILIATH_WEST","lotr:west_osgiliath");
-        Waypoints.put("WEST_PEAK","lotr:west_peak");
-        Waypoints.put("WHITFURROWS","lotr:whitfurrows");
-        Waypoints.put("WILLOWBOTTOM","lotr:willowbottom");
-        Waypoints.put("WITHERED_HEATH","lotr:withered_heath");
-        Waypoints.put("WITHYWINDLE_VALLEY","lotr:withywindle_valley");
-        Waypoints.put("WOLD","lotr:woldhall");
-        Waypoints.put("WULFBURG","lotr:wulfburg");
-        //rest is not ported yet (as of renewed 4.4.1)
-        return  Waypoints;
-    }
+        return (Map<String, String>) Conversions.get("Waypoints");
+     }
 
-    public static HashMap<String,String> FacNames() {
-        HashMap<String,String> FactionNames = new HashMap<>();
-        FactionNames.put("HOBBIT","lotr:hobbits");
-        FactionNames.put("BREE","lotr:bree");
-        FactionNames.put("RANGER_NORTH","lotr:dunedain_north");
-        FactionNames.put("BLUE_MOUNTAINS","lotr:blue_mountains");
-        FactionNames.put("HIGH_ELF","lotr:high_elves");
-        FactionNames.put("GUNDABAD","lotr:northern_orcs");
-        FactionNames.put("ANGMAR","lotr:angmar");
-        FactionNames.put("WOOD_ELF","lotr:woodland_realm");
-        FactionNames.put("DOL_GULDUR","lotr:dol_guldur");
-        FactionNames.put("DALE","lotr:dale");
-        FactionNames.put("DURINS_FOLK","lotr:durins_folk");
-        FactionNames.put("LOTHLORIEN","lotr:lothlorien");
-        FactionNames.put("DUNLAND","lotr:dunland");
-        FactionNames.put("ISENGARD","lotr:isengard");
-        FactionNames.put("FANGORN","lotr:fangorn");
-        FactionNames.put("ROHAN","lotr:rohan");
-        FactionNames.put("GONDOR","lotr:gondor");
-        FactionNames.put("MORDOR","lotr:mordor");
-        FactionNames.put("DORWINION","lotr:dorwinion");
-        FactionNames.put("RHUDEL","lotr:rhudel");
-        FactionNames.put("NEAR_HARAD","lotr:near_harad");
-        FactionNames.put("MORWAITH","lotr:morwaith");
-        FactionNames.put("TAURETHRIM","lotr:taurethrim");
-        FactionNames.put("HALF_TROLL","lotr:half_trolls");
-        FactionNames.put("UNALIGNED","lotr:unaligned");
-        FactionNames.put("HOSTILE","lotr:hostile");
-        return FactionNames;
+
+
+    public Map<String,String> FacNames() {
+        return (Map<String, String>) Conversions.get("Factions");
+
     }
-    public static HashMap<String,String> Regions() {
-        HashMap<String,String> Regions = new HashMap<>();
+    public Map<String,String> Regions() {
+        return (Map<String, String>) Conversions.get("Regions");
         //Regions.put("","lotr:andrast"); not in legacy, put with gondor
         //Regions.put("","lotr:anfalas); noy in legacy, put with gondor
-        Regions.put("ANGMAR","lotr:angmar");
         //Regions.put("","lotr:anorien");not in legacy, put with gondor
-        Regions.put("BLACKROOT_VALE","lotr:blackroot_vale");
-        Regions.put("BLUE_MOUNTAINS","lotr:blue_mountains");
-        Regions.put("BREE_LAND","lotr:breeland");
-        Regions.put("BROWN_LANDS","lotr:brown_lands");
-        Regions.put("COLDFELLS","lotr:coldfells");
-        Regions.put("DAGORLAD","lotr:dagorlad");
-        Regions.put("DALE","lotr:dale");
-        Regions.put("DOR_EN_ERNIL","lotr:dor_er_ernil");
-        Regions.put("DORWINION","lotr:dorwinion");
-        Regions.put("PUKEL","lotr:druwaith_iaur");
-        Regions.put("DUNLAND","lotr:dunland");
-        Regions.put("EMYN_MUIL","lotr:emyn_muil");
-        Regions.put("ENEDWAITH","lotr:enedwaith");
-        Regions.put("EREGION","lotr:eregion");
-        Regions.put("ERIADOR","lotr:eriador");
-        Regions.put("ETTENMOORS","lotr:ettenmoors");
-        Regions.put("FANGORN","lotr:fangorn");
         //Regions.put("","lotr:forochel"); put with forodwaith
-        Regions.put("FORODWAITH","lotr:forodwaith");
-        Regions.put("GREY_MOUNTAINS","lotr:grey_mountains");
-        Regions.put("HARAD_DESERT","lotr:harad_dessert");
-        Regions.put("HARNEDOR","lotr:harnennor");
-        Regions.put("HARONDOR","lotr:harondor");
-        Regions.put("IRON_HILLS","lotr:iron_hills");
-        Regions.put("ITHILIEN","lotr:ithilien");
-        Regions.put("LAMEDON","lotr:lamedon");
-        Regions.put("LEBENNIN","lotr:lebennin");
-        Regions.put("LINDON","lotr:lindon");
-        Regions.put("LONE_LANDS","lotr:lone_lands");
-        Regions.put("LOSSARNACH","lotr:lossarnach");
-        Regions.put("LOSTLADEN","lotr:lostladen");
-        Regions.put("LOTHLORIEN","lotr:lothlorien");
-        Regions.put("MIRKWOOD","lotr:mirkwood");
-        Regions.put("MISTY_MOUNTAINS","lotr:misty_mountains");
-        Regions.put("MORDOR","lotr:mordor");
-        Regions.put("NAN_CURUNIR","lotr:nan_curunir");
-        Regions.put("NINDALF","lotr:nindalf");
         //Regions.put("","lotr:northlands"); put with forodwaith
-        Regions.put("NURN","lotr:nurn");
-        Regions.put("OLD_FOREST","lotr:old_forest");
-        Regions.put("PINNATH_GELIN","lotr:pinnath_gelin");
-        Regions.put("RIVENDELL_VALE","lotr:rivendell");
-        Regions.put("ROHAN","lotr:rohan");
-        Regions.put("OCEAN","lotr:sea");
-        Regions.put("SHIRE","lotr:shire");
-        Regions.put("SOUTHRON_COASTS","lotr:southron_coasts");
-        Regions.put("TOLFALAS","lotr:tolfalas");
-        Regions.put("TROLLSHAWS","lotr:trollshaws");
-        Regions.put("UMBAR","lotr:umbar");
-        Regions.put("VALES_OF_ANDUIN","lotr:vales_of_anduin");
         //Regions.put("","lotr:western_gondor");
         //Regions.put("","lotr:western_isles"); combine this with sea
-        Regions.put("WHITE_MOUNTAINS","lotr:white_mountains");
-        Regions.put("WILDERLAND","lotr:wilderland");
-        Regions.put("WOODLAND_REALM","lotr:woodland_realm");
-        return Regions;
     }
     //returns a list, list pos = damage value = variant
     //if no value is present, code will be commented
 
     //legacy id HashMap generator, ids can vary, hence the dynamic generation
-    public static HashMap<Integer,String> LegacyIds(String levelDat) throws IOException {
+    public static Map<Integer,String> LegacyIds(String levelDat) throws IOException {
         HashMap<Integer,String> LegacyIds = new HashMap<>();
         try {
             final NBTInputStream input = new NBTInputStream(new FileInputStream(levelDat));
@@ -371,11 +98,9 @@ public class Data {
     //make 1 per page instead of loading it everytime
     //make this null after the last usage
     //error handling, use ifExists() on the HasMap itself, check if list items != ""
-    public static HashMap<String, List<String>> ItemNames() {
-        HashMap<String, List<String>> ItemNames = new HashMap<>(1830);
-        ItemNames.put("lotr:item.aleHorn", Collections.singletonList("lotr:ale_horn"));
+    public Map<String, List<String>> ItemNames() {
+        return (Map<String, List<String>>) Conversions.get("Items");
         //ItemNames.put("",);
-ItemNames.put("lotr:item.aleHornGold", Collections.singletonList("lotr:golden_ale_horn"));
 //ItemNames.put("lotr:item.almond", Arrays.asList(""));
 //ItemNames.put("lotr:item.amber", Arrays.asList(""));
 //ItemNames.put("lotr:item.amethyst", Arrays.asList(""));
@@ -383,25 +108,15 @@ ItemNames.put("lotr:item.aleHornGold", Collections.singletonList("lotr:golden_al
 //ItemNames.put("lotr:item.ancientParts", Arrays.asList(""));
 //ItemNames.put("lotr:item.anduril", Arrays.asList(""));
 
-ItemNames.put("lotr:item.appleCrumble", Collections.singletonList("lotr:apple_crumble"));
-ItemNames.put("lotr:item.appleGreen", Collections.singletonList("lotr:green_apple"));
-ItemNames.put("lotr:item.armorStand", Collections.singletonList("minecraft:armor_stand"));
+
 //could technically make this a tipped arrow of poison, depending on the amount of time I have
 //ItemNames.put("lotr:item.arrowPoisoned", Arrays.asList(""));
 //ItemNames.put("lotr:item.axeAngmar", Arrays.asList(""));
-ItemNames.put("lotr:item.axeBlueDwarven", Collections.singletonList("lotr:blue_dwarven_axe"));
-ItemNames.put("lotr:item.axeBronze", Collections.singletonList("lotr:bronze_axe"));
+
 //ItemNames.put("lotr:item.axeDolGuldur", Arrays.asList(""));
-ItemNames.put("lotr:item.axeDwarven", Collections.singletonList("lotr:dwarven_axe"));
-ItemNames.put("lotr:item.axeElven", Collections.singletonList("lotr:galadhrim_axe"));
-ItemNames.put("lotr:item.axeHighElven", Collections.singletonList("lotr:lindon_axe"));
-ItemNames.put("lotr:item.axeMallorn", Collections.singletonList("lotr:mallorn_axe"));
-ItemNames.put("lotr:item.axeMithril", Collections.singletonList("lotr:mithril_axe"));
-ItemNames.put("lotr:item.axeOrc", Collections.singletonList("lotr:mordor_axe"));
-ItemNames.put("lotr:item.axeRivendell", Collections.singletonList("lotr:rivendell_axe"));
+
 //ItemNames.put("lotr:item.axeTauredain", Arrays.asList(""));
-ItemNames.put("lotr:item.axeUruk", Collections.singletonList("lotr:uruk_axe"));
-ItemNames.put("lotr:item.axeWoodElven", Collections.singletonList("lotr:wood_elven_axe"));
+
 //ItemNames.put("lotr:item.balrogFire", Arrays.asList(""));
 //ItemNames.put("lotr:item.balrogWhip", Arrays.asList(""));
 //ItemNames.put("lotr:item.banana", Arrays.asList(""));
@@ -434,174 +149,141 @@ ItemNames.put("lotr:item.axeWoodElven", Collections.singletonList("lotr:wood_elv
 //ItemNames.put("lotr:item.blackUrukSteel", Arrays.asList(""));
 //ItemNames.put("lotr:item.blackberry", Arrays.asList(""));
 //ItemNames.put("lotr:item.blackrootBow", Arrays.asList(""));
-ItemNames.put("lotr:item.blackrootStick", Collections.singletonList("lotr:blackroot_stick"));
-ItemNames.put("lotr:item.blacksmithHammer", Collections.singletonList("lotr:blacksmith_hammer"));
+
 //deliberate change by Mevans and co.
-ItemNames.put("lotr:item.blueDwarfSteel", Collections.singletonList("lotr:dwarven_steel_ingot"));
+
 //ItemNames.put("lotr:item.blueberry", Arrays.asList(""));
 //ItemNames.put("lotr:item.boarArmorBlueDwarven", Arrays.asList(""));
 //ItemNames.put("lotr:item.boarArmorDwarven", Arrays.asList(""));
 //ItemNames.put("lotr:item.bodyAngmar", Arrays.asList(""));
-ItemNames.put("lotr:item.bodyArnor", Collections.singletonList("lotr:arnor_chestplate"));
+
 //ItemNames.put("lotr:item.bodyBlackNumenorean", Arrays.asList(""));
 //ItemNames.put("lotr:item.bodyBlackUruk", Arrays.asList(""));
 //ItemNames.put("lotr:item.bodyBlackroot", Arrays.asList(""));
-ItemNames.put("lotr:item.bodyBlueDwarven", Collections.singletonList("lotr:blue_dwarven_chestplate"));
-ItemNames.put("lotr:item.bodyBone", Collections.singletonList("lotr:bone_chestplate"));
-ItemNames.put("lotr:item.bodyBronze", Collections.singletonList("lotr:bronze_chestplate"));
+
 //ItemNames.put("lotr:item.bodyCorsair", Arrays.asList(""));
 //ItemNames.put("lotr:item.bodyDale", Arrays.asList("lotr:dale_chestplate"));
 //ItemNames.put("lotr:item.bodyDaleGambeson", Arrays.asList(""));
-ItemNames.put("lotr:item.bodyDolAmroth", Collections.singletonList("lotr:dol_amroth_chestplate"));
+
 //ItemNames.put("lotr:item.bodyDolAmrothGambeson", Arrays.asList(""));
 //ItemNames.put("lotr:item.bodyDolGuldur", Arrays.asList(""));
-ItemNames.put("lotr:item.bodyDorwinion", Collections.singletonList("lotr:dorwinion_chestplate"));
-ItemNames.put("lotr:item.bodyDorwinionElf", Collections.singletonList("lotr:dorwinion_elven_chestplate"));
-ItemNames.put("lotr:item.bodyDunlending", Collections.singletonList("lotr:dunlending_chestplate"));
-ItemNames.put("lotr:item.bodyDwarven", Collections.singletonList("lotr:dwarven_chestplate"));
-ItemNames.put("lotr:item.bodyDwarvenGold", Collections.singletonList("lotr:gold_trimmed_dwarven_chestplate"));
-ItemNames.put("lotr:item.bodyDwarvenMithril", Collections.singletonList("lotr:mithril_trimmed_dwarven_chestplate"));
-ItemNames.put("lotr:item.bodyDwarvenSilver", Collections.singletonList("lotr:silver_trimmed_dwarven_chestplate"));
-ItemNames.put("lotr:item.bodyElven", Collections.singletonList("lotr:galadhrim_chestplate"));
+
 //ItemNames.put("lotr:item.bodyGalvorn", Arrays.asList(""));
 //ItemNames.put("lotr:item.bodyGemsbok", Arrays.asList(""));
 //ItemNames.put("lotr:item.bodyGondolin", Arrays.asList(""));
-ItemNames.put("lotr:item.bodyGondor", Collections.singletonList("lotr:gondor_chestplate"));
+
 //ItemNames.put("lotr:item.bodyGondorGambeson", Arrays.asList(""));
 //ItemNames.put("lotr:item.bodyGulfHarad", Arrays.asList(""));
 //ItemNames.put("lotr:item.bodyGundabadUruk", Arrays.asList(""));
 //ItemNames.put("lotr:item.bodyHalfTroll", Arrays.asList(""));
 //ItemNames.put("lotr:item.bodyHaradRobes", Arrays.asList(""));
-ItemNames.put("lotr:item.bodyHarnedor", Collections.singletonList("lotr:harnennor_chestplate"));
-ItemNames.put("lotr:item.bodyHighElven", Collections.singletonList("lotr:lindon_chestplate"));
+
 //ItemNames.put("lotr:item.bodyHithlain", Arrays.asList(""));
 //ItemNames.put("lotr:item.bodyKaftan", Arrays.asList(""));
 //ItemNames.put("lotr:item.bodyLamedon", Arrays.asList(""));
 //ItemNames.put("lotr:item.bodyLamedonJacket", Arrays.asList(""));
 //ItemNames.put("lotr:item.bodyLebenninGambeson", Arrays.asList(""));
 //ItemNames.put("lotr:item.bodyLossarnach", Arrays.asList(""));
-ItemNames.put("lotr:item.bodyMithril", Collections.singletonList("lotr:mithril_chestplate"));
+
 //ItemNames.put("lotr:item.bodyMoredain", Arrays.asList(""));
 //ItemNames.put("lotr:item.bodyMoredainLion", Arrays.asList(""));
 //ItemNames.put("lotr:item.bodyMorgul", Arrays.asList(""));
-ItemNames.put("lotr:item.bodyNearHarad", Collections.singletonList("lotr:harad_chestplate"));
+
 //ItemNames.put("lotr:item.bodyNomad", Arrays.asList(""));
-ItemNames.put("lotr:item.bodyOrc", Collections.singletonList("lotr:mordor_chestplate"));
+
 //ItemNames.put("lotr:item.bodyPelargir", Arrays.asList(""));
 //ItemNames.put("lotr:item.bodyPinnathGelin", Arrays.asList(""));
-ItemNames.put("lotr:item.bodyRanger", Collections.singletonList("lotr:ranger_north_chestplate"));
-ItemNames.put("lotr:item.bodyRangerIthilien", Collections.singletonList("lotr:ranger_ithilien_chestplate"));
+
 //ItemNames.put("lotr:item.bodyRhun", Arrays.asList(""));
 //ItemNames.put("lotr:item.bodyRhunGold", Arrays.asList(""));
-ItemNames.put("lotr:item.bodyRivendell", Collections.singletonList("lotr:rivendell_chestplate"));
-ItemNames.put("lotr:item.bodyRohan", Collections.singletonList("lotr:rohan_chestplate"));
-ItemNames.put("lotr:item.bodyRohanMarshal", Collections.singletonList("lotr:rohan_marshal_chestplate"));
+
 //ItemNames.put("lotr:item.bodyTauredain", Arrays.asList(""));
 //ItemNames.put("lotr:item.bodyTauredainGold", Arrays.asList(""));
-ItemNames.put("lotr:item.bodyUmbar", Collections.singletonList("lotr:umbar_chestplate"));
-ItemNames.put("lotr:item.bodyUruk", Collections.singletonList("lotr:uruk_chestplate"));
+
 //ItemNames.put("lotr:item.bodyUtumno", Arrays.asList(""));
-ItemNames.put("lotr:item.bodyWarg", Collections.singletonList("lotr:fur_chestplate"));
-ItemNames.put("lotr:item.bodyWoodElven", Collections.singletonList("lotr:wood_elven_chestplate"));
+
 //ItemNames.put("lotr:item.bodyWoodElvenScout", Arrays.asList(""));
 //ItemNames.put("lotr:item.bootsAngmar", Arrays.asList(""));
 //ItemNames.put("lotr:item.bootsArnor", Arrays.asList(""));
 //ItemNames.put("lotr:item.bootsBlackNumenorean", Arrays.asList(""));
 //ItemNames.put("lotr:item.bootsBlackUruk", Arrays.asList(""));
 //ItemNames.put("lotr:item.bootsBlackroot", Arrays.asList(""));
-ItemNames.put("lotr:item.bootsBlueDwarven", Collections.singletonList("lotr:blue_dwarven_boots"));
-ItemNames.put("lotr:item.bootsBone", Collections.singletonList("lotr:bone_boots"));
-ItemNames.put("lotr:item.bootsBronze", Collections.singletonList("lotr:bronze_boots"));
+
 //ItemNames.put("lotr:item.bootsCorsair", Arrays.asList(""));
-ItemNames.put("lotr:item.bootsDale", Collections.singletonList("lotr:dale_boots"));
-ItemNames.put("lotr:item.bootsDolAmroth", Collections.singletonList("lotr:dol_amroth_boots"));
+
 //ItemNames.put("lotr:item.bootsDolGuldur", Arrays.asList(""));
-ItemNames.put("lotr:item.bootsDorwinion", Collections.singletonList("lotr:dorwinion_boots"));
-ItemNames.put("lotr:item.bootsDorwinionElf", Collections.singletonList("lotr:dorwinion_elven_boots"));
-ItemNames.put("lotr:item.bootsDunlending", Collections.singletonList("lotr:dunlending_boots"));
-ItemNames.put("lotr:item.bootsDwarven", Collections.singletonList("lotr:dwarven_boots"));
-ItemNames.put("lotr:item.bootsDwarvenGold", Collections.singletonList("lotr:gold_trimmed_dwarven_boots"));
-ItemNames.put("lotr:item.bootsDwarvenMithril", Collections.singletonList("lotr:mithril_trimmed_dwarven_boots"));
-ItemNames.put("lotr:item.bootsDwarvenSilver", Collections.singletonList("lotr:silver_trimmed_dwarven_boots"));
-ItemNames.put("lotr:item.bootsElven", Collections.singletonList("lotr:galadhrim_boots"));
+
 //ItemNames.put("lotr:item.bootsGalvorn", Arrays.asList(""));
 //ItemNames.put("lotr:item.bootsGemsbok", Arrays.asList(""));
 //ItemNames.put("lotr:item.bootsGondolin", Arrays.asList(""));
-ItemNames.put("lotr:item.bootsGondor", Collections.singletonList("lotr:gondor_boots"));
+
 //ItemNames.put("lotr:item.bootsGulfHarad", Arrays.asList(""));
 //ItemNames.put("lotr:item.bootsGundabadUruk", Arrays.asList(""));
 //ItemNames.put("lotr:item.bootsHalfTroll", Arrays.asList(""));
 //ItemNames.put("lotr:item.bootsHaradRobes", Arrays.asList(""));
-ItemNames.put("lotr:item.bootsHarnedor", Collections.singletonList("lotr:harnennor_boots"));
-ItemNames.put("lotr:item.bootsHighElven", Collections.singletonList("lotr:lindon_boots"));
+
 //ItemNames.put("lotr:item.bootsHithlain", Arrays.asList(""));
 //ItemNames.put("lotr:item.bootsLamedon", Arrays.asList(""));
 //ItemNames.put("lotr:item.bootsLossarnach", Arrays.asList(""));
-ItemNames.put("lotr:item.bootsMithril", Collections.singletonList("lotr:mithril_boots"));
+
 //ItemNames.put("lotr:item.bootsMoredain", Arrays.asList(""));
 //ItemNames.put("lotr:item.bootsMoredainLion", Arrays.asList(""));
 //ItemNames.put("lotr:item.bootsMorgul", Arrays.asList(""));
-ItemNames.put("lotr:item.bootsNearHarad", Collections.singletonList("lotr:harad_boots"));
+
 //ItemNames.put("lotr:item.bootsNomad", Arrays.asList(""));
-ItemNames.put("lotr:item.bootsOrc", Collections.singletonList("lotr:mordor_boots"));
+
 //ItemNames.put("lotr:item.bootsPelargir", Arrays.asList(""));
 //ItemNames.put("lotr:item.bootsPinnathGelin", Arrays.asList(""));
-ItemNames.put("lotr:item.bootsRanger", Collections.singletonList("lotr:ranger_north_boots"));
-ItemNames.put("lotr:item.bootsRangerIthilien", Collections.singletonList("lotr:ranger_ithilien_boots"));
+
 //ItemNames.put("lotr:item.bootsRhun", Arrays.asList(""));
 //ItemNames.put("lotr:item.bootsRhunGold", Arrays.asList(""));
-ItemNames.put("lotr:item.bootsRivendell", Collections.singletonList("lotr:rivendell_boots"));
-ItemNames.put("lotr:item.bootsRohan", Collections.singletonList("lotr:rohan_boots"));
-ItemNames.put("lotr:item.bootsRohanMarshal", Collections.singletonList("lotr:rohan_marshal_boots"));
+
 //ItemNames.put("lotr:item.bootsTauredain", Arrays.asList(""));
 //ItemNames.put("lotr:item.bootsTauredainGold", Arrays.asList(""));
-ItemNames.put("lotr:item.bootsUmbar", Collections.singletonList("lotr:umbar_boots"));
+
 //ItemNames.put("lotr:item.bootsUruk", Arrays.asList("lotr:uruk_boots"));
 //ItemNames.put("lotr:item.bootsUtumno", Arrays.asList(""));
-ItemNames.put("lotr:item.bootsWarg", Collections.singletonList("lotr:fur_boots"));
-ItemNames.put("lotr:item.bootsWoodElven", Collections.singletonList("lotr:wood_elven_boots"));
+
 //ItemNames.put("lotr:item.bootsWoodElvenScout", Arrays.asList(""));
 //ItemNames.put("lotr:item.bossTrophy", Arrays.asList(""));
 //ItemNames.put("lotr:item.bottlePoison", Arrays.asList(""));
 //ItemNames.put("lotr:item.bountyTrophy", Arrays.asList(""));
 //ItemNames.put("lotr:item.brandingIron", Arrays.asList(""));
-ItemNames.put("lotr:item.bronze", Collections.singletonList("lotr:bronze_ingot"));
+
 //ItemNames.put("lotr:item.bronzeCrossbow", Arrays.asList(""));
 //ItemNames.put("lotr:item.camelCooked", Arrays.asList(""));
 //ItemNames.put("lotr:item.camelRaw", Arrays.asList(""));
-ItemNames.put("lotr:item.ceramicMug", Collections.singletonList("lotr:ceramic_mug"));
+
 //ItemNames.put("lotr:item.ceramicPlate", Arrays.asList(""));
-ItemNames.put("lotr:item.cherry", Collections.singletonList("lotr:cherry"));
-ItemNames.put("lotr:item.cherryPie", Collections.singletonList("lotr:cherry_pie"));
+
 //ItemNames.put("lotr:item.chestnut", Arrays.asList(""));
 //ItemNames.put("lotr:item.chestnutRoast", Arrays.asList(""));
 //ItemNames.put("lotr:item.chilling", Arrays.asList(""));
 //ItemNames.put("lotr:item.chisel", Arrays.asList(""));
 //ItemNames.put("lotr:item.chiselIthildin", Arrays.asList(""));
-ItemNames.put("lotr:item.clayMug", Collections.singletonList("lotr:clay_mug"));
-ItemNames.put("lotr:item.clayPlate", Collections.singletonList("lotr:clay_plate"));
+
 //ItemNames.put("lotr:item.clubMoredain", Arrays.asList(""));
 //ItemNames.put("lotr:item.coin", Arrays.asList(""));
 //ItemNames.put("lotr:item.commandHorn", Arrays.asList(""));
 //ItemNames.put("lotr:item.commandSword", Arrays.asList(""));
 //ItemNames.put("lotr:item.conquestHorn", Arrays.asList(""));
-ItemNames.put("lotr:item.copper", Collections.singletonList("lotr:copper_ingot"));
+
 //could technically make this a list and distribute evenly, don't see the point though
-ItemNames.put("lotr:item.coral", Collections.singletonList("minecraft:bubble_coral"));
+
 //ItemNames.put("lotr:item.corn", Arrays.asList(""));
 //ItemNames.put("lotr:item.cornBread", Arrays.asList(""));
 //ItemNames.put("lotr:item.cornCooked", Arrays.asList(""));
-ItemNames.put("lotr:item.cram", Collections.singletonList("lotr:cram"));
+
 //ItemNames.put("lotr:item.cranberry", Arrays.asList(""));
 //vanilla crossbows use regular arrows, so...
-ItemNames.put("lotr:item.crossbowBolt", Collections.singletonList("minecraft:arrow"));
+
 //could make this tipped poison arrow, again...
 //ItemNames.put("lotr:item.crossbowBoltPoisoned", Arrays.asList(""));
 //the poisoned ones could transfer to regular ones or be left empty, not sure yet
 //ItemNames.put("lotr:item.daggerAncientHarad", Arrays.asList(""));
 //ItemNames.put("lotr:item.daggerAngmar", Arrays.asList(""));
 //ItemNames.put("lotr:item.daggerAngmarPoisoned", Arrays.asList(""));
-ItemNames.put("lotr:item.daggerArnor", Collections.singletonList("lotr:arnor_dagger"));
+
 //ItemNames.put("lotr:item.daggerArnorPoisoned", Arrays.asList(""));
 //ItemNames.put("lotr:item.daggerBarrow", Arrays.asList(""));
 //ItemNames.put("lotr:item.daggerBarrowPoisoned", Arrays.asList(""));
@@ -609,57 +291,56 @@ ItemNames.put("lotr:item.daggerArnor", Collections.singletonList("lotr:arnor_dag
 //ItemNames.put("lotr:item.daggerBlackNumenoreanPoisoned", Arrays.asList(""));
 //ItemNames.put("lotr:item.daggerBlackUruk", Arrays.asList(""));
 //ItemNames.put("lotr:item.daggerBlackUrukPoisoned", Arrays.asList(""));
-ItemNames.put("lotr:item.daggerBlueDwarven", Collections.singletonList("lotr:blue_dwarven_dagger"));
+
 //ItemNames.put("lotr:item.daggerBlueDwarvenPoisoned", Arrays.asList(""));
-ItemNames.put("lotr:item.daggerBronze", Collections.singletonList("lotr:bronze_dagger"));
+
 //ItemNames.put("lotr:item.daggerBronzePoisoned", Arrays.asList(""));
 //ItemNames.put("lotr:item.daggerCorsair", Arrays.asList(""));
 //ItemNames.put("lotr:item.daggerCorsairPoisoned", Arrays.asList(""));
-ItemNames.put("lotr:item.daggerDale", Collections.singletonList("lotr:dale_dagger"));
+
 //ItemNames.put("lotr:item.daggerDalePoisoned", Arrays.asList(""));
-ItemNames.put("lotr:item.daggerDolAmroth", Collections.singletonList("lotr:dol_amroth_dagger"));
+
 //ItemNames.put("lotr:item.daggerDolAmrothPoisoned", Arrays.asList(""));
 //ItemNames.put("lotr:item.daggerDolGuldur", Arrays.asList(""));
 //ItemNames.put("lotr:item.daggerDolGuldurPoisoned", Arrays.asList(""));
 //ItemNames.put("lotr:item.daggerDorwinionElf", Arrays.asList(""));
-ItemNames.put("lotr:item.daggerDorwinionElfPoisoned", Collections.singletonList("lotr:dorwinion_elven_dagger"));
-ItemNames.put("lotr:item.daggerDwarven", Collections.singletonList("lotr:dwarven_dagger"));
+
 //ItemNames.put("lotr:item.daggerDwarvenPoisoned", Arrays.asList(""));
-ItemNames.put("lotr:item.daggerElven", Collections.singletonList("lotr:galadhrim_dagger"));
+
 //ItemNames.put("lotr:item.daggerElvenPoisoned", Arrays.asList(""));
-ItemNames.put("lotr:item.daggerGondor", Collections.singletonList("lotr:gondor_dagger"));
+
 //ItemNames.put("lotr:item.daggerGondorPoisoned", Arrays.asList(""));
 //ItemNames.put("lotr:item.daggerGundabadUruk", Arrays.asList(""));
 //ItemNames.put("lotr:item.daggerGundabadUrukPoisoned", Arrays.asList(""));
 //ItemNames.put("lotr:item.daggerHalfTroll", Arrays.asList(""));
 //ItemNames.put("lotr:item.daggerHalfTrollPoisoned", Arrays.asList(""));
-ItemNames.put("lotr:item.daggerHarad", Collections.singletonList("lotr:harad_dagger"));
+
 //ItemNames.put("lotr:item.daggerHaradPoisoned", Arrays.asList(""));
-ItemNames.put("lotr:item.daggerHighElven", Collections.singletonList("lotr:lindon_dagger"));
+
 //ItemNames.put("lotr:item.daggerHighElvenPoisoned", Arrays.asList(""));
-ItemNames.put("lotr:item.daggerIron", Collections.singletonList("lotr:iron_dagger"));
+
 //ItemNames.put("lotr:item.daggerIronPoisoned", Arrays.asList(""));
-ItemNames.put("lotr:item.daggerMithril", Collections.singletonList("lotr:mithril_dagger"));
+
 //ItemNames.put("lotr:item.daggerMithrilPoisoned", Arrays.asList(""));
 //ItemNames.put("lotr:item.daggerMoredain", Arrays.asList(""));
 //ItemNames.put("lotr:item.daggerMoredainPoisoned", Arrays.asList(""));
 //ItemNames.put("lotr:item.daggerNearHarad", Arrays.asList(""));
 //ItemNames.put("lotr:item.daggerNearHaradPoisoned", Arrays.asList(""));
-ItemNames.put("lotr:item.daggerOrc", Collections.singletonList("lotr:mordor_dagger"));
+
 //ItemNames.put("lotr:item.daggerOrcPoisoned", Arrays.asList(""));
 //ItemNames.put("lotr:item.daggerRhun", Arrays.asList(""));
 //ItemNames.put("lotr:item.daggerRhunPoisoned", Arrays.asList(""));
-ItemNames.put("lotr:item.daggerRivendell", Collections.singletonList("lotr:rivendell_dagger"));
+
 //ItemNames.put("lotr:item.daggerRivendellPoisoned", Arrays.asList(""));
-ItemNames.put("lotr:item.daggerRohan", Collections.singletonList("lotr:rohan_dagger"));
+
 //ItemNames.put("lotr:item.daggerRohanPoisoned", Arrays.asList(""));
 //ItemNames.put("lotr:item.daggerTauredain", Arrays.asList(""));
 //ItemNames.put("lotr:item.daggerTauredainPoisoned", Arrays.asList(""));
-ItemNames.put("lotr:item.daggerUruk", Collections.singletonList("lotr:uruk_dagger"));
+
 //ItemNames.put("lotr:item.daggerUrukPoisoned", Arrays.asList(""));
 //ItemNames.put("lotr:item.daggerUtumno", Arrays.asList(""));
 //ItemNames.put("lotr:item.daggerUtumnoPoisoned", Arrays.asList(""));
-ItemNames.put("lotr:item.daggerWoodElven", Collections.singletonList("lotr:wood_elven_dagger"));
+
 //ItemNames.put("lotr:item.daggerWoodElvenPoisoned", Arrays.asList(""));
 //ItemNames.put("lotr:item.daleBow", Arrays.asList(""));
 //ItemNames.put("lotr:item.daleCracker", Arrays.asList(""));
@@ -669,10 +350,10 @@ ItemNames.put("lotr:item.daggerWoodElven", Collections.singletonList("lotr:wood_
 //ItemNames.put("lotr:item.deerRaw", Arrays.asList(""));
 //ItemNames.put("lotr:item.diamond", Arrays.asList(""));
 //ItemNames.put("lotr:item.dorwinionElfBow", Arrays.asList(""));
-ItemNames.put("lotr:item.dunlendingClub", Collections.singletonList("lotr:dunlending_club"));
+
 //ItemNames.put("lotr:item.dunlendingTrident", Arrays.asList(""));
 //ItemNames.put("lotr:item.dwarfBone", Arrays.asList(""));
-ItemNames.put("lotr:item.dwarfSteel", Collections.singletonList("lotr:dwarven_steel_ingot"));
+
 //ItemNames.put("lotr:item.dwarvenBed", Arrays.asList(""));
 //ItemNames.put("lotr:item.dwarvenRing", Arrays.asList(""));
 //TODO: figure out later
@@ -687,28 +368,23 @@ ItemNames.put("lotr:item.dwarfSteel", Collections.singletonList("lotr:dwarven_st
 //ItemNames.put("lotr:item.emerald", Arrays.asList(""));
 //ItemNames.put("lotr:item.entDraught", Arrays.asList(""));
 //ItemNames.put("lotr:item.featherDyed", Arrays.asList(""));
-ItemNames.put("lotr:item.flax", Collections.singletonList("lotr:flax"));
-ItemNames.put("lotr:item.flaxSeeds", Collections.singletonList("lotr:flax_seeds"));
+
 //ItemNames.put("lotr:item.galvorn", Arrays.asList(""));
-ItemNames.put("lotr:item.gammon", Collections.singletonList("lotr:gammon"));
+
 //ItemNames.put("lotr:item.gandalfStaffGrey", Arrays.asList(""));
 //ItemNames.put("lotr:item.gandalfStaffWhite", Arrays.asList(""));
-ItemNames.put("lotr:item.gateGear", Collections.singletonList("lotr:gate_gear"));
+
 //ItemNames.put("lotr:item.gemsbokHide", Arrays.asList(""));
 //ItemNames.put("lotr:item.gemsbokHorn", Arrays.asList(""));
 //ItemNames.put("lotr:item.gildedIron", Arrays.asList(""));
 //ItemNames.put("lotr:item.giraffeRug", Arrays.asList(""));
 //ItemNames.put("lotr:item.glamdring", Arrays.asList(""));
-ItemNames.put("lotr:item.gobletCopper", Collections.singletonList("lotr:copper_goblet"));
-ItemNames.put("lotr:item.gobletGold", Collections.singletonList("lotr:golden_goblet"));
-ItemNames.put("lotr:item.gobletSilver", Collections.singletonList("lotr:silver_goblet"));
-ItemNames.put("lotr:item.gobletWood", Collections.singletonList("lotr:wooden_cup"));
-ItemNames.put("lotr:item.goldRing", Collections.singletonList("lotr:gold_ring"));
+
 //ItemNames.put("lotr:item.gondorBow", Arrays.asList(""));
 //ItemNames.put("lotr:item.grapeRed", Arrays.asList(""));
 //ItemNames.put("lotr:item.grapeWhite", Arrays.asList(""));
 //not sure to make this gulduril or crystal version
-ItemNames.put("lotr:item.guldurilCrystal", Collections.singletonList("lotr:gulduril"));
+
 //ItemNames.put("lotr:item.gundabadUrukBow", Arrays.asList(""));
 //ItemNames.put("lotr:item.halberdMithril", Arrays.asList(""));
 //ItemNames.put("lotr:item.hammerAngmar", Arrays.asList(""));
@@ -725,66 +401,47 @@ ItemNames.put("lotr:item.guldurilCrystal", Collections.singletonList("lotr:guldu
 //ItemNames.put("lotr:item.hammerUruk", Arrays.asList(""));
 //ItemNames.put("lotr:item.hammerUtumno", Arrays.asList(""));
 //ItemNames.put("lotr:item.helmetAngmar", Arrays.asList(""));
-ItemNames.put("lotr:item.helmetArnor", Collections.singletonList("lotr:arnor_helmet"));
+
 //ItemNames.put("lotr:item.helmetBlackNumenorean", Arrays.asList(""));
 //ItemNames.put("lotr:item.helmetBlackUruk", Arrays.asList(""));
 //ItemNames.put("lotr:item.helmetBlackroot", Arrays.asList(""));
-ItemNames.put("lotr:item.helmetBlueDwarven", Collections.singletonList("lotr:blue_dwarven_helmet"));
-ItemNames.put("lotr:item.helmetBone", Collections.singletonList("lotr:bone_helmet"));
-ItemNames.put("lotr:item.helmetBronze", Collections.singletonList("lotr:bronze_helmet"));
+
 //ItemNames.put("lotr:item.helmetCorsair", Arrays.asList(""));
-ItemNames.put("lotr:item.helmetDale", Collections.singletonList("lotr:dale_helmet"));
-ItemNames.put("lotr:item.helmetDolAmroth", Collections.singletonList("lotr:dol_amroth_helmet"));
+
 //ItemNames.put("lotr:item.helmetDolGuldur", Arrays.asList(""));
-ItemNames.put("lotr:item.helmetDorwinion", Collections.singletonList("lotr:dorwinion_helmet"));
-ItemNames.put("lotr:item.helmetDorwinionElf", Collections.singletonList("lotr:dorwinion_elven_helmet"));
-ItemNames.put("lotr:item.helmetDunlending", Collections.singletonList("lotr:dunlending_helmet"));
-ItemNames.put("lotr:item.helmetDwarven", Collections.singletonList("lotr:dwarven_helmet"));
-ItemNames.put("lotr:item.helmetDwarvenGold", Collections.singletonList("lotr:gold_trimmed_dwarven_helmet"));
-ItemNames.put("lotr:item.helmetDwarvenMithril", Collections.singletonList("lotr:mithril_trimmed_dwarven_helmet"));
-ItemNames.put("lotr:item.helmetDwarvenSilver", Collections.singletonList("lotr:silver_trimmed_dwarven_helmet"));
-ItemNames.put("lotr:item.helmetElven", Collections.singletonList("lotr:galadhrim_helmet"));
+
 //ItemNames.put("lotr:item.helmetGalvorn", Arrays.asList(""));
 //ItemNames.put("lotr:item.helmetGemsbok", Arrays.asList(""));
 //ItemNames.put("lotr:item.helmetGondolin", Arrays.asList(""));
-ItemNames.put("lotr:item.helmetGondor", Collections.singletonList("lotr:gondor_helmet"));
-ItemNames.put("lotr:item.helmetGondorWinged", Collections.singletonList("lotr:winged_gondor_helmet"));
+
 //ItemNames.put("lotr:item.helmetGulfHarad", Arrays.asList(""));
 //ItemNames.put("lotr:item.helmetGundabadUruk", Arrays.asList(""));
 //ItemNames.put("lotr:item.helmetHalfTroll", Arrays.asList(""));
 //ItemNames.put("lotr:item.helmetHaradRobes", Arrays.asList(""));
-ItemNames.put("lotr:item.helmetHarnedor", Collections.singletonList("lotr:harnennor_helmet"));
-ItemNames.put("lotr:item.helmetHighElven", Collections.singletonList("lotr:lindon_helmet"));
+
 //ItemNames.put("lotr:item.helmetHithlain", Arrays.asList(""));
 //ItemNames.put("lotr:item.helmetLamedon", Arrays.asList(""));
 //ItemNames.put("lotr:item.helmetLossarnach", Arrays.asList(""));
-ItemNames.put("lotr:item.helmetMithril", Collections.singletonList("lotr:mithril_helmet"));
+
 //ItemNames.put("lotr:item.helmetMoredain", Arrays.asList(""));
 //ItemNames.put("lotr:item.helmetMoredainLion", Arrays.asList(""));
 //ItemNames.put("lotr:item.helmetMorgul", Arrays.asList(""));
-ItemNames.put("lotr:item.helmetNearHarad", Collections.singletonList("lotr:harad_helmet"));
-ItemNames.put("lotr:item.helmetNearHaradWarlord", Collections.singletonList("lotr:harad_warlord_helmet"));
+
 //ItemNames.put("lotr:item.helmetNomad", Arrays.asList(""));
-ItemNames.put("lotr:item.helmetOrc", Collections.singletonList("lotr:mordor_helmet"));
+
 //ItemNames.put("lotr:item.helmetPelargir", Arrays.asList(""));
 //ItemNames.put("lotr:item.helmetPinnathGelin", Arrays.asList(""));
-ItemNames.put("lotr:item.helmetRanger", Collections.singletonList("lotr:ranger_north_helmet"));
-ItemNames.put("lotr:item.helmetRangerIthilien", Collections.singletonList("lotr:ranger_ithilien_helmet"));
+
 //ItemNames.put("lotr:item.helmetRhun", Arrays.asList(""));
 //ItemNames.put("lotr:item.helmetRhunGold", Arrays.asList(""));
 //ItemNames.put("lotr:item.helmetRhunWarlord", Arrays.asList(""));
-ItemNames.put("lotr:item.helmetRivendell", Collections.singletonList("lotr:rivendell_helmet"));
-ItemNames.put("lotr:item.helmetRohan", Collections.singletonList("lotr:rohan_helmet"));
-ItemNames.put("lotr:item.helmetRohanMarshal", Collections.singletonList("lotr:rohan_marshal_helmet"));
+
 //ItemNames.put("lotr:item.helmetTauredain", Arrays.asList(""));
 //ItemNames.put("lotr:item.helmetTauredainChieftain", Arrays.asList(""));
 //ItemNames.put("lotr:item.helmetTauredainGold", Arrays.asList(""));
-ItemNames.put("lotr:item.helmetUmbar", Collections.singletonList("lotr:umbar_helmet"));
-ItemNames.put("lotr:item.helmetUruk", Collections.singletonList("lotr:uruk_helmet"));
-ItemNames.put("lotr:item.helmetUrukBerserker", Collections.singletonList("lotr:uruk_berserker_helmet"));
+
 //ItemNames.put("lotr:item.helmetUtumno", Arrays.asList(""));
-ItemNames.put("lotr:item.helmetWarg", Collections.singletonList("lotr:fur_helmet"));
-ItemNames.put("lotr:item.helmetWoodElven", Collections.singletonList("lotr:wood_elven_helmet"));
+
 //ItemNames.put("lotr:item.helmetWoodElvenScout", Arrays.asList(""));
 //ItemNames.put("lotr:item.highElvenBed", Arrays.asList(""));
 //ItemNames.put("lotr:item.highElvenBow", Arrays.asList(""));
@@ -792,23 +449,15 @@ ItemNames.put("lotr:item.helmetWoodElven", Collections.singletonList("lotr:wood_
 //ItemNames.put("lotr:item.hobbitBone", Arrays.asList(""));
 //ItemNames.put("lotr:item.hobbitPancake", Arrays.asList(""));
 //ItemNames.put("lotr:item.hobbitPancakeMapleSyrup", Arrays.asList(""));
-ItemNames.put("lotr:item.hobbitPipe", Collections.singletonList("lotr:smoking_pipe"));
+
 //ItemNames.put("lotr:item.hobbitRing", Arrays.asList(""));
 //ItemNames.put("lotr:item.hoeAngmar", Arrays.asList(""));
 //ItemNames.put("lotr:item.hoeBlueDwarven", Arrays.asList(""));
-ItemNames.put("lotr:item.hoeBronze", Collections.singletonList("lotr:bronze_hoe"));
+
 //ItemNames.put("lotr:item.hoeDolGuldur", Arrays.asList(""));
-ItemNames.put("lotr:item.hoeDwarven", Collections.singletonList("lotr:dwarven_hoe"));
-ItemNames.put("lotr:item.hoeElven", Collections.singletonList("lotr:galadhrim_hoe"));
-ItemNames.put("lotr:item.hoeHighElven", Collections.singletonList("lotr:lindon_hoe"));
-ItemNames.put("lotr:item.hoeMallorn", Collections.singletonList("lotr:mallorn_hoe"));
-ItemNames.put("lotr:item.hoeMithril", Collections.singletonList("lotr:mithril_hoe"));
-ItemNames.put("lotr:item.hoeOrc", Collections.singletonList("lotr:mordor_hoe"));
-ItemNames.put("lotr:item.hoeRivendell", Collections.singletonList("lotr:rivendell_hoe"));
+
 //ItemNames.put("lotr:item.hoeTauredain", Arrays.asList(""));
-ItemNames.put("lotr:item.hoeUruk", Collections.singletonList("lotr:uruk_hoe"));
-ItemNames.put("lotr:item.hoeWoodElven", Collections.singletonList("lotr:wood_elven_hoe"));
-ItemNames.put("lotr:item.horn", Collections.singletonList("lotr:horn"));
+
 //ItemNames.put("lotr:item.horseArmorDale", Arrays.asList(""));
 //ItemNames.put("lotr:item.horseArmorDiamond", Arrays.asList(""));
 //ItemNames.put("lotr:item.horseArmorDolAmroth", Arrays.asList(""));
@@ -826,10 +475,10 @@ ItemNames.put("lotr:item.horn", Collections.singletonList("lotr:horn"));
 //ItemNames.put("lotr:item.horseArmorRohan", Arrays.asList(""));
 //ItemNames.put("lotr:item.horseArmorUmbar", Arrays.asList(""));
 //ItemNames.put("lotr:item.ironCrossbow", Arrays.asList(""));
-ItemNames.put("lotr:item.ironNugget", Collections.singletonList("minecraft:iron_nugget"));
+
 //ItemNames.put("lotr:item.ithildin", Arrays.asList(""));
 //ItemNames.put("lotr:item.kebab", Arrays.asList(""));
-ItemNames.put("lotr:item.kineArawHorn", Collections.singletonList("lotr:kine_of_araw_horn"));
+
 //ItemNames.put("lotr:item.lanceDolAmroth", Arrays.asList(""));
 //ItemNames.put("lotr:item.lanceGondor", Arrays.asList(""));
 //ItemNames.put("lotr:item.lanceRohan", Arrays.asList(""));
@@ -837,68 +486,52 @@ ItemNames.put("lotr:item.kineArawHorn", Collections.singletonList("lotr:kine_of_
 //ItemNames.put("lotr:item.leek", Arrays.asList(""));
 //ItemNames.put("lotr:item.leekSoup", Arrays.asList(""));
 //ItemNames.put("lotr:item.legsAngmar", Arrays.asList(""));
-ItemNames.put("lotr:item.legsArnor", Collections.singletonList("lotr:arnor_leggings"));
+
 //ItemNames.put("lotr:item.legsBlackNumenorean", Arrays.asList(""));
 //ItemNames.put("lotr:item.legsBlackUruk", Arrays.asList(""));
 //ItemNames.put("lotr:item.legsBlackroot", Arrays.asList(""));
-ItemNames.put("lotr:item.legsBlueDwarven", Collections.singletonList("lotr:blue_dwarven_leggings"));
-ItemNames.put("lotr:item.legsBone", Collections.singletonList("lotr:bone_leggings"));
-ItemNames.put("lotr:item.legsBronze", Collections.singletonList("lotr:bronze_leggings"));
+
 //ItemNames.put("lotr:item.legsCorsair", Arrays.asList(""));
-ItemNames.put("lotr:item.legsDale", Collections.singletonList("lotr:dale_leggings"));
-ItemNames.put("lotr:item.legsDolAmroth", Collections.singletonList("lotr:dol_amroth_leggings"));
+
 //ItemNames.put("lotr:item.legsDolAmrothGambeson", Arrays.asList(""));
 //ItemNames.put("lotr:item.legsDolGuldur", Arrays.asList(""));
-ItemNames.put("lotr:item.legsDorwinion", Collections.singletonList("lotr:dorwinion_leggings"));
-ItemNames.put("lotr:item.legsDorwinionElf", Collections.singletonList("lotr:dorwinion_elven_leggings"));
-ItemNames.put("lotr:item.legsDunlending", Collections.singletonList("lotr:dunlending_leggings"));
-ItemNames.put("lotr:item.legsDwarven", Collections.singletonList("lotr:dwarven_leggings"));
-ItemNames.put("lotr:item.legsDwarvenGold", Collections.singletonList("lotr:gold_trimmed_dwarven_leggings"));
-ItemNames.put("lotr:item.legsDwarvenMithril", Collections.singletonList("lotr:mithril_trimmed_dwarven_leggings"));
-ItemNames.put("lotr:item.legsDwarvenSilver", Collections.singletonList("lotr:silver_trimmed_dwarven_leggings"));
-ItemNames.put("lotr:item.legsElven", Collections.singletonList("lotr:galadhrim_leggings"));
+
 //ItemNames.put("lotr:item.legsGalvorn", Arrays.asList(""));
 //ItemNames.put("lotr:item.legsGemsbok", Arrays.asList(""));
 //ItemNames.put("lotr:item.legsGondolin", Arrays.asList(""));
-ItemNames.put("lotr:item.legsGondor", Collections.singletonList("lotr:gondor_leggings"));
+
 //ItemNames.put("lotr:item.legsGulfHarad", Arrays.asList(""));
 //ItemNames.put("lotr:item.legsGundabadUruk", Arrays.asList(""));
 //ItemNames.put("lotr:item.legsHalfTroll", Arrays.asList(""));
 //ItemNames.put("lotr:item.legsHaradRobes", Arrays.asList(""));
-ItemNames.put("lotr:item.legsHarnedor", Collections.singletonList("lotr:harnennor_leggings"));
-ItemNames.put("lotr:item.legsHighElven", Collections.singletonList("lotr:lindon_leggings"));
+
 //ItemNames.put("lotr:item.legsHithlain", Arrays.asList(""));
 //ItemNames.put("lotr:item.legsKaftan", Arrays.asList(""));
 //ItemNames.put("lotr:item.legsLamedon", Arrays.asList(""));
 //ItemNames.put("lotr:item.legsLossarnach", Arrays.asList(""));
-ItemNames.put("lotr:item.legsMithril", Collections.singletonList("lotr:mithril_leggings"));
+
 //ItemNames.put("lotr:item.legsMoredain", Arrays.asList(""));
 //ItemNames.put("lotr:item.legsMoredainLion", Arrays.asList(""));
 //ItemNames.put("lotr:item.legsMorgul", Arrays.asList(""));
-ItemNames.put("lotr:item.legsNearHarad", Collections.singletonList("lotr:harad_leggings"));
+
 //ItemNames.put("lotr:item.legsNomad", Arrays.asList(""));
-ItemNames.put("lotr:item.legsOrc", Collections.singletonList("lotr:mordor_leggings"));
+
 //ItemNames.put("lotr:item.legsPelargir", Arrays.asList(""));
 //ItemNames.put("lotr:item.legsPinnathGelin", Arrays.asList(""));
-ItemNames.put("lotr:item.legsRanger", Collections.singletonList("lotr:ranger_north_leggings"));
-ItemNames.put("lotr:item.legsRangerIthilien", Collections.singletonList("lotr:ranger_ithilien_leggings"));
+
 //ItemNames.put("lotr:item.legsRhun", Arrays.asList(""));
 //ItemNames.put("lotr:item.legsRhunGold", Arrays.asList(""));
-ItemNames.put("lotr:item.legsRivendell", Collections.singletonList("lotr:rivendell_leggings"));
-ItemNames.put("lotr:item.legsRohan", Collections.singletonList("lotr:rohan_leggings"));
-ItemNames.put("lotr:item.legsRohanMarshal", Collections.singletonList("lotr:rohan_marshal_leggings"));
+
 //ItemNames.put("lotr:item.legsTauredain", Arrays.asList(""));
 //ItemNames.put("lotr:item.legsTauredainGold", Arrays.asList(""));
-ItemNames.put("lotr:item.legsUmbar", Collections.singletonList("lotr:umbar_leggings"));
-ItemNames.put("lotr:item.legsUruk", Collections.singletonList("lotr:uruk_leggings"));
+
 //ItemNames.put("lotr:item.legsUtumno", Arrays.asList(""));
-ItemNames.put("lotr:item.legsWarg", Collections.singletonList("lotr:fur_leggings"));
-ItemNames.put("lotr:item.legsWoodElven", Collections.singletonList("lotr:wood_elven_leggings"));
+
 //ItemNames.put("lotr:item.legsWoodElvenScout", Arrays.asList(""));
-ItemNames.put("lotr:item.lembas", Collections.singletonList("lotr:lembas"));
+
 //ItemNames.put("lotr:item.lemon", Arrays.asList(""));
 //ItemNames.put("lotr:item.lemonCake", Arrays.asList(""));
-ItemNames.put("lotr:item.lettuce", Collections.singletonList("lotr:lettuce"));
+
 //ItemNames.put("lotr:item.lime", Arrays.asList(""));
 //ItemNames.put("lotr:item.lionBed", Arrays.asList(""));
 //ItemNames.put("lotr:item.lionCooked", Arrays.asList(""));
@@ -914,13 +547,11 @@ ItemNames.put("lotr:item.lettuce", Collections.singletonList("lotr:lettuce"));
 //ItemNames.put("lotr:item.maceHalfTroll", Arrays.asList(""));
 //ItemNames.put("lotr:item.maceMallornCharred", Arrays.asList(""));
 //ItemNames.put("lotr:item.maceNearHarad", Arrays.asList(""));
-ItemNames.put("lotr:item.maggotyBread", Collections.singletonList("lotr:maggoty_bread"));
+
 //ItemNames.put("lotr:item.mallornBow", Arrays.asList(""));
-ItemNames.put("lotr:item.mallornNut", Collections.singletonList("lotr:mallorn_nut"));
-ItemNames.put("lotr:item.mallornStick", Collections.singletonList("lotr:mallorn_stick"));
-ItemNames.put("lotr:item.manFlesh", Collections.singletonList("lotr:man_flesh"));
+
 //ItemNames.put("lotr:item.mango", Arrays.asList(""));
-ItemNames.put("lotr:item.mapleSyrup", Collections.singletonList("lotr:maple_syrup"));
+
 //ItemNames.put("lotr:item.marzipan", Arrays.asList(""));
 //ItemNames.put("lotr:item.marzipanChocolate", Arrays.asList(""));
 //ItemNames.put("lotr:item.mattockBlueDwarven", Arrays.asList(""));
@@ -929,17 +560,14 @@ ItemNames.put("lotr:item.mapleSyrup", Collections.singletonList("lotr:maple_syru
 //ItemNames.put("lotr:item.mechanism", Arrays.asList(""));
 //ItemNames.put("lotr:item.melonSoup", Arrays.asList(""));
 //ItemNames.put("lotr:item.mirkwoodBow", Arrays.asList(""));
-ItemNames.put("lotr:item.mithril", Collections.singletonList("lotr:mithril_ingot"));
+
 //ItemNames.put("lotr:item.mithrilBook", Arrays.asList(""));
 //ItemNames.put("lotr:item.mithrilCrossbow", Arrays.asList(""));
-ItemNames.put("lotr:item.mithrilMail", Collections.singletonList("lotr:mithril_mail"));
-ItemNames.put("lotr:item.mithrilNugget", Collections.singletonList("lotr:mithril_nugget"));
-ItemNames.put("lotr:item.mithrilRing", Collections.singletonList("lotr:mithril_ring"));
+
 //hmm...
 //ItemNames.put("lotr:item.modTemplate", Arrays.asList(""));
 //ItemNames.put("lotr:item.morgulBlade", Arrays.asList(""));
 //ItemNames.put("lotr:item.morgulSteel", Arrays.asList(""));
-ItemNames.put("lotr:item.mug", Collections.singletonList("lotr:wooden_mug"));
 //TODO: different alcohol changer
 //ItemNames.put("lotr:item.mugAle", Arrays.asList(""));
 //ItemNames.put("lotr:item.mugAppleJuice", Arrays.asList(""));
@@ -989,10 +617,9 @@ ItemNames.put("lotr:item.mug", Collections.singletonList("lotr:wooden_mug"));
 //ItemNames.put("lotr:item.mugWhiteWine", Arrays.asList(""));
 
 //ItemNames.put("lotr:item.mushroomPie", Arrays.asList(""));
-ItemNames.put("lotr:item.muttonCooked", Collections.singletonList("minecraft:cooked_mutton"));
-ItemNames.put("lotr:item.muttonRaw", Collections.singletonList("minecraft:mutton"));
+
 //ItemNames.put("lotr:item.mysteryWeb", Arrays.asList(""));
-ItemNames.put("lotr:item.naurite", Collections.singletonList("lotr:durnor"));
+
 //ItemNames.put("lotr:item.nearHaradBow", Arrays.asList(""));
 //ItemNames.put("lotr:item.npcRespawner", Arrays.asList(""));
 //ItemNames.put("lotr:item.obsidianShard", Arrays.asList(""));
@@ -1004,26 +631,17 @@ ItemNames.put("lotr:item.naurite", Collections.singletonList("lotr:durnor"));
 //ItemNames.put("lotr:item.orcBone", Arrays.asList(""));
 //ItemNames.put("lotr:item.orcBow", Arrays.asList(""));
 //ItemNames.put("lotr:item.orcSkullStaff", Arrays.asList(""));
-ItemNames.put("lotr:item.orcSteel", Collections.singletonList("lotr:orc_steel_ingot"));
-ItemNames.put("lotr:item.orcTorch", Collections.singletonList("lotr:orc_torch"));
+
 //ItemNames.put("lotr:item.partyHat", Arrays.asList(""));
-ItemNames.put("lotr:item.pear", Collections.singletonList("lotr:pear"));
+
 //ItemNames.put("lotr:item.pearl", Arrays.asList(""));
 //ItemNames.put("lotr:item.pebble", Arrays.asList(""));
 //ItemNames.put("lotr:item.pickaxeAngmar", Arrays.asList(""));
-ItemNames.put("lotr:item.pickaxeBlueDwarven", Collections.singletonList("lotr:blue_dwarven_pickaxe"));
-ItemNames.put("lotr:item.pickaxeBronze", Collections.singletonList("lotr:bronze_pickaxe"));
+
 //ItemNames.put("lotr:item.pickaxeDolGuldur", Arrays.asList(""));
-ItemNames.put("lotr:item.pickaxeDwarven", Collections.singletonList("lotr:dwarven_pickaxe"));
-ItemNames.put("lotr:item.pickaxeElven", Collections.singletonList("lotr:galadhrim_pickaxe"));
-ItemNames.put("lotr:item.pickaxeHighElven", Collections.singletonList("lotr:lindon_pickaxe"));
-ItemNames.put("lotr:item.pickaxeMallorn", Collections.singletonList("lotr:mallorn_pickaxe"));
-ItemNames.put("lotr:item.pickaxeMithril", Collections.singletonList("lotr:mithril_pickaxe"));
-ItemNames.put("lotr:item.pickaxeOrc", Collections.singletonList("lotr:mordor_pickaxe"));
-ItemNames.put("lotr:item.pickaxeRivendell", Collections.singletonList("lotr:rivendell_pickaxe"));
+
 //ItemNames.put("lotr:item.pickaxeTauredain", Arrays.asList(""));
-ItemNames.put("lotr:item.pickaxeUruk", Collections.singletonList("lotr:uruk_pickaxe"));
-ItemNames.put("lotr:item.pickaxeWoodElven", Collections.singletonList("lotr:wood_elven_pickaxe"));
+
 //ItemNames.put("lotr:item.pikeBlueDwarven", Arrays.asList(""));
 //ItemNames.put("lotr:item.pikeDale", Arrays.asList(""));
 //ItemNames.put("lotr:item.pikeDolGuldur", Arrays.asList(""));
@@ -1037,9 +655,7 @@ ItemNames.put("lotr:item.pickaxeWoodElven", Collections.singletonList("lotr:wood
 //ItemNames.put("lotr:item.pikeRhun", Arrays.asList(""));
 //ItemNames.put("lotr:item.pikeTauredain", Arrays.asList(""));
 //ItemNames.put("lotr:item.pikeUruk", Arrays.asList(""));
-ItemNames.put("lotr:item.pipeweed", Collections.singletonList("lotr:pipeweed"));
-ItemNames.put("lotr:item.pipeweedLeaf", Collections.singletonList("lotr:pipeweed_leaf"));
-ItemNames.put("lotr:item.pipeweedSeeds", Collections.singletonList("lotr:pipeweed_seeds"));
+
 //ItemNames.put("lotr:item.plate", Arrays.asList(""));
 //ItemNames.put("lotr:item.plum", Arrays.asList(""));
 //ItemNames.put("lotr:item.polearmAngmar", Arrays.asList(""));
@@ -1052,15 +668,11 @@ ItemNames.put("lotr:item.pipeweedSeeds", Collections.singletonList("lotr:pipewee
 //ItemNames.put("lotr:item.poleaxeNearHarad", Arrays.asList(""));
 //ItemNames.put("lotr:item.pomegranate", Arrays.asList(""));
 // TODO pouch as pouch, not shulkerbox
-ItemNames.put("lotr:item.pouch", Collections.singletonList("minecraft:shulker_box"));
-ItemNames.put("lotr:item.quenditeCrystal", Collections.singletonList("lotr:edhelvir"));
-ItemNames.put("lotr:item.rabbitCooked", Collections.singletonList("minecraft:cooked_rabbit"));
-ItemNames.put("lotr:item.rabbitRaw", Collections.singletonList("minecraft:rabbit"));
-ItemNames.put("lotr:item.rabbitStew", Collections.singletonList("minecraft:rabbit_stew"));
+
 //ItemNames.put("lotr:item.raisins", Arrays.asList(""));
 //ItemNames.put("lotr:item.rangerBow", Arrays.asList(""));
 //ItemNames.put("lotr:item.raspberry", Arrays.asList(""));
-ItemNames.put("lotr:item.redBook", Collections.singletonList("lotr:red_book"));
+
 //ItemNames.put("lotr:item.redClayBall", Arrays.asList(""));
 //ItemNames.put("lotr:item.rhinoArmorHalfTroll", Arrays.asList(""));
 //ItemNames.put("lotr:item.rhinoCooked", Arrays.asList(""));
@@ -1073,7 +685,7 @@ ItemNames.put("lotr:item.redBook", Collections.singletonList("lotr:red_book"));
 //ItemNames.put("lotr:item.rohanBow", Arrays.asList(""));
 //ItemNames.put("lotr:item.rollingPin", Arrays.asList(""));
 //ItemNames.put("lotr:item.ruby", Arrays.asList(""));
-ItemNames.put("lotr:item.salt", Collections.singletonList("lotr:salt"));
+
 //ItemNames.put("lotr:item.saltedFlesh", Arrays.asList(""));
 //ItemNames.put("lotr:item.saltpeter", Arrays.asList(""));
 //ItemNames.put("lotr:item.sapphire", Arrays.asList(""));
@@ -1081,7 +693,7 @@ ItemNames.put("lotr:item.salt", Collections.singletonList("lotr:salt"));
 //ItemNames.put("lotr:item.scimitarBlackUruk", Arrays.asList(""));
 //ItemNames.put("lotr:item.scimitarHalfTroll", Arrays.asList(""));
 //ItemNames.put("lotr:item.scimitarNearHarad", Arrays.asList(""));
-ItemNames.put("lotr:item.scimitarOrc", Collections.singletonList("lotr:mordor_scimitar"));
+
 //TODO:umbar_scimitar background
 //ItemNames.put("lotr:item.scimitarUruk", Arrays.asList(""));
 //ItemNames.put("lotr:item.scimitarUrukBerserker", Arrays.asList(""));
@@ -1089,90 +701,61 @@ ItemNames.put("lotr:item.scimitarOrc", Collections.singletonList("lotr:mordor_sc
 //ItemNames.put("lotr:item.seedsGrapeWhite", Arrays.asList(""));
 //ItemNames.put("lotr:item.shishKebab", Arrays.asList(""));
 //ItemNames.put("lotr:item.shovelAngmar", Arrays.asList(""));
-ItemNames.put("lotr:item.shovelBlueDwarven", Collections.singletonList("lotr:blue_dwarven_shovel"));
-ItemNames.put("lotr:item.shovelBronze", Collections.singletonList("lotr:bronze_shovel"));
+
 //ItemNames.put("lotr:item.shovelDolGuldur", Arrays.asList(""));
-ItemNames.put("lotr:item.shovelDwarven", Collections.singletonList("lotr:dwarven_shovel"));
-ItemNames.put("lotr:item.shovelElven", Collections.singletonList("lotr:galadhrim_shovel"));
-ItemNames.put("lotr:item.shovelHighElven", Collections.singletonList("lotr:lindon_shovel"));
-ItemNames.put("lotr:item.shovelMallorn", Collections.singletonList("lotr:mallorn_shovel"));
-ItemNames.put("lotr:item.shovelMithril", Collections.singletonList("lotr:mithril_shovel"));
-ItemNames.put("lotr:item.shovelOrc", Collections.singletonList("lotr:mordor_shovel"));
-ItemNames.put("lotr:item.shovelRivendell", Collections.singletonList("lotr:rivendell_shovel"));
+
 //ItemNames.put("lotr:item.shovelTauredain", Arrays.asList(""));
-ItemNames.put("lotr:item.shovelUruk", Collections.singletonList("lotr:uruk_shovel"));
-ItemNames.put("lotr:item.shovelWoodElven", Collections.singletonList("lotr:wood_elven_shovel"));
-ItemNames.put("lotr:item.silver", Collections.singletonList("lotr:silver_ingot"));
-ItemNames.put("lotr:item.silverNugget", Collections.singletonList("lotr:silver_nugget"));
-ItemNames.put("lotr:item.silverRing", Collections.singletonList("lotr:silver_ring"));
+
 //ItemNames.put("lotr:item.skullCup", Arrays.asList(""));
 //ItemNames.put("lotr:item.sling", Arrays.asList(""));
 // TODO:spawn egg handler
 //ItemNames.put("lotr:item.spawnEgg", Arrays.asList(""));
 
 //ItemNames.put("lotr:item.spearAngmar", Arrays.asList(""));
-ItemNames.put("lotr:item.spearArnor", Collections.singletonList("lotr:arnor_spear"));
+
 //ItemNames.put("lotr:item.spearBlackNumenorean", Arrays.asList(""));
 //ItemNames.put("lotr:item.spearBlackUruk", Arrays.asList(""));
 //ItemNames.put("lotr:item.spearBladorthin", Arrays.asList(""));
-ItemNames.put("lotr:item.spearBlueDwarven", Collections.singletonList("lotr:blue_dwarven_spear"));
-ItemNames.put("lotr:item.spearBronze", Collections.singletonList("lotr:bronze_spear"));
+
 //ItemNames.put("lotr:item.spearCorsair", Arrays.asList(""));
-ItemNames.put("lotr:item.spearDale", Collections.singletonList("lotr:dale_spear"));
+
 //ItemNames.put("lotr:item.spearDolGuldur", Arrays.asList(""));
-ItemNames.put("lotr:item.spearDwarven", Collections.singletonList("lotr:dwarven_spear"));
-ItemNames.put("lotr:item.spearElven", Collections.singletonList("lotr:galadhrim_spear"));
-ItemNames.put("lotr:item.spearGondor", Collections.singletonList("lotr:gondor_spear"));
+
 //ItemNames.put("lotr:item.spearGundabadUruk", Arrays.asList(""));
-ItemNames.put("lotr:item.spearHarad", Collections.singletonList("lotr:harad_spear"));
-ItemNames.put("lotr:item.spearHighElven", Collections.singletonList("lotr:lindon_spear"));
-ItemNames.put("lotr:item.spearIron", Collections.singletonList("lotr:iron_spear"));
-ItemNames.put("lotr:item.spearMithril", Collections.singletonList("lotr:mithril_spear"));
+
 //ItemNames.put("lotr:item.spearMoredain", Arrays.asList(""));
 //ItemNames.put("lotr:item.spearNearHarad", Arrays.asList(""));
-ItemNames.put("lotr:item.spearOrc", Collections.singletonList("lotr:mordor_spear"));
+
 //ItemNames.put("lotr:item.spearRhun", Arrays.asList(""));
-ItemNames.put("lotr:item.spearRivendell", Collections.singletonList("lotr:rivendell_spear"));
-ItemNames.put("lotr:item.spearRohan", Collections.singletonList("lotr:rohan_spear"));
-ItemNames.put("lotr:item.spearStone", Collections.singletonList("lotr:stone_spear"));
+
 //ItemNames.put("lotr:item.spearTauredain", Arrays.asList(""));
-ItemNames.put("lotr:item.spearUruk", Collections.singletonList("lotr:uruk_spear"));
+
 //ItemNames.put("lotr:item.spearUtumno", Arrays.asList(""));
-ItemNames.put("lotr:item.spearWoodElven", Collections.singletonList("lotr:wood_elven_spear"));
+
 //ItemNames.put("lotr:item.sting", Arrays.asList(""));
 //ItemNames.put("lotr:item.strawBed", Arrays.asList(""));
 //ItemNames.put("lotr:item.structureSpawner", Arrays.asList(""));
-ItemNames.put("lotr:item.sulfur", Collections.singletonList("lotr:sulfur"));
-ItemNames.put("lotr:item.sulfurMatch", Collections.singletonList("lotr:pocket_match"));
-ItemNames.put("lotr:item.swanFeather", Collections.singletonList("lotr:swan_feather"));
+
 //ItemNames.put("lotr:item.swordAngmar", Arrays.asList(""));
-ItemNames.put("lotr:item.swordArnor", Collections.singletonList("lotr:arnor_sword"));
+
 //ItemNames.put("lotr:item.swordBlackNumenorean", Arrays.asList(""));
-ItemNames.put("lotr:item.swordBlueDwarven", Collections.singletonList("lotr:blue_dwarven_sword"));
-ItemNames.put("lotr:item.swordBronze", Collections.singletonList("lotr:bronze_sword"));
+
 //ItemNames.put("lotr:item.swordCorsair", Arrays.asList(""));
-ItemNames.put("lotr:item.swordDale", Collections.singletonList("lotr:dale_sword"));
-ItemNames.put("lotr:item.swordDolAmroth", Collections.singletonList("lotr:dol_amroth_sword"));
+
 //ItemNames.put("lotr:item.swordDolGuldur", Arrays.asList(""));
-ItemNames.put("lotr:item.swordDorwinionElf", Collections.singletonList("lotr:dorwinion_elven_sword"));
-ItemNames.put("lotr:item.swordDwarven", Collections.singletonList("lotr:dwarven_sword"));
-ItemNames.put("lotr:item.swordElven", Collections.singletonList("lotr:galadhrim_sword"));
+
 //ItemNames.put("lotr:item.swordGondolin", Arrays.asList(""));
-ItemNames.put("lotr:item.swordGondor", Collections.singletonList("lotr:gondor_sword"));
+
 //ItemNames.put("lotr:item.swordGulfHarad", Arrays.asList(""));
 //ItemNames.put("lotr:item.swordGundabadUruk", Arrays.asList(""));
-ItemNames.put("lotr:item.swordHarad", Collections.singletonList("lotr:harad_sword"));
-ItemNames.put("lotr:item.swordHighElven", Collections.singletonList("lotr:lindon_sword"));
-ItemNames.put("lotr:item.swordMallorn", Collections.singletonList("lotr:mallorn_sword"));
-ItemNames.put("lotr:item.swordMithril", Collections.singletonList("lotr:mithril_sword"));
+
 //ItemNames.put("lotr:item.swordMoredain", Arrays.asList(""));
 //ItemNames.put("lotr:item.swordPelargir", Arrays.asList(""));
 //ItemNames.put("lotr:item.swordRhun", Arrays.asList(""));
-ItemNames.put("lotr:item.swordRivendell", Collections.singletonList("lotr:rivendell_sword"));
-ItemNames.put("lotr:item.swordRohan", Collections.singletonList("lotr:rohan_sword"));
+
 //ItemNames.put("lotr:item.swordTauredain", Arrays.asList(""));
 //ItemNames.put("lotr:item.swordUtumno", Arrays.asList(""));
-ItemNames.put("lotr:item.swordWoodElven", Collections.singletonList("lotr:wood_elven_sword"));
+
 //ItemNames.put("lotr:item.tauredainAmulet", Arrays.asList(""));
 //ItemNames.put("lotr:item.tauredainBlowgun", Arrays.asList(""));
 //ItemNames.put("lotr:item.tauredainDart", Arrays.asList(""));
@@ -1184,7 +767,7 @@ ItemNames.put("lotr:item.swordWoodElven", Collections.singletonList("lotr:wood_e
 //ItemNames.put("lotr:item.throwingAxeDwarven", Arrays.asList(""));
 //ItemNames.put("lotr:item.throwingAxeIron", Arrays.asList(""));
 //ItemNames.put("lotr:item.throwingAxeLossarnach", Arrays.asList(""));
-ItemNames.put("lotr:item.tin", Collections.singletonList("lotr:tin_ingot"));
+
 //ItemNames.put("lotr:item.topaz", Arrays.asList(""));
 //ItemNames.put("lotr:item.torogStew", Arrays.asList(""));
 //ItemNames.put("lotr:item.tridentPelargir", Arrays.asList(""));
@@ -1193,7 +776,7 @@ ItemNames.put("lotr:item.tin", Collections.singletonList("lotr:tin_ingot"));
 //ItemNames.put("lotr:item.turnip", Arrays.asList(""));
 //ItemNames.put("lotr:item.turnipCooked", Arrays.asList(""));
 //ItemNames.put("lotr:item.urukCrossbow", Arrays.asList(""));
-ItemNames.put("lotr:item.urukSteel", Collections.singletonList("lotr:uruk_steel_ingot"));
+
 //ItemNames.put("lotr:item.utumnoBow", Arrays.asList(""));
 //ItemNames.put("lotr:item.utumnoKey", Arrays.asList(""));
 //ItemNames.put("lotr:item.utumnoPickaxe", Arrays.asList(""));
@@ -1204,199 +787,124 @@ ItemNames.put("lotr:item.urukSteel", Collections.singletonList("lotr:uruk_steel_
 //ItemNames.put("lotr:item.wargFur", Arrays.asList(""));
 //ItemNames.put("lotr:item.wargFurBed", Arrays.asList(""));
 //ItemNames.put("lotr:item.wargskinRug", Arrays.asList(""));
-ItemNames.put("lotr:item.waterskin", Collections.singletonList("lotr:waterskin"));
+
 //ItemNames.put("lotr:item.wildberry", Arrays.asList(""));
 //ItemNames.put("lotr:item.wineGlass", Arrays.asList(""));
 //ItemNames.put("lotr:item.woodElvenBed", Arrays.asList(""));
-ItemNames.put("lotr:item.woodPlate", Collections.singletonList("lotr:wooden_plate"));
+
 //ItemNames.put("lotr:item.yam", Arrays.asList(""));
 //ItemNames.put("lotr:item.yamRoast", Arrays.asList(""));
 //ItemNames.put("lotr:item.zebraCooked", Arrays.asList(""));
 //ItemNames.put("lotr:item.zebraRaw", Arrays.asList(""));
 
 //some of these might be redundant as they have a separate item which is what this list is about
-ItemNames.put("lotr:tile.aleHorn", Collections.singletonList("lotr:ale_horn"));
-ItemNames.put("lotr:tile.aleHornGold", Collections.singletonList("lotr:golden_ale_horn"));
-ItemNames.put("lotr:tile.alloyForge", Collections.singletonList("lotr:alloy_forge"));
-ItemNames.put("lotr:tile.angmarCraftingTable", Collections.singletonList("lotr:angmar_crafting_table"));
-ItemNames.put("lotr:tile.appleCrumble", Collections.singletonList("lotr:apple_crumble"));
-ItemNames.put("lotr:tile.aridGrass", Collections.singletonList("lotr:arid_grass"));
-ItemNames.put("lotr:tile.armorStand", Collections.singletonList("minecraft:armor_stand"));
-ItemNames.put("lotr:tile.asphodel", Collections.singletonList("lotr:asphodel"));
-ItemNames.put("lotr:tile.athelas", Collections.singletonList("lotr:athelas"));
+
 //ItemNames.put("lotr:tile.banana", Arrays.asList(""));
 //ItemNames.put("lotr:tile.bananaCake", Arrays.asList(""));
 //TODO: alcohol handler
-ItemNames.put("lotr:tile.barrel", Collections.singletonList("lotr:keg"));
-ItemNames.put("lotr:tile.beacon", Collections.singletonList("lotr:gondor_beacon"));
+//ItemNames.put("lotr:tile.barrel", Collections.singletonList("lotr:keg"));
+
+
 //ItemNames.put("lotr:tile.berryBush", Arrays.asList(""));
 //ItemNames.put("lotr:tile.berryPie", Arrays.asList(""));
 //ItemNames.put("lotr:tile.birdCage", Arrays.asList(""));
 //ItemNames.put("lotr:tile.birdCageWood", Arrays.asList(""));
-ItemNames.put("lotr:tile.blackroot", Collections.singletonList("lotr:blackroot"));
+
 //ItemNames.put("lotr:tile.blockGem", Arrays.asList(""));
-ItemNames.put("lotr:tile.blueDwarfBars", Collections.singletonList("lotr:blue_dwarven_bars"));
-ItemNames.put("lotr:tile.blueDwarvenCraftingTable", Collections.singletonList("lotr:blue_mountains_crafting_table"));
-ItemNames.put("lotr:tile.bluebell", Collections.singletonList("lotr:bluebell"));
-ItemNames.put("lotr:tile.boneBlock", Collections.singletonList("minecraft:bone_block"));
-ItemNames.put("lotr:tile.bookshelfStorage", Collections.singletonList("minecraft:bookshelf"));
+
 //ItemNames.put("lotr:tile.breeCraftingTable", Arrays.asList(""));
 //the real thing starts here
-ItemNames.put("lotr:tile.brick", Arrays.asList("lotr:mordor_brick","lotr:gondor_brick","lotr:mossy_gondor_brick","lotr:cracked_gondor_brick","lotr:rohan_brick","lotr:carved_gondor_brick","lotr:dwarven_brick","lotr:cracked_mordor_brick","lotr:silver_trimmed_dwarven_brick","lotr:gold_trimmed_dwarven_brick","lotr:mithril_trimmed_dwarven_brick","lotr:galadhrim_brick","lotr:mossy_galadhrim_brick","lotr:cracked_galadhrim_brick","lotr:blue_brick","lotr:harad_brick"));
-ItemNames.put("lotr:tile.brick2", Arrays.asList("lotr:angmar_brick","lotr:cracked_angmar_brick","lotr:red_rock","lotr:arnor_brick","lotr:mossy_arnor_brick","lotr:cracked_arnor_brick","lotr:carved_arnor_brick","lotr:uruk_brick","","","lotr:carved_mordor_brick","lotr:numenorean_brick","lotr:lotr:carved_dwarven_brick","lotr:carved_high_elven_brick","lotr:carved_wood_elven_brick","lotr:carved_galadhrim_brick"));
-ItemNames.put("lotr:tile.brick3", Arrays.asList("lotr:carved_blue_brick","lotr:carved_red_brick","lotr:high_elven_brick","lotr:mossy_high_elven_brick","lotr:cracked_high_elven_brick","lotr:wood_elven_brick","lotr:mossy_wood_elven_brick","lotr:cracked_wood_elven_brick","","lotr:dol_amroth_brick","","","lotr:glowing_dwarven_brick","lotr:red_harad_brick","",""));
-ItemNames.put("lotr:tile.brick4", Arrays.asList("","","","","","lotr:cracked_dwarven_brick","lotr:carved_numenorean_brick","","","","","","","","","lotr:chalk_brick"));
-ItemNames.put("lotr:tile.brick5", Arrays.asList("","lotr:dale_brick","lotr:dorwinion_brick","lotr:carved_rohan_brick","lotr:mossy_dorwinion_brick","lotr:cracked_dorwinion_brick","","","lotr:gondor_cobblebrick","lotr:mossy_gondor_cobblebrick","lotr:cracked_gondor_cobblebrick","lotr:","lotr:","lotr:","lotr:","lotr:"));
-ItemNames.put("lotr:tile.brick6", Arrays.asList("","","","lotr:mossy_dale_brick","lotr:cracked_dale_brick","lotr:carved_dale_brick","lotr:umbar_brick","lotr:cracked_umbar_brick","","lotr:carved_numenorean_brick","lotr:snowy_angmar_brick","","",""));
 
-ItemNames.put("lotr:tile.bronzeBars", Collections.singletonList("lotr:bronze_bars"));
 //ItemNames.put("lotr:tile.butterflyJar", Arrays.asList(""));
-ItemNames.put("lotr:tile.buttonBlueRock", Collections.singletonList("lotr:blue_rock_button"));
-ItemNames.put("lotr:tile.buttonChalk", Collections.singletonList("lotr:chalk_button"));
-ItemNames.put("lotr:tile.buttonGondorRock", Collections.singletonList("lotr:gondor_rock_button"));
-ItemNames.put("lotr:tile.buttonMordorRock", Collections.singletonList("lotr:mordor_rock_button"));
-ItemNames.put("lotr:tile.buttonRedRock", Collections.singletonList("lotr:red_rock_button"));
-ItemNames.put("lotr:tile.buttonRohanRock", Collections.singletonList("lotr:rohan_rock_button"));
-ItemNames.put("lotr:tile.ceramicMug", Collections.singletonList("lotr:ceramic_mug"));
+
 //ItemNames.put("lotr:tile.ceramicPlate", Arrays.asList(""));
-ItemNames.put("lotr:tile.chandelier", Arrays.asList("lotr:bronze_chandelier","lotr:iron_chandelier","lotr:silver_chandelier","lotr:gold_chandelier","lotr:mithril_chandelier","","","","","","","","","","",""));
-ItemNames.put("lotr:tile.cherryPie", Collections.singletonList("lotr:cherry_pie"));
+
 //ItemNames.put("lotr:tile.chestAncientHarad", Arrays.asList(""));
 //ItemNames.put("lotr:tile.chestBasket", Arrays.asList(""));
 //ItemNames.put("lotr:tile.chestLebethron", Arrays.asList(""));
 //ItemNames.put("lotr:tile.chestMallorn", Arrays.asList(""));
 //ItemNames.put("lotr:tile.chestStone", Arrays.asList(""));
-ItemNames.put("lotr:tile.clayTile", Collections.singletonList("lotr:clay_tiling"));
-ItemNames.put("lotr:tile.clayTileDyed", Arrays.asList("lotr:white_clay_tiling","lotr:orange_clay_tiling","lotr:magenta_clay_tiling","lotr:light_blue_clay_tiling","lotr:yellow_clay_tiling","lotr:lime_clay_tiling","lotr:pink_clay_tiling","lotr:gray_clay_tiling","lotr:light_gray_clay_tiling","lotr:cyan_clay_tiling","lotr:purple_clay_tiling","lotr:blue_clay_tiling","lotr:brown_clay_tiling","lotr:green_clay_tiling","lotr:red_clay_tiling","lotr:black_clay_tiling"));
-ItemNames.put("lotr:tile.clover", Arrays.asList("lotr:clover","lotr:four_leaf_clover"));
-ItemNames.put("lotr:tile.cobblebrick", Collections.singletonList("lotr:drystone"));
+
 //ItemNames.put("lotr:tile.commandTable", Arrays.asList(""));
-ItemNames.put("lotr:tile.coralReef", Collections.singletonList("minecraft:fire_coral_block"));
+
 //ItemNames.put("lotr:tile.cornStalk", Arrays.asList(""));
 //ItemNames.put("lotr:tile.corruptMallorn", Arrays.asList(""));
-ItemNames.put("lotr:tile.daleCraftingTable", Collections.singletonList("lotr:dale_crafting_table"));
+
 //ItemNames.put("lotr:tile.dalishPastry", Arrays.asList(""));
 //ItemNames.put("lotr:tile.date", Arrays.asList(""));
-ItemNames.put("lotr:tile.daub", Collections.singletonList("lotr:wattle_and_daub"));
+
 //ItemNames.put("lotr:tile.deadMarshPlant", Arrays.asList(""));
-ItemNames.put("lotr:tile.dirtPath", Collections.singletonList("minecraft:grass_path"));
-ItemNames.put("lotr:tile.dolAmrothCraftingTable", Collections.singletonList("lotr:dol_amroth_crafting_table"));
+
 //ItemNames.put("lotr:tile.dolGuldurCraftingTable", Arrays.asList(""));
-ItemNames.put("lotr:tile.doorAcacia", Collections.singletonList("minecraft:acacia_door"));
+
 //ItemNames.put("lotr:tile.doorAlmond", Arrays.asList(""));
-ItemNames.put("lotr:tile.doorApple", Collections.singletonList("lotr:apple_door"));
-ItemNames.put("lotr:tile.doorAspen", Collections.singletonList("lotr:aspen_door"));
+
 //ItemNames.put("lotr:tile.doorBanana", Arrays.asList(""));
 //ItemNames.put("lotr:tile.doorBaobab", Arrays.asList(""));
-ItemNames.put("lotr:tile.doorBeech", Collections.singletonList("lotr:beech_door"));
-ItemNames.put("lotr:tile.doorBirch", Collections.singletonList("minecraft:birch_door"));
-ItemNames.put("lotr:tile.doorCedar", Collections.singletonList("lotr:cedar_door"));
-ItemNames.put("lotr:tile.doorCharred", Collections.singletonList("lotr:charred_door"));
-ItemNames.put("lotr:tile.doorCherry", Collections.singletonList("lotr:cherry_door"));
+
 //ItemNames.put("lotr:tile.doorChestnut", Arrays.asList(""));
-ItemNames.put("lotr:tile.doorCypress", Collections.singletonList("lotr:cypress_door"));
-ItemNames.put("lotr:tile.doorDarkOak", Collections.singletonList("minecraft:dark_oak_door"));
+
 //ItemNames.put("lotr:tile.doorDatePalm", Arrays.asList(""));
 //ItemNames.put("lotr:tile.doorDragon", Arrays.asList(""));
-ItemNames.put("lotr:tile.doorFir", Collections.singletonList("lotr:fir_door"));
-ItemNames.put("lotr:tile.doorGreenOak", Collections.singletonList("lotr:green_oak_door"));
-ItemNames.put("lotr:tile.doorHolly", Collections.singletonList("lotr:holly_door"));
-ItemNames.put("lotr:tile.doorJungle", Collections.singletonList("minecraft:jungle_door"));
+
 //ItemNames.put("lotr:tile.doorKanuka", Arrays.asList(""));
-ItemNames.put("lotr:tile.doorLairelosse", Collections.singletonList("lotr:lairelosse_door"));
-ItemNames.put("lotr:tile.doorLarch", Collections.singletonList("lotr:larch_door"));
-ItemNames.put("lotr:tile.doorLebethron", Collections.singletonList("lotr:lebethron_door"));
+
 //ItemNames.put("lotr:tile.doorLemon", Arrays.asList(""));
 //ItemNames.put("lotr:tile.doorLime", Arrays.asList(""));
 //ItemNames.put("lotr:tile.doorMahogany", Arrays.asList(""));
-ItemNames.put("lotr:tile.doorMallorn", Collections.singletonList("lotr:mallorn_door"));
+
 //ItemNames.put("lotr:tile.doorMango", Arrays.asList(""));
 //ItemNames.put("lotr:tile.doorMangrove", Arrays.asList(""));
-ItemNames.put("lotr:tile.doorMaple", Collections.singletonList("lotr:maple_door"));
-ItemNames.put("lotr:tile.doorMirkOak", Collections.singletonList("lotr:mirk_oak_door"));
+
 //ItemNames.put("lotr:tile.doorOlive", Arrays.asList(""));
 //ItemNames.put("lotr:tile.doorOrange", Arrays.asList(""));
 //ItemNames.put("lotr:tile.doorPalm", Arrays.asList(""));
-ItemNames.put("lotr:tile.doorPear", Collections.singletonList("lotr:pear_door"));
-ItemNames.put("lotr:tile.doorPine", Collections.singletonList("lotr:pine_door"));
+
 //ItemNames.put("lotr:tile.doorPlum", Arrays.asList(""));
 //ItemNames.put("lotr:tile.doorPomegranate", Arrays.asList(""));
 //ItemNames.put("lotr:tile.doorRedwood", Arrays.asList(""));
-ItemNames.put("lotr:tile.doorRotten", Collections.singletonList("lotr:rotten_door"));
-ItemNames.put("lotr:tile.doorShirePine", Collections.singletonList("lotr:pine_door"));
-ItemNames.put("lotr:tile.doorSpruce", Collections.singletonList("minecraft:spruce_door"));
+
 //ItemNames.put("lotr:tile.doorWillow", Arrays.asList(""));
-ItemNames.put("lotr:tile.dorwinionCraftingTable", Collections.singletonList("lotr:dorwinion_crafting_table"));
-ItemNames.put("lotr:tile.doubleFlower", Arrays.asList("","lotr:yellow_iris","lotr:hibiscus","lotr:flame_of_harad"));
-ItemNames.put("lotr:tile.driedReeds", Collections.singletonList("lotr:dried_reeds"));
-ItemNames.put("lotr:tile.dunlendingCraftingTable", Collections.singletonList("lotr:dunlending_crafting_table"));
-ItemNames.put("lotr:tile.dwarfBars", Collections.singletonList("lotr:dwarven_bars"));
-ItemNames.put("lotr:tile.dwarfHerb", Collections.singletonList("lotr:dwarfwort"));
+
 //ItemNames.put("lotr:tile.dwarvenBed", Arrays.asList(""));
-ItemNames.put("lotr:tile.dwarvenCraftingTable", Collections.singletonList("lotr:dwarven_crafting_table"));
+
 //ItemNames.put("lotr:tile.dwarvenDoor", Arrays.asList(""));
 //ItemNames.put("lotr:tile.dwarvenDoorIthildin", Arrays.asList(""));
-ItemNames.put("lotr:tile.dwarvenForge", Collections.singletonList("lotr:dwarven_forge"));
-ItemNames.put("lotr:tile.elanor", Collections.singletonList("lotr:elanor"));
+
 //ItemNames.put("lotr:tile.elvenBed", Arrays.asList(""));
-ItemNames.put("lotr:tile.elvenCraftingTable", Collections.singletonList("lotr:galadhrim_crafting_table"));
-ItemNames.put("lotr:tile.elvenForge", Collections.singletonList("lotr:elven_forge"));
+
 //ItemNames.put("lotr:tile.elvenPortal", Arrays.asList(""));
 //ItemNames.put("lotr:tile.entJar", Arrays.asList(""));
-ItemNames.put("lotr:tile.fallenLeaves", Arrays.asList("lotr:fallen_oak_leaves","lotr:fallen_spruce_leaves","lotr:fallen_birch_leaves","lotr:fallen_jungle_leaves","lotr:fallen_acacia_leaves","lotr:fallen_dark_oak_leaves"));
-ItemNames.put("lotr:tile.fallenLeavesLOTR", Arrays.asList("lotr:fallen_pine_leaves","lotr:fallen_mallorn_leaves","lotr:fallen_mirk_oak_leaves","lotr:fallen_red_oak_leaves","lotr:fallen_apple_leaves","lotr:fallen_pear_leaves","lotr:fallen_cherry_leaves","","lotr:fallen_lebethron_leaves","lotr:fallen_beech_leaves","lotr:fallen_holly_leaves","","lotr:fallen_maple_leaves","lotr:fallen_larch_leaves","",""));
-ItemNames.put("lotr:tile.fallenLeavesLOTR2", Arrays.asList("","","lotr:fallen_cedar_leaves","lotr:fallen_fir_leaves","lotr:fallen_pine_leaves","","","","","","","lotr:fallen_cypress_leaves","","lotr:fallen_aspen_leaves","lotr:fallen_green_oak_leaves","lotr:fallen_lairelosse_leaves",""));
-ItemNames.put("lotr:tile.fallenLeavesLOTR3", Arrays.asList("","","","","",""));
+
 //ItemNames.put("lotr:tile.fangornPlant", Arrays.asList(""));
 //ItemNames.put("lotr:tile.fangornRiverweed", Arrays.asList(""));
-ItemNames.put("lotr:tile.fence", Arrays.asList("lotr:pine_fence","lotr:mallorn_fence","lotr:mirk_oak_fence","lotr:charred_fence","lotr:apple_fence","lotr:pear_fence","lotr:cherry_fence","","lotr:lebethron_fence","lotr:beech_fence","lotr:holly_fence","","lotr:maple_fence","lotr:larch_fence","",""));
-ItemNames.put("lotr:tile.fence2", Arrays.asList("","","lotr:cedar_fence","lotr:fir_fence","lotr:pine_fence","","","","","","lotr:cypress_fence","","lotr:aspen_fence","lotr:green_oak_fence","lotr:lairelosse_fence",""));
-ItemNames.put("lotr:tile.fence3", Arrays.asList("","","","","",""));
-ItemNames.put("lotr:tile.fenceGateAcacia", Collections.singletonList("minecraft:acacia_fence_gate"));
+
 //ItemNames.put("lotr:tile.fenceGateAlmond", Arrays.asList(""));
-ItemNames.put("lotr:tile.fenceGateApple", Collections.singletonList("lotr:apple_fence_gate"));
-ItemNames.put("lotr:tile.fenceGateAspen", Collections.singletonList("lotr:aspen_fence_gate"));
+
 //ItemNames.put("lotr:tile.fenceGateBanana", Arrays.asList(""));
 //ItemNames.put("lotr:tile.fenceGateBaobab", Arrays.asList(""));
-ItemNames.put("lotr:tile.fenceGateBeech", Collections.singletonList("lotr:beech_fence_gate"));
-ItemNames.put("lotr:tile.fenceGateBirch", Collections.singletonList("minecraft:birch_fence_gate"));
-ItemNames.put("lotr:tile.fenceGateCedar", Collections.singletonList("lotr:cedar_fence_gate"));
-ItemNames.put("lotr:tile.fenceGateCharred", Collections.singletonList("lotr:charred_fence_gate"));
-ItemNames.put("lotr:tile.fenceGateCherry", Collections.singletonList("lotr:cherry_fence_gate"));
+
 //ItemNames.put("lotr:tile.fenceGateChestnut", Arrays.asList(""));
-ItemNames.put("lotr:tile.fenceGateCypress", Collections.singletonList("lotr:cypress_fence_gate"));
-ItemNames.put("lotr:tile.fenceGateDarkOak", Collections.singletonList("minecraft:dark_oak_fence_gate"));
+
 //ItemNames.put("lotr:tile.fenceGateDatePalm", Arrays.asList(""));
 //ItemNames.put("lotr:tile.fenceGateDragon", Arrays.asList(""));
-ItemNames.put("lotr:tile.fenceGateFir", Collections.singletonList("lotr:fir_fence_gate"));
-ItemNames.put("lotr:tile.fenceGateGreenOak", Collections.singletonList("lotr:green_oak_fence_gate"));
-ItemNames.put("lotr:tile.fenceGateHolly", Collections.singletonList("lotr:holly_fence_gate"));
-ItemNames.put("lotr:tile.fenceGateJungle", Collections.singletonList("minecraft:jungle_fence_gate"));
+
 //ItemNames.put("lotr:tile.fenceGateKanuka", Arrays.asList(""));
-ItemNames.put("lotr:tile.fenceGateLairelosse", Collections.singletonList("lairelosse:_fence_gate"));
-ItemNames.put("lotr:tile.fenceGateLarch", Collections.singletonList("lotr:larch_fence_gate"));
-ItemNames.put("lotr:tile.fenceGateLebethron", Collections.singletonList("lotr:lebethron_fence_gate"));
+
 //ItemNames.put("lotr:tile.fenceGateLemon", Arrays.asList(""));
 //ItemNames.put("lotr:tile.fenceGateLime", Arrays.asList(""));
 //ItemNames.put("lotr:tile.fenceGateMahogany", Arrays.asList(""));
-ItemNames.put("lotr:tile.fenceGateMallorn", Collections.singletonList("lotr:mallorn_fence_gate"));
+
 //ItemNames.put("lotr:tile.fenceGateMango", Arrays.asList(""));
 //ItemNames.put("lotr:tile.fenceGateMangrove", Arrays.asList(""));
-ItemNames.put("lotr:tile.fenceGateMaple", Collections.singletonList("lotr:maple_fence_gate"));
-ItemNames.put("lotr:tile.fenceGateMirkOak", Collections.singletonList("lotr:mirk_oak_fence_gate"));
+
 //ItemNames.put("lotr:tile.fenceGateOlive", Arrays.asList(""));
 //ItemNames.put("lotr:tile.fenceGateOrange", Arrays.asList(""));
 //ItemNames.put("lotr:tile.fenceGatePalm", Arrays.asList(""));
-ItemNames.put("lotr:tile.fenceGatePear", Collections.singletonList("lotr:pear_fence_gate"));
-ItemNames.put("lotr:tile.fenceGatePine", Collections.singletonList("lotr:pine_fence_gate"));
 //ItemNames.put("lotr:tile.fenceGatePlum", Arrays.asList(""));
 //ItemNames.put("lotr:tile.fenceGatePomegranate", Arrays.asList(""));
 //ItemNames.put("lotr:tile.fenceGateRedwood", Arrays.asList(""));
-ItemNames.put("lotr:tile.fenceGateRotten", Collections.singletonList("lotr:rotten_fence_gate"));
-ItemNames.put("lotr:tile.fenceGateShirePine", Collections.singletonList("lotr:pine_fence_gate"));
-ItemNames.put("lotr:tile.fenceGateSpruce", Collections.singletonList("minecraft:spruce_fence_gate"));
 //ItemNames.put("lotr:tile.fenceGateWillow", Arrays.asList(""));
-ItemNames.put("lotr:tile.fenceRotten", Collections.singletonList("lotr:rotten_fence_gate"));
 //ItemNames.put("lotr:tile.flax", Arrays.asList(""));
 //ItemNames.put("lotr:tile.flaxPlant", Arrays.asList(""));
 //ItemNames.put("lotr:tile.flowerPot", Arrays.asList(""));
@@ -2201,33 +1709,6 @@ ItemNames.put("lotr:tile.fenceRotten", Collections.singletonList("lotr:rotten_fe
 //ItemNames.put("minecraft:string", Arrays.asList(""));
 //ItemNames.put("minecraft:sugar", Arrays.asList(""));
 //ItemNames.put("minecraft:tallgrass", Arrays.asList(""));
-ItemNames.put("minecraft:tnt", Collections.singletonList("minecraft:tnt"));
-ItemNames.put("minecraft:tnt_minecart", Collections.singletonList("minecraft:tnt_minecart"));
-ItemNames.put("minecraft:torch", Collections.singletonList("minecraft:torch"));
-ItemNames.put("minecraft:trapdoor", Collections.singletonList("minecraft:trapdoor"));
-ItemNames.put("minecraft:trapped_chest", Collections.singletonList("minecraft:trapped_chest"));
-ItemNames.put("minecraft:tripwire_hook", Collections.singletonList("minecraft:tripwire_hook"));
-ItemNames.put("minecraft:vine", Collections.singletonList("minecraft:vine"));
-ItemNames.put("minecraft:water", Collections.singletonList("minecraft:water"));
-ItemNames.put("minecraft:water_bucket", Collections.singletonList("minecraft:water_bucket"));
-ItemNames.put("minecraft:waterlily", Collections.singletonList("minecraft:waterlily"));
-ItemNames.put("minecraft:web", Collections.singletonList("minecraft:web"));
-ItemNames.put("minecraft:wheat", Collections.singletonList("minecraft:wheat"));
-ItemNames.put("minecraft:wheat_seeds", Collections.singletonList("minecraft:wheat_seeds"));
-ItemNames.put("minecraft:wooden_axe", Collections.singletonList("minecraft:wooden_axe"));
-ItemNames.put("minecraft:wooden_button", Collections.singletonList("minecraft:oak_button"));
-ItemNames.put("minecraft:wooden_door", Collections.singletonList("minecraft:oak_door"));
-ItemNames.put("minecraft:wooden_hoe", Collections.singletonList("minecraft:wooden_hoe"));
-ItemNames.put("minecraft:wooden_pickaxe", Collections.singletonList("minecraft:wooden_pickaxe"));
-ItemNames.put("minecraft:wooden_pressure_plate", Collections.singletonList("minecraft:oak_pressure_plate"));
-ItemNames.put("minecraft:wooden_shovel", Collections.singletonList("minecraft:wooden_shovel"));
-ItemNames.put("minecraft:wooden_slab", Arrays.asList("minecraft:oak_slab","minecraft:spruce_slab","minecraft:birch_slab","minecraft:jungle_slab","minecraft:acacia_slab","minecraft:dark_oak_slab"));
-ItemNames.put("minecraft:wooden_sword", Collections.singletonList("minecraft:wooden_sword"));
-ItemNames.put("minecraft:wool", Arrays.asList("minecraft:white_wool","minecraft:orange_wool","minecraft:magenta_wool","minecraft:light_blue_wool","minecraft:yellow_wool","minecraft:lime_wool","minecraft:pink_wool","minecraft:gray_wool","minecraft:light_gray_wool","minecraft:cyan_wool","minecraft:purple_wool","minecraft:blue_wool","minecraft:brown_wool","minecraft:green_wool","minecraft:red_wool","minecraft:black_wool"));
-ItemNames.put("minecraft:writable_book", Collections.singletonList("minecraft:writable_book"));
-ItemNames.put("minecraft:written_book", Collections.singletonList("minecraft:written_book"));
-ItemNames.put("minecraft:yellow_flower", Collections.singletonList("minecraft:dandelion"));
-        return ItemNames;
     }
 }
 
