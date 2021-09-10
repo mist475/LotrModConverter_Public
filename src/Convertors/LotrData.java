@@ -49,6 +49,8 @@ public class LotrData implements Convertor {
 		//current working folder
 		File currentFolder = new File(Paths.get(p +"/"+FileName+"_Converted/lotr").toString());
 		try {
+			//technically I could simply not run this, I did this to learn the handling of the tags as JNBT doesn't have proper documentation
+
 		    //Explanation of the tags:
 			//LOTRTime.dat fix
 			//discards the TotalWorldTime IntTag as it isn't in renewed yet
@@ -78,8 +80,9 @@ public class LotrData implements Convertor {
             final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
             input.close();
 
-            final Map<String, Tag> newData = new HashMap<>(1);
-            newData.put("LOTRWorldTime",(originalTopLevelTag.getValue()).get("LOTRWorldTime"));
+			Map<String, Tag> newData = new HashMap<>(originalTopLevelTag.getValue());
+			newData.remove("LOTRTotalTime");
+            //newData.put("LOTRWorldTime",(originalTopLevelTag.getValue()).get("LOTRWorldTime"));
             final CompoundTag newTopLevelTag = new CompoundTag("", newData);
 
             final NBTOutputStream output = new NBTOutputStream(new FileOutputStream(currentFolder+"/LOTRTime.dat"));
@@ -95,15 +98,7 @@ public class LotrData implements Convertor {
 
 		try {
 			//LOTR.dat fix
-			//discards: as they aren't in renewed yet or are now datapackable
-			// (CompoundTag) Travelling Traders
-			// GreyWanderers (list of some sort, probably int)
-			// (ByteTag) AlignmentZones
-			// (FloatTag) ConqRate
-			// (ByteTag) DifficultyLock
-			// (ByteTag) GollumSpawned
-			// (IntTag) GWSpawnTick
-			// (IntTag) StructuresBanned
+
 
 
 			//opens the file as a stream and saves the result as a CompoundTag
@@ -111,28 +106,27 @@ public class LotrData implements Convertor {
 			final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
 			input.close();
 			//saves the input as a map, this is important for saving the file, for reading it is redundant
-			Map<String, Tag> originalData = originalTopLevelTag.getValue();
-			//gets the values we want
+			Map<String, Tag> originalData = new HashMap<>(originalTopLevelTag.getValue());
+			//discards: as they aren't in renewed yet or are now datapackable, if something gets ported to renewed in the exact same way as legacy I can simply uncomment these lines
+			originalData.remove("TravellingTraders");
+			originalData.remove("GreyWanderers");
+			originalData.remove("AlignmentZones");
+			originalData.remove("ConqRate");
+			originalData.remove("DifficultyLock");
+			originalData.remove("GollumSpawned");
+			originalData.remove("GWSpawnTick");
+			originalData.remove("StructuresBanned");
 
-			Map<String, Tag> Dates = new HashMap<>(1);
-			Dates.put("CurrentDay",((CompoundTag) originalData.get("Dates")).getValue().get("ShireDate"));
+			IntTag CurrentDay = new IntTag("CurrentDay", ((IntTag) ((CompoundTag) originalData.get("Dates")).getValue().get("ShireDate")).getValue());
+			Map<String,Tag> Dates_map = new HashMap<>();
+			Dates_map.put("CurrentDay",CurrentDay);
+			CompoundTag Dates = new CompoundTag("Dates",Dates_map);
+			originalData.replace("Dates",Dates);
+			originalData.replace("MadeMiddlePortal",new ByteTag("MadeMiddlePortal",(byte)(int) originalData.get("MadeMiddlePortal").getValue()));
+			originalData.replace("MadePortal",new ByteTag("MadePortal",(byte)(int) originalData.get("MadePortal").getValue()));
 
-			//creates a new map as the old one was immutable
-			final Map<String, Tag> newData = new HashMap<>(1);
-			//puts the data in
-			newData.put("Dates",new CompoundTag("Dates",Dates));
-			newData.put("MadeMiddlePortal",new ByteTag("MadeMiddlePortal",(byte)(int) originalData.get("MadeMiddlePortal").getValue()));
-			newData.put("MadePortal",new ByteTag("MadePortal",(byte)(int) originalData.get("MadePortal").getValue()));
-			newData.put("MiddleEarthX",originalData.get("MiddleEarthX"));
-			newData.put("MiddleEarthY",originalData.get("MiddleEarthY"));
-			newData.put("MiddleEarthZ",originalData.get("MiddleEarthZ"));
-			newData.put("OverWorldX",originalData.get("OverworldX"));
-			newData.put("OverWorldY",originalData.get("OverworldY"));
-			newData.put("OverWorldZ",originalData.get("OverworldZ"));
-			newData.put("WpCdMax",originalData.get("WpCdMax"));
-			newData.put("WpCdMin",originalData.get("WpCdMin"));
 			//creates the new top level tag, otherwise it won't work
-			final CompoundTag newTopLevelTag = new CompoundTag("", newData);
+			final CompoundTag newTopLevelTag = new CompoundTag("", originalData);
 
 			//creates an output stream, this overwrites the file so deleting it is not necessary
 			final NBTOutputStream output = new NBTOutputStream(new FileOutputStream(currentFolder+"/LOTR.dat"));
@@ -157,7 +151,7 @@ public class LotrData implements Convertor {
 				final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
 				input.close();
 				//saves the input as a map, this is important for saving the file, for reading it is redundant
-				Map<String, Tag> originalData = originalTopLevelTag.getValue();
+				Map<String, Tag> originalData = new HashMap<>(originalTopLevelTag.getValue());
 				//gets the values we want, note, = I'm doing the easy ones first (lists last) I'm keeping the order though as I've read somewhere that that matters
 
 			ListTag AlignmentMap_old = (ListTag) originalData.get("AlignmentMap");
@@ -201,7 +195,6 @@ public class LotrData implements Convertor {
                     StringTag Faction_tag_PRF = (StringTag) ((CompoundTag)tag).getValue().get("Faction");
                     String Region_PRF = ((StringTag) ((CompoundTag)tag).getValue().get("Region")).getValue();
                     String Faction_PRF = Faction_tag_PRF.getValue();
-					assert FacNames != null;
 					if (FacNames.containsKey(Faction_PRF)) {
                         final Map<String, Tag> newData_PRF = new HashMap<>(1);
                         newData_PRF.put("Faction",new StringTag("Faction",FacNames.get(Faction_PRF)));
@@ -281,67 +274,79 @@ public class LotrData implements Convertor {
 				//create the ListTag from the List
 				//ListTag WPUses = new ListTag("WPUses",CompoundTag.class, WPUses_builder);
 
-				Byte InitialSpawnedIntoME_old = (Byte) originalData.get("TeleportedME").getValue();
-				ByteTag InitialSpawnedIntoME;
-				if (Objects.equals(InitialSpawnedIntoME_old, (byte) 1)) {
-					InitialSpawnedIntoME = new ByteTag("ShowMapLocation", (byte) 0);
-				}
-				else {
-					InitialSpawnedIntoME = new ByteTag("ShowMapLocation", (byte) 1);
-				}
 
-				//Byte in legacy, string in renewed
-				Byte RankGender_old = (Byte) originalData.get("FemRankOverride").getValue();
-				StringTag RankGender;
-				if (Objects.equals(RankGender_old, (byte) 0)) {
-					RankGender = new StringTag("RankGender","M");
-				}
-				else {
-					RankGender = new StringTag("RankGender","F");
-					// "FLOPPA_CAT" Mevans, really?
-				}
 
-				//there must be an easier way for this but oh well
-				Byte ShowMapLocation_old = (Byte) originalData.get("HideOnMap").getValue();
-				ByteTag ShowMapLocation;
-				if (Objects.equals(ShowMapLocation_old, (byte) 1)) {
-					ShowMapLocation = new ByteTag("ShowMapLocation", (byte) 0);
-				}
-				else {
-					ShowMapLocation = new ByteTag("ShowMapLocation", (byte) 1);
-				}
+
 				//the game will add missing items itself, hence the commented out fields
 				//ByteTag ShowMapMarkers = new ByteTag("ShowMapMarkers", (byte) 1);
 
-				//creates a new map as the old one was immutable, the 1 is the amount of values stored (in this case 1)
-				final Map<String, Tag> newData = new HashMap<>(1);
-				//puts the data in
-				newData.put("AlignmentMap",new ListTag("AlignmentMap",CompoundTag.class, AlignmentMap_builder));
-				newData.put("FactionStats",new ListTag("FactionStats",CompoundTag.class, FactionStats_builder));
-				newData.put("PrevRegionFactions",new ListTag("PrevRegionFactions",CompoundTag.class, PrevRegionFactions_builder));
-				//newData.put("SentMessageTypes",SentMessageTypes); not gonna do unless someone really bugs me about it, not sure what it does
-				newData.put("UnlockedFTRegions",new ListTag("UnlockedFTRegions",StringTag.class, UnlockedFTRegions_Builder));
-				newData.put("WPUses",new ListTag("WPUses",CompoundTag.class, WPUses_builder));
-				newData.put("Alcohol",originalData.get("Alcohol"));
-				newData.put("CurrentFaction",new StringTag("CurrentFaction",Data.getOrDefault(FacNames,originalData.get("CurrentFaction").getValue().toString(),"lotr:hobbit")));
-				newData.put("FriendlyFire",originalData.get("FriendlyFire"));
-				newData.put("FTSince",originalData.get("FTSince"));
-				newData.put("InitialSpawnedIntoME",InitialSpawnedIntoME);
-				newData.put("LastOnlineTime",originalData.get("LastOnlineTime"));
-				newData.put("MountUUIDTime",originalData.get("MountUUIDTime"));
-				newData.put("NextCWPID",originalData.get("NextCWPID"));
-				//newData.put("NextMapMarkerId",NextMapMarkerID);
-				newData.put("PledgeBreakCD",originalData.get("PledgeBreakCD"));
-				newData.put("PledgeBreakCDStart",originalData.get("PledgeBreakCDStart"));
-				newData.put("PledgeKillCD",originalData.get("PledgeKillCD"));
-				newData.put("RankGender",RankGender);
-				newData.put("ShowCWP",originalData.get("ShowCWP"));
-				newData.put("ShowMapLocation",ShowMapLocation);
-				//newData.put("ShowMapMarkers",ShowMapMarkers);
-				newData.put("ShowWP",originalData.get("ShowWP"));
+				//removes redundant data (when said info gets ported I can simply uncomment it)
+				originalData.remove("QuestData");
+				originalData.remove("Achievements");
+				originalData.remove("SentMessageTypes"); //not sure what this does
+				originalData.remove("BountiesPlaced");
+				originalData.remove("CustomWayPoints"); //additional requirements in renewed, might port these later as a thing you can only use once
+				originalData.remove("CWPSharedHidden");
+				originalData.remove("CWPSharedUnlocked");
+				originalData.remove("CWPSharedUses");
+				originalData.remove("CWPUses");
+				originalData.remove("FellowshipInvites");
+				originalData.remove("Fellowships");
+				originalData.remove("MiniQuests");
+				originalData.remove("MiniQuestsCompleted");
+				originalData.remove("TakenAlignmentRewards");
+				originalData.remove("AdminHideMap");
+				originalData.remove("Chosen35Align");
+				originalData.remove("ConquestKills");
+				originalData.remove("HideAlignment");
+				originalData.remove("HideOnMap");
+				originalData.remove("HiredDeathMessages");
+				originalData.remove("LastBiome");
+				originalData.remove("MiniQuestTrack");
+				originalData.remove("MQCompleteCount");
+				originalData.remove("MQCompleteBounties");
+				originalData.remove("Pre35Align");
+				originalData.remove("ShowHiddenSWP");
+				originalData.remove("StructuresBanned");
+
+				originalData.replace("AlignmentMap",new ListTag("AlignmentMap",CompoundTag.class, AlignmentMap_builder));
+				originalData.replace("FactionStats",new ListTag("FactionStats",CompoundTag.class, FactionStats_builder));
+				originalData.replace("PrevRegionFactions",new ListTag("PrevRegionFactions",CompoundTag.class, PrevRegionFactions_builder));
+				originalData.replace("UnlockedFTRegions",new ListTag("UnlockedFTRegions",StringTag.class, UnlockedFTRegions_Builder));
+				originalData.replace("WPUses",new ListTag("WPUses",CompoundTag.class, WPUses_builder));
+				originalData.replace("CurrentFaction",new StringTag("CurrentFaction",Data.getOrDefault(FacNames,originalData.get("CurrentFaction").getValue().toString(),"lotr:hobbit")));
+
+				if (Objects.equals(originalData.get("TeleportedME").getValue(), (byte) 1)) {
+					originalData.replace("TeleportedME",(new ByteTag("InitialSpawnedIntoME", (byte) 0)));
+				}
+				else {
+					originalData.replace("TeleportedME",(new ByteTag("InitialSpawnedIntoME", (byte) 1)));
+				}
+				System.out.println();
+
+				//Byte in legacy, string in renewed, because of this you can replace it in the stream
+				if (Objects.equals(originalData.get("FemRankOverride").getValue(), (byte) 0)) {
+					originalData.put("RankGender",(new StringTag("RankGender","M")));
+
+				}
+				else {
+					originalData.put("RankGender",(new StringTag("RankGender","F")));
+					// "FLOPPA_CAT" Mevans, really?
+				}
+
+				originalData.remove("FemRankOverride");
+				if (originalData.containsKey("HideOnMap")) {
+					if (Objects.equals(originalData.get("HideOnMap").getValue(), (byte) 1)) {
+						originalData.replace("HideOnMap",new ByteTag("ShowMapLocation", (byte) 0));
+					}
+					else {
+						originalData.replace("HideOnMap",new ByteTag("ShowMapLocation", (byte) 1));
+					}
+				}
+
 
 				//creates the new top level tag, otherwise it won't work
-				final CompoundTag newTopLevelTag = new CompoundTag("", newData);
+				final CompoundTag newTopLevelTag = new CompoundTag("", originalData);
 				//creates an output stream, this overwrites the file so deleting it is not necessary
 				final NBTOutputStream output = new NBTOutputStream(new FileOutputStream(playerFile.getAbsolutePath()));
 				output.writeTag(newTopLevelTag);
