@@ -5,12 +5,24 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
 
+/**
+ * Manages the mappings
+ */
 public class Data {
-    public Map<?,?> Conversions;
+    private final Map<?,?> Conversions;
+
+    /**
+     * Initializes Data
+     * @param conversions JSON loaded LinkedTreeMap containing the mappings
+     */
     public Data(Map<?,?> conversions) {
         this.Conversions = conversions;
     }
 
+    /**
+     * Returns a Map of the waypoints
+     * @return Map with key String and value String with the waypoint mappings
+     */
     public Map<String,String> Waypoints() {
         //missing:
         //Waypoints.put("","lotr:ajtiaz_an_ahar");
@@ -19,11 +31,19 @@ public class Data {
      }
 
 
-
+    /**
+     * returns a Map of the faction names
+     * @return Map with key String and value String with the FactionName mappings
+     */
     public Map<String,String> FacNames() {
         return (Map<String, String>) Conversions.get("Factions");
 
     }
+
+    /**
+     * returns a Map of the regions
+     * @return Map with key String and value String with the Region mappings
+     */
     public Map<String,String> Regions() {
         return (Map<String, String>) Conversions.get("Regions");
         //Regions.put("","lotr:andrast"); not in legacy, put with gondor
@@ -38,6 +58,13 @@ public class Data {
     //if no value is present, code will be commented
 
     //legacy id HashMap generator, ids can vary, hence the dynamic generation
+
+    /**
+     * Dynamically creates and returns a Map containing the int ids and the old string ids
+     * @param levelDat Path of the old level.dat file
+     * @return Map with key Integer and value String containing the int ids and the old string ids
+     * @throws IOException if something fails
+     */
     public static Map<Integer,String> LegacyIds(String levelDat) throws IOException {
         HashMap<Integer,String> LegacyIds = new HashMap<>();
         try {
@@ -61,6 +88,13 @@ public class Data {
 
     //renewed id HashMap generator, ids can vary, hence the dynamic generation
     //will not be used though as apparently I forgot to actually check how the stuff is saved (as strings, not as int, though the ints are also saved)
+
+    /**
+     * Dynamically creates and returns a map containing the new string ids and the new int ids
+     * @param levelDat Path of the new level.dat file
+     * @return Map with key String and value Integer containing the new string ids and the new int ids (used for blocks)
+     * @throws IOException if something fails
+     */
     public static HashMap<String,Integer> RenewedIds(String levelDat) throws IOException {
         HashMap<String,Integer> RenewedIds = new HashMap<>();
         try {
@@ -98,6 +132,11 @@ public class Data {
     //make 1 per page instead of loading it everytime
     //make this null after the last usage
     //error handling, use ifExists() on the HasMap itself, check if list items != ""
+
+    /**
+     * returns a map, with a String as the Key and a String List as the value, with the item mappings
+     * @return Map with key String and value List of Type String with the item mappings
+     */
     public Map<String, List<String>> ItemNames() {
         return (Map<String, List<String>>) Conversions.get("Items");
         //ItemNames.put("",);

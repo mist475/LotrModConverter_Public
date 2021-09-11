@@ -12,25 +12,43 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Copies {@literal &} Fixes the level.dat file
+ */
 public class LevelDat implements Convertor{
-    String pathName;
-    Map<Integer,String> LegacyIds;
-    //HashMap<String, List<String>> ItemNames;
-    Data Data;
+    private String pathName;
+    private Map<Integer,String> LegacyIds;
+    private Data Data;
 
+    /**
+     * Creates an instance of LevelDat using the provided parameters
+     * @param data Instance of {@link Data}
+     * @param pathname String of the pathname, see {@link Convertor}
+     * @param legacyIds Map of the legacy ids
+     */
     public LevelDat(Data data, String pathname,Map<Integer,String> legacyIds) {
         this.Data = data;
         pathName = pathname;
         LegacyIds = legacyIds;
-        //ItemNames = itemNames;
     }
 
+    /**
+     * @param p path of the folder where files are copied
+     * @param FileName name of the to be copied file
+     * @throws IOException if something fails
+     */
     @Override
     public void copier(Path p, String FileName) throws IOException {
         //copies over all the files in the LOTR folder to the lotr folder
         Files.copy(Paths.get(p+"/"+this.pathName+"/level.dat"),Paths.get(p +"/"+FileName+"_Converted/level.dat"));
     }
 
+    /**
+     *
+     * @param p path of the folder where files are copied
+     * @param FileName name of the to be modified files
+     * @throws IOException if something fails
+     */
     @Override
     public void modifier(Path p, String FileName) throws IOException {
         try {

@@ -56,7 +56,7 @@ public abstract class Tag {
 	 * @param name
 	 *            The name.
 	 */
-	public Tag(final String name) {
+	Tag(final String name) {
 	
 		this.name = name;
 	}

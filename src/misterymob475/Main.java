@@ -13,19 +13,27 @@ import java.nio.file.Paths;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Main {
-
+/**
+ * Main class
+ */
+class Main {
+    /**
+     * Main class
+     * @param args currently unused
+     * @throws IOException if something fails
+     */
     public static void main(String[] args) throws IOException {
 
-
-        System.out.println("Welcome to the Legacy to Renewed world convertor for the LOTR mod by Mevans\nHow to use: unzip the zip file and place the created folder in your saves folder (or a different folder where you put you world).\n Create a new world in the most recent version of renewed (1.16.5 as of now), copy this world as the same folder as the world you want to upgrade. Doubleclick the .bat(windows) or .sh(macOS/Linux) file.\nOpen the generated output in the same version opf renewed as the new world you just created\nIf something doesn't work as planned please check if said feature is actually supported.\nOtherwise mention it on the #issues channel on my discord:rppMgSHaTe");
-
-        //now create a new folder with the name of $worldName_converted
-
-            Gson gson = new Gson();
+        Gson gson = new Gson();
+        if (new File(Paths.get("Conversions.json").toString()).exists()) {
             Reader reader = Files.newBufferedReader(Paths.get("Conversions.json"));
             Map<?, ?> map = gson.fromJson(reader, Map.class);
             reader.close();
+            System.out.println("Welcome to the Legacy to Renewed world convertor for the LOTR mod by Mevans\nHow to use: unzip the zip file and place the created folder in your saves folder (or a different folder where you put you world).\n Create a new world in the most recent version of renewed (1.16.5 as of now), copy this world as the same folder as the world you want to upgrade. Doubleclick the .bat(windows) or .sh(macOS/Linux) file.\nOpen the generated output in the same version opf renewed as the new world you just created\nIf something doesn't work as planned please check if said feature is actually supported.\nOtherwise mention it on the #issues channel on my discord:rppMgSHaTe");
+
+            //now create a new folder with the name of $worldName_converted
+
+
 
             Data data = new Data(map);
             //used for copying data over
@@ -47,14 +55,24 @@ public class Main {
                     c.modifier(launchDir,selectedWorld.getName());
                 }
             }
+        }
+        else System.out.println("Conversions.json wasn't found, have you unzipped the zip-file correctly?");
+
+
+
 
     }
 
+    /**
+     * Gives an option prompt asking for a renewed world (if only one world is found no questions are asked), returns "" if no worlds are found
+     * @return Path of the selected renewed world
+     */
     public static String renewedWorldSelection() {
         String[] pathnames;
         File f = new File("../");
         int i = 1;
         String selectOption = "Please select the new world you wan to use as the basis for your converted world:";
+
         FilenameFilter filter = (f1, name) -> {
             if (new File(f1, name).isDirectory()) {
                 return new File(f1, name + "/datapacks").exists();
@@ -89,7 +107,11 @@ public class Main {
         }
     }
 
-    private static String legacyWorldSelection() {
+    /**
+     * Gives an option prompt asking for a legacy world (if only one world is found no questions are asked), returns "" if no worlds are found
+     * @return Path of the selected old world
+     */
+    public static String legacyWorldSelection() {
         String[] pathnames;
 
         File f = new File("../");
@@ -131,6 +153,11 @@ public class Main {
             return "";
         }
     }
+
+    /**
+     * Deletes directory
+     * @param file directory to be deleted
+     */
     static void deleteDir(File file) {
         File[] contents = file.listFiles();
         if (contents != null) {

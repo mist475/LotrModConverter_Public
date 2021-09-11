@@ -46,7 +46,7 @@ import java.nio.charset.StandardCharsets;
  * @author Graham Edgecombe, Jocopa3
  * 
  */
-public final class NBTConstants {
+final class NBTConstants {
 	
 	/**
 	 * The character set used by NBT (UTF-8).

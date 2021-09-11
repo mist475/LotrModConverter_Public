@@ -10,15 +10,31 @@ import java.nio.file.Paths;
 import java.util.*;
 
 //this class fixes the data in the LOTR folder, this also means it renames the folder to lotr (so to lower case)
+
+/**
+ * Copies and fixes the contents of the lotr/ folder
+ */
 public class LotrData implements Convertor {
-	public Data Data;
+	private Data Data;
+
+	/**
+	 * @param data instance of {@link Data}
+	 */
+
 	public LotrData(Data data) {
 		this.Data = data;
 	}
 
 
 	//directory copying without using commons-io (sigh)
-	public static void copyDirectory(String sourceDirectoryLocation, String destinationDirectoryLocation)
+
+	/**
+	 * Copies directories
+	 * @param sourceDirectoryLocation Path of source
+	 * @param destinationDirectoryLocation Path of destination
+	 * @throws IOException if something fails
+	 */
+	private static void copyDirectory(String sourceDirectoryLocation, String destinationDirectoryLocation)
 			throws IOException {
 		Files.walk(Paths.get(sourceDirectoryLocation))
 				.forEach(source -> {
@@ -32,7 +48,12 @@ public class LotrData implements Convertor {
 				});
 	}
 
-
+	/**
+	 *
+	 * @param p path of the folder where files are copied
+	 * @param FileName name of the to be copied file
+	 * @throws IOException if something fails
+	 */
 	@Override
 	public void copier(Path p, String FileName) throws IOException {
 		//copies over all the files in the LOTR folder to the lotr folder
@@ -44,9 +65,15 @@ public class LotrData implements Convertor {
 		Files.deleteIfExists(Paths.get(src+"/factionbounties"));
 		Files.deleteIfExists(Paths.get(src+"/faction_relations.dat"));
 		Files.deleteIfExists(Paths.get(src+"/spawn_damping.dat"));
-		Files.deleteIfExists(Paths.get(src+"/fellowships"));
+		//Files.deleteIfExists(Paths.get(src+"/fellowships"));
 	}
 
+	/**
+	 *
+	 * @param p path of the folder where files are copied
+	 * @param FileName name of the to be modified files
+	 * @throws IOException if something fails
+	 */
 	@Override
 	public void modifier(Path p, String FileName) throws IOException {
 		Map<String,String> Waypoints = Data.Waypoints();

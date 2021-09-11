@@ -10,15 +10,31 @@ import java.nio.file.Paths;
 import java.util.*;
 
 //this class fixes the regular player data (the files in the playerdata folder) and the level.dat file (mainly because playerdata is also stored in there)
-public class PlayerData implements Convertor {
-    Data Data;
-    Map<Integer,String> LegacyIds;
 
+/**
+ * Copies and fixes the regular player data
+ */
+public class PlayerData implements Convertor {
+    private Data Data;
+    private Map<Integer,String> LegacyIds;
+
+    /**
+     * Creates an instance of PlayerData
+     * @param data instance of {@link Data}
+     * @param legacyIds Dictionary with the ind id's as key and the (old) string-id as the value
+     */
     public PlayerData(Data data,Map<Integer,String> legacyIds) {
         this.Data = data;
         LegacyIds = legacyIds;
     }
-    public static void copyDirectory(String sourceDirectoryLocation, String destinationDirectoryLocation)
+
+    /**
+     * Copies directories
+     * @param sourceDirectoryLocation Path of source
+     * @param destinationDirectoryLocation Path of destination
+     * @throws IOException if something fails
+     */
+    private static void copyDirectory(String sourceDirectoryLocation, String destinationDirectoryLocation)
             throws IOException {
         Files.walk(Paths.get(sourceDirectoryLocation))
                 .forEach(source -> {
@@ -31,6 +47,13 @@ public class PlayerData implements Convertor {
                     }
                 });
     }
+
+    /**
+     *
+     * @param p path of the folder where files are copied
+     * @param FileName name of the to be copied file
+     * @throws IOException if something fails
+     */
     @Override
     public void copier(Path p, String FileName) throws IOException {
         //copies over all the files in the LOTR folder to the lotr folder
@@ -39,6 +62,12 @@ public class PlayerData implements Convertor {
         copyDirectory(src.getAbsolutePath(), out.getAbsolutePath());
     }
 
+    /**
+     *
+     * @param p path of the folder where files are copied
+     * @param FileName name of the to be modified files
+     * @throws IOException if something fails
+     */
     @Override
     public void modifier(Path p, String FileName) throws IOException {
         Map<Integer,String> LegacyIds = misterymob475.Data.LegacyIds(Paths.get(p + "/" + FileName+ "/level.dat").toAbsolutePath().toString());
@@ -94,7 +123,13 @@ public class PlayerData implements Convertor {
     }
 
 
-
+    /**
+     * Fixes the player inventory
+     * @param newData  {@link Map} with key {@link String} and value {@link Tag} containing the to be fixed data
+     * @param legacyids {@link Map} with key {@link Integer} and value {@link String} Containing the int ids and the old string ids
+     * @param itemnames {@link Map} with key {@link String} and value {@link String} Containing the old and new string ids
+     * @throws IOException if something fails
+     */
     public static void playerFixer(Map<String,Tag> newData, Map<Integer,String> legacyids, Map<String, List<String>> itemnames) throws IOException {
         boolean inUtumno = false;
         //not needed in renewed
@@ -152,9 +187,17 @@ public class PlayerData implements Convertor {
     }
 
 
-
-
-    public static List<Tag> RecurItemFixer(List<Tag> l, Map<Integer,String> legacyids, Map<String, List<String>> itemnames, Integer depth, String exceptionMessage) throws IOException {
+    /**
+     * Recursively runs through the provided inventory (recursive because of shulkerboxes/pouches/crackers)
+     * @param l {@link List} of type {@link Tag} of the given inventory
+     * @param legacyids {@link Map} with key {@link Integer} and value {@link String} Containing the int ids and the old string ids
+     * @param itemnames {@link Map} with key {@link String} and value {@link String} Containing the old and new string ids
+     * @param depth Maximum recursive depth
+     * @param exceptionMessage String printed when exception is thrown
+     * @return {@link List} of type {@link Tag} of the modified inventory
+     * @throws IOException if something fails
+     */
+    private static List<Tag> RecurItemFixer(List<Tag> l, Map<Integer,String> legacyids, Map<String, List<String>> itemnames, Integer depth, String exceptionMessage) throws IOException {
         try {
             List<Tag> builder = new ArrayList<>();
             if (depth++<7) {
