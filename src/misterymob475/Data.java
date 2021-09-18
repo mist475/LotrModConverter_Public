@@ -1749,5 +1749,28 @@ public class Data {
 //ItemNames.put("minecraft:sugar", Arrays.asList(""));
 //ItemNames.put("minecraft:tallgrass", Arrays.asList(""));
     }
+    //Creates the UUID in the new format based with name being the name of the intArrayTag
+    //Might have reversed the order though
+    /**
+     * Function which returns a new IntArrayTag based off the given LongTags and name
+     * @param UUIDLeast {@link LongTag}
+     * @param UUIDMost {@link LongTag}
+     * @param name {@link String} name
+     * @return {@link IntArrayTag} with given name and param inputs
+     */
+    public static IntArrayTag UUIDFixer(LongTag UUIDLeast, LongTag UUIDMost, String name) {
+        return new IntArrayTag(name,new int[]{Long.valueOf(Long.toHexString(UUIDMost.getValue()).substring(0,8),16).intValue(),Long.valueOf(Long.toHexString(UUIDMost.getValue()).substring(8),16).intValue(),Long.valueOf(Long.toHexString(UUIDLeast.getValue()).substring(0,8),16).intValue(),Long.valueOf(Long.toHexString(UUIDLeast.getValue()).substring(8),16).intValue()});
+    }
+    //Overload for when no special name is required (name is "UUID")
+
+    /**
+     * Overload for when name is "UUID"
+     * @param UUIDLeast {@link LongTag}
+     * @param UUIDMost {@link LongTag}
+     * @return {@link IntArrayTag} with name "UUID" and param inputs
+     */
+    public static IntArrayTag UUIDFixer(LongTag UUIDLeast, LongTag UUIDMost) {
+        return UUIDFixer(UUIDLeast,UUIDMost,"UUID");
+    }
 }
 

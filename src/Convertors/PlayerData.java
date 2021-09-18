@@ -15,8 +15,8 @@ import java.util.*;
  * Copies and fixes the regular player data
  */
 public class PlayerData implements Convertor {
-    private Data Data;
-    private Map<Integer,String> LegacyIds;
+    private final Data Data;
+    private final Map<Integer,String> LegacyIds;
 
     /**
      * Creates an instance of PlayerData
@@ -70,7 +70,7 @@ public class PlayerData implements Convertor {
      */
     @Override
     public void modifier(Path p, String FileName) throws IOException {
-        Map<Integer,String> LegacyIds = misterymob475.Data.LegacyIds(Paths.get(p + "/" + FileName+ "/level.dat").toAbsolutePath().toString());
+        //Map<Integer,String> LegacyIds = misterymob475.Data.LegacyIds(Paths.get(p + "/" + FileName+ "/level.dat").toAbsolutePath().toString());
         Map<String,List<String>> ItemNames = Data.ItemNames();
         //level.dat fixer/modifier
         //File renewedWorld = new File(p+"/"+this.pathName+"/level.dat");
@@ -97,7 +97,7 @@ public class PlayerData implements Convertor {
                 //this way I can modify the map directly, instead of regenerating it every time
                 Map <String, Tag> newData = new HashMap<>(originalData);
 //
-                playerFixer(newData, LegacyIds, ItemNames);
+                playerFixer(newData, LegacyIds, ItemNames, Data);
 //
 
                 final CompoundTag newTopLevelTag = new CompoundTag("", newData);
@@ -130,16 +130,26 @@ public class PlayerData implements Convertor {
      * @param itemnames {@link Map} with key {@link String} and value {@link String} Containing the old and new string ids
      * @throws IOException if something fails
      */
-    public static void playerFixer(Map<String,Tag> newData, Map<Integer,String> legacyids, Map<String, List<String>> itemnames) throws IOException {
+    public static void playerFixer(Map<String,Tag> newData, Map<Integer,String> legacyids, Map<String, List<String>> itemnames, Data Data) throws IOException {
         boolean inUtumno = false;
         //not needed in renewed
         newData.remove("ForgeData");
         //changed too much to bother with, especially as the game will (hopefully) recreate the property
         newData.remove("Attributes");
-        //if (newData.containsKey("Riding")) {
+
+        //change this back once it's working
+        newData.remove("Riding");
+        /*
+                if (newData.containsKey("Riding")) {
             //call to entity fixer, this means the player is riding on a mount (fixer will temporarily replace said mount with a donkey)
+            Map<String,Tag> Riding = new HashMap<>(((CompoundTag)newData.get("Riding")).getValue());
+            EntityData.RiderEntityFixer(Riding,legacyids,Data);
             newData.remove("Riding");
-        //}
+            CompoundTag RootVehicle = new CompoundTag("RootVehicle",Riding);
+            newData.replace("Riding",RootVehicle);
+        }
+         */
+
         if (newData.containsKey("EnderItems")) {
             newData.replace("EnderItems",new ListTag("EnderItems",CompoundTag.class,RecurItemFixer((((ListTag) newData.get("EnderItems")).getValue()),legacyids,itemnames,0,"Exception during Ender chest conversion")));
         }
@@ -178,12 +188,11 @@ public class PlayerData implements Convertor {
         newData.remove("HealF");
         newData.remove("Sleeping");
         if (newData.containsKey("UUIDLeast")) {
-            Long UUIDLeast = ((LongTag) newData.get("UUIDLeast")).getValue();
-            Long UUIDMost = ((LongTag) newData.get("UUIDMost")).getValue();
+            newData.put("UUID", misterymob475.Data.UUIDFixer((LongTag) newData.get("UUIDLeast"),(LongTag) newData.get("UUIDMost")));
             newData.remove("UUIDLeast");
             newData.remove("UUIDMost");
-            newData.put("UUID",new IntArrayTag("UUID",new int[]{Long.valueOf(Long.toHexString(UUIDMost).substring(0,8),16).intValue(),Long.valueOf(Long.toHexString(UUIDMost).substring(8),16).intValue(),Long.valueOf(Long.toHexString(UUIDLeast).substring(0,8),16).intValue(),Long.valueOf(Long.toHexString(UUIDLeast).substring(8),16).intValue()}));
         }
+
     }
 
 
@@ -197,7 +206,7 @@ public class PlayerData implements Convertor {
      * @return {@link List} of type {@link Tag} of the modified inventory
      * @throws IOException if something fails
      */
-    private static List<Tag> RecurItemFixer(List<Tag> l, Map<Integer,String> legacyids, Map<String, List<String>> itemnames, Integer depth, String exceptionMessage) throws IOException {
+    public static List<Tag> RecurItemFixer(List<Tag> l, Map<Integer,String> legacyids, Map<String, List<String>> itemnames, Integer depth, String exceptionMessage) throws IOException {
         try {
             List<Tag> builder = new ArrayList<>();
             if (depth++<7) {

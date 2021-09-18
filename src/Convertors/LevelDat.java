@@ -16,9 +16,9 @@ import java.util.Map;
  * Copies {@literal &} Fixes the level.dat file
  */
 public class LevelDat implements Convertor{
-    private String pathName;
-    private Map<Integer,String> LegacyIds;
-    private Data Data;
+    final private String pathName;
+    final private Map<Integer,String> LegacyIds;
+    final private Data Data;
 
     /**
      * Creates an instance of LevelDat using the provided parameters
@@ -128,14 +128,14 @@ public class LevelDat implements Convertor{
                 }
                 else generatormap1.replace("instant_middle_earth",new ByteTag("instant_middle_earth",(byte)0));
 
-
                 //minecraft:overworld
-                if ((Data1.get("generatorName").getValue().equals("flat"))) generatormap2.replace("Type",new StringTag("Type","minecraft:flat"));
+                if ((Data1.get("generatorName").getValue().equals("flat"))) generatormap2.replace("type",new StringTag("Type","minecraft:flat"));
                 generatormap2.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
                 Map<String,Tag> biome_source2 = new HashMap<>((Map<String, Tag>) generatormap2.get("biome_source").getValue());
                 biome_source2.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
                 if (Data1.get("generatorName").getValue().equals("largeBiomes"))generatormap2.replace("large_biomes",new ByteTag("large_biomes",(byte)1));
                 else generatormap2.replace("large_biomes",new ByteTag("large_biomes",(byte)0));
+
 
                 if (Data1.get("generatorName").getValue().equals("largeBiomes"))generatormap2.replace("large_biomes",new ByteTag("large_biomes",(byte)1));
                 else generatormap2.replace("large_biomes",new ByteTag("large_biomes",(byte)0));
@@ -188,7 +188,7 @@ public class LevelDat implements Convertor{
                 if (Data.containsKey("Player") && Data1.containsKey("Player")) {
                     CompoundTag Player_tag = (CompoundTag) Data1.get("Player");
                     Map<String,Tag> Player = new HashMap<>(Player_tag.getValue());
-                    PlayerData.playerFixer(Player, LegacyIds, this.Data.ItemNames());
+                    PlayerData.playerFixer(Player, LegacyIds, this.Data.ItemNames(), this.Data);
                     Data.replace("Player",new CompoundTag("Player",Player));
                 }
                 newData.replace("Data",new CompoundTag("Data",Data));
