@@ -41,6 +41,15 @@ public class Data {
     }
 
     /**
+     * returns a Map of the entity names
+     * @return Map with key String and value String with the Entity names
+     */
+public Map<String,String> Entities() {
+    return (Map<String, String>) Conversions.get("Entities");
+
+}
+
+    /**
      * returns a Map of the regions
      * @return Map with key String and value String with the Region mappings
      */
