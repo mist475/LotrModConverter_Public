@@ -9,6 +9,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 
+import static misterymob475.Main.PrintLine;
+
 //this class fixes the regular player data (the files in the playerdata folder) and the level.dat file (mainly because playerdata is also stored in there)
 
 /**
@@ -80,7 +82,7 @@ public class PlayerData implements Convertor {
 
 
 
-        try {
+        //try {
             //heavier filter on here to only use the current .dat's and not the old ones
             File currentFolder = new File(Paths.get(p +"/"+FileName+"_Converted/playerdata").toString());
             File[] curDirList = currentFolder.listFiles((dir, name) -> name.toLowerCase().endsWith(".dat"));
@@ -104,16 +106,18 @@ public class PlayerData implements Convertor {
                 final NBTOutputStream output = new NBTOutputStream(new FileOutputStream(f));
                 output.writeTag(newTopLevelTag);
                 output.close();
-                System.out.println("Converted " + (i-1) + "/ " + Objects.requireNonNull(currentFolder.listFiles()).length + " player data files");
-
+                PrintLine("Converted " + (i-1) + "/ " + Objects.requireNonNull(currentFolder.listFiles()).length + " player data files",Data);
             }
             System.out.println("converted all the playerdata");
+            /*
+
+
         }
         //took this out of an example I found, changed it as my ide wanted me to
         catch (final ClassCastException | NullPointerException ex) {
             throw new IOException("Error during playerdata fixing");
         }
-
+             */
         //planning for playerdata:
         //note: for blocks the "Damage" ShortTag is actually the second id: regular dwarven brick = (Usually) 186 with 'Damage' 6, 'Damage' is always the same, id is not though
         //items are present in "EnderItems" & "Inventory" (+ tile entities and such ofc, but those will only get looked at once regular blocks have been converted which will take a very long time)
@@ -150,14 +154,16 @@ public class PlayerData implements Convertor {
         }
          */
 
+
         if (newData.containsKey("EnderItems")) {
-            newData.replace("EnderItems",new ListTag("EnderItems",CompoundTag.class,RecurItemFixer((((ListTag) newData.get("EnderItems")).getValue()),legacyids,itemnames,0,"Exception during Ender chest conversion")));
+            newData.replace("EnderItems",new ListTag("EnderItems",CompoundTag.class,RecurItemFixer((((ListTag) newData.get("EnderItems")).getValue()),legacyids,itemnames, (double) 0,"Exception during Ender chest conversion", Data)));
         }
         if (newData.containsKey("Inventory")) {
             //List<Tag> Invtemp = ((ListTag) newData.get("Inventory")).getValue();
-            newData.replace("Inventory",new ListTag("Inventory",CompoundTag.class,RecurItemFixer((((ListTag) newData.get("Inventory")).getValue()),legacyids,itemnames,0,"Exception during inventory conversion")));
+            newData.replace("Inventory",new ListTag("Inventory",CompoundTag.class,RecurItemFixer((((ListTag) newData.get("Inventory")).getValue()),legacyids,itemnames,(double) 0,"Exception during inventory conversion", Data)));
             //List<Tag> debug2 =RecurItemFixer(Invtemp,LegacyIds,ItemNames,0,"Exception during Inventory Conversion");
         }
+
         newData.remove("Attack Time");
         newData.put("DataVersion",new IntTag("DataVersion",2586));
         if (newData.containsKey("Dimension") ) {
@@ -206,10 +212,10 @@ public class PlayerData implements Convertor {
      * @return {@link List} of type {@link Tag} of the modified inventory
      * @throws IOException if something fails
      */
-    public static List<Tag> RecurItemFixer(List<Tag> l, Map<Integer,String> legacyids, Map<String, List<String>> itemnames, Integer depth, String exceptionMessage) throws IOException {
+    public static List<Tag> RecurItemFixer(List<Tag> l, Map<Integer,String> legacyids, Map<String, List<String>> itemnames, Double depth, String exceptionMessage, Data Data) throws IOException {
         try {
             List<Tag> builder = new ArrayList<>();
-            if (depth++<7) {
+            if (depth++<(Double) Data.Settings().get("Recursion Depth")) {
                 for (Tag t : l) {
                     if (t.getClass() == CompoundTag.class) {
                         ShortTag id = (ShortTag) ((CompoundTag)t).getValue().get("id");
@@ -228,7 +234,7 @@ public class PlayerData implements Convertor {
                                     ListTag Items_tag = (ListTag) LOTRPouchData.get("Items");
                                     //
                                     List<Tag> Items = Items_tag.getValue();
-                                    Items = RecurItemFixer(Items,legacyids,itemnames,depth,exceptionMessage);
+                                    Items = RecurItemFixer(Items,legacyids,itemnames,depth,exceptionMessage, Data);
                                     //
                                     LOTRPouchData.replace("Items",new ListTag("Items",CompoundTag.class,Items));
                                     CompoundTag BlockEntityTag = new CompoundTag("BlockEntityTag",LOTRPouchData);
@@ -259,52 +265,44 @@ public class PlayerData implements Convertor {
                                         tMap.remove("Damage");
                                         tMap.replace("id",new StringTag("id",item.get(0)));
                                         builder.add(new CompoundTag("",tMap));
-                                        //System.out.println(item.get(0));
                                     }
                                 }
                                 else {
                                     //code for blocks here
                                     Short Damage = ((ShortTag) ((CompoundTag)t).getValue().get("Damage")).getValue();
                                     //Check if block is actually in the list and not just a placeholder
-                                    //System.out.println(itemnames.get(legacyids.get((int)id.getValue())).get(Damage));
                                     if (! itemnames.get(legacyids.get((int)id.getValue())).get(Damage).equals("")) {
                                         tMap.remove("Damage");
                                         tMap.replace("id",new StringTag("id",item.get(Damage)));
                                         builder.add(new CompoundTag("",tMap));
                                     }
-                                    //System.out.println(item);
+                                    else PrintLine("No mapping found for " + legacyids.get((int)id.getValue()) + ":" + Damage,Data);
                                 }
-
-                                //System.out.println(itemnames.get(legacyids.get((int)id.getValue())));
                             }
                             else {
-                                //Debug msg
-                                System.out.println("No mapping found for id: " + legacyids.get((int)id.getValue()));
-                                //tMap.remove(id);
+                                PrintLine("No mapping found for id: " + legacyids.get((int)id.getValue()), Data);
+
                             }
                         }
                         else {
                             //this should never happen as I gather these ids dynamically
-                            System.out.println("No string id found for id: " + id.getValue());
-                            //tMap.remove(id);
+                            PrintLine("No string id found for id: " + id.getValue(),Data);
                         }
-                        //no easy replacement apparently
-                        //l.remove(t);
-
-                        //t = new CompoundTag("",tMap);
                     }
 
                 }
             }
             else {
                 //if this actually gets triggered someone has been annoying on purpose
-                System.out.println("Maximum set recursion depth reached (default = 7, code has to be recompiled for change)");
+                System.out.println("Maximum set recursion depth reached (default = 7, defined in JSON)");
             }
             return builder;
+
         }
         catch (final ClassCastException | NullPointerException ex) {
             throw new IOException(exceptionMessage);
         }
+
         }
 
 }

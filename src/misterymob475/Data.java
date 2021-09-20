@@ -30,6 +30,9 @@ public class Data {
         return (Map<String, String>) Conversions.get("Waypoints");
      }
 
+     public Map<String,?> Settings() {
+        return (Map<String, ?>) Conversions.get("Settings");
+     }
 
     /**
      * returns a Map of the faction names
@@ -55,13 +58,6 @@ public Map<String,String> Entities() {
      */
     public Map<String,String> Regions() {
         return (Map<String, String>) Conversions.get("Regions");
-        //Regions.put("","lotr:andrast"); not in legacy, put with gondor
-        //Regions.put("","lotr:anfalas); noy in legacy, put with gondor
-        //Regions.put("","lotr:anorien");not in legacy, put with gondor
-        //Regions.put("","lotr:forochel"); put with forodwaith
-        //Regions.put("","lotr:northlands"); put with forodwaith
-        //Regions.put("","lotr:western_gondor");
-        //Regions.put("","lotr:western_isles"); combine this with sea
     }
     //returns a list, list pos = damage value = variant
     //if no value is present, code will be commented

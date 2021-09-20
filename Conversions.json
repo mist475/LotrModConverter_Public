@@ -2224,7 +2224,12 @@
         "lotr.ThrownTermite" : "",
         "lotr.TrollSnowball" : "",
         "Comments": "This List is probably incomplete, there might also be mistakes, feel free to point them out so they can be fixed"
-    }
+    },
+    "Settings" : {
+        "Debug Messages" : true,
+        "Recursion Depth" : 7
+    },
+    "Additional Comments" : "Debug messages toggles the repetitive messages (Converted x/y files, no mapping found for x, etc.)"
 }
 
 

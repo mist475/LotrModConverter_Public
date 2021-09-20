@@ -144,7 +144,8 @@ public class EntityData implements Convertor{
         //The sole reason I implemented this before I started working on fixing the world
         if (Entity.containsKey("Items")) {
             List<Tag> Items = ((ListTag) Entity.get("Items")).getValue();
-            PlayerData.RecurItemFixer(Items, LegacyIds, Data.ItemNames(), 0, "Exception during Entity Inventory Fix");
+            PlayerData.RecurItemFixer(Items, LegacyIds, Data.ItemNames(), (double) 0, "Exception during Entity Inventory Fix",Data);
+            //PlayerData.RecurItemFixer(Items, LegacyIds, Data.ItemNames(), 0, "Exception during Entity Inventory Fix",Data);
             Entity.replace("Items",new ListTag("Items",CompoundTag.class,Items));
         }
         Entity.remove("AttackTime");

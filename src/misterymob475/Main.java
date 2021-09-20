@@ -16,7 +16,7 @@ import java.util.Scanner;
 /**
  * Main class
  */
-class Main {
+public class Main {
     /**
      * Main class
      * @param args currently unused
@@ -107,6 +107,13 @@ class Main {
         }
     }
 
+    public static void PrintLine(String msg, Data data) {
+        if (data.Settings().get("Debug Messages").getClass().equals(Boolean.class)) {
+            if ((Boolean) data.Settings().get("Debug Messages")) System.out.println(msg);
+        }
+        //if (data.Settings().get("Debug Messages")) System.out.println(msg);
+    }
+
     /**
      * Gives an option prompt asking for a legacy world (if only one world is found no questions are asked), returns "" if no worlds are found
      * @return Path of the selected old world
@@ -170,7 +177,5 @@ class Main {
         if (! file.delete())
         System.out.println("Failed to delete file");
     }
-
-
 
 }
