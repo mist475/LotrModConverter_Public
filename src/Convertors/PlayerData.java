@@ -142,17 +142,16 @@ public class PlayerData implements Convertor {
         newData.remove("Attributes");
 
         //change this back once it's working
-        newData.remove("Riding");
-        /*
-                if (newData.containsKey("Riding")) {
+        //newData.remove("Riding");
+
+        if (newData.containsKey("Riding")) {
             //call to entity fixer, this means the player is riding on a mount (fixer will temporarily replace said mount with a donkey)
             Map<String,Tag> Riding = new HashMap<>(((CompoundTag)newData.get("Riding")).getValue());
-            EntityData.RiderEntityFixer(Riding,legacyids,Data);
-            newData.remove("Riding");
+            Riding = EntityData.RiderEntityFixer(Riding,legacyids,Data);
             CompoundTag RootVehicle = new CompoundTag("RootVehicle",Riding);
             newData.replace("Riding",RootVehicle);
         }
-         */
+
 
 
         if (newData.containsKey("EnderItems")) {
@@ -184,7 +183,7 @@ public class PlayerData implements Convertor {
         if (inUtumno) {
             //sets the player coordinates at the coordinates of the pit if they're currently in Utumno (roughly, they'll be moved in renewed I've heard)
             //ListTag Pos1 = (ListTag) newData.get("Pos");
-            ArrayList Pos = new ArrayList(1) {};
+            ArrayList<Tag> Pos = new ArrayList<Tag>(1) {};
             Pos.add(new DoubleTag("",42000.0));
             Pos.add(new DoubleTag("",80.0));
             Pos.add(new DoubleTag("",43000));
@@ -215,9 +214,12 @@ public class PlayerData implements Convertor {
     public static List<Tag> RecurItemFixer(List<Tag> l, Map<Integer,String> legacyids, Map<String, List<String>> itemnames, Double depth, String exceptionMessage, Data Data) throws IOException {
         try {
             List<Tag> builder = new ArrayList<>();
+
             if (depth++<(Double) Data.Settings().get("Recursion Depth")) {
                 for (Tag t : l) {
-                    if (t.getClass() == CompoundTag.class) {
+                    Map <String,Tag> temp = ((CompoundTag) t).getValue();
+                    if (! temp.isEmpty()) {
+
                         ShortTag id = (ShortTag) ((CompoundTag)t).getValue().get("id");
                         //use this map instead of t and replace t with it as t is not modifiable, this map is though
                         Map<String, Tag> tMap = new HashMap<>(((CompoundTag) t).getValue());
@@ -289,7 +291,9 @@ public class PlayerData implements Convertor {
                             PrintLine("No string id found for id: " + id.getValue(),Data);
                         }
                     }
-
+                    else {
+                        PrintLine("Empty tag found, skipping",Data);
+                    }
                 }
             }
             else {

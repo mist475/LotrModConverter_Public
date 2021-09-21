@@ -4,12 +4,13 @@ import lib.jnbt.jnbt.*;
 import misterymob475.Data;
 
 import java.io.IOException;
-import java.lang.reflect.Modifier;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static misterymob475.Main.PrintLine;
 
 //atm only here because players can log out whilst on entities, this way they can carry more items into renewed if implemented properly
 public class EntityData implements Convertor{
@@ -104,14 +105,13 @@ public class EntityData implements Convertor{
                 case "generic.followRange":
                     Map<String,Tag> followRange = new HashMap<>();
                     //yet to be tested
-                    ListTag Modifiers_test = ((ListTag) ((CompoundTag) t).getValue().get("Modifiers"));
                     followRange.put("Modifiers",modifierFixer(((ListTag) ((CompoundTag) t).getValue().get("Modifiers")), Data));
                     followRange.put("Base", ((CompoundTag) t).getValue().get("Base"));
                     followRange.put("Name",new StringTag("Name","minecraft:generic.follow_range"));
                     Attributes_new.add(new CompoundTag("",followRange));
                     break;
 
-                case "generic.MaxHealth":
+                case "generic.maxHealth":
                     Map<String,Tag> maxHealth = new HashMap<>();
                     maxHealth.put("Base", ((CompoundTag) t).getValue().get("Base"));
                     maxHealth.put("Name",new StringTag("Name","minecraft:generic.max_health"));
@@ -139,21 +139,22 @@ public class EntityData implements Convertor{
         Entity.replace("Attributes",Attributes);
         //will easily regenerate I hope
         Entity.remove("DropChances");
-        //Will have to test what formula this follows, otherwise I might be able to use ItemFixer
-        Entity.remove("Equipment");
+        if (Entity.containsKey("Equipment")) {
+            List<Tag> ItemsE = ((ListTag) Entity.get("Equipment")).getValue();
+            PlayerData.RecurItemFixer(ItemsE, LegacyIds, Data.ItemNames(), (double) 0, "Exception during Entity Equipment Fix",Data);
+            //PlayerData.RecurItemFixer(Items, LegacyIds, Data.ItemNames(), 0, "Exception during Entity Inventory Fix",Data);
+            Entity.replace("Equipment",new ListTag("ArmorItems",CompoundTag.class,ItemsE));
+        }
         //The sole reason I implemented this before I started working on fixing the world
         if (Entity.containsKey("Items")) {
-            List<Tag> Items = ((ListTag) Entity.get("Items")).getValue();
-            PlayerData.RecurItemFixer(Items, LegacyIds, Data.ItemNames(), (double) 0, "Exception during Entity Inventory Fix",Data);
+            List<Tag> ItemsI = ((ListTag) Entity.get("Items")).getValue();
+            PlayerData.RecurItemFixer(ItemsI, LegacyIds, Data.ItemNames(), (double) 0, "Exception during Entity Inventory Fix",Data);
             //PlayerData.RecurItemFixer(Items, LegacyIds, Data.ItemNames(), 0, "Exception during Entity Inventory Fix",Data);
-            Entity.replace("Items",new ListTag("Items",CompoundTag.class,Items));
+            Entity.replace("Items",new ListTag("Items",CompoundTag.class,ItemsI));
         }
         Entity.remove("AttackTime");
         //LOTR mod related
         Entity.remove("BelongsNPC");
-        //TODO: Look into this
-        Entity.remove("CustomName");
-        Entity.remove("CustomNameVisible");
 
         if (Entity.containsKey("Dimension")) {
             //fixer here int --> string
@@ -176,6 +177,20 @@ public class EntityData implements Convertor{
         Entity.remove("HealF");
 
         //TODO: ID
+        //Determines the actual mob
+        if (Entity.containsKey("id")) {
+            if (Data.Entities().containsKey((String) (Entity.get("id").getValue()))) {
+                if (! Data.Entities().get( (String)(Entity.get("id").getValue())).equals("")) {
+                    Entity.replace("id",new StringTag("id",Data.Entities().get((String)(Entity.get("id").getValue()))));
+                    System.out.println();
+                }
+                else PrintLine("No mapping found for Entity: " + Entity.get("id") + " - It probably hasn't been ported yet",Data);
+            }
+            else {
+                PrintLine("No mapping found for Entity: " + Entity.get("id"),Data);
+            }
+        }
+
 
         Entity.remove("Leashed");
         Entity.remove("Mountable");
@@ -183,27 +198,20 @@ public class EntityData implements Convertor{
         //TODO: Owner UUID: string -> IntArrayTag
         if (Entity.containsKey("OwnerUUID")) {
             String OwnerUUID = (String) Entity.get("OwnerUUID").getValue();
-            //to be tested
-            /*
-            String UUID1 = OwnerUUID.substring(0,8);
-            String UUID2 = OwnerUUID.substring(9,12) + OwnerUUID.substring(14,18);
-            String UUID3 = OwnerUUID.substring(19,23) + OwnerUUID.substring(24,28);
-            String UUID4 = OwnerUUID.substring(28);
-             */
-
             Entity.put("Owner",new IntArrayTag("Owner",new int[]{Long.valueOf(OwnerUUID.substring(0,8),16).intValue(),Long.valueOf((OwnerUUID.substring(9,12) + OwnerUUID.substring(14,18)),16).intValue(),Long.valueOf((OwnerUUID.substring(19,23) + OwnerUUID.substring(24,28)),16).intValue(),Long.valueOf(OwnerUUID.substring(28),16).intValue()}));
         }
 
         Entity.remove("OwnerUUID");
         Entity.remove("TicksSinceFeed");
-        //has to do with splitting horses into donkeys and such
+
         Entity.remove("Type");
+        //has to do with splitting horses into donkeys and such
         Entity.remove("Variant");
 
         if (Entity.containsKey("UUIDLeast")) {
+            Entity.put("UUID", misterymob475.Data.UUIDFixer((LongTag) Entity.get("UUIDLeast"),(LongTag) Entity.get("UUIDMost")));
             Entity.remove("UUIDLeast");
             Entity.remove("UUIDMost");
-            Entity.put("UUID", misterymob475.Data.UUIDFixer((LongTag) Entity.get("UUIDLeast"),(LongTag) Entity.get("UUIDMost")));
         }
         return Entity;
     }
@@ -221,34 +229,18 @@ public class EntityData implements Convertor{
         return RootVehicle;
     }
 
-    /*
-
-    public static CompoundTag modifierFixer(CompoundTag t, Data Data) {
-        //Should not be a CompoundTag but a ListTag
-        //structure: ListTag with 1 entry (CompoundTag), with the values we actually fix
-        Map<String,Tag> Modifiers = new HashMap<>(t.getValue());
-        Modifiers.put("UUID",Data.UUIDFixer((LongTag) Modifiers.get("UUIDLeast"),(LongTag) Modifiers.get("UUIDMost"),"UUID"));
-        Modifiers.remove("UUIDLeast");
-        Modifiers.remove("UUIDMost");
-        return new CompoundTag("Modifiers",Modifiers);
-    }
-
-     */
-
     public static ListTag modifierFixer(ListTag t, Data Data) {
-        //Should not be a CompoundTag but a ListTag
-        //structure: ListTag with 1 entry (CompoundTag), with the values we actually fix
         List<Tag> list = new ArrayList<>(t.getValue());
-        CompoundTag c = (CompoundTag) list.get(0);
-
-        Map<String,Tag> Modifiers = new HashMap<>(c.getValue());
-        Modifiers.put("UUID",Data.UUIDFixer((LongTag) Modifiers.get("UUIDLeast"),(LongTag) Modifiers.get("UUIDMost"),"UUID"));
-        Modifiers.remove("UUIDLeast");
-        Modifiers.remove("UUIDMost");
-        //return new CompoundTag("Modifiers",Modifiers);
-        list.remove(0);
-        list.add(new CompoundTag("",Modifiers));
-
-        return new ListTag("Modifiers",CompoundTag.class,list);
+        List<Tag> newList = new ArrayList<>();
+        for (Tag c : list) {
+            Map<String,Tag> Modifier = new HashMap<>(((CompoundTag) c).getValue());
+            if (Modifier.containsKey("UUIDLeast")) {
+                Modifier.put("UUID", misterymob475.Data.UUIDFixer((LongTag) Modifier.get("UUIDLeast"),(LongTag) Modifier.get("UUIDMost"),"UUID"));
+                Modifier.remove("UUIDLeast");
+                Modifier.remove("UUIDMost");
+            }
+            newList.add(new CompoundTag("",Modifier));
+        }
+        return new ListTag("Modifiers",CompoundTag.class,newList);
     }
 }

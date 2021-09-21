@@ -191,7 +191,7 @@ public class LotrData implements Convertor {
 				//gets the values we want, note, = I'm doing the easy ones first (lists last) I'm keeping the order though as I've read somewhere that that matters
 
 			ListTag AlignmentMap_old = (ListTag) originalData.get("AlignmentMap");
-			List<Tag> AlignmentMap_builder = new ArrayList(1) {};
+			List<Tag> AlignmentMap_builder = new ArrayList<Tag>(1) {};
 			for (Tag tag : AlignmentMap_old.getValue()) {
 				StringTag Faction_tag = (StringTag) ((CompoundTag)tag).getValue().get("Faction");
 				String Faction = Faction_tag.getValue();
@@ -206,7 +206,7 @@ public class LotrData implements Convertor {
 			//ListTag AlignmentMap = new ListTag("AlignmentMap",CompoundTag.class, AlignmentMap_builder);
 
 			ListTag FactionStats_old = (ListTag) originalData.get("FactionData");
-			List<Tag> FactionStats_builder = new ArrayList(1) {};
+			List<Tag> FactionStats_builder = new ArrayList<Tag>(1) {};
 			for (Tag tag : FactionStats_old.getValue()) {
 				StringTag Faction_tag_AL = (StringTag) ((CompoundTag)tag).getValue().get("Faction");
 				String Faction_AL = Faction_tag_AL.getValue();
@@ -226,7 +226,7 @@ public class LotrData implements Convertor {
 			//ListTag FactionStats = new ListTag("FactionStats",CompoundTag.class, FactionStats_builder);
 
                 ListTag PrevRegionFactions_Old = (ListTag) originalData.get("PrevRegionFactions");
-                List<Tag> PrevRegionFactions_builder = new ArrayList(1) {};
+                List<Tag> PrevRegionFactions_builder = new ArrayList<Tag>(1) {};
                 for (Tag tag : PrevRegionFactions_Old.getValue()) {
                     StringTag Faction_tag_PRF = (StringTag) ((CompoundTag)tag).getValue().get("Faction");
                     String Region_PRF = ((StringTag) ((CompoundTag)tag).getValue().get("Region")).getValue();
@@ -254,7 +254,7 @@ public class LotrData implements Convertor {
 				//SentMessageTypes
 
 				ListTag UnlockedFTRegions_Old = (ListTag) originalData.get("UnlockedFTRegions");
-				List<Tag> UnlockedFTRegions_Builder = new ArrayList(0) {};
+				List<Tag> UnlockedFTRegions_Builder = new ArrayList<Tag>(0) {};
 				for (Tag tag : UnlockedFTRegions_Old.getValue()) {
 					StringTag RegionName_Tag = (StringTag) ((CompoundTag)tag).getValue().get("Name");
 					String RegionName = RegionName_Tag.getValue();
@@ -286,7 +286,7 @@ public class LotrData implements Convertor {
 				//get the old WPUses
 				ListTag WPUses_old = (ListTag) originalData.get("WPUses");
 				//create a new empty array put the new WPUses in
-				List<Tag> WPUses_builder = new ArrayList(1) {};
+				List<Tag> WPUses_builder = new ArrayList<Tag>(1) {};
 				//loop though the entries in the list
 				for (Tag tag : WPUses_old.getValue()) {
 					//get the StringTag of the waypoint
