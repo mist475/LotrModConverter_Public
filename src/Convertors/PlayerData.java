@@ -224,23 +224,24 @@ public class PlayerData implements Convertor {
                         //use this map instead of t and replace t with it as t is not modifiable, this map is though
                         Map<String, Tag> tMap = new HashMap<>(((CompoundTag) t).getValue());
                         //statement for pouches/cracker
-
-                        if (legacyids.containsKey((int) id.getValue())) {
-
-                            if (itemnames.containsKey(legacyids.get((int)id.getValue()))) {
-                                List<String> item = itemnames.get(legacyids.get((int)id.getValue()));
-                                //recursive call
+                        Integer compare1 = (int)id.getValue();
+                        if (legacyids.containsKey( compare1)) {
+                            if (itemnames.containsKey(legacyids.get(compare1))) {
+                                List<String> item = itemnames.get(legacyids.get(compare1));
+                                //recursive call 1 (Pouches)
                                 if (item.get(0).equals("minecraft:shulker_box")) {
                                     Map<String,Tag> filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
-                                    Map<String,Tag> LOTRPouchData = new HashMap<>(((CompoundTag) filler.get("LOTRPouchData")).getValue());
-                                    ListTag Items_tag = (ListTag) LOTRPouchData.get("Items");
-                                    //
-                                    List<Tag> Items = Items_tag.getValue();
-                                    Items = RecurItemFixer(Items,legacyids,itemnames,depth,exceptionMessage, Data);
-                                    //
-                                    LOTRPouchData.replace("Items",new ListTag("Items",CompoundTag.class,Items));
-                                    CompoundTag BlockEntityTag = new CompoundTag("BlockEntityTag",LOTRPouchData);
-                                    filler.replace("LOTRPouchData",BlockEntityTag);
+                                    if (filler.containsKey("LOTRPouchData")) {
+                                        Map<String,Tag> LOTRPouchData = new HashMap<>(((CompoundTag) filler.get("LOTRPouchData")).getValue());
+                                        ListTag Items_tag = (ListTag) LOTRPouchData.get("Items");
+                                        //
+                                        List<Tag> Items = Items_tag.getValue();
+                                        Items = RecurItemFixer(Items,legacyids,itemnames,depth,exceptionMessage, Data);
+                                        //
+                                        LOTRPouchData.replace("Items",new ListTag("Items",CompoundTag.class,Items));
+                                        CompoundTag BlockEntityTag = new CompoundTag("BlockEntityTag",LOTRPouchData);
+                                        filler.replace("LOTRPouchData",BlockEntityTag);
+                                    }
                                     tMap.remove("Damage");
                                     tMap.replace("id",new StringTag("id","minecraft:shulker_box"));
                                     tMap.replace("tag",new CompoundTag("tag",filler));
@@ -248,19 +249,52 @@ public class PlayerData implements Convertor {
 
                                 }
 
-                                else if (item.size() <= 1) {
+                                //recursive call 2 (Barrels/Kegs)
+                                else if (item.get(0).equals("lotr:keg")) {
+                                    Map<String,Tag> filler = new HashMap<>();
+                                    if (tMap.containsKey("tag")) {
+                                        filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
+                                        Map<String,Tag> KegDroppableData_Map = new HashMap<>();
+                                        if (filler.containsKey("LOTRBarrelData")) {
+                                            Map<String,Tag> LOTRBarrelData = new HashMap<>(((CompoundTag) filler.get("LOTRBarrelData")).getValue());
+                                            ListTag Items_tag = (ListTag) LOTRBarrelData.get("Items");
+                                            //
+                                            List<Tag> Items = Items_tag.getValue();
+                                            Items = RecurItemFixer(Items,legacyids,itemnames,depth,exceptionMessage, Data);
+                                            //
+                                            LOTRBarrelData.replace("Items",new ListTag("Items",CompoundTag.class,Items));
+                                            LOTRBarrelData.put("BrewingTimeTotal",new IntTag("BrewingTimeTotal",(int)(LOTRBarrelData.get("BrewingTime").getValue())));
+                                            LOTRBarrelData.replace("BarrelMode",new ByteTag("KegMode",(byte)(LOTRBarrelData.get("BarrelMode")).getValue()));
+                                            CompoundTag KegDroppableData = new CompoundTag("KegDroppableData",LOTRBarrelData);
+
+                                            KegDroppableData_Map.put("KegDroppableData",KegDroppableData);
+                                            CompoundTag BlockEntityTag = new CompoundTag("BlockEntityTag",KegDroppableData_Map);
+                                            filler.replace("LOTRBarrelData",BlockEntityTag);
+                                        }
+                                    }
+                                    tMap.remove("Damage");
+                                    tMap.replace("id",new StringTag("id","lotr:keg"));
+                                    tMap.replace("tag",new CompoundTag("tag",filler));
+                                    builder.add(new CompoundTag("",tMap));
+                                }
+
+
+                                //recursive call 3? (Crackers)
+
+                                    else if (item.size() <= 1) {
+
                                     //code for items here
                                     //simply carries over all the tags, except the id, which gets modified to the new one. moves the damage tag to its new location and changes it to an IntTag(was ShortTag before)
                                     if (!Objects.equals(item.get(0), "")) {
 
                                         if (tMap.containsKey("tag")) {
                                             Map<String,Tag> filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
-                                            filler.put("Damage",(new IntTag("Damage",((int)((ShortTag) tMap.get("Damage")).getValue()))));
+                                            filler.put("Damage",(new IntTag("Damage",(((ShortTag) tMap.get("Damage")).getValue()))));
                                             tMap.replace("tag",new CompoundTag("tag",filler));
                                         }
                                         else {
                                             Map<String,Tag> filler = new HashMap<>();
-                                            filler.put("Damage",(new IntTag("Damage",((int)((ShortTag) tMap.get("Damage")).getValue()))));
+                                            filler.put("Damage",(new IntTag("Damage",(((ShortTag) tMap.get("Damage")).getValue()))));
                                             tMap.put("",new CompoundTag("tag",filler));
                                         }
 
@@ -273,22 +307,22 @@ public class PlayerData implements Convertor {
                                     //code for blocks here
                                     Short Damage = ((ShortTag) ((CompoundTag)t).getValue().get("Damage")).getValue();
                                     //Check if block is actually in the list and not just a placeholder
-                                    if (! itemnames.get(legacyids.get((int)id.getValue())).get(Damage).equals("")) {
+                                    if (! itemnames.get(legacyids.get(compare1)).get(Damage).equals("")) {
                                         tMap.remove("Damage");
                                         tMap.replace("id",new StringTag("id",item.get(Damage)));
                                         builder.add(new CompoundTag("",tMap));
                                     }
-                                    else PrintLine("No mapping found for " + legacyids.get((int)id.getValue()) + ":" + Damage,Data);
+                                    else PrintLine("No mapping found for " + legacyids.get(compare1) + ":" + Damage,Data);
                                 }
                             }
                             else {
-                                PrintLine("No mapping found for id: " + legacyids.get((int)id.getValue()), Data);
+                                PrintLine("No mapping found for id: " + legacyids.get(compare1), Data);
 
                             }
                         }
                         else {
                             //this should never happen as I gather these ids dynamically
-                            PrintLine("No string id found for id: " + id.getValue(),Data);
+                            PrintLine("No string id found for id: " + compare1,Data);
                         }
                     }
                     else {
