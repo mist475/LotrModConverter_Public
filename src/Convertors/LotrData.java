@@ -1,7 +1,7 @@
 package Convertors;
 
 import misterymob475.Data;
-import lib.jnbt.jnbt.*;
+import org.jnbt.*;
 
 import java.io.*;
 import java.nio.file.Files;

@@ -1,6 +1,6 @@
 package Convertors;
 
-import lib.jnbt.jnbt.*;
+import org.jnbt.*;
 import misterymob475.Data;
 
 import java.io.IOException;
