@@ -110,7 +110,7 @@ public Map<String,String> Entities() {
             Map<String, Tag> originalData = originalTopLevelTag.getValue();
             CompoundTag fml = (CompoundTag) originalData.get("fml");
             CompoundTag Registries = (CompoundTag) fml.getValue().get("Registries");
-            CompoundTag minecraft_item = (CompoundTag) Registries.getValue().get("minecraft:item");
+            CompoundTag minecraft_item = (CompoundTag) Registries.getValue().get("minecraft:block");
             ListTag ids = (ListTag) minecraft_item.getValue().get("ids");
             List<Tag> ids_List = ids.getValue();
             //showcase Map<String, Tag> originalData = originalTopLevelTag.getValue();
@@ -132,6 +132,17 @@ public Map<String,String> Entities() {
         }
         return RenewedIds;
     }
+    /*
+    A note on blocks:
+    Block storage isn't as easy as it used to be, it is however probably more efficient which is why it was changed over versions.
+    To grasp the current system this wiki page was extremely helpful:
+    https://wiki.vg/Chunk_Format#Compacted_data_array
+    transformation will require looping through blockData and blocks at the same time
+     */
+
+
+
+
 
     //instructions for calling:
     //make 1 per page instead of loading it everytime
@@ -613,6 +624,7 @@ public Map<String,String> Entities() {
 //ItemNames.put("lotr:item.morgulBlade", Arrays.asList(""));
 //ItemNames.put("lotr:item.morgulSteel", Arrays.asList(""));
 //TODO: different alcohol changer
+
 //ItemNames.put("lotr:item.mugAle", Arrays.asList(""));
 //ItemNames.put("lotr:item.mugAppleJuice", Arrays.asList(""));
 //ItemNames.put("lotr:item.mugAraq", Arrays.asList(""));

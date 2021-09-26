@@ -54,6 +54,13 @@ public class EntityData implements Convertor{
     public static Map<String, Tag> EntityFixer(Map<String, Tag> Entity, Map<Integer,String> LegacyIds, Data Data) throws IOException {
         //has something to do with the lotrmod
         Entity.remove("ForgeData");
+        if (Entity.containsKey("SaddleItem")) {
+            Map<String,Tag> newSaddleItem = new HashMap<>();
+            newSaddleItem.put("Count",new ByteTag("Count", (byte) 1));
+            newSaddleItem.put("id",new StringTag("id", "minecraft:saddle"));
+            Entity.replace("SaddleItem",new CompoundTag("SaddleItem",newSaddleItem));
+        }
+
         // I've had enough of this for know
 
         /*
@@ -171,12 +178,10 @@ public class EntityData implements Convertor{
             Entity.replace("Dimension",new StringTag("Dimension",newDimension));
         }
 
-        //TODO: check this
         Entity.remove("HasReproduced");
 
         Entity.remove("HealF");
 
-        //TODO: ID
         //Determines the actual mob
         if (Entity.containsKey("id")) {
             if (Data.Entities().containsKey((String) (Entity.get("id").getValue()))) {

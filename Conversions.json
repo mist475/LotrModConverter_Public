@@ -1758,6 +1758,81 @@
         ],
         "lotr:tile.daub": [
             "lotr:wattle_and_daub"
+        ],
+        "lotr:item.mugAle": [
+            "lotr:ale"
+        ],
+        "lotr:item.mugAppleJuice": [
+            "lotr:apple_juice"
+        ],
+        "lotr:item.mugAthelasBrew": [
+            "lotr:athelas_brew"
+        ],
+        "lotr:item.mugBlackberryJuice": [
+            "lotr:sweet_berry_juice"
+        ],
+        "lotr:item.mugBlueberryJuice": [
+            "lotr:sweet_berry_juice"
+        ],
+        "lotr:item.mugCactusLiqueur": [
+            "lotr:cactus_liqueur"
+        ],
+        "lotr:item.mugCarrotWine": [
+            "lotr:carrot_wine"
+        ],
+        "lotr:item.mugCherryLiqueur": [
+            "lotr:cherry_liqueur"
+        ],
+        "lotr:item.mugChocolate": [
+            "lotr:chocolate_drink"
+        ],
+        "lotr:item.mugCranberryJuice": [
+            "lotr:sweet_berry_juice"
+        ],
+        "lotr:item.mugDwarvenAle": [
+            "lotr:dwarven_ale"
+        ],
+        "lotr:item.mugDwarvenTonic": [
+            "lotr:dwarven_tonic"
+        ],
+        "lotr:item.mugElderberryJuice": [
+            "lotr:sweet_berry_juice"
+        ],
+        "lotr:item.mugMapleBeer": [
+            "lotr:maple_beer"
+        ],
+        "lotr:item.mugMelonLiqueur": [
+            "lotr:melon_liqueur"
+        ],
+        "lotr:item.mugMilk": [
+            "lotr:milk_drink"
+        ],
+        "lotr:item.mugMiruvor": [
+            "lotr:miruvor"
+        ],
+        "lotr:item.mugMorgulDraught": [
+            "lotr:morgul_draught"
+        ],
+        "lotr:item.mugOrcDraught": [
+            ""
+        ],
+        "lotr:item.mugPerry": [
+            "lotr:perry"
+        ],
+        "lotr:item.mugRaspberryJuice": [
+            "lotr:sweet_berry_juice"
+        ],
+        "lotr:item.mugRum": [
+            "lotr:rum"
+        ],
+        "lotr:item.mugSourMilk": [
+            "lotr:soured_milk"
+        ],
+        "lotr:item.mugVodka": [
+            "lotr:vodka"
+        ],
+        "lotr:item.mugWater" : [
+            "lotr:water_drink"
         ]
     },
 	"Entities" :

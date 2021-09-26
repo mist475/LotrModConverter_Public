@@ -286,15 +286,97 @@ public class PlayerData implements Convertor {
                                     //code for items here
                                     //simply carries over all the tags, except the id, which gets modified to the new one. moves the damage tag to its new location and changes it to an IntTag(was ShortTag before)
                                     if (!Objects.equals(item.get(0), "")) {
-
+                                        boolean drink = new ArrayList<>(Arrays.asList(
+                                                "lotr:ale",
+                                                "lotr:apple_juice",
+                                                "lotr:athelas_brew",
+                                                "lotr:cactus_liqueur",
+                                                "lotr:carrot_wine",
+                                                "lotr:cherry_liqueur",
+                                                "lotr:chocolate_drink",
+                                                "lotr:dwarven_ale",
+                                                "lotr:dwarven_tonic",
+                                                "lotr:maple_beer",
+                                                "lotr:melon_liqueur",
+                                                "lotr:milk_drink",
+                                                "lotr:miruvor",
+                                                "lotr:morgul_draught",
+                                                "lotr:perry",
+                                                "lotr:rum",
+                                                "lotr:soured_milk",
+                                                "lotr:sweet_berry_juice",
+                                                "lotr:vodka",
+                                                "lotr:water_drink"
+                                        )).contains(item.get(0));
                                         if (tMap.containsKey("tag")) {
                                             Map<String,Tag> filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
-                                            filler.put("Damage",(new IntTag("Damage",(((ShortTag) tMap.get("Damage")).getValue()))));
+                                            if (drink) {
+                                                Map<String,Tag> vesselMap = new HashMap<>();
+                                                if (tMap.containsKey("Damage")) {
+                                                    Short Damage = (Short) tMap.get("Damage").getValue();
+                                                    //Code for determining the strength of the drink
+                                                    if (Damage.toString().endsWith("0")) vesselMap.put("potency",new StringTag("potency","weak"));
+                                                    else if (Damage.toString().endsWith("1")) vesselMap.put("potency",new StringTag("potency","light"));
+                                                    else if (Damage.toString().endsWith("2")) vesselMap.put("potency",new StringTag("potency","moderate"));
+                                                    else if (Damage.toString().endsWith("3")) vesselMap.put("potency",new StringTag("potency","string"));
+                                                    else if (Damage.toString().endsWith("4")) vesselMap.put("potency",new StringTag("potency","potent"));
+                                                    //Code for determining the vessel (wooden mug, goblet etc.)
+                                                    if (Damage < 100) vesselMap.put("type",new StringTag("type","wooden_mug"));
+                                                    else if (Damage < 200) vesselMap.put("type",new StringTag("type","ceramic_mug"));
+                                                    else if (Damage < 300) vesselMap.put("type",new StringTag("type","golden_goblet"));
+                                                    else if (Damage < 400) vesselMap.put("type",new StringTag("type","silver_goblet"));
+                                                    else if (Damage < 500) vesselMap.put("type",new StringTag("type","copper_goblet"));
+                                                    else if (Damage < 600) vesselMap.put("type",new StringTag("type","wooden_cup"));
+                                                    else if (Damage < 700) vesselMap.put("type",new StringTag("type","wooden_mug")); //skull cups not in yet
+                                                    else if (Damage < 800) vesselMap.put("type",new StringTag("type","bottle")); //wine glasses not in yet
+                                                    else if (Damage < 900) vesselMap.put("type",new StringTag("type","bottle"));
+                                                    else if (Damage < 1000) vesselMap.put("type",new StringTag("type","waterskin"));
+                                                    else if (Damage < 1100) vesselMap.put("type",new StringTag("type","ale_horn"));
+                                                    else if (Damage < 1200) vesselMap.put("type",new StringTag("type","golden_ale_horn"));
+                                                }
+                                                CompoundTag vessel = new CompoundTag("vessel",vesselMap);
+                                                filler.put("vessel",vessel);
+                                            }
+                                            else if (tMap.containsKey("Damage")) {
+                                                filler.put("Damage",(new IntTag("Damage",(((ShortTag) tMap.get("Damage")).getValue()))));
+                                            }
+
                                             tMap.replace("tag",new CompoundTag("tag",filler));
+
                                         }
                                         else {
                                             Map<String,Tag> filler = new HashMap<>();
-                                            filler.put("Damage",(new IntTag("Damage",(((ShortTag) tMap.get("Damage")).getValue()))));
+                                            if (drink) {
+                                                Map<String,Tag> vesselMap = new HashMap<>();
+                                                if (tMap.containsKey("Damage")) {
+                                                    Short Damage = (Short) tMap.get("Damage").getValue();
+                                                    //Code for determining the strength of the drink
+                                                    if (Damage.toString().endsWith("0")) vesselMap.put("potency",new StringTag("potency","weak"));
+                                                    else if (Damage.toString().endsWith("1")) vesselMap.put("potency",new StringTag("potency","light"));
+                                                    else if (Damage.toString().endsWith("2")) vesselMap.put("potency",new StringTag("potency","moderate"));
+                                                    else if (Damage.toString().endsWith("3")) vesselMap.put("potency",new StringTag("potency","string"));
+                                                    else if (Damage.toString().endsWith("4")) vesselMap.put("potency",new StringTag("potency","potent"));
+                                                    //Code for determining the vessel (wooden mug, goblet etc.)
+                                                    if (Damage < 100) vesselMap.put("type",new StringTag("type","wooden_mug"));
+                                                    else if (Damage < 200) vesselMap.put("type",new StringTag("type","ceramic_mug"));
+                                                    else if (Damage < 300) vesselMap.put("type",new StringTag("type","golden_goblet"));
+                                                    else if (Damage < 400) vesselMap.put("type",new StringTag("type","silver_goblet"));
+                                                    else if (Damage < 500) vesselMap.put("type",new StringTag("type","copper_goblet"));
+                                                    else if (Damage < 600) vesselMap.put("type",new StringTag("type","wooden_cup"));
+                                                    else if (Damage < 700) vesselMap.put("type",new StringTag("type","wooden_mug")); //skull cups not in yet
+                                                    else if (Damage < 800) vesselMap.put("type",new StringTag("type","bottle")); //wine glasses not in yet
+                                                    else if (Damage < 900) vesselMap.put("type",new StringTag("type","bottle"));
+                                                    else if (Damage < 1000) vesselMap.put("type",new StringTag("type","waterskin"));
+                                                    else if (Damage < 1100) vesselMap.put("type",new StringTag("type","ale_horn"));
+                                                    else if (Damage < 1200) vesselMap.put("type",new StringTag("type","golden_ale_horn"));
+                                                }
+                                                CompoundTag vessel = new CompoundTag("vessel",vesselMap);
+                                                filler.put("vessel",vessel);
+                                            }
+                                            else {
+                                                filler.put("Damage",(new IntTag("Damage",(((ShortTag) tMap.get("Damage")).getValue()))));
+                                            }
+
                                             tMap.put("",new CompoundTag("tag",filler));
                                         }
 
