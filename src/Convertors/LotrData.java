@@ -28,8 +28,6 @@ public class LotrData implements Convertor {
 	}
 
 
-	//directory copying without using commons-io (sigh)
-
 	/**
 	 * Copies directories
 	 * @param sourceDirectoryLocation Path of source

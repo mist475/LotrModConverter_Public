@@ -1951,7 +1951,7 @@
 "lotr.DesertScorpion" : "",
 "lotr.Bird" : "",
 "lotr.Crebain" : "",
-"lotr.Camel" : "",
+"lotr.Camel" : "minecraft:donkey",
 "lotr.NearHaradrimArcher" : "",
 "lotr.NearHaradrimWarlord" : "",
 "lotr.BlueDwarf" : "lotr:blue_mountains_dwarf",

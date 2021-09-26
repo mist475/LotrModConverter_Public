@@ -217,8 +217,7 @@ public class PlayerData implements Convertor {
 
             if (depth++<(Double) Data.Settings().get("Recursion Depth")) {
                 for (Tag t : l) {
-                    Map <String,Tag> temp = ((CompoundTag) t).getValue();
-                    if (! temp.isEmpty()) {
+                    if (! (((CompoundTag) t).getValue()).isEmpty()) {
 
                         ShortTag id = (ShortTag) ((CompoundTag)t).getValue().get("id");
                         //use this map instead of t and replace t with it as t is not modifiable, this map is though
@@ -337,10 +336,21 @@ public class PlayerData implements Convertor {
                                                 CompoundTag vessel = new CompoundTag("vessel",vesselMap);
                                                 filler.put("vessel",vessel);
                                             }
+                                            //Book fixer
+                                            else if (filler.containsKey("pages")) {
+                                                if (Objects.equals(item.get(0), "minecraft:written_book")) {
+                                                    List<Tag> pages = new ArrayList<>();
+                                                    for (Tag st : (List<Tag>) filler.get("pages").getValue()) {
+                                                        String string = ("{" + '"' + "text" + '"' +':' + '"' + st.getValue()  + '}');
+
+                                                        pages.add(new StringTag("",("{" + '"' + "text" + '"' +':' + '"' + st.getValue()  + '"'+ '}')));
+                                                    }
+                                                    filler.replace("pages",new ListTag("pages",StringTag.class,pages));
+                                                }
+                                            }
                                             else if (tMap.containsKey("Damage")) {
                                                 filler.put("Damage",(new IntTag("Damage",(((ShortTag) tMap.get("Damage")).getValue()))));
                                             }
-
                                             tMap.replace("tag",new CompoundTag("tag",filler));
 
                                         }
@@ -349,6 +359,7 @@ public class PlayerData implements Convertor {
                                             if (drink) {
                                                 Map<String,Tag> vesselMap = new HashMap<>();
                                                 if (tMap.containsKey("Damage")) {
+                                                    //I know, I don't like code repetition either, but I couldn't be bothered to write a function that will only be called twice
                                                     Short Damage = (Short) tMap.get("Damage").getValue();
                                                     //Code for determining the strength of the drink
                                                     if (Damage.toString().endsWith("0")) vesselMap.put("potency",new StringTag("potency","weak"));

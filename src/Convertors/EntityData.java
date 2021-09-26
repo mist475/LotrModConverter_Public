@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static Convertors.PlayerData.RecurItemFixer;
 import static misterymob475.Main.PrintLine;
 
 //atm only here because players can log out whilst on entities, this way they can carry more items into renewed if implemented properly
@@ -54,15 +55,30 @@ public class EntityData implements Convertor{
     public static Map<String, Tag> EntityFixer(Map<String, Tag> Entity, Map<Integer,String> LegacyIds, Data Data) throws IOException {
         //has something to do with the lotrmod
         Entity.remove("ForgeData");
+        /*
+                Map<String,Tag> brain = new HashMap<>();
+        brain.put("memories",new CompoundTag("memories",new HashMap<>()));
+        Entity.put("Brain",new CompoundTag("Brain",brain));
+         */
+
+
         if (Entity.containsKey("SaddleItem")) {
             Map<String,Tag> newSaddleItem = new HashMap<>();
             newSaddleItem.put("Count",new ByteTag("Count", (byte) 1));
             newSaddleItem.put("id",new StringTag("id", "minecraft:saddle"));
             Entity.replace("SaddleItem",new CompoundTag("SaddleItem",newSaddleItem));
         }
+        /*
+                Entity.remove("ArmorDropChances");
+        Entity.remove("HandDropChances");
+        Entity.remove("HandItems");
+
+        Entity.remove("CanUpdate");
+        Entity.remove("ForcedAge");
+
+         */
 
         // I've had enough of this for know
-
         /*
         Attributes fixer, I can leave unknown tags here as they will get deleted otherwise (new in 1.16)
         Zombie reinforcement caller charge
@@ -90,7 +106,7 @@ public class EntityData implements Convertor{
 
                 case "generic.attackDamage":
                     Map<String,Tag> attackDamage = new HashMap<>();
-                    attackDamage.put("Modifiers",modifierFixer(((ListTag) ((CompoundTag) t).getValue().get("Modifiers")), Data));
+                    attackDamage.put("Modifiers",modifierFixer(((ListTag) ((CompoundTag) t).getValue().get("Modifiers"))));
                     attackDamage.put("Name",new StringTag("Name","generic.attack_damage"));
                     Attributes_new.add(new CompoundTag("",attackDamage));
                     break;
@@ -112,7 +128,7 @@ public class EntityData implements Convertor{
                 case "generic.followRange":
                     Map<String,Tag> followRange = new HashMap<>();
                     //yet to be tested
-                    followRange.put("Modifiers",modifierFixer(((ListTag) ((CompoundTag) t).getValue().get("Modifiers")), Data));
+                    followRange.put("Modifiers",modifierFixer(((ListTag) ((CompoundTag) t).getValue().get("Modifiers"))));
                     followRange.put("Base", ((CompoundTag) t).getValue().get("Base"));
                     followRange.put("Name",new StringTag("Name","minecraft:generic.follow_range"));
                     Attributes_new.add(new CompoundTag("",followRange));
@@ -147,17 +163,11 @@ public class EntityData implements Convertor{
         //will easily regenerate I hope
         Entity.remove("DropChances");
         if (Entity.containsKey("Equipment")) {
-            List<Tag> ItemsE = ((ListTag) Entity.get("Equipment")).getValue();
-            PlayerData.RecurItemFixer(ItemsE, LegacyIds, Data.ItemNames(), (double) 0, "Exception during Entity Equipment Fix",Data);
-            //PlayerData.RecurItemFixer(Items, LegacyIds, Data.ItemNames(), 0, "Exception during Entity Inventory Fix",Data);
-            Entity.replace("Equipment",new ListTag("ArmorItems",CompoundTag.class,ItemsE));
+            Entity.replace("Equipment",new ListTag("Equipment",CompoundTag.class,RecurItemFixer((((ListTag) Entity.get("Items")).getValue()),LegacyIds,Data.ItemNames(),(double) 0,"Exception during Entity Equipment Fix", Data)));
         }
         //The sole reason I implemented this before I started working on fixing the world
         if (Entity.containsKey("Items")) {
-            List<Tag> ItemsI = ((ListTag) Entity.get("Items")).getValue();
-            PlayerData.RecurItemFixer(ItemsI, LegacyIds, Data.ItemNames(), (double) 0, "Exception during Entity Inventory Fix",Data);
-            //PlayerData.RecurItemFixer(Items, LegacyIds, Data.ItemNames(), 0, "Exception during Entity Inventory Fix",Data);
-            Entity.replace("Items",new ListTag("Items",CompoundTag.class,ItemsI));
+            Entity.replace("Items",new ListTag("Items",CompoundTag.class,RecurItemFixer((((ListTag) Entity.get("Items")).getValue()),LegacyIds,Data.ItemNames(),(double) 0,"Exception during Entity Inventory Fix", Data)));
         }
         Entity.remove("AttackTime");
         //LOTR mod related
@@ -181,13 +191,50 @@ public class EntityData implements Convertor{
         Entity.remove("HasReproduced");
 
         Entity.remove("HealF");
+/*
+        Not needed anymore, I added these to debug inventories nog getting saved properly.
+        However, that was because I called recurItemFixer the wrong way again
+        Entity.put("CanUpdate",new ByteTag("CanUpdate",(byte)1));
+        Entity.put("FallFlying",new ByteTag("FallFlying",(byte)0));
+        Entity.put("ForcedAge",new IntTag("ForcedAge",0));
+        Entity.put("HurtByTimestamp",new IntTag("HurtByTimestamp",0));
+ */
+
 
         //Determines the actual mob
         if (Entity.containsKey("id")) {
             if (Data.Entities().containsKey((String) (Entity.get("id").getValue()))) {
                 if (! Data.Entities().get( (String)(Entity.get("id").getValue())).equals("")) {
-                    Entity.replace("id",new StringTag("id",Data.Entities().get((String)(Entity.get("id").getValue()))));
-                    System.out.println();
+                    //code for split types here (horses mainly, I'm not gonna bother with zombie villagers)
+                    if (Data.Entities().get( (String)(Entity.get("id").getValue())).equals("minecraft:horse")) {
+                        if (Entity.get("Type").getValue().equals((byte)1)) {
+                            Entity.replace("id",new StringTag("id","minecraft:donkey"));
+                            Entity.remove("Variant");
+                        }
+                        else if (Entity.get("Type").getValue().equals((byte)2)) {
+                            Entity.replace("id",new StringTag("id","minecraft:mule"));
+                            Entity.remove("Variant");
+                        }
+                        else if (Entity.get("Type").getValue().equals((byte)3)) {
+                            Entity.replace("id",new StringTag("id","minecraft:zombie_horse"));
+                            Entity.remove("Variant");
+                        }
+                        else if (Entity.get("Type").getValue().equals((byte)1)) {
+                            Entity.replace("id",new StringTag("id","minecraft:skeleton_horse"));
+                            Entity.remove("Variant");
+                        }
+                        else
+                            Entity.replace("id",new StringTag("id","minecraft:horse"));
+                    }
+                    //code for turning camels into donkeys (to keep the storage)
+                    else if (Entity.get("id").getValue().equals("lotr.Camel")) {
+                        Entity.remove("Type");
+                        Entity.replace("id",new StringTag("id","minecraft:donkey"));
+                    }
+                    else {
+                        Entity.replace("id",new StringTag("id",Data.Entities().get((String)(Entity.get("id").getValue()))));
+                    }
+                    Entity.remove("Type");
                 }
                 else PrintLine("No mapping found for Entity: " + Entity.get("id") + " - It probably hasn't been ported yet",Data);
             }
@@ -200,7 +247,7 @@ public class EntityData implements Convertor{
         Entity.remove("Leashed");
         Entity.remove("Mountable");
 
-        //TODO: Owner UUID: string -> IntArrayTag
+        Entity.put("LeftHanded",new ByteTag("LeftHanded",(byte)0));
         if (Entity.containsKey("OwnerUUID")) {
             String OwnerUUID = (String) Entity.get("OwnerUUID").getValue();
             Entity.put("Owner",new IntArrayTag("Owner",new int[]{Long.valueOf(OwnerUUID.substring(0,8),16).intValue(),Long.valueOf((OwnerUUID.substring(9,12) + OwnerUUID.substring(14,18)),16).intValue(),Long.valueOf((OwnerUUID.substring(19,23) + OwnerUUID.substring(24,28)),16).intValue(),Long.valueOf(OwnerUUID.substring(28),16).intValue()}));
@@ -234,7 +281,7 @@ public class EntityData implements Convertor{
         return RootVehicle;
     }
 
-    public static ListTag modifierFixer(ListTag t, Data Data) {
+    public static ListTag modifierFixer(ListTag t) {
         List<Tag> list = new ArrayList<>(t.getValue());
         List<Tag> newList = new ArrayList<>();
         for (Tag c : list) {
