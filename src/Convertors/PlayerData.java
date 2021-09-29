@@ -77,11 +77,6 @@ public class PlayerData implements Convertor {
         //level.dat fixer/modifier
         //File renewedWorld = new File(p+"/"+this.pathName+"/level.dat");
 
-
-
-
-
-
         //try {
             //heavier filter on here to only use the current .dat's and not the old ones
             File currentFolder = new File(Paths.get(p +"/"+FileName+"_Converted/playerdata").toString());
@@ -138,11 +133,8 @@ public class PlayerData implements Convertor {
         boolean inUtumno = false;
         //not needed in renewed
         newData.remove("ForgeData");
-        //changed too much to bother with, especially as the game will (hopefully) recreate the property
+        //changed too much to bother with, especially as the game will recreate the property
         newData.remove("Attributes");
-
-        //change this back once it's working
-        //newData.remove("Riding");
 
         if (newData.containsKey("Riding")) {
             //call to entity fixer, this means the player is riding on a mount (fixer will temporarily replace said mount with a donkey)
@@ -223,7 +215,7 @@ public class PlayerData implements Convertor {
                         //use this map instead of t and replace t with it as t is not modifiable, this map is though
                         Map<String, Tag> tMap = new HashMap<>(((CompoundTag) t).getValue());
                         //statement for pouches/cracker
-                        Integer compare1 = (int)id.getValue();
+                        Integer compare1 = ((int)id.getValue());
                         if (legacyids.containsKey( compare1)) {
                             if (itemnames.containsKey(legacyids.get(compare1))) {
                                 List<String> item = itemnames.get(legacyids.get(compare1));
@@ -292,10 +284,12 @@ public class PlayerData implements Convertor {
                                                 "lotr:cactus_liqueur",
                                                 "lotr:carrot_wine",
                                                 "lotr:cherry_liqueur",
+                                                "lotr:cider",
                                                 "lotr:chocolate_drink",
                                                 "lotr:dwarven_ale",
                                                 "lotr:dwarven_tonic",
                                                 "lotr:maple_beer",
+                                                "lotr:mead",
                                                 "lotr:melon_liqueur",
                                                 "lotr:milk_drink",
                                                 "lotr:miruvor",
@@ -307,6 +301,7 @@ public class PlayerData implements Convertor {
                                                 "lotr:vodka",
                                                 "lotr:water_drink"
                                         )).contains(item.get(0));
+
                                         if (tMap.containsKey("tag")) {
                                             Map<String,Tag> filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
                                             if (drink) {
@@ -338,11 +333,10 @@ public class PlayerData implements Convertor {
                                             }
                                             //Book fixer
                                             else if (filler.containsKey("pages")) {
+                                                //without this if book & quills get messed up
                                                 if (Objects.equals(item.get(0), "minecraft:written_book")) {
                                                     List<Tag> pages = new ArrayList<>();
                                                     for (Tag st : (List<Tag>) filler.get("pages").getValue()) {
-                                                        String string = ("{" + '"' + "text" + '"' +':' + '"' + st.getValue()  + '}');
-
                                                         pages.add(new StringTag("",("{" + '"' + "text" + '"' +':' + '"' + st.getValue()  + '"'+ '}')));
                                                     }
                                                     filler.replace("pages",new ListTag("pages",StringTag.class,pages));
@@ -408,11 +402,31 @@ public class PlayerData implements Convertor {
                                     else PrintLine("No mapping found for " + legacyids.get(compare1) + ":" + Damage,Data);
                                 }
                             }
+
+                            //vanilla spawn egg handler
+                            else if (legacyids.get(compare1).equals("minecraft:spawn_egg")) {
+                                if (Data.Vanilla_mob_ids().containsKey(((Short) tMap.get("Damage").getValue()).toString())) {
+                                    tMap.replace("id",new StringTag("id",Data.Vanilla_mob_ids().get(((Short) tMap.get("Damage").getValue()).toString())));
+                                    tMap.remove("Damage");
+                                    builder.add(new CompoundTag("",tMap));
+                                }
+                                else PrintLine("No vanilla spawn Egg found for Damage value : " +tMap.get("Damage").getValue() ,Data);
+                            }
+                            //lotr spawn egg handler
+                            else if (legacyids.get(compare1).equals("lotr:item.spawnEgg")) {
+                                if (Data.Mod_mob_ids().containsKey(((Short) tMap.get("Damage").getValue()).toString())) {
+                                    tMap.replace("id",new StringTag("id",Data.Mod_mob_ids().get(((Short) tMap.get("Damage").getValue()).toString())));
+                                    tMap.remove("Damage");
+                                    builder.add(new CompoundTag("",tMap));
+                                }
+                                else PrintLine("No lotr mod spawn Egg found for Damage value : " +tMap.get("Damage").getValue() ,Data);
+                            }
                             else {
                                 PrintLine("No mapping found for id: " + legacyids.get(compare1), Data);
 
                             }
                         }
+
                         else {
                             //this should never happen as I gather these ids dynamically
                             PrintLine("No string id found for id: " + compare1,Data);
