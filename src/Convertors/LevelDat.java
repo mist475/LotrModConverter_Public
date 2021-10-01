@@ -145,6 +145,7 @@ public class LevelDat implements Convertor{
 
                     Map<String,Tag> structures1_map = new HashMap<>();
 
+
                     Map<String,Tag> stronghold_map = new HashMap<>();
                     stronghold_map.put("count",new IntTag("count",128));
                     stronghold_map.put("distance",new IntTag("distance",32));

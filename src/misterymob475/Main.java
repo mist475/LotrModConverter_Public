@@ -100,6 +100,7 @@ public class Main {
                 } catch (Exception e) {
                     System.out.println("Invalid selection");
                     return renewedWorldSelection();
+
                 }
             }
             else {
