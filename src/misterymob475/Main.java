@@ -93,8 +93,14 @@ public class Main {
 
                 System.out.println(selectOption);
                 Scanner myScanner = new Scanner(System.in);
-                int input = myScanner.nextInt();
-                return pathnames[input-1];
+
+                try {
+                    int input = myScanner.nextInt();
+                    return pathnames[input-1];
+                } catch (Exception e) {
+                    System.out.println("Invalid selection");
+                    return renewedWorldSelection();
+                }
             }
             else {
                 System.out.println("no legacy worlds found, are you sure you placed this file in the right directory?");
@@ -157,8 +163,14 @@ public class Main {
 
                 System.out.println(selectOption);
                 Scanner myScanner = new Scanner(System.in);
-                int input = myScanner.nextInt();
-                return pathnames[input-1];
+                try {
+                    int input = myScanner.nextInt();
+                    return pathnames[input-1];
+                } catch (Exception e) {
+                    System.out.println("Invalid selection");
+                    return legacyWorldSelection();
+                }
+
             }
             else {
                 System.out.println("no renewed worlds found, are you sure you placed this file in the right directory?");
