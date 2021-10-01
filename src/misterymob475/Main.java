@@ -109,7 +109,17 @@ public class Main {
 
     public static void PrintLine(String msg, Data data) {
         if (data.Settings().get("Debug Messages").getClass().equals(Boolean.class)) {
-            if ((Boolean) data.Settings().get("Debug Messages")) System.out.println(msg);
+            if ((Boolean) data.Settings().get("Debug Messages")) {
+                //makes the prints a lot less cluttered by only printing each line once
+                if ((Boolean) data.Settings().get("Cache debug messages")) {
+                    if (! data.stringCache.contains(msg)) {
+                        System.out.println(msg);
+                        data.stringCache.add(msg);
+                    }
+                }
+                else System.out.println(msg);
+
+            }
         }
         //if (data.Settings().get("Debug Messages")) System.out.println(msg);
     }

@@ -4,6 +4,7 @@ import org.jnbt.*;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +21,11 @@ public class Data {
      */
     public Data(Map<?,?> conversions) {
         this.Conversions = conversions;
+        System.out.println("instance of Data created");
     }
+
+    public List<String> stringCache = new ArrayList<>();
+
     /**
      * Returns a Map of the waypoints
      * @return Map with key String and value String with the waypoint mappings

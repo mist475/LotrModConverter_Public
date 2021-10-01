@@ -192,6 +192,18 @@ public class PlayerData implements Convertor {
 
     }
 
+    /**
+     * Fixes the display {@link CompoundTag} with the new formatting
+     * @param display the display {@link CompoundTag} used for items
+     * @return the display {@link CompoundTag}, but with fixed formatting to prevent custom names getting cut off
+     */
+    public static CompoundTag nameFixer(CompoundTag display) {
+        Map<String,Tag> display_map = new HashMap<>(display.getValue());
+        if (display_map.containsKey("Name")) {
+            display_map.replace("Name", new StringTag("Name",("{" + '"' + "text" + '"' +':' + '"' + display_map.get("Name").getValue() + '"'+ '}')));
+        }
+        return new CompoundTag("display",display_map);
+    }
 
     /**
      * Recursively runs through the provided inventory (recursive because of shulkerboxes/pouches/crackers)
@@ -210,10 +222,17 @@ public class PlayerData implements Convertor {
             if (depth++<(Double) Data.Settings().get("Recursion Depth")) {
                 for (Tag t : l) {
                     if (! (((CompoundTag) t).getValue()).isEmpty()) {
+                        /*
+                        ByteTag slot = (ByteTag) (((CompoundTag) t).getValue()).get("Slot");
+                        if (slot.getValue() == 3) {
+                            System.out.println();
+                        }
+                         */
 
                         ShortTag id = (ShortTag) ((CompoundTag)t).getValue().get("id");
                         //use this map instead of t and replace t with it as t is not modifiable, this map is though
                         Map<String, Tag> tMap = new HashMap<>(((CompoundTag) t).getValue());
+
                         //statement for pouches/cracker
                         Integer compare1 = ((int)id.getValue());
                         if (legacyids.containsKey( compare1)) {
@@ -221,21 +240,28 @@ public class PlayerData implements Convertor {
                                 List<String> item = itemnames.get(legacyids.get(compare1));
                                 //recursive call 1 (Pouches)
                                 if (item.get(0).equals("minecraft:shulker_box")) {
-                                    Map<String,Tag> filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
-                                    if (filler.containsKey("LOTRPouchData")) {
-                                        Map<String,Tag> LOTRPouchData = new HashMap<>(((CompoundTag) filler.get("LOTRPouchData")).getValue());
-                                        ListTag Items_tag = (ListTag) LOTRPouchData.get("Items");
-                                        //
-                                        List<Tag> Items = Items_tag.getValue();
-                                        Items = RecurItemFixer(Items,legacyids,itemnames,depth,exceptionMessage, Data);
-                                        //
-                                        LOTRPouchData.replace("Items",new ListTag("Items",CompoundTag.class,Items));
-                                        CompoundTag BlockEntityTag = new CompoundTag("BlockEntityTag",LOTRPouchData);
-                                        filler.replace("LOTRPouchData",BlockEntityTag);
+                                    if (tMap.containsKey("tag")) {
+                                        Map<String,Tag> filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
+                                        //nameFixer
+                                        if (filler.containsKey("display")) {
+                                            filler.replace("display",nameFixer((CompoundTag) filler.get("display")));
+                                        }
+                                        if (filler.containsKey("LOTRPouchData")) {
+                                            Map<String,Tag> LOTRPouchData = new HashMap<>(((CompoundTag) filler.get("LOTRPouchData")).getValue());
+                                            ListTag Items_tag = (ListTag) LOTRPouchData.get("Items");
+                                            //
+                                            List<Tag> Items = Items_tag.getValue();
+                                            Items = RecurItemFixer(Items,legacyids,itemnames,depth,exceptionMessage, Data);
+                                            //
+                                            LOTRPouchData.replace("Items",new ListTag("Items",CompoundTag.class,Items));
+                                            CompoundTag BlockEntityTag = new CompoundTag("BlockEntityTag",LOTRPouchData);
+                                            filler.replace("LOTRPouchData",BlockEntityTag);
+                                            tMap.replace("tag",new CompoundTag("tag",filler));
+                                        }
+
                                     }
                                     tMap.remove("Damage");
                                     tMap.replace("id",new StringTag("id","minecraft:shulker_box"));
-                                    tMap.replace("tag",new CompoundTag("tag",filler));
                                     builder.add(new CompoundTag("",tMap));
 
                                 }
@@ -245,6 +271,10 @@ public class PlayerData implements Convertor {
                                     Map<String,Tag> filler = new HashMap<>();
                                     if (tMap.containsKey("tag")) {
                                         filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
+                                        //nameFixer
+                                        if (filler.containsKey("display")) {
+                                            filler.replace("display",nameFixer((CompoundTag) filler.get("display")));
+                                        }
                                         Map<String,Tag> KegDroppableData_Map = new HashMap<>();
                                         if (filler.containsKey("LOTRBarrelData")) {
                                             Map<String,Tag> LOTRBarrelData = new HashMap<>(((CompoundTag) filler.get("LOTRBarrelData")).getValue());
@@ -276,7 +306,7 @@ public class PlayerData implements Convertor {
 
                                     //code for items here
                                     //simply carries over all the tags, except the id, which gets modified to the new one. moves the damage tag to its new location and changes it to an IntTag(was ShortTag before)
-                                    if (!Objects.equals(item.get(0), "")) {
+                                    if (! Objects.equals(item.get(0), "")) {
                                         boolean drink = new ArrayList<>(Arrays.asList(
                                                 "lotr:ale",
                                                 "lotr:apple_juice",
@@ -304,6 +334,10 @@ public class PlayerData implements Convertor {
 
                                         if (tMap.containsKey("tag")) {
                                             Map<String,Tag> filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
+                                            //itemFixer
+                                            if (filler.containsKey("display")) {
+                                                filler.replace("display",nameFixer((CompoundTag) filler.get("display")));
+                                            }
                                             if (drink) {
                                                 Map<String,Tag> vesselMap = new HashMap<>();
                                                 if (tMap.containsKey("Damage")) {
@@ -389,12 +423,58 @@ public class PlayerData implements Convertor {
                                         tMap.replace("id",new StringTag("id",item.get(0)));
                                         builder.add(new CompoundTag("",tMap));
                                     }
+                                    //vanilla spawn egg handler
+                                    else if (legacyids.get(compare1).equals("minecraft:spawn_egg")) {
+                                        //itemFixer
+                                        if (tMap.containsKey("tag")) {
+                                            Map<String,Tag> filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
+                                            if (filler.containsKey("display")) {
+                                                filler.replace("display",nameFixer((CompoundTag) filler.get("display")));
+                                            }
+                                            tMap.replace("tag",new CompoundTag("tag",filler));
+                                        }
+                                        if (Data.Vanilla_mob_ids().containsKey(((Short) tMap.get("Damage").getValue()).toString())) {
+                                            tMap.replace("id",new StringTag("id",Data.Vanilla_mob_ids().get(((Short) tMap.get("Damage").getValue()).toString())));
+                                            tMap.remove("Damage");
+                                            builder.add(new CompoundTag("",tMap));
+                                        }
+                                        else PrintLine("No vanilla spawn Egg found for Damage value : " +tMap.get("Damage").getValue() ,Data);
+                                    }
+                                    //lotr spawn egg handler
+                                    else if (legacyids.get(compare1).equals("lotr:item.spawnEgg")) {
+                                        //itemFixer
+                                        if (tMap.containsKey("tag")) {
+                                            Map<String,Tag> filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
+                                            if (filler.containsKey("display")) {
+                                                filler.replace("display",nameFixer((CompoundTag) filler.get("display")));
+                                            }
+                                            tMap.replace("tag",new CompoundTag("tag",filler));
+                                        }
+                                        if (Data.Mod_mob_ids().containsKey(((Short) tMap.get("Damage").getValue()).toString())) {
+                                            tMap.replace("id",new StringTag("id",Data.Mod_mob_ids().get(((Short) tMap.get("Damage").getValue()).toString())));
+                                            tMap.remove("Damage");
+                                            builder.add(new CompoundTag("",tMap));
+                                        }
+                                        else PrintLine("No lotr mod spawn Egg found for Damage value : " +tMap.get("Damage").getValue() ,Data);
+                                    }
+                                    else {
+                                        PrintLine("No mapping found for legacy id: " + legacyids.get(compare1),Data);
+                                    }
+
                                 }
                                 else {
                                     //code for blocks here
                                     Short Damage = ((ShortTag) ((CompoundTag)t).getValue().get("Damage")).getValue();
                                     //Check if block is actually in the list and not just a placeholder
                                     if (! itemnames.get(legacyids.get(compare1)).get(Damage).equals("")) {
+                                        if (tMap.containsKey("tag")) {
+                                            //itemFixer
+                                            Map<String,Tag> filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
+                                            if (filler.containsKey("display")) {
+                                                filler.replace("display",nameFixer((CompoundTag) filler.get("display")));
+                                            }
+                                            tMap.replace("tag",new CompoundTag("tag",filler));
+                                        }
                                         tMap.remove("Damage");
                                         tMap.replace("id",new StringTag("id",item.get(Damage)));
                                         builder.add(new CompoundTag("",tMap));
@@ -403,30 +483,10 @@ public class PlayerData implements Convertor {
                                 }
                             }
 
-                            //vanilla spawn egg handler
-                            else if (legacyids.get(compare1).equals("minecraft:spawn_egg")) {
-                                if (Data.Vanilla_mob_ids().containsKey(((Short) tMap.get("Damage").getValue()).toString())) {
-                                    tMap.replace("id",new StringTag("id",Data.Vanilla_mob_ids().get(((Short) tMap.get("Damage").getValue()).toString())));
-                                    tMap.remove("Damage");
-                                    builder.add(new CompoundTag("",tMap));
-                                }
-                                else PrintLine("No vanilla spawn Egg found for Damage value : " +tMap.get("Damage").getValue() ,Data);
-                            }
-                            //lotr spawn egg handler
-                            else if (legacyids.get(compare1).equals("lotr:item.spawnEgg")) {
-                                if (Data.Mod_mob_ids().containsKey(((Short) tMap.get("Damage").getValue()).toString())) {
-                                    tMap.replace("id",new StringTag("id",Data.Mod_mob_ids().get(((Short) tMap.get("Damage").getValue()).toString())));
-                                    tMap.remove("Damage");
-                                    builder.add(new CompoundTag("",tMap));
-                                }
-                                else PrintLine("No lotr mod spawn Egg found for Damage value : " +tMap.get("Damage").getValue() ,Data);
-                            }
                             else {
                                 PrintLine("No mapping found for id: " + legacyids.get(compare1), Data);
-
                             }
                         }
-
                         else {
                             //this should never happen as I gather these ids dynamically
                             PrintLine("No string id found for id: " + compare1,Data);
@@ -442,12 +502,9 @@ public class PlayerData implements Convertor {
                 System.out.println("Maximum set recursion depth reached (default = 7, defined in JSON)");
             }
             return builder;
-
         }
         catch (final ClassCastException | NullPointerException ex) {
             throw new IOException(exceptionMessage);
         }
-
         }
-
 }

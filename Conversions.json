@@ -1,7 +1,7 @@
 {
   "Additional Comments": "If you want to support items from others mods, simply add them to the Items dictionary, usually it will work just fine",
   "Entities": {
-    "lotr.Horse": "",
+    "lotr.Horse": "minecraft:horse",
     "lotr.Hobbit": "lotr:hobbit",
     "lotr.MordorOrc": "lotr:mordor_orc",
     "lotr.ShirePony": "",
@@ -6895,8 +6895,9 @@
   },
   "Settings": {
     "Debug Messages": true,
+    "Cache debug messages": true,
     "Recursion Depth": 7,
-    "Comments": "Debug messages toggles the repetitive messages (Converted x/y files, no mapping found for x, etc.)"
+    "Comments": "Debug messages toggles the repetitive messages (Converted x/y files, no mapping found for x, etc.), Cache debug messages ensures messages will only get sent once"
   },
   "Waypoints": {
     "LAST_BRIDGE": "lotr:last_bridge",
