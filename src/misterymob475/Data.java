@@ -70,10 +70,10 @@ public class Data {
      * returns a Map of the entity names
      * @return Map with key String and value String with the Entity names
      */
-public Map<String,String> Entities() {
-    return (Map<String, String>) Conversions.get("Entities");
+    public Map<String,String> Entities() {
+        return (Map<String, String>) Conversions.get("Entities");
 
-}
+    }
 
     /**
      * returns a Map of the regions
@@ -176,6 +176,10 @@ public Map<String,String> Entities() {
     public Map<String, List<String>> ItemNames() {
         return (Map<String, List<String>>) Conversions.get("Items");
 
+    }
+
+    public Map<String,Map<String,?>> Potions() {
+        return (Map<String,Map<String,?>>) Conversions.get("Potions");
     }
     //Creates the UUID in the new format based with name being the name of the intArrayTag
     //Might have reversed the order though

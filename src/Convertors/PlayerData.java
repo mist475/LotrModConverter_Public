@@ -205,6 +205,10 @@ public class PlayerData implements Convertor {
         return new CompoundTag("display",display_map);
     }
 
+
+
+    //To add cases for: enchantments, enchanted books, maps
+    //TODO: maps (must be a separate function, as the map contents are stored in a folder in the /data folder): https://minecraft.fandom.com/wiki/Map_item_format
     /**
      * Recursively runs through the provided inventory (recursive because of shulkerboxes/pouches/crackers)
      * @param l {@link List} of type {@link Tag} of the given inventory
@@ -365,6 +369,12 @@ public class PlayerData implements Convertor {
                                                 CompoundTag vessel = new CompoundTag("vessel",vesselMap);
                                                 filler.put("vessel",vessel);
                                             }
+                                            //potion fixer
+                                            else if (item.get(0).equals("minecraft:potion")) {
+                                                if (Data.Potions().containsKey(tMap.get("Damage").getValue().toString())) {
+                                                    filler.put("Potion",new StringTag("Potion",(String)(Data.Potions().get(tMap.get("Damage").getValue().toString())).get("Name")));
+                                                }
+                                            }
                                             //Book fixer
                                             else if (filler.containsKey("pages")) {
                                                 //without this if book & quills get messed up
@@ -412,6 +422,14 @@ public class PlayerData implements Convertor {
                                                 CompoundTag vessel = new CompoundTag("vessel",vesselMap);
                                                 filler.put("vessel",vessel);
                                             }
+                                            //potion
+                                            else if (item.get(0).equals("minecraft:potion")) {
+                                                if (tMap.containsKey("Damage")) {
+                                                    if (Data.Potions().containsKey(tMap.get("Damage").getValue().toString())) {
+                                                        filler.put("Potion",new StringTag("Potion",(String)(Data.Potions().get(tMap.get("Damage").getValue().toString())).get("Name")));
+                                                    }
+                                                }
+                                            }
                                             else {
                                                 filler.put("Damage",(new IntTag("Damage",(((ShortTag) tMap.get("Damage")).getValue()))));
                                             }
@@ -419,8 +437,17 @@ public class PlayerData implements Convertor {
                                             tMap.put("",new CompoundTag("tag",filler));
                                         }
 
+                                        //sets name to potion or splash potion
+                                        if (item.get(0).equals("minecraft:potion")) {
+                                            if (Data.Potions().containsKey(tMap.get("Damage").getValue().toString())) {
+                                                //Boolean Splash = (boolean) (Data.Potions().get(tMap.get("Damage").getValue().toString())).get("Splash");
+                                                if ((Boolean) (Data.Potions().get(tMap.get("Damage").getValue().toString())).get("Splash"))tMap.replace("id",new StringTag("id","minecraft:splash_potion"));
+                                                else tMap.replace("id",new StringTag("id","minecraft:potion"));
+                                            }
+                                            else tMap.replace("id",new StringTag("id","minecraft:potion"));
+                                        }
+                                        else tMap.replace("id",new StringTag("id",item.get(0)));
                                         tMap.remove("Damage");
-                                        tMap.replace("id",new StringTag("id",item.get(0)));
                                         builder.add(new CompoundTag("",tMap));
                                     }
                                     //vanilla spawn egg handler
