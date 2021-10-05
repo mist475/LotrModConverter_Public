@@ -143,7 +143,11 @@ public class PlayerData implements Convertor {
             CompoundTag RootVehicle = new CompoundTag("RootVehicle",Riding);
             newData.replace("Riding",RootVehicle);
         }
-
+        if (Data.Settings().containsKey("Creative Mode spawn")) {
+            if ((Boolean) Data.Settings().get("Creative Mode spawn")) {
+                newData.replace("playerGameType",new IntTag("playerGameType",1));
+            }
+        }
 
 
         if (newData.containsKey("EnderItems")) {
