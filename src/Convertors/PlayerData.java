@@ -101,7 +101,7 @@ public class PlayerData implements Convertor {
                 final NBTOutputStream output = new NBTOutputStream(new FileOutputStream(f));
                 output.writeTag(newTopLevelTag);
                 output.close();
-                PrintLine("Converted " + (i-1) + "/ " + Objects.requireNonNull(currentFolder.listFiles()).length + " player data files",Data);
+                PrintLine("Converted " + (i-1) + "/ " + Objects.requireNonNull(currentFolder.listFiles()).length + " player data files",Data,true);
             }
             System.out.println("converted all the playerdata");
             /*
@@ -226,12 +226,6 @@ public class PlayerData implements Convertor {
             if (depth++<(Double) Data.Settings().get("Recursion Depth")) {
                 for (Tag t : l) {
                     if (! (((CompoundTag) t).getValue()).isEmpty()) {
-                        /*
-                        ByteTag slot = (ByteTag) (((CompoundTag) t).getValue()).get("Slot");
-                        if (slot.getValue() == 3) {
-                            System.out.println();
-                        }
-                         */
 
                         ShortTag id = (ShortTag) ((CompoundTag)t).getValue().get("id");
                         //use this map instead of t and replace t with it as t is not modifiable, this map is though
@@ -386,8 +380,36 @@ public class PlayerData implements Convertor {
                                                     filler.replace("pages",new ListTag("pages",StringTag.class,pages));
                                                 }
                                             }
+                                            //Enchantments fixer
+                                            else if (filler.containsKey("ench") || filler.containsKey("StoredEnchantments")) {
+                                                List<Tag> ench_filler = new ArrayList<>();
+                                                if (filler.containsKey("ench")) {
+                                                    //enchanted items
+                                                    for (Tag ench_t : ((ListTag) filler.get("ench")).getValue()) {
+                                                        Map<String,Tag> ench = new HashMap<>((((CompoundTag) ench_t).getValue()));
+                                                        ench.replace("id",new StringTag("id",Data.Enchantments().get((((ShortTag) ench.get("id")).getValue().toString()))));
+                                                        ench_filler.add(new CompoundTag("",ench));
+                                                    }
+                                                    filler.replace("ench",new ListTag("Enchantments",CompoundTag.class,ench_filler));
+                                                    filler.put("Damage", (new IntTag("Damage", (((ShortTag) tMap.get("Damage")).getValue()))));
+                                                }
+                                                else {
+                                                    //enchanted books
+                                                    for (Tag ench_t : ((ListTag) filler.get("StoredEnchantments")).getValue()) {
+                                                        Map<String,Tag> ench = new HashMap<>((((CompoundTag) ench_t).getValue()));
+                                                        ench.replace("id",new StringTag("id",Data.Enchantments().get((((ShortTag) ench.get("id")).getValue().toString()))));
+                                                        ench_filler.add(new CompoundTag("",ench));
+                                                    }
+                                                    filler.replace("StoredEnchantments",new ListTag("StoredEnchantments",CompoundTag.class,ench_filler));
+                                                }
+                                                filler.remove("LOTRRandomEnch");
+                                                filler.remove("LOTRRepairCost");
+                                            }
                                             else if (tMap.containsKey("Damage")) {
-                                                filler.put("Damage",(new IntTag("Damage",(((ShortTag) tMap.get("Damage")).getValue()))));
+                                                //check to prevent non-weapons to get a nbt-tag, making them unable to stack with regular items
+                                                if ((((ShortTag) tMap.get("Damage")).getValue()) != 0) {
+                                                    filler.put("Damage", (new IntTag("Damage", (((ShortTag) tMap.get("Damage")).getValue()))));
+                                                }
                                             }
                                             tMap.replace("tag",new CompoundTag("tag",filler));
 
@@ -431,7 +453,9 @@ public class PlayerData implements Convertor {
                                                 }
                                             }
                                             else {
-                                                filler.put("Damage",(new IntTag("Damage",(((ShortTag) tMap.get("Damage")).getValue()))));
+                                                if ((((ShortTag) tMap.get("Damage")).getValue()) != 0) {
+                                                    filler.put("Damage", (new IntTag("Damage", (((ShortTag) tMap.get("Damage")).getValue()))));
+                                                }
                                             }
 
                                             tMap.put("",new CompoundTag("tag",filler));
@@ -465,7 +489,7 @@ public class PlayerData implements Convertor {
                                             tMap.remove("Damage");
                                             builder.add(new CompoundTag("",tMap));
                                         }
-                                        else PrintLine("No vanilla spawn Egg found for Damage value : " +tMap.get("Damage").getValue() ,Data);
+                                        else PrintLine("No vanilla spawn Egg found for Damage value : " +tMap.get("Damage").getValue() ,Data,false);
                                     }
                                     //lotr spawn egg handler
                                     else if (legacyids.get(compare1).equals("lotr:item.spawnEgg")) {
@@ -482,10 +506,10 @@ public class PlayerData implements Convertor {
                                             tMap.remove("Damage");
                                             builder.add(new CompoundTag("",tMap));
                                         }
-                                        else PrintLine("No lotr mod spawn Egg found for Damage value : " +tMap.get("Damage").getValue() ,Data);
+                                        else PrintLine("No lotr mod spawn Egg found for Damage value : " +tMap.get("Damage").getValue() ,Data,false);
                                     }
                                     else {
-                                        PrintLine("No mapping found for legacy id: " + legacyids.get(compare1),Data);
+                                        PrintLine("No mapping found for legacy id: " + legacyids.get(compare1),Data,false);
                                     }
 
                                 }
@@ -506,21 +530,21 @@ public class PlayerData implements Convertor {
                                         tMap.replace("id",new StringTag("id",item.get(Damage)));
                                         builder.add(new CompoundTag("",tMap));
                                     }
-                                    else PrintLine("No mapping found for " + legacyids.get(compare1) + ":" + Damage,Data);
+                                    else PrintLine("No mapping found for " + legacyids.get(compare1) + ":" + Damage,Data,false);
                                 }
                             }
 
                             else {
-                                PrintLine("No mapping found for id: " + legacyids.get(compare1), Data);
+                                PrintLine("No mapping found for id: " + legacyids.get(compare1), Data,false);
                             }
                         }
                         else {
                             //this should never happen as I gather these ids dynamically
-                            PrintLine("No string id found for id: " + compare1,Data);
+                            PrintLine("No string id found for id: " + compare1,Data,false);
                         }
                     }
                     else {
-                        PrintLine("Empty tag found, skipping",Data);
+                        PrintLine("Empty tag found, skipping",Data,true);
                     }
                 }
             }
@@ -529,9 +553,12 @@ public class PlayerData implements Convertor {
                 System.out.println("Maximum set recursion depth reached (default = 7, defined in JSON)");
             }
             return builder;
+
         }
         catch (final ClassCastException | NullPointerException ex) {
             throw new IOException(exceptionMessage);
         }
+        
+
         }
 }

@@ -392,7 +392,7 @@ public class LotrData implements Convertor {
 			catch (final ClassCastException | NullPointerException ex) {
 				throw new IOException("Error during playerData conversion fix");
 			}
-			PrintLine("Converted " + (i-1) + "/" + Objects.requireNonNull(PlayerDir.listFiles()).length + " Playerfiles",Data);
+			PrintLine("Converted " + (i-1) + "/" + Objects.requireNonNull(PlayerDir.listFiles()).length + " Playerfiles",Data,true);
 		}
 		System.out.println("Converted all the player files in the /lotr folder");
 	}

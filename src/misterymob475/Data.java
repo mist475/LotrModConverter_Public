@@ -178,6 +178,14 @@ public class Data {
 
     }
 
+    /**
+     * returns a dict with int id to string id
+     * @return a string dict
+     */
+    public Map<String,String> Enchantments() {
+        return (Map<String,String>) Conversions.get("Enchantments");
+    }
+
     public Map<String,Map<String,?>> Potions() {
         return (Map<String,Map<String,?>>) Conversions.get("Potions");
     }

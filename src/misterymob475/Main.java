@@ -114,11 +114,10 @@ public class Main {
         }
     }
 
-    public static void PrintLine(String msg, Data data) {
-        if (data.Settings().get("Debug Messages").getClass().equals(Boolean.class)) {
-            if ((Boolean) data.Settings().get("Debug Messages")) {
-                //makes the prints a lot less cluttered by only printing each line once
-                if ((Boolean) data.Settings().get("Cache debug messages")) {
+    public static void PrintLine(String msg, Data data, Boolean extended) {
+        if (data.Settings().get("Debug Messages").getClass().equals(Double.class)) {
+            if ((Double) data.Settings().get("Debug Messages") == 2.0) {
+                if ((Boolean)data.Settings().get("Cache debug messages")) {
                     if (! data.stringCache.contains(msg)) {
                         System.out.println(msg);
                         data.stringCache.add(msg);
@@ -127,9 +126,21 @@ public class Main {
                 else System.out.println(msg);
 
             }
+            else if ((Double) data.Settings().get("Debug Messages") == 1.0) {
+                 if (! extended) {
+                     if ((Boolean)data.Settings().get("Cache debug messages")) {
+                         if (! data.stringCache.contains(msg)) {
+                             System.out.println(msg);
+                             data.stringCache.add(msg);
+                         }
+                     }
+                    else System.out.println(msg);
+                 }
+                }
+            }
         }
         //if (data.Settings().get("Debug Messages")) System.out.println(msg);
-    }
+
 
     /**
      * Gives an option prompt asking for a legacy world (if only one world is found no questions are asked), returns "" if no worlds are found

@@ -231,15 +231,20 @@ public class EntityData implements Convertor{
                         Entity.remove("Type");
                         Entity.replace("id",new StringTag("id","minecraft:donkey"));
                     }
+                    else if (Entity.get("id").getValue().equals("lotr.Horse")) {
+                        //this is temporary, when blocks work I'm gonna finish this function, there's still lotr-related stuff missing
+                        Entity.remove("Type");
+                        Entity.replace("id",new StringTag("id","minecraft:donkey"));
+                    }
                     else {
                         Entity.replace("id",new StringTag("id",Data.Entities().get((String)(Entity.get("id").getValue()))));
                     }
                     Entity.remove("Type");
                 }
-                else PrintLine("No mapping found for Entity: " + Entity.get("id") + " - It probably hasn't been ported yet",Data);
+                else PrintLine("No mapping found for Entity: " + Entity.get("id") + " - It probably hasn't been ported yet",Data,false);
             }
             else {
-                PrintLine("No mapping found for Entity: " + Entity.get("id"),Data);
+                PrintLine("No mapping found for Entity: " + Entity.get("id"),Data,false);
             }
         }
 
