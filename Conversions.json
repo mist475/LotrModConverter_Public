@@ -1,7 +1,7 @@
 {
   "Additional Comments": "If you want to support items from others mods, simply add them to the Items dictionary, usually it will work just fine",
   "Entities": {
-    "lotr.Horse": "",
+    "lotr.Horse": "minecraft:donkey",
     "lotr.Hobbit": "lotr:hobbit",
     "lotr.MordorOrc": "lotr:mordor_orc",
     "lotr.ShirePony": "",

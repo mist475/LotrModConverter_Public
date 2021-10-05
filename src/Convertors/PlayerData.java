@@ -205,10 +205,6 @@ public class PlayerData implements Convertor {
         return new CompoundTag("display",display_map);
     }
 
-
-
-    //To add cases for: enchantments, enchanted books, maps
-    //TODO: maps (must be a separate function, as the map contents are stored in a folder in the /data folder): https://minecraft.fandom.com/wiki/Map_item_format
     /**
      * Recursively runs through the provided inventory (recursive because of shulkerboxes/pouches/crackers)
      * @param l {@link List} of type {@link Tag} of the given inventory
@@ -405,6 +401,12 @@ public class PlayerData implements Convertor {
                                                 filler.remove("LOTRRandomEnch");
                                                 filler.remove("LOTRRepairCost");
                                             }
+                                            //map fixer (very simple thankfully)
+                                            else if (item.get(0).equals("minecraft:filled_map")) {
+                                                if (tMap.containsKey("Damage")) {
+                                                    filler.put("map",new IntTag("map",(int)((Short)tMap.get("Damage").getValue())));
+                                                }
+                                            }
                                             else if (tMap.containsKey("Damage")) {
                                                 //check to prevent non-weapons to get a nbt-tag, making them unable to stack with regular items
                                                 if ((((ShortTag) tMap.get("Damage")).getValue()) != 0) {
@@ -452,13 +454,20 @@ public class PlayerData implements Convertor {
                                                     }
                                                 }
                                             }
+                                            //map fixer (very simple thankfully)
+                                            else if (item.get(0).equals("minecraft:filled_map")) {
+                                                if (tMap.containsKey("Damage")) {
+                                                    filler.put("map",new IntTag("map",(int)((Short)tMap.get("Damage").getValue())));
+                                                }
+                                            }
                                             else {
                                                 if ((((ShortTag) tMap.get("Damage")).getValue()) != 0) {
                                                     filler.put("Damage", (new IntTag("Damage", (((ShortTag) tMap.get("Damage")).getValue()))));
                                                 }
                                             }
-
-                                            tMap.put("",new CompoundTag("tag",filler));
+                                            if (! filler.isEmpty()) {
+                                                tMap.put("",new CompoundTag("tag",filler));
+                                            }
                                         }
 
                                         //sets name to potion or splash potion
@@ -558,7 +567,7 @@ public class PlayerData implements Convertor {
         catch (final ClassCastException | NullPointerException ex) {
             throw new IOException(exceptionMessage);
         }
-        
+
 
         }
 }

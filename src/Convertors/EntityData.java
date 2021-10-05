@@ -226,6 +226,8 @@ public class EntityData implements Convertor{
                         else
                             Entity.replace("id",new StringTag("id","minecraft:horse"));
                     }
+
+                    //I think these are actually bypassed but oh well
                     //code for turning camels into donkeys (to keep the storage)
                     else if (Entity.get("id").getValue().equals("lotr.Camel")) {
                         Entity.remove("Type");
@@ -241,10 +243,10 @@ public class EntityData implements Convertor{
                     }
                     Entity.remove("Type");
                 }
-                else PrintLine("No mapping found for Entity: " + Entity.get("id") + " - It probably hasn't been ported yet",Data,false);
+                else PrintLine("No mapping found for Entity: " + Entity.get("id").getValue() + " - It probably hasn't been ported yet",Data,false);
             }
             else {
-                PrintLine("No mapping found for Entity: " + Entity.get("id"),Data,false);
+                PrintLine("No mapping found for Entity: " + Entity.get("id").getValue(),Data,false);
             }
         }
 

@@ -61,10 +61,10 @@ public class LotrData implements Convertor {
 		File out = new File(Paths.get(p +"/"+FileName+"_Converted/lotr").toString());
 		copyDirectory(src.getAbsolutePath(), out.getAbsolutePath());
 		//remove the unnecessary files (at least for now)
-		Files.deleteIfExists(Paths.get(src+"/conquest_zones"));
-		Files.deleteIfExists(Paths.get(src+"/factionbounties"));
-		Files.deleteIfExists(Paths.get(src+"/faction_relations.dat"));
-		Files.deleteIfExists(Paths.get(src+"/spawn_damping.dat"));
+		Files.deleteIfExists(Paths.get(out+"/conquest_zones"));
+		Files.deleteIfExists(Paths.get(out+"/factionbounties"));
+		Files.deleteIfExists(Paths.get(out+"/faction_relations.dat"));
+		Files.deleteIfExists(Paths.get(out+"/spawn_damping.dat"));
 		//Files.deleteIfExists(Paths.get(src+"/fellowships"));
 	}
 
