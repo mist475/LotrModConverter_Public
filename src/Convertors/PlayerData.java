@@ -203,8 +203,12 @@ public class PlayerData implements Convertor {
      */
     public static CompoundTag nameFixer(CompoundTag display) {
         Map<String,Tag> display_map = new HashMap<>(display.getValue());
+        String name = (String) display_map.get("Name").getValue();
+        //removes the colour tag as it might interfere, will have to check later
+        //TODO: Look into this
+        if (name.contains("§")) name = name.substring(2);
         if (display_map.containsKey("Name")) {
-            display_map.replace("Name", new StringTag("Name",("{" + '"' + "text" + '"' +':' + '"' + display_map.get("Name").getValue() + '"'+ '}')));
+            display_map.replace("Name", new StringTag("Name",("{" + '"' + "text" + '"' +':' + '"' + name + '"'+ '}')));
         }
         return new CompoundTag("display",display_map);
     }
@@ -335,6 +339,32 @@ public class PlayerData implements Convertor {
                                             //itemFixer
                                             if (filler.containsKey("display")) {
                                                 filler.replace("display",nameFixer((CompoundTag) filler.get("display")));
+                                            }
+                                            //pipe fixer
+                                            if (filler.containsKey("SmokeColour")) {
+                                                Map<String,Tag> pipeMap = new HashMap<>();
+                                                String color = (new ArrayList<>(Arrays.asList(
+                                                        "white",
+                                                        "orange",
+                                                        "magenta",
+                                                        "light_blue",
+                                                        "yellow",
+                                                        "lime",
+                                                        "pink",
+                                                        "gray",
+                                                        "light_gray",
+                                                        "cyan",
+                                                        "purple",
+                                                        "blue",
+                                                        "brown",
+                                                        "green",
+                                                        "red",
+                                                        "black",
+                                                        "magic"
+                                                ))).get((Integer) filler.get("SmokeColour").getValue());
+                                                if (color.equals("magic")) pipeMap.put("magic",new ByteTag("magic",(byte)1));
+                                                pipeMap.put("color",new StringTag("color",color));
+                                                filler.replace("SmokeColour",new CompoundTag("pipe",pipeMap));
                                             }
                                             if (drink) {
                                                 Map<String,Tag> vesselMap = new HashMap<>();

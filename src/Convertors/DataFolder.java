@@ -98,7 +98,8 @@ public class DataFolder implements Convertor{
                             else if (Dimension == 1) newDimension = "Minecraft:the_nether";
                             else if (Dimension == 2) newDimension = "Minecraft:the_end";
                             else if (Dimension == 100) newDimension = "lotr:middle_earth";
-                            else if (Dimension == 101) newDimension = "lotr:middle_earth";
+                            //not sure if this is gonna work, we'll see
+                            else if (Dimension == 101) newDimension = "lotr:utumno";
                             else newDimension = "minecraft:overworld";
                             data.replace("dimension",new StringTag("dimension",newDimension));
                         }

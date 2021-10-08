@@ -189,8 +189,6 @@ public class Data {
     public Map<String,Map<String,?>> Potions() {
         return (Map<String,Map<String,?>>) Conversions.get("Potions");
     }
-    //Creates the UUID in the new format based with name being the name of the intArrayTag
-    //Might have reversed the order though
     /**
      * Function which returns a new IntArrayTag based off the given LongTags and name
      * @param UUIDLeast {@link LongTag}
@@ -199,6 +197,8 @@ public class Data {
      * @return {@link IntArrayTag} with given name and param inputs
      */
     public static IntArrayTag UUIDFixer(LongTag UUIDLeast, LongTag UUIDMost, String name) {
+        //Creates the UUID in the new format based with name being the name of the intArrayTag
+        //Might have reversed the order though
         return new IntArrayTag(name,new int[]{Long.valueOf(Long.toHexString(UUIDMost.getValue()).substring(0,8),16).intValue(),Long.valueOf(Long.toHexString(UUIDMost.getValue()).substring(8),16).intValue(),Long.valueOf(Long.toHexString(UUIDLeast.getValue()).substring(0,8),16).intValue(),Long.valueOf(Long.toHexString(UUIDLeast.getValue()).substring(8),16).intValue()});
     }
     //Overload for when no special name is required (name is "UUID")
