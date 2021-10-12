@@ -37,6 +37,13 @@ public class Data {
         return (Map<String, String>) Conversions.get("Waypoints");
      }
 
+    /**
+     * Map of the colour for fixing text
+     * @return Map with new colour names for use in json
+     */
+    public Map<String,String> Colours() {
+        return (Map<String,String>) Conversions.get("Colours");
+    }
      public Map<String,?> Settings() {
         return (Map<String, ?>) Conversions.get("Settings");
      }

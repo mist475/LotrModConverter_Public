@@ -140,6 +140,7 @@ public class PlayerData implements Convertor {
             //call to entity fixer, this means the player is riding on a mount (fixer will temporarily replace said mount with a donkey)
             Map<String,Tag> Riding = new HashMap<>(((CompoundTag)newData.get("Riding")).getValue());
             Riding = EntityData.RiderEntityFixer(Riding,legacyids,Data);
+            assert Riding != null;
             CompoundTag RootVehicle = new CompoundTag("RootVehicle",Riding);
             newData.replace("Riding",RootVehicle);
         }
@@ -180,9 +181,9 @@ public class PlayerData implements Convertor {
             //sets the player coordinates at the coordinates of the pit if they're currently in Utumno (roughly, they'll be moved in renewed I've heard)
             //ListTag Pos1 = (ListTag) newData.get("Pos");
             ArrayList<Tag> Pos = new ArrayList<Tag>(1) {};
-            Pos.add(new DoubleTag("",42000.0));
+            Pos.add(new DoubleTag("",46158.0));
             Pos.add(new DoubleTag("",80.0));
-            Pos.add(new DoubleTag("",43000));
+            Pos.add(new DoubleTag("",-40274.0));
             newData.replace("Pos",new ListTag("Pos",DoubleTag.class,Pos));
 
         }
@@ -201,14 +202,21 @@ public class PlayerData implements Convertor {
      * @param display the display {@link CompoundTag} used for items
      * @return the display {@link CompoundTag}, but with fixed formatting to prevent custom names getting cut off
      */
-    public static CompoundTag nameFixer(CompoundTag display) {
+    public static CompoundTag nameFixer(CompoundTag display, Data Data) {
         Map<String,Tag> display_map = new HashMap<>(display.getValue());
-        String name = (String) display_map.get("Name").getValue();
-        //removes the colour tag as it might interfere, will have to check later
-        //TODO: Look into this
-        if (name.contains("§")) name = name.substring(2);
         if (display_map.containsKey("Name")) {
-            display_map.replace("Name", new StringTag("Name",("{" + '"' + "text" + '"' +':' + '"' + name + '"'+ '}')));
+            String name = (String) display_map.get("Name").getValue();
+            String colour= "";
+            if (name.contains("§")) {
+                //Fixes coloured items, might have to fix 'Lore' items too. Not sure how those are saved yet
+                if (Data.Colours().containsKey(name.substring(0,2))) {
+                    colour = "," + '"'  + "color"  + '"'+ ':'+ '"'+Data.Colours().get(name.substring(0,2)) + '"';
+                }
+                name = name.substring(2);
+            }
+            if (display_map.containsKey("Name")) {
+                display_map.replace("Name", new StringTag("Name",("{" + '"' + "text" + '"' +':' + '"' + name + '"'+ colour +'}')));
+            }
         }
         return new CompoundTag("display",display_map);
     }
@@ -246,7 +254,7 @@ public class PlayerData implements Convertor {
                                         Map<String,Tag> filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
                                         //nameFixer
                                         if (filler.containsKey("display")) {
-                                            filler.replace("display",nameFixer((CompoundTag) filler.get("display")));
+                                            filler.replace("display",nameFixer((CompoundTag) filler.get("display"),Data));
                                         }
                                         if (filler.containsKey("LOTRPouchData")) {
                                             Map<String,Tag> LOTRPouchData = new HashMap<>(((CompoundTag) filler.get("LOTRPouchData")).getValue());
@@ -275,7 +283,7 @@ public class PlayerData implements Convertor {
                                         filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
                                         //nameFixer
                                         if (filler.containsKey("display")) {
-                                            filler.replace("display",nameFixer((CompoundTag) filler.get("display")));
+                                            filler.replace("display",nameFixer((CompoundTag) filler.get("display"),Data));
                                         }
                                         Map<String,Tag> KegDroppableData_Map = new HashMap<>();
                                         if (filler.containsKey("LOTRBarrelData")) {
@@ -338,7 +346,7 @@ public class PlayerData implements Convertor {
                                             Map<String,Tag> filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
                                             //itemFixer
                                             if (filler.containsKey("display")) {
-                                                filler.replace("display",nameFixer((CompoundTag) filler.get("display")));
+                                                filler.replace("display",nameFixer((CompoundTag) filler.get("display"),Data));
                                             }
                                             //pipe fixer
                                             if (filler.containsKey("SmokeColour")) {
@@ -523,7 +531,7 @@ public class PlayerData implements Convertor {
                                         if (tMap.containsKey("tag")) {
                                             Map<String,Tag> filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
                                             if (filler.containsKey("display")) {
-                                                filler.replace("display",nameFixer((CompoundTag) filler.get("display")));
+                                                filler.replace("display",nameFixer((CompoundTag) filler.get("display"),Data));
                                             }
                                             tMap.replace("tag",new CompoundTag("tag",filler));
                                         }
@@ -540,7 +548,7 @@ public class PlayerData implements Convertor {
                                         if (tMap.containsKey("tag")) {
                                             Map<String,Tag> filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
                                             if (filler.containsKey("display")) {
-                                                filler.replace("display",nameFixer((CompoundTag) filler.get("display")));
+                                                filler.replace("display",nameFixer((CompoundTag) filler.get("display"),Data));
                                             }
                                             tMap.replace("tag",new CompoundTag("tag",filler));
                                         }
@@ -565,7 +573,7 @@ public class PlayerData implements Convertor {
                                             //itemFixer
                                             Map<String,Tag> filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
                                             if (filler.containsKey("display")) {
-                                                filler.replace("display",nameFixer((CompoundTag) filler.get("display")));
+                                                filler.replace("display",nameFixer((CompoundTag) filler.get("display"),Data));
                                             }
                                             tMap.replace("tag",new CompoundTag("tag",filler));
                                         }

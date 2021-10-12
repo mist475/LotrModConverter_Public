@@ -52,9 +52,43 @@ public class EntityData implements Convertor{
 
     }
 
-    public static Map<String, Tag> EntityFixer(Map<String, Tag> Entity, Map<Integer,String> LegacyIds, Data Data) throws IOException {
+    public static Map<String, Tag> EntityFixer(Map<String, Tag> Entity, Map<Integer,String> LegacyIds, Data Data, Boolean Important) throws IOException {
+        //if Important, entity will always be saved, otherwise entity will only be saved if it maxes sense (Utumno mobs will get deleted)
+        boolean inUtumno = false;
         //has something to do with the lotrmod
         Entity.remove("ForgeData");
+
+
+
+        if (Entity.containsKey("Dimension")) {
+            Integer Dimension = ((IntTag) Entity.get("Dimension")).getValue();
+            String newDimension;
+            if (Dimension == 0) newDimension = "minecraft:overworld";
+            else if (Dimension == 1) newDimension = "Minecraft:the_nether";
+            else if (Dimension == 2) newDimension = "Minecraft:the_end";
+            else if (Dimension == 100) newDimension = "lotr:middle_earth";
+            else if (Dimension == 101) {
+                //should it be saved?
+                if (Important) {
+                    newDimension = "lotr:middle_earth"; //utumno doesn't exist yet
+                    inUtumno = true;
+                }
+                else return null;
+            }
+            else newDimension = "minecraft:overworld";
+            Entity.replace("Dimension",new StringTag("Dimension",newDimension));
+        }
+        if (inUtumno) {
+            //sets the player coordinates at the coordinates of the pit if they're currently in Utumno (roughly, they'll be moved in renewed I've heard)
+            //ListTag Pos1 = (ListTag) newData.get("Pos");
+            ArrayList<Tag> Pos = new ArrayList<Tag>(1) {};
+            Pos.add(new DoubleTag("",46158.0));
+            Pos.add(new DoubleTag("",80.0));
+            Pos.add(new DoubleTag("",-40274.0));
+            Entity.replace("Pos",new ListTag("Pos",DoubleTag.class,Pos));
+
+        }
+
         /*
                 Map<String,Tag> brain = new HashMap<>();
         brain.put("memories",new CompoundTag("memories",new HashMap<>()));
@@ -173,21 +207,6 @@ public class EntityData implements Convertor{
         //LOTR mod related
         Entity.remove("BelongsNPC");
 
-        if (Entity.containsKey("Dimension")) {
-            //fixer here int --> string
-            Integer Dimension = ((IntTag) Entity.get("Dimension")).getValue();
-            String newDimension;
-            if (Dimension == 0) newDimension = "minecraft:overworld";
-            else if (Dimension == 1) newDimension = "Minecraft:the_nether";
-            else if (Dimension == 2) newDimension = "Minecraft:the_end";
-            else if (Dimension == 100) newDimension = "lotr:middle_earth";
-            else if (Dimension == 101) {
-                newDimension = "lotr:middle_earth"; //utumno doesn't exist yet
-            }
-            else newDimension = "minecraft:overworld";
-            Entity.replace("Dimension",new StringTag("Dimension",newDimension));
-        }
-
         Entity.remove("HasReproduced");
 
         Entity.remove("HealF");
@@ -281,11 +300,16 @@ public class EntityData implements Convertor{
         }
 
         //
-        Map<String,Tag> Entity_map = EntityFixer(Entity,LegacyIds,Data);
-        RootVehicle.put("Entity",new CompoundTag("Entity",Entity_map));
+        Map<String,Tag> Entity_map = EntityFixer(Entity,LegacyIds,Data,true);
+        if (Entity_map != null) {
+            RootVehicle.put("Entity",new CompoundTag("Entity",Entity_map));
+            return RootVehicle;
+        }
+        else return null;
+
         //
 
-        return RootVehicle;
+
     }
 
     public static ListTag modifierFixer(ListTag t) {
