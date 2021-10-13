@@ -51,7 +51,6 @@ public class Main {
                 //HashMap<String, List<String>> ItemNames = Data.ItemNames();
                 //fancy way of looping through the implementations of the Convertor interface, this way I only have to change this line instead of adding an init, and the calling of the 2 functions per implementation
                 for (Convertor c : new Convertor[]{new LotrData(data),new PlayerData(data,LegacyIds),new LevelDat(data,renewedWorld,LegacyIds),new EntityData(data,renewedWorld,LegacyIds),new DataFolder(data)}) {
-                    c.copier(launchDir,selectedWorld.getName());
                     c.modifier(launchDir,selectedWorld.getName());
                 }
             }

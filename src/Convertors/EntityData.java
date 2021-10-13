@@ -25,21 +25,6 @@ public class EntityData implements Convertor{
         LegacyIds = legacyIds;
     }
 
-
-
-
-    /**
-     * Copies the files to their new location
-     *
-     * @param p        path of the folder where files are copied
-     * @param FileName name of the to be copied file
-     * @throws IOException if something fails
-     */
-    @Override
-    public void copier(Path p, String FileName) throws IOException {
-        //does nothing for the moment, this is here for when I get started on actual world conversion.
-    }
-
     /**
      * Modifies the files to work in Renewed
      *
@@ -53,6 +38,56 @@ public class EntityData implements Convertor{
     }
 
     public static Map<String, Tag> EntityFixer(Map<String, Tag> Entity, Map<Integer,String> LegacyIds, Data Data, Boolean Important) throws IOException {
+        //Determines the actual mob
+        if (Entity.containsKey("id")) {
+            if (Data.Entities().containsKey((String) (Entity.get("id").getValue()))) {
+                if (! Data.Entities().get( (String)(Entity.get("id").getValue())).equals("")) {
+                    //code for split types here (horses mainly, I'm not gonna bother with zombie villagers)
+                    if (Data.Entities().get( (String)(Entity.get("id").getValue())).equals("minecraft:horse")) {
+                        if (Entity.get("Type").getValue().equals((byte)1)) {
+                            Entity.replace("id",new StringTag("id","minecraft:donkey"));
+                            Entity.remove("Variant");
+                        }
+                        else if (Entity.get("Type").getValue().equals((byte)2)) {
+                            Entity.replace("id",new StringTag("id","minecraft:mule"));
+                            Entity.remove("Variant");
+                        }
+                        else if (Entity.get("Type").getValue().equals((byte)3)) {
+                            Entity.replace("id",new StringTag("id","minecraft:zombie_horse"));
+                            Entity.remove("Variant");
+                        }
+                        else if (Entity.get("Type").getValue().equals((byte)1)) {
+                            Entity.replace("id",new StringTag("id","minecraft:skeleton_horse"));
+                            Entity.remove("Variant");
+                        }
+                        else
+                            Entity.replace("id",new StringTag("id","minecraft:horse"));
+                    }
+
+                    //I think these are actually bypassed but oh well
+                    //code for turning camels into donkeys (to keep the storage)
+                    else if (Entity.get("id").getValue().equals("lotr.Camel")) {
+                        Entity.remove("Type");
+                        Entity.replace("id",new StringTag("id","minecraft:donkey"));
+                    }
+                    else if (Entity.get("id").getValue().equals("lotr.Horse")) {
+                        //this is temporary, when blocks work I'm gonna finish this function, there's still lotr-related stuff missing
+                        Entity.remove("Type");
+                        Entity.replace("id",new StringTag("id","minecraft:donkey"));
+                    }
+                    else {
+                        Entity.replace("id",new StringTag("id",Data.Entities().get((String)(Entity.get("id").getValue()))));
+                    }
+                    Entity.remove("Type");
+                }
+                else PrintLine("No mapping found for Entity: " + Entity.get("id").getValue() + " - It probably hasn't been ported yet",Data,false);
+            }
+            else {
+                PrintLine("No mapping found for Entity: " + Entity.get("id").getValue(),Data,false);
+                return null;
+            }
+        }
+        else return null;
         //if Important, entity will always be saved, otherwise entity will only be saved if it maxes sense (Utumno mobs will get deleted)
         boolean inUtumno = false;
         //has something to do with the lotrmod
@@ -220,54 +255,7 @@ public class EntityData implements Convertor{
  */
 
 
-        //Determines the actual mob
-        if (Entity.containsKey("id")) {
-            if (Data.Entities().containsKey((String) (Entity.get("id").getValue()))) {
-                if (! Data.Entities().get( (String)(Entity.get("id").getValue())).equals("")) {
-                    //code for split types here (horses mainly, I'm not gonna bother with zombie villagers)
-                    if (Data.Entities().get( (String)(Entity.get("id").getValue())).equals("minecraft:horse")) {
-                        if (Entity.get("Type").getValue().equals((byte)1)) {
-                            Entity.replace("id",new StringTag("id","minecraft:donkey"));
-                            Entity.remove("Variant");
-                        }
-                        else if (Entity.get("Type").getValue().equals((byte)2)) {
-                            Entity.replace("id",new StringTag("id","minecraft:mule"));
-                            Entity.remove("Variant");
-                        }
-                        else if (Entity.get("Type").getValue().equals((byte)3)) {
-                            Entity.replace("id",new StringTag("id","minecraft:zombie_horse"));
-                            Entity.remove("Variant");
-                        }
-                        else if (Entity.get("Type").getValue().equals((byte)1)) {
-                            Entity.replace("id",new StringTag("id","minecraft:skeleton_horse"));
-                            Entity.remove("Variant");
-                        }
-                        else
-                            Entity.replace("id",new StringTag("id","minecraft:horse"));
-                    }
 
-                    //I think these are actually bypassed but oh well
-                    //code for turning camels into donkeys (to keep the storage)
-                    else if (Entity.get("id").getValue().equals("lotr.Camel")) {
-                        Entity.remove("Type");
-                        Entity.replace("id",new StringTag("id","minecraft:donkey"));
-                    }
-                    else if (Entity.get("id").getValue().equals("lotr.Horse")) {
-                        //this is temporary, when blocks work I'm gonna finish this function, there's still lotr-related stuff missing
-                        Entity.remove("Type");
-                        Entity.replace("id",new StringTag("id","minecraft:donkey"));
-                    }
-                    else {
-                        Entity.replace("id",new StringTag("id",Data.Entities().get((String)(Entity.get("id").getValue()))));
-                    }
-                    Entity.remove("Type");
-                }
-                else PrintLine("No mapping found for Entity: " + Entity.get("id").getValue() + " - It probably hasn't been ported yet",Data,false);
-            }
-            else {
-                PrintLine("No mapping found for Entity: " + Entity.get("id").getValue(),Data,false);
-            }
-        }
 
 
         Entity.remove("Leashed");

@@ -23,43 +23,7 @@ public class DataFolder implements Convertor{
         this.Data = data;
     }
 
-    /**
-     * Copies directories
-     * @param sourceDirectoryLocation Path of source
-     * @param destinationDirectoryLocation Path of destination
-     * @throws IOException if something fails
-     */
-    private static void copyDirectory(String sourceDirectoryLocation, String destinationDirectoryLocation)
-            throws IOException {
-        Files.walk(Paths.get(sourceDirectoryLocation))
-                .forEach(source -> {
-                    Path destination = Paths.get(destinationDirectoryLocation, source.toString()
-                            .substring(sourceDirectoryLocation.length()));
-                    try {
-                        Files.copy(source, destination);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                });
-    }
 
-
-    /**
-     * Copies the files to their new location
-     *
-     * @param p        path of the folder where files are copied
-     * @param FileName name of the to be copied file
-     * @throws IOException if something fails
-     */
-    @Override
-    public void copier(Path p, String FileName) throws IOException {
-        File src = new File(Paths.get(p.toString()+"/"+FileName+"/data").toString());
-        File out = new File(Paths.get(p +"/"+FileName+"_Converted/data").toString());
-        if (src.exists()) {
-            copyDirectory(src.getAbsolutePath(), out.getAbsolutePath());
-        }
-        Files.deleteIfExists(Paths.get(out+"/villages.dat"));
-    }
 
     /**
      * Modifies the files to work in Renewed
@@ -71,7 +35,8 @@ public class DataFolder implements Convertor{
     public void modifier(Path p, String FileName) throws IOException {
         //in this file: fixers for idcounts.dat and map_%.dat files
 
-        File currentFolder = new File(Paths.get(p +"/"+FileName+"_Converted/data").toString());
+        File currentFolder = new File(Paths.get(p +"/"+FileName+"/data").toString());
+        Files.createDirectory(Paths.get(p +"/"+FileName+"_Converted/data"));
         if (currentFolder.exists()) {
             //idcounts fixer
             //map fixer (should be a quickie)
@@ -106,12 +71,9 @@ public class DataFolder implements Convertor{
                         //hmm?
                         data.remove("width");
                         originalData.replace("data",new CompoundTag("data",data));
-                        //creates the new top level tag, otherwise it won't work
                         final CompoundTag newTopLevelTag = new CompoundTag("", originalData);
-                        //creates an output stream, this overwrites the file so deleting it is not necessary
-                        final NBTOutputStream output = new NBTOutputStream(new FileOutputStream(mapFile.getAbsolutePath()));
+                        final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p +"/"+FileName+"_Converted/data/" + mapFile.getName()).toString())).getAbsolutePath()));
                         output.writeTag(newTopLevelTag);
-
                         output.close();
                     }
                     //took this out of an example I found, changed it as my ide wanted me to
@@ -121,7 +83,6 @@ public class DataFolder implements Convertor{
                     PrintLine("Converted " + (i-1) + "/" + Objects.requireNonNull(curDirList).length + " maps",Data,true);
                 }
                 PrintLine("Converted all the maps",Data,false);
-
             }
 
             try {
@@ -135,7 +96,7 @@ public class DataFolder implements Convertor{
 
                     final CompoundTag newTopLevelTag = new CompoundTag("", newData);
 
-                    final NBTOutputStream output = new NBTOutputStream(new FileOutputStream(currentFolder+"/idcounts.dat"));
+                    final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p +"/"+FileName+"_Converted/data/idcounts.dat").toString())).getAbsolutePath()));
                     output.writeTag(newTopLevelTag);
                     output.close();
 

@@ -21,7 +21,6 @@ public class Data {
      */
     public Data(Map<?,?> conversions) {
         this.Conversions = conversions;
-        System.out.println("instance of Data created");
     }
 
     public List<String> stringCache = new ArrayList<>();

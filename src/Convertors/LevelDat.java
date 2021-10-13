@@ -35,17 +35,6 @@ public class LevelDat implements Convertor{
     }
 
     /**
-     * @param p path of the folder where files are copied
-     * @param FileName name of the to be copied file
-     * @throws IOException if something fails
-     */
-    @Override
-    public void copier(Path p, String FileName) throws IOException {
-        //copies over all the files in the LOTR folder to the lotr folder
-        Files.copy(Paths.get(p+"/"+this.pathName+"/level.dat"),Paths.get(p +"/"+FileName+"_Converted/level.dat"));
-    }
-
-    /**
      *
      * @param p path of the folder where files are copied
      * @param FileName name of the to be modified files
@@ -56,7 +45,7 @@ public class LevelDat implements Convertor{
         try {
 
             //new level.dat
-            final NBTInputStream input = new NBTInputStream(new FileInputStream(Paths.get(p +"/"+FileName+"_Converted/level.dat").toString()));
+            final NBTInputStream input = new NBTInputStream(new FileInputStream(Paths.get(p +"/"+FileName+"/level.dat").toString()));
             final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
             input.close();
 
@@ -90,127 +79,129 @@ public class LevelDat implements Convertor{
                 GameRules.replace("mobGriefing",GameRules1_tag.getValue().get("mobGriefing"));
                 GameRules.replace("naturalRegeneration",GameRules1_tag.getValue().get("naturalRegeneration"));
                 newData.replace("GameRules",new CompoundTag("GameRules",GameRules));
+                if (Data.containsKey("WorldGenSettings")) {
+                    Map<String,Tag> WorldGenSettings = new HashMap<>((((CompoundTag) Data.get("WorldGenSettings")).getValue()));
+                    WorldGenSettings.replace("generate_features",Data1.get("MapFeatures"));
+                    WorldGenSettings.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                    //dimensions
+                    CompoundTag dimensions = (CompoundTag) WorldGenSettings.get("dimensions");
+                    Map<String,Tag> dimensions_map = new HashMap<>(dimensions.getValue());
 
-                Map<String,Tag> WorldGenSettings = new HashMap<>((((CompoundTag) Data.get("WorldGenSettings")).getValue()));
-                WorldGenSettings.replace("generate_features",Data1.get("MapFeatures"));
-                WorldGenSettings.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
-                //dimensions
-                CompoundTag dimensions = (CompoundTag) WorldGenSettings.get("dimensions");
-                Map<String,Tag> dimensions_map = new HashMap<>(dimensions.getValue());
+                    //should have made this a loop in hindsight, oh well...
 
-                //should have made this a loop in hindsight, oh well...
+                    Map<String,Tag> meDimension = new HashMap<>(((CompoundTag) dimensions.getValue().get("lotr:middle_earth")).getValue());
+                    Map<String,Tag> overworldDimension = new HashMap<>(((CompoundTag) dimensions.getValue().get("minecraft:overworld")).getValue());
+                    Map<String,Tag> endDimension = new HashMap<>(((CompoundTag) dimensions.getValue().get("minecraft:the_end")).getValue());
+                    Map<String,Tag> netherDimension = new HashMap<>(((CompoundTag) dimensions.getValue().get("minecraft:the_nether")).getValue());
 
-                Map<String,Tag> meDimension = new HashMap<>(((CompoundTag) dimensions.getValue().get("lotr:middle_earth")).getValue());
-                Map<String,Tag> overworldDimension = new HashMap<>(((CompoundTag) dimensions.getValue().get("minecraft:overworld")).getValue());
-                Map<String,Tag> endDimension = new HashMap<>(((CompoundTag) dimensions.getValue().get("minecraft:the_end")).getValue());
-                Map<String,Tag> netherDimension = new HashMap<>(((CompoundTag) dimensions.getValue().get("minecraft:the_nether")).getValue());
+                    CompoundTag Generator1 = (CompoundTag) ((CompoundTag) dimensions.getValue().get("lotr:middle_earth")).getValue().get("generator");
+                    CompoundTag Generator2 = (CompoundTag) ((CompoundTag) dimensions.getValue().get("minecraft:overworld")).getValue().get("generator");
+                    CompoundTag Generator3 = (CompoundTag) ((CompoundTag) dimensions.getValue().get("minecraft:the_end")).getValue().get("generator");
+                    CompoundTag Generator4 = (CompoundTag) ((CompoundTag) dimensions.getValue().get("minecraft:the_nether")).getValue().get("generator");
 
-                CompoundTag Generator1 = (CompoundTag) ((CompoundTag) dimensions.getValue().get("lotr:middle_earth")).getValue().get("generator");
-                CompoundTag Generator2 = (CompoundTag) ((CompoundTag) dimensions.getValue().get("minecraft:overworld")).getValue().get("generator");
-                CompoundTag Generator3 = (CompoundTag) ((CompoundTag) dimensions.getValue().get("minecraft:the_end")).getValue().get("generator");
-                CompoundTag Generator4 = (CompoundTag) ((CompoundTag) dimensions.getValue().get("minecraft:the_nether")).getValue().get("generator");
+                    Map<String,Tag> generatormap1 = new HashMap<>(Generator1.getValue());
+                    Map<String,Tag> generatormap2 = new HashMap<>(Generator2.getValue());
+                    Map<String,Tag> generatormap3 = new HashMap<>(Generator3.getValue());
+                    Map<String,Tag> generatormap4 = new HashMap<>(Generator4.getValue());
 
-                Map<String,Tag> generatormap1 = new HashMap<>(Generator1.getValue());
-                Map<String,Tag> generatormap2 = new HashMap<>(Generator2.getValue());
-                Map<String,Tag> generatormap3 = new HashMap<>(Generator3.getValue());
-                Map<String,Tag> generatormap4 = new HashMap<>(Generator4.getValue());
+                    //lotr:middle_earth
+                    //generatormap1.replace("seed",Data1.get("RandomSeed"));
+                    generatormap1.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                    Map<String,Tag> biome_source1 = new HashMap<>((Map<String, Tag>) generatormap1.get("biome_source").getValue());
+                    biome_source1.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                    //sets instant_middle_earth right in lotr:middle_earth
+                    //meClassic apparently doesn't use this tag, even though you definitely spawn directly into middle-earth
+                    //Data1.get("generatorName").getValue().equals("meClassic") ||
+                    if (Data1.get("generatorName").getValue().equals("middleEarth")) {
+                        generatormap1.replace("instant_middle_earth",new ByteTag("instant_middle_earth",(byte)1));
+                        if (Data1.get("generatorName").getValue().equals("meClassic")) biome_source1.replace("classic_biomes",new ByteTag("classic_biomes",(byte)1));
+                        else biome_source1.replace("classic_biomes",new ByteTag("classic_biomes",(byte)0));
+                    }
+                    else generatormap1.replace("instant_middle_earth",new ByteTag("instant_middle_earth",(byte)0));
 
-                //lotr:middle_earth
-                //generatormap1.replace("seed",Data1.get("RandomSeed"));
-                generatormap1.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
-                Map<String,Tag> biome_source1 = new HashMap<>((Map<String, Tag>) generatormap1.get("biome_source").getValue());
-                biome_source1.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
-                //sets instant_middle_earth right in lotr:middle_earth
-                //meClassic apparently doesn't use this tag, even though you definitely spawn directly into middle-earth
-                //Data1.get("generatorName").getValue().equals("meClassic") ||
-                if (Data1.get("generatorName").getValue().equals("middleEarth")) {
-                    generatormap1.replace("instant_middle_earth",new ByteTag("instant_middle_earth",(byte)1));
-                    if (Data1.get("generatorName").getValue().equals("meClassic")) biome_source1.replace("classic_biomes",new ByteTag("classic_biomes",(byte)1));
-                    else biome_source1.replace("classic_biomes",new ByteTag("classic_biomes",(byte)0));
+                    generatormap1.replace("biome_source",new CompoundTag("biome_source",biome_source1));
+                    meDimension.replace("generator",new CompoundTag("generator",generatormap1));
+                    dimensions_map.replace("lotr:middle_earth",new CompoundTag("lotr:middle_earth",meDimension));
+
+                    //minecraft:overworld
+                    if ((Data1.get("generatorName").getValue().equals("flat"))) {
+                        //handles flat-worlds, hardcodes the default values as transcribing them is beyond the scope of the convertor, salt might be the seed and not actually this odd value
+                        generatormap2.replace("type",new StringTag("type","minecraft:flat"));
+                        generatormap2.remove("biome_source");
+                        generatormap2.remove("seed");
+                        generatormap2.remove("settings");
+                        Map<String,Tag> settings_map = new HashMap<>();
+
+                        Map<String,Tag> structures1_map = new HashMap<>();
+
+
+                        Map<String,Tag> stronghold_map = new HashMap<>();
+                        stronghold_map.put("count",new IntTag("count",128));
+                        stronghold_map.put("distance",new IntTag("distance",32));
+                        stronghold_map.put("spread",new IntTag("spread",3));
+                        structures1_map.put("stronghold",new CompoundTag("stronghold",stronghold_map));
+
+                        Map<String,Tag> structures2_map = new HashMap<>();
+                        Map<String,Tag> village_map = new HashMap<>();
+                        village_map.put("salt",new IntTag("salt",10387312));
+                        village_map.put("separation",new IntTag("separation",8));
+                        village_map.put("spacing",new IntTag("spacing",32));
+                        structures2_map.put("minecraft:village", new CompoundTag("minecraft:village",village_map));
+                        structures1_map.put("structures",new CompoundTag("structures",structures2_map));
+
+                        settings_map.put("structures",new CompoundTag("structures",structures1_map));
+
+                        List<Tag> layers_list = new ArrayList<>();
+                        Map<String,Tag> layer1_map = new HashMap<>();
+                        layer1_map.put("block",new StringTag("block","minecraft:bedrock"));
+                        layer1_map.put("height", new IntTag("height",1));
+                        layers_list.add(new CompoundTag("",layer1_map));
+                        Map<String,Tag> layer2_map = new HashMap<>();
+                        layer2_map.put("block", new StringTag("block","minecraft:dirt"));
+                        layer2_map.put("height",new IntTag("height",2));
+                        layers_list.add(new CompoundTag("",layer2_map));
+                        Map<String,Tag> layer3_map = new HashMap<>();
+                        layer3_map.put("block", new StringTag("block","minecraft:grass_block"));
+                        layer3_map.put("height",new IntTag("height",1));
+                        layers_list.add(new CompoundTag("",layer3_map));
+                        settings_map.put("layers",new ListTag("layers",CompoundTag.class,layers_list));
+
+                        settings_map.put("biome",new StringTag("biome","minecraft:plains"));
+                        settings_map.put("features",new ByteTag("features",(byte)0));
+                        settings_map.put("lakes",new ByteTag("lakes",(byte)0));
+                        generatormap2.put("settings",new CompoundTag("settings",settings_map));
+                    }
+                    else {
+                        generatormap2.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                        Map<String,Tag> biome_source2 = new HashMap<>((Map<String, Tag>) generatormap2.get("biome_source").getValue());
+                        biome_source2.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                        generatormap2.replace("biome_source",new CompoundTag("biome_source",biome_source2));
+                        if (Data1.get("generatorName").getValue().equals("largeBiomes"))generatormap2.replace("large_biomes",new ByteTag("large_biomes",(byte)1));
+                        else generatormap2.replace("large_biomes",new ByteTag("large_biomes",(byte)0));
+                    }
+                    overworldDimension.replace("generator",new CompoundTag("generator",generatormap2));
+                    dimensions_map.replace("minecraft:overworld",new CompoundTag("minecraft:overworld",overworldDimension));
+
+                    //minecraft:the_end
+                    generatormap3.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                    Map<String,Tag> biome_source3 = new HashMap<>((Map<String, Tag>) generatormap3.get("biome_source").getValue());
+                    biome_source3.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                    generatormap3.replace("biome_source",new CompoundTag("biome_source",biome_source3));
+                    endDimension.replace("generator",new CompoundTag("generator",generatormap3));
+                    dimensions_map.replace("minecraft:the_end",new CompoundTag("minecraft:the_end",endDimension));
+
+                    //minecraft:the_nether
+                    generatormap4.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                    HashMap<String, Tag> biome_source4 = new HashMap<>((Map<String, Tag>) generatormap4.get("biome_source").getValue());
+                    biome_source4.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                    generatormap4.replace("biome_source",new CompoundTag("biome_source",biome_source4));
+                    netherDimension.replace("generator",new CompoundTag("generator",generatormap4));
+                    dimensions_map.replace("minecraft:the_nether",new CompoundTag("minecraft:the_nether",netherDimension));
+
+                    WorldGenSettings.replace("dimensions",new CompoundTag("dimensions",dimensions_map));
+                    Data.replace("WorldGenSettings",new CompoundTag("WorldGenSettings",WorldGenSettings));
                 }
-                else generatormap1.replace("instant_middle_earth",new ByteTag("instant_middle_earth",(byte)0));
 
-                generatormap1.replace("biome_source",new CompoundTag("biome_source",biome_source1));
-                meDimension.replace("generator",new CompoundTag("generator",generatormap1));
-                dimensions_map.replace("lotr:middle_earth",new CompoundTag("lotr:middle_earth",meDimension));
-
-                //minecraft:overworld
-                if ((Data1.get("generatorName").getValue().equals("flat"))) {
-                    //handles flat-worlds, hardcodes the default values as transcribing them is beyond the scope of the convertor, salt might be the seed and not actually this odd value
-                    generatormap2.replace("type",new StringTag("type","minecraft:flat"));
-                    generatormap2.remove("biome_source");
-                    generatormap2.remove("seed");
-                    generatormap2.remove("settings");
-                    Map<String,Tag> settings_map = new HashMap<>();
-
-                    Map<String,Tag> structures1_map = new HashMap<>();
-
-
-                    Map<String,Tag> stronghold_map = new HashMap<>();
-                    stronghold_map.put("count",new IntTag("count",128));
-                    stronghold_map.put("distance",new IntTag("distance",32));
-                    stronghold_map.put("spread",new IntTag("spread",3));
-                    structures1_map.put("stronghold",new CompoundTag("stronghold",stronghold_map));
-
-                    Map<String,Tag> structures2_map = new HashMap<>();
-                    Map<String,Tag> village_map = new HashMap<>();
-                    village_map.put("salt",new IntTag("salt",10387312));
-                    village_map.put("separation",new IntTag("separation",8));
-                    village_map.put("spacing",new IntTag("spacing",32));
-                    structures2_map.put("minecraft:village", new CompoundTag("minecraft:village",village_map));
-                    structures1_map.put("structures",new CompoundTag("structures",structures2_map));
-
-                    settings_map.put("structures",new CompoundTag("structures",structures1_map));
-
-                    List<Tag> layers_list = new ArrayList<>();
-                    Map<String,Tag> layer1_map = new HashMap<>();
-                    layer1_map.put("block",new StringTag("block","minecraft:bedrock"));
-                    layer1_map.put("height", new IntTag("height",1));
-                    layers_list.add(new CompoundTag("",layer1_map));
-                    Map<String,Tag> layer2_map = new HashMap<>();
-                    layer2_map.put("block", new StringTag("block","minecraft:dirt"));
-                    layer2_map.put("height",new IntTag("height",2));
-                    layers_list.add(new CompoundTag("",layer2_map));
-                    Map<String,Tag> layer3_map = new HashMap<>();
-                    layer3_map.put("block", new StringTag("block","minecraft:grass_block"));
-                    layer3_map.put("height",new IntTag("height",1));
-                    layers_list.add(new CompoundTag("",layer3_map));
-                    settings_map.put("layers",new ListTag("layers",CompoundTag.class,layers_list));
-
-                    settings_map.put("biome",new StringTag("biome","minecraft:plains"));
-                    settings_map.put("features",new ByteTag("features",(byte)0));
-                    settings_map.put("lakes",new ByteTag("lakes",(byte)0));
-                    generatormap2.put("settings",new CompoundTag("settings",settings_map));
-                }
-                else {
-                    generatormap2.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
-                    Map<String,Tag> biome_source2 = new HashMap<>((Map<String, Tag>) generatormap2.get("biome_source").getValue());
-                    biome_source2.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
-                    generatormap2.replace("biome_source",new CompoundTag("biome_source",biome_source2));
-                    if (Data1.get("generatorName").getValue().equals("largeBiomes"))generatormap2.replace("large_biomes",new ByteTag("large_biomes",(byte)1));
-                    else generatormap2.replace("large_biomes",new ByteTag("large_biomes",(byte)0));
-                }
-                overworldDimension.replace("generator",new CompoundTag("generator",generatormap2));
-                dimensions_map.replace("minecraft:overworld",new CompoundTag("minecraft:overworld",overworldDimension));
-
-                //minecraft:the_end
-                generatormap3.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
-                Map<String,Tag> biome_source3 = new HashMap<>((Map<String, Tag>) generatormap3.get("biome_source").getValue());
-                biome_source3.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
-                generatormap3.replace("biome_source",new CompoundTag("biome_source",biome_source3));
-                endDimension.replace("generator",new CompoundTag("generator",generatormap3));
-                dimensions_map.replace("minecraft:the_end",new CompoundTag("minecraft:the_end",endDimension));
-
-                //minecraft:the_nether
-                generatormap4.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
-                HashMap<String, Tag> biome_source4 = new HashMap<>((Map<String, Tag>) generatormap4.get("biome_source").getValue());
-                biome_source4.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
-                generatormap4.replace("biome_source",new CompoundTag("biome_source",biome_source4));
-                netherDimension.replace("generator",new CompoundTag("generator",generatormap4));
-                dimensions_map.replace("minecraft:the_nether",new CompoundTag("minecraft:the_nether",netherDimension));
-
-                WorldGenSettings.replace("dimensions",new CompoundTag("dimensions",dimensions_map));
-                Data.replace("WorldGenSettings",new CompoundTag("WorldGenSettings",WorldGenSettings));
                 //rest of 'Data' fix
                 Data.replace("DayTime",Data1.get("DayTime"));
                 Data.replace("GameType",Data1.get("GameType"));

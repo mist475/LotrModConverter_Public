@@ -27,47 +27,6 @@ public class LotrData implements Convertor {
 		this.Data = data;
 	}
 
-
-	/**
-	 * Copies directories
-	 * @param sourceDirectoryLocation Path of source
-	 * @param destinationDirectoryLocation Path of destination
-	 * @throws IOException if something fails
-	 */
-	private static void copyDirectory(String sourceDirectoryLocation, String destinationDirectoryLocation)
-			throws IOException {
-		Files.walk(Paths.get(sourceDirectoryLocation))
-				.forEach(source -> {
-					Path destination = Paths.get(destinationDirectoryLocation, source.toString()
-							.substring(sourceDirectoryLocation.length()));
-					try {
-						Files.copy(source, destination);
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-				});
-	}
-
-	/**
-	 *
-	 * @param p path of the folder where files are copied
-	 * @param FileName name of the to be copied file
-	 * @throws IOException if something fails
-	 */
-	@Override
-	public void copier(Path p, String FileName) throws IOException {
-		//copies over all the files in the LOTR folder to the lotr folder
-		File src = new File(Paths.get(p.toString()+"/"+FileName+"/LOTR").toString());
-		File out = new File(Paths.get(p +"/"+FileName+"_Converted/lotr").toString());
-		copyDirectory(src.getAbsolutePath(), out.getAbsolutePath());
-		//remove the unnecessary files (at least for now)
-		Files.deleteIfExists(Paths.get(out+"/conquest_zones"));
-		Files.deleteIfExists(Paths.get(out+"/factionbounties"));
-		Files.deleteIfExists(Paths.get(out+"/faction_relations.dat"));
-		Files.deleteIfExists(Paths.get(out+"/spawn_damping.dat"));
-		//Files.deleteIfExists(Paths.get(src+"/fellowships"));
-	}
-
 	/**
 	 *
 	 * @param p path of the folder where files are copied
@@ -80,8 +39,18 @@ public class LotrData implements Convertor {
 		Map<String,String> Regions = Data.Regions();
 		Map<String,String> FacNames = Data.FacNames();
 
+		Files.createDirectory(Paths.get(p +"/"+FileName+"_Converted/lotr/"));
+		Files.createDirectory(Paths.get(p +"/"+FileName+"_Converted/lotr/players"));
 		//current working folder
-		File currentFolder = new File(Paths.get(p +"/"+FileName+"_Converted/lotr").toString());
+		File currentFolder = new File(Paths.get(p +"/"+FileName+"/LOTR").toString());
+		//File currentFolder = new File(Paths.get(p +"/"+FileName+"_Converted/lotr").toString());
+		if (currentFolder.exists()) {
+			if (new File(Paths.get(currentFolder+"/LOTRTime.dat").toString()).exists()) {
+				Files.copy(Paths.get(p +"/"+FileName+"/LOTR/LOTRTime.dat"),Paths.get(p +"/"+FileName+"_Converted/lotr/LOTRTime.dat"));
+			}
+		}
+
+		/*
 		try {
 			//technically I could simply not run this, I did this to learn the handling of the tags as JNBT doesn't have proper documentation
 
@@ -125,15 +94,10 @@ public class LotrData implements Convertor {
 
 			System.out.println("converted LOTRTime.dat");
 		}
-		//took this out of an example I found, changed it as my ide wanted me to
-		catch (final ClassCastException | NullPointerException ex) {
-			throw new IOException("Error during LOTRTime.dat fix");
-		}
+		 */
 
 		try {
 			//LOTR.dat fix
-
-
 
 			//opens the file as a stream and saves the result as a CompoundTag
 			final NBTInputStream input = new NBTInputStream(new FileInputStream(currentFolder+"/LOTR.dat"));
@@ -163,7 +127,7 @@ public class LotrData implements Convertor {
 			final CompoundTag newTopLevelTag = new CompoundTag("", originalData);
 
 			//creates an output stream, this overwrites the file so deleting it is not necessary
-			final NBTOutputStream output = new NBTOutputStream(new FileOutputStream(currentFolder+"/LOTR.dat"));
+			final NBTOutputStream output = new NBTOutputStream(new FileOutputStream(Paths.get(p +"/"+FileName+"_Converted/lotr/LOTR.dat").toString()));
 			output.writeTag(newTopLevelTag);
 			output.close();
 			System.out.println("converted LOTR.dat");
@@ -383,7 +347,10 @@ public class LotrData implements Convertor {
 				//creates the new top level tag, otherwise it won't work
 				final CompoundTag newTopLevelTag = new CompoundTag("", originalData);
 				//creates an output stream, this overwrites the file so deleting it is not necessary
-				final NBTOutputStream output = new NBTOutputStream(new FileOutputStream(playerFile.getAbsolutePath()));
+				//final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p +"/"+FileName+"_Converted/data/" + mapFile.getName()).toString())).getAbsolutePath()));
+				//playerFile
+				//final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p +"/"+FileName+"_Converted/lotr/" + playerFile.getName()).toString())).getAbsolutePath()));
+				final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p +"/"+FileName+"_Converted/lotr/players/" + playerFile.getName()).toString())).getAbsolutePath()));
 				output.writeTag(newTopLevelTag);
 
 				output.close();

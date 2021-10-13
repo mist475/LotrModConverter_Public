@@ -31,40 +31,6 @@ public class PlayerData implements Convertor {
     }
 
     /**
-     * Copies directories
-     * @param sourceDirectoryLocation Path of source
-     * @param destinationDirectoryLocation Path of destination
-     * @throws IOException if something fails
-     */
-    private static void copyDirectory(String sourceDirectoryLocation, String destinationDirectoryLocation)
-            throws IOException {
-        Files.walk(Paths.get(sourceDirectoryLocation))
-                .forEach(source -> {
-                    Path destination = Paths.get(destinationDirectoryLocation, source.toString()
-                            .substring(sourceDirectoryLocation.length()));
-                    try {
-                        Files.copy(source, destination);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                });
-    }
-
-    /**
-     *
-     * @param p path of the folder where files are copied
-     * @param FileName name of the to be copied file
-     * @throws IOException if something fails
-     */
-    @Override
-    public void copier(Path p, String FileName) throws IOException {
-        //copies over all the files in the LOTR folder to the lotr folder
-        File src = new File(Paths.get(p.toString()+"/"+FileName+"/playerdata").toString());
-        File out = new File(Paths.get(p +"/"+FileName+"_Converted/playerdata").toString());
-        copyDirectory(src.getAbsolutePath(), out.getAbsolutePath());
-    }
-
-    /**
      *
      * @param p path of the folder where files are copied
      * @param FileName name of the to be modified files
@@ -74,12 +40,13 @@ public class PlayerData implements Convertor {
     public void modifier(Path p, String FileName) throws IOException {
         //Map<Integer,String> LegacyIds = misterymob475.Data.LegacyIds(Paths.get(p + "/" + FileName+ "/level.dat").toAbsolutePath().toString());
         Map<String,List<String>> ItemNames = Data.ItemNames();
+        Files.createDirectory(Paths.get(p +"/"+FileName+"_Converted/playerdata"));
         //level.dat fixer/modifier
         //File renewedWorld = new File(p+"/"+this.pathName+"/level.dat");
 
         //try {
             //heavier filter on here to only use the current .dat's and not the old ones
-            File currentFolder = new File(Paths.get(p +"/"+FileName+"_Converted/playerdata").toString());
+            File currentFolder = new File(Paths.get(p +"/"+FileName+"/playerdata").toString());
             File[] curDirList = currentFolder.listFiles((dir, name) -> name.toLowerCase().endsWith(".dat"));
             int i = 1;
             assert curDirList != null;
@@ -98,7 +65,9 @@ public class PlayerData implements Convertor {
 //
 
                 final CompoundTag newTopLevelTag = new CompoundTag("", newData);
-                final NBTOutputStream output = new NBTOutputStream(new FileOutputStream(f));
+                //(new File(Paths.get(p +"/"+FileName+"_Converted/playerdata/" + f.getName()).toString())).getAbsolutePath()
+                //final NBTOutputStream output = new NBTOutputStream(new FileOutputStream(f));
+                final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p +"/"+FileName+"_Converted/playerdata/" + f.getName()).toString())).getAbsolutePath()));
                 output.writeTag(newTopLevelTag);
                 output.close();
                 PrintLine("Converted " + (i-1) + "/ " + Objects.requireNonNull(currentFolder.listFiles()).length + " player data files",Data,true);
@@ -140,9 +109,11 @@ public class PlayerData implements Convertor {
             //call to entity fixer, this means the player is riding on a mount (fixer will temporarily replace said mount with a donkey)
             Map<String,Tag> Riding = new HashMap<>(((CompoundTag)newData.get("Riding")).getValue());
             Riding = EntityData.RiderEntityFixer(Riding,legacyids,Data);
-            assert Riding != null;
-            CompoundTag RootVehicle = new CompoundTag("RootVehicle",Riding);
-            newData.replace("Riding",RootVehicle);
+            if (Riding != null) {
+                CompoundTag RootVehicle = new CompoundTag("RootVehicle",Riding);
+                newData.replace("Riding",RootVehicle);
+            }
+            else newData.remove("Riding");
         }
         if (Data.Settings().containsKey("Creative Mode spawn")) {
             if ((Boolean) Data.Settings().get("Creative Mode spawn")) {
