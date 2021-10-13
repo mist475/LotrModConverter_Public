@@ -279,7 +279,23 @@ public class PlayerData implements Convertor {
                                     tMap.replace("tag",new CompoundTag("tag",filler));
                                     builder.add(new CompoundTag("",tMap));
                                 }
-
+                                else if (item.get(0).equals("lotr:player_head")) {
+                                    Map<String,Tag> filler = new HashMap<>();
+                                    if (tMap.containsKey("tag")) {
+                                        filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
+                                        if (filler.containsKey("SkullOwner")) {
+                                            String owner = (String) filler.get("SkullOwner").getValue();
+                                            Map<String,Tag> SkullOwner = new HashMap<>();
+                                            SkullOwner.put("Id",new StringTag("Name",owner));
+                                            filler.remove("SkullOwner");
+                                            filler.put("SkullOwner",new CompoundTag("SkullOwner",SkullOwner));
+                                        }
+                                    }
+                                    tMap.remove("Damage");
+                                    tMap.replace("id",new StringTag("id","minecraft:player_head"));
+                                    tMap.replace("tag",new CompoundTag("tag",filler));
+                                    builder.add(new CompoundTag("",tMap));
+                                }
 
                                 //recursive call 3? (Crackers)
 
