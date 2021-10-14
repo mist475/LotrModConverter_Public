@@ -279,10 +279,14 @@ public class PlayerData implements Convertor {
                                     tMap.replace("tag",new CompoundTag("tag",filler));
                                     builder.add(new CompoundTag("",tMap));
                                 }
-                                else if (item.get(0).equals("lotr:player_head")) {
+                                //Player head fixer (Apparently the game fixes this one automatically, except for custom names. So I added the full thing except the killed by message as I don't know how that is formatted)
+                                else if (item.get(0).equals("minecraft:skeleton_skull")) {
                                     Map<String,Tag> filler = new HashMap<>();
                                     if (tMap.containsKey("tag")) {
                                         filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
+                                        if (filler.containsKey("display")) {
+                                            filler.replace("display",nameFixer((CompoundTag) filler.get("display"),Data));
+                                        }
                                         if (filler.containsKey("SkullOwner")) {
                                             String owner = (String) filler.get("SkullOwner").getValue();
                                             Map<String,Tag> SkullOwner = new HashMap<>();
@@ -291,8 +295,8 @@ public class PlayerData implements Convertor {
                                             filler.put("SkullOwner",new CompoundTag("SkullOwner",SkullOwner));
                                         }
                                     }
+                                    tMap.replace("id",new StringTag("id",item.get((Short) tMap.get("Damage").getValue())));
                                     tMap.remove("Damage");
-                                    tMap.replace("id",new StringTag("id","minecraft:player_head"));
                                     tMap.replace("tag",new CompoundTag("tag",filler));
                                     builder.add(new CompoundTag("",tMap));
                                 }
