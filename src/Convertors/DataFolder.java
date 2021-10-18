@@ -51,6 +51,7 @@ public class DataFolder implements Convertor{
                         final NBTInputStream input = new NBTInputStream(new FileInputStream(mapFile));
                         final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
                         input.close();
+                        //DataVersion = 2586
                         //saves the input as a map, this is important for saving the file, for reading it is redundant
                         Map<String, Tag> originalData = new HashMap<>(originalTopLevelTag.getValue());
                         Map<String,Tag> data = new HashMap<>(((CompoundTag) originalData.get("data")).getValue());
@@ -70,6 +71,7 @@ public class DataFolder implements Convertor{
                         }
                         //hmm?
                         data.remove("width");
+                        data.remove("height");
                         originalData.replace("data",new CompoundTag("data",data));
                         final CompoundTag newTopLevelTag = new CompoundTag("", originalData);
                         final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p +"/"+FileName+"_Converted/data/" + mapFile.getName()).toString())).getAbsolutePath()));

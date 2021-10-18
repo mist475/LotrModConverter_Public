@@ -4,10 +4,7 @@ import org.jnbt.*;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Manages the mappings
@@ -202,21 +199,35 @@ public class Data {
      * @param name {@link String} name
      * @return {@link IntArrayTag} with given name and param inputs
      */
-    public static IntArrayTag UUIDFixer(LongTag UUIDLeast, LongTag UUIDMost, String name) {
+    public static IntArrayTag UUIDFixer(LongTag UUIDMost, LongTag UUIDLeast, String name) {
         //Creates the UUID in the new format based with name being the name of the intArrayTag
         //Might have reversed the order though
-        return new IntArrayTag(name,new int[]{Long.valueOf(Long.toHexString(UUIDMost.getValue()).substring(0,8),16).intValue(),Long.valueOf(Long.toHexString(UUIDMost.getValue()).substring(8),16).intValue(),Long.valueOf(Long.toHexString(UUIDLeast.getValue()).substring(0,8),16).intValue(),Long.valueOf(Long.toHexString(UUIDLeast.getValue()).substring(8),16).intValue()});
+        long v1 = UUIDMost.getValue();
+        long v2 = UUIDLeast.getValue();
+        return new IntArrayTag(name,new int[]{(int)(v1 >> 32),(int)v1,(int)(v2 >> 32),(int)v2});
     }
-    //Overload for when no special name is required (name is "UUID")
 
+    //Overload for when no special name is required (name is "UUID")
     /**
      * Overload for when name is "UUID"
      * @param UUIDLeast {@link LongTag}
      * @param UUIDMost {@link LongTag}
      * @return {@link IntArrayTag} with name "UUID" and param inputs
      */
-    public static IntArrayTag UUIDFixer(LongTag UUIDLeast, LongTag UUIDMost) {
-        return UUIDFixer(UUIDLeast,UUIDMost,"UUID");
+    public static IntArrayTag UUIDFixer(LongTag UUIDMost, LongTag UUIDLeast) {
+        return UUIDFixer(UUIDMost,UUIDLeast,"UUID");
     }
+
+    /**
+     * Overload for StringTags
+     * @param UUID_t {@link StringTag}
+     * @param name String
+     * @return {@link IntArrayTag} with name as name and param inputs
+     */
+    public static IntArrayTag UUIDFixer(StringTag UUID_t, String name) {
+            UUID uuid = UUID.fromString(UUID_t.getValue());
+            return UUIDFixer(new LongTag("",uuid.getMostSignificantBits()),new LongTag("",uuid.getLeastSignificantBits()),name);
+    }
+
 }
 

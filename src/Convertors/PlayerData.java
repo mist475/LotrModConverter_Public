@@ -132,7 +132,8 @@ public class PlayerData implements Convertor {
         }
 
         newData.remove("Attack Time");
-        newData.put("DataVersion",new IntTag("DataVersion",2586));
+        if (! newData.containsKey("DataVersion")) {newData.put("DataVersion",new IntTag("DataVersion",2586));}
+
         if (newData.containsKey("Dimension") ) {
             //fixer here int --> string
             Integer Dimension = ((IntTag) newData.get("Dimension")).getValue();
@@ -161,7 +162,7 @@ public class PlayerData implements Convertor {
         newData.remove("HealF");
         newData.remove("Sleeping");
         if (newData.containsKey("UUIDLeast")) {
-            newData.put("UUID", misterymob475.Data.UUIDFixer((LongTag) newData.get("UUIDLeast"),(LongTag) newData.get("UUIDMost")));
+            newData.put("UUID", misterymob475.Data.UUIDFixer((LongTag) newData.get("UUIDMost"),(LongTag) newData.get("UUIDLeast")));
             newData.remove("UUIDLeast");
             newData.remove("UUIDMost");
         }
@@ -175,7 +176,7 @@ public class PlayerData implements Convertor {
      */
     public static CompoundTag nameFixer(CompoundTag display, Data Data) {
         Map<String,Tag> display_map = new HashMap<>(display.getValue());
-        if (display_map.containsKey("Name")) {
+        if (display_map.containsKey("Name" )) {
             String name = (String) display_map.get("Name").getValue();
             String colour= "";
             if (name.contains("§")) {
@@ -279,6 +280,9 @@ public class PlayerData implements Convertor {
                                     tMap.replace("tag",new CompoundTag("tag",filler));
                                     builder.add(new CompoundTag("",tMap));
                                 }
+
+
+
                                 //Player head fixer (Apparently the game fixes this one automatically, except for custom names. So I added the full thing except the killed by message as I don't know how that is formatted)
                                 else if (item.get(0).equals("minecraft:skeleton_skull")) {
                                     Map<String,Tag> filler = new HashMap<>();
@@ -291,8 +295,7 @@ public class PlayerData implements Convertor {
                                             String owner = (String) filler.get("SkullOwner").getValue();
                                             Map<String,Tag> SkullOwner = new HashMap<>();
                                             SkullOwner.put("Id",new StringTag("Name",owner));
-                                            filler.remove("SkullOwner");
-                                            filler.put("SkullOwner",new CompoundTag("SkullOwner",SkullOwner));
+                                            filler.replace("SkullOwner",new CompoundTag("SkullOwner",SkullOwner));
                                         }
                                     }
                                     tMap.replace("id",new StringTag("id",item.get((Short) tMap.get("Damage").getValue())));
@@ -305,7 +308,7 @@ public class PlayerData implements Convertor {
 
                                     else if (item.size() <= 1) {
 
-                                    //code for items here
+                                    //code for single id values (mostly items, stairs) here
                                     //simply carries over all the tags, except the id, which gets modified to the new one. moves the damage tag to its new location and changes it to an IntTag(was ShortTag before)
                                     if (! Objects.equals(item.get(0), "")) {
                                         boolean drink = new ArrayList<>(Arrays.asList(
@@ -447,7 +450,6 @@ public class PlayerData implements Convertor {
                                                 }
                                             }
                                             tMap.replace("tag",new CompoundTag("tag",filler));
-
                                         }
                                         else {
                                             Map<String,Tag> filler = new HashMap<>();
@@ -499,7 +501,7 @@ public class PlayerData implements Convertor {
                                                 }
                                             }
                                             if (! filler.isEmpty()) {
-                                                tMap.put("",new CompoundTag("tag",filler));
+                                                tMap.put("tag",new CompoundTag("tag",filler));
                                             }
                                         }
 
@@ -556,14 +558,14 @@ public class PlayerData implements Convertor {
 
                                 }
                                 else {
-                                    //code for blocks here
+                                    //code for blocks/some items here
                                     Short Damage = ((ShortTag) ((CompoundTag)t).getValue().get("Damage")).getValue();
                                     //Check if block is actually in the list and not just a placeholder
                                     if (! itemnames.get(legacyids.get(compare1)).get(Damage).equals("")) {
                                         if (tMap.containsKey("tag")) {
                                             //itemFixer
                                             Map<String,Tag> filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
-                                            if (filler.containsKey("display")) {
+                                            if (filler.containsKey("display") && !filler.containsKey("SkullOwner")) {
                                                 filler.replace("display",nameFixer((CompoundTag) filler.get("display"),Data));
                                             }
                                             tMap.replace("tag",new CompoundTag("tag",filler));
