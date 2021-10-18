@@ -29,7 +29,7 @@ public class Main {
             Reader reader = Files.newBufferedReader(Paths.get("Conversions.json"));
             Map<?, ?> map = gson.fromJson(reader, Map.class);
             reader.close();
-            System.out.println("Welcome to the Legacy to Renewed world convertor for the LOTR mod by Mevans\nHow to use: unzip the zip file and place the created folder in your saves folder (or a different folder where you put you world).\n Create a new world in the most recent version of renewed (1.16.5 as of now), copy this world as the same folder as the world you want to upgrade. Doubleclick the .bat(windows) or .sh(macOS/Linux) file.\nOpen the generated output in the same version opf renewed as the new world you just created\nIf something doesn't work as planned please check if said feature is actually supported.\nOtherwise mention it on the #issues channel on my discord:rppMgSHaTe");
+            System.out.println("Welcome to the Legacy to Renewed world convertor for Mevans's LOTR mod by Misterymob475\nHow to use: unzip the zip file and place the created folder in your saves folder (or a different folder where you put your world).\nCreate a new world in the most recent version of renewed (1.16.5 as of now),\nCopy this world to the same folder as the world you want to upgrade.\nRun the .bat(windows) file or run via the command line.\nOpen the generated output in the same version of renewed as the new world you just created\nIf something doesn't work as planned please check if said feature is actually supported.\nOtherwise mention it on the #issues channel on my discord:rppMgSHaTe");
 
             //now create a new folder with the name of $worldName_converted
 
