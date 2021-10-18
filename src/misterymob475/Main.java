@@ -34,7 +34,7 @@ public class Main {
             //now create a new folder with the name of $worldName_converted
 
 
-
+            //release should be ready now
             Data data = new Data(map);
             //used for copying data over
             String legacyWorld = legacyWorldSelection();
