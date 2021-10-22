@@ -1,6 +1,7 @@
 package Convertors;
 
 import misterymob475.Data;
+import misterymob475.Fixers;
 import org.jnbt.*;
 
 import java.io.FileInputStream;
@@ -234,7 +235,7 @@ public class LevelDat implements Convertor{
                 if (Data.containsKey("Player") && Data1.containsKey("Player")) {
                     CompoundTag Player_tag = (CompoundTag) Data1.get("Player");
                     Map<String,Tag> Player = new HashMap<>(Player_tag.getValue());
-                    PlayerData.playerFixer(Player, LegacyIds, this.Data.ItemNames(), this.Data);
+                    Fixers.playerFixer(Player, LegacyIds, this.Data.ItemNames(), this.Data);
                     Data.replace("Player",new CompoundTag("Player",Player));
                 }
                 newData.replace("Data",new CompoundTag("Data",Data));

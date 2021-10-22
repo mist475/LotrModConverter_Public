@@ -10,6 +10,7 @@ import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -22,9 +23,11 @@ public class Main {
      * @param args currently unused
      * @throws IOException if something fails
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
 
         Gson gson = new Gson();
+        ArrayList<Thread> arrThreads = new ArrayList<>();
+
         if (new File(Paths.get("Conversions.json").toString()).exists()) {
             Reader reader = Files.newBufferedReader(Paths.get("Conversions.json"));
             Map<?, ?> map = gson.fromJson(reader, Map.class);
@@ -50,9 +53,23 @@ public class Main {
                 Map<Integer,String> LegacyIds = Data.LegacyIds(Paths.get(launchDir + "/" + legacyWorld+ "/level.dat").toAbsolutePath().toString());
                 //HashMap<String, List<String>> ItemNames = Data.ItemNames();
                 //fancy way of looping through the implementations of the Convertor interface, this way I only have to change this line instead of adding an init, and the calling of the 2 functions per implementation
-                for (Convertor c : new Convertor[]{new LotrData(data),new PlayerData(data,LegacyIds),new LevelDat(data,renewedWorld,LegacyIds),new EntityData(data,renewedWorld,LegacyIds),new DataFolder(data)}) {
-                    c.modifier(launchDir,selectedWorld.getName());
+                for (Convertor c : new Convertor[]{new LotrData(data),new PlayerData(data,LegacyIds),new LevelDat(data,renewedWorld,LegacyIds),new DataFolder(data)}) {
+
+                    Thread t = new Thread(() -> {
+                        try {
+                            c.modifier(launchDir,selectedWorld.getName());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    });
+                    t.start();
+                    arrThreads.add(t);
                 }
+                //waits for all threads to finish
+                for (Thread arrThread : arrThreads) {
+                    arrThread.join();
+                }
+                System.out.println("Done!");
             }
         }
         else System.out.println("Conversions.json wasn't found, have you unzipped the zip-file correctly?");

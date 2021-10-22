@@ -1,6 +1,6 @@
 # LotrWorldConverter_Public
 Public repository for the lotr world converter
-World fixer for the LOTR mod by Mevans. This converter modifies the .DAT files from old legacy lotr-mod worlds so they can be read in the 1.16.5-version of the mod.
+World fixer for the LOTR mod by Mevans. This converter modifies the .DAT files from old legacy lotr-mod worlds, so they can be read in the 1.16.5-version of the mod.
 
 Currently working:
 - Player data (inventory, position, alignment, waypoint usages etc.)
@@ -17,11 +17,11 @@ Included in the zip-file:
 - Json file with settings and mappings
 
 Prepping your world/inventory:
-- Get a mount with inventory slots, mounts get ported along with the player so you can carry more stuff to renewed (If said mount hasn't been ported over it'll become a Donkey)
+- Get a mount with inventory slots, mounts get ported along with the player, so you can carry more stuff to renewed (If said mount hasn't been ported over it'll become a Donkey)
 - Put as many items as possible in pouches, these get turned into shulkerboxes with their inventory staying the same
 - In Utumno? No problem, you'll appear in Forodwaith at the rough Coordinates of where the pits are in Legacy, so bring fur armour)
-- Lotr modifers haven't been ported yet, if you want enchanted items get vanilla enchantments
-- If an item hasn't been ported over yet, it will get deleted (or changed to a similar item in some cases {posioned Daggers to regular daggers})
+- Lotr modifiers haven't been ported yet, if you want enchanted items get vanilla enchantments
+- If an item hasn't been ported over yet, it will get deleted (or changed to a similar item in some cases {poisoned Daggers to regular daggers})
 
 How To use:
 - Download the latest release of the Converter
@@ -46,11 +46,11 @@ Optional settings:
 - Cache debug Messages, toggles if identical messages will be printed (default: true)
 - Recursion Depth, sets the amount of stacked items you can have (only effects server owners with annoying players) (default: 7)
 - Creative Mode Spawn, toggles if players spawn in creative after converting to prevent dying (default: true, when blocks are also working the default will become false)
-- If you want to add support for items from other mods, simply add them to the items disctionary in the JSON file
+- If you want to add support for items from other mods, simply add them to the items' dictionary in the JSON file
 
-Crashes/Erros:
+Crashes/Errors:
 - In case you get a crash while running the Convert, please se Debug Messages to 2, run the converter again and ask for help on the #help channel on my discord server (https://discord.gg/rppMgSHaTe)
-- In case you find an a different issue (specific items getting deleted, some settings not working) or you have questions feel free to ask them on my discord server
+- In case you find and a different issue (specific items getting deleted, some settings not working) or you have questions feel free to ask them on my discord server
 
 Some Pictures:
 

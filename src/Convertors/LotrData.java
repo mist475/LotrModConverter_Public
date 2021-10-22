@@ -39,6 +39,7 @@ public class LotrData implements Convertor {
 		Map<String,String> Regions = Data.Regions();
 		Map<String,String> FacNames = Data.FacNames();
 
+
 		Files.createDirectory(Paths.get(p +"/"+FileName+"_Converted/lotr/"));
 		Files.createDirectory(Paths.get(p +"/"+FileName+"_Converted/lotr/players"));
 		//current working folder

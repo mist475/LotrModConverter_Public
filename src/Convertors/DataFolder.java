@@ -45,6 +45,7 @@ public class DataFolder implements Convertor{
                 int i = 1;
                 assert curDirList != null;
                 for (File mapFile : curDirList) {
+
                     i++;
                     try {
                         //opens the file as a stream and saves the result as a CompoundTag
@@ -84,6 +85,7 @@ public class DataFolder implements Convertor{
                     }
                     PrintLine("Converted " + (i-1) + "/" + Objects.requireNonNull(curDirList).length + " maps",Data,true);
                 }
+
                 PrintLine("Converted all the maps",Data,false);
             }
 
