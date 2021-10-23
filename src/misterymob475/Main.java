@@ -50,10 +50,10 @@ public class Main {
                 }
                 Files.createDirectories(Paths.get("../"+selectedWorld.getName()+"_Converted"));
                 Path launchDir = Paths.get(".").toAbsolutePath().normalize().getParent();
-                Map<Integer,String> LegacyIds = Data.LegacyIds(Paths.get(launchDir + "/" + legacyWorld+ "/level.dat").toAbsolutePath().toString());
+                data.LegacyIds(Paths.get(launchDir + "/" + legacyWorld+ "/level.dat").toAbsolutePath().toString());
                 //HashMap<String, List<String>> ItemNames = Data.ItemNames();
                 //fancy way of looping through the implementations of the Convertor interface, this way I only have to change this line instead of adding an init, and the calling of the 2 functions per implementation
-                for (Convertor c : new Convertor[]{new LotrData(data),new PlayerData(data,LegacyIds),new LevelDat(data,renewedWorld,LegacyIds),new DataFolder(data)}) {
+                for (Convertor c : new Convertor[]{new LotrData(data),new PlayerData(data),new LevelDat(data,renewedWorld),new DataFolder(data)}) {
 
                     Thread t = new Thread(() -> {
                         try {
@@ -131,9 +131,9 @@ public class Main {
     }
 
     public static void PrintLine(String msg, Data data, Boolean extended) {
-        if (data.Settings().get("Debug Messages").getClass().equals(Double.class)) {
-            if ((Double) data.Settings().get("Debug Messages") == 2.0) {
-                if ((Boolean)data.Settings().get("Cache debug messages")) {
+        if (data.Settings.get("Debug Messages").getClass().equals(Double.class)) {
+            if ((Double) data.Settings.get("Debug Messages") == 2.0) {
+                if ((Boolean)data.Settings.get("Cache debug messages")) {
                     if (! data.stringCache.contains(msg)) {
                         System.out.println(msg);
                         data.stringCache.add(msg);
@@ -142,9 +142,9 @@ public class Main {
                 else System.out.println(msg);
 
             }
-            else if ((Double) data.Settings().get("Debug Messages") == 1.0) {
+            else if ((Double) data.Settings.get("Debug Messages") == 1.0) {
                  if (! extended) {
-                     if ((Boolean)data.Settings().get("Cache debug messages")) {
+                     if ((Boolean)data.Settings.get("Cache debug messages")) {
                          if (! data.stringCache.contains(msg)) {
                              System.out.println(msg);
                              data.stringCache.add(msg);

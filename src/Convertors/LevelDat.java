@@ -19,19 +19,16 @@ import java.util.Map;
  */
 public class LevelDat implements Convertor{
     final private String pathName;
-    final private Map<Integer,String> LegacyIds;
     final private Data Data;
 
     /**
      * Creates an instance of LevelDat using the provided parameters
      * @param data Instance of {@link Data}
      * @param pathname String of the pathname, see {@link Convertor}
-     * @param legacyIds Map of the legacy ids
      */
-    public LevelDat(Data data, String pathname,Map<Integer,String> legacyIds) {
+    public LevelDat(Data data, String pathname) {
         this.Data = data;
         pathName = pathname;
-        LegacyIds = legacyIds;
     }
 
     /**
@@ -235,7 +232,7 @@ public class LevelDat implements Convertor{
                 if (Data.containsKey("Player") && Data1.containsKey("Player")) {
                     CompoundTag Player_tag = (CompoundTag) Data1.get("Player");
                     Map<String,Tag> Player = new HashMap<>(Player_tag.getValue());
-                    Fixers.playerFixer(Player, LegacyIds, this.Data.ItemNames(), this.Data);
+                    Fixers.playerFixer(Player, this.Data);
                     Data.replace("Player",new CompoundTag("Player",Player));
                 }
                 newData.replace("Data",new CompoundTag("Data",Data));

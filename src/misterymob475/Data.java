@@ -11,6 +11,19 @@ import java.util.*;
  */
 public class Data {
     private final Map<?,?> Conversions;
+    public List<String> stringCache = new ArrayList<>();
+    public Map<String,String> Waypoints;
+    public Map<Integer,String> LegacyIds;
+    public Map<String,String> Colours;
+    public Map<String,?> Settings;
+    public Map<String,String> FacNames;
+    public Map<String,String> Mod_mob_ids;
+    public Map<String,String> Vanilla_mob_ids;
+    public Map<String,String> Entities;
+    public Map<String,String> Regions;
+    public Map<String, List<String>> ItemNames;
+    public Map<String,String> Enchantments;
+    public Map<String,Map<String,?>> Potions;
 
     /**
      * Initializes Data
@@ -18,86 +31,29 @@ public class Data {
      */
     public Data(Map<?,?> conversions) {
         this.Conversions = conversions;
+        this.Waypoints = (Map<String, String>) Conversions.get("Waypoints");
+        this.Colours = (Map<String,String>) Conversions.get("Colours");
+        this.Settings = (Map<String, ?>) Conversions.get("Settings");
+        this.FacNames = (Map<String, String>) Conversions.get("Factions");
+        this.Vanilla_mob_ids = (Map<String, String>) Conversions.get("Vanilla_mob_ids");
+        this.Mod_mob_ids = (Map<String, String>) Conversions.get("Mod_mob_ids");
+        this.Entities = (Map<String, String>) Conversions.get("Entities");
+        this.Regions = (Map<String, String>) Conversions.get("Regions");
+        this.ItemNames = (Map<String, List<String>>) Conversions.get("Items");
+        this.Enchantments = (Map<String,String>) Conversions.get("Enchantments");
+        this.Potions = (Map<String,Map<String,?>>) Conversions.get("Potions");
     }
 
-    public List<String> stringCache = new ArrayList<>();
-
-    /**
-     * Returns a Map of the waypoints
-     * @return Map with key String and value String with the waypoint mappings
-     */
-    public Map<String,String> Waypoints() {
-        //missing:
-        //lotr:ajtiaz_an_ahar
-        //lotr:hirluins_halls
-        return (Map<String, String>) Conversions.get("Waypoints");
-     }
-
-    /**
-     * Map of the colour for fixing text
-     * @return Map with new colour names for use in json
-     */
-    public Map<String,String> Colours() {
-        return (Map<String,String>) Conversions.get("Colours");
-    }
-     public Map<String,?> Settings() {
-        return (Map<String, ?>) Conversions.get("Settings");
-     }
-
-    /**
-     * returns a Map of the faction names
-     * @return Map with key String and value String with the FactionName mappings
-     */
-    public Map<String,String> FacNames() {
-        return (Map<String, String>) Conversions.get("Factions");
-
-    }
-
-    /**
-     * returns a Map of the lotr mod spawn egg mappings
-     * @return Map with key String and value String with the lotr mop spawn egg mappings
-     */
-    public Map<String,String> Mod_mob_ids() {
-        return (Map<String, String>) Conversions.get("Mod_mob_ids");
-
-    }
-    /**
-     * returns a Map of the vanilla spawn egg mappings
-     * @return Map with key String and value String with the vanilla spawn egg mappings
-     */
-    public Map<String,String> Vanilla_mob_ids() {
-        return (Map<String, String>) Conversions.get("Vanilla_mob_ids");
-
-    }
-    /**
-     * returns a Map of the entity names
-     * @return Map with key String and value String with the Entity names
-     */
-    public Map<String,String> Entities() {
-        return (Map<String, String>) Conversions.get("Entities");
-
-    }
-
-    /**
-     * returns a Map of the regions
-     * @return Map with key String and value String with the Region mappings
-     */
-    public Map<String,String> Regions() {
-        return (Map<String, String>) Conversions.get("Regions");
-    }
-    //returns a list, list pos = damage value = variant
-    //if no value is present, code will be commented
 
     //legacy id HashMap generator, ids can vary, hence the dynamic generation
 
     /**
      * Dynamically creates and returns a Map containing the int ids and the old string ids
      * @param levelDat Path of the old level.dat file
-     * @return Map with key Integer and value String containing the int ids and the old string ids
      * @throws IOException if something fails
      */
-    public static Map<Integer,String> LegacyIds(String levelDat) throws IOException {
-        HashMap<Integer,String> LegacyIds = new HashMap<>();
+    public void LegacyIds(String levelDat) throws IOException {
+        HashMap<Integer,String> LegacyIds_builder = new HashMap<>();
         try {
             final NBTInputStream input = new NBTInputStream(new FileInputStream(levelDat));
             final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
@@ -105,7 +61,7 @@ public class Data {
 
             List<Tag> ItemDataList = ((ListTag) ((CompoundTag) (originalTopLevelTag.getValue()).get("FML")).getValue().get("ItemData")).getValue();
             for (Tag t : ItemDataList) {
-                LegacyIds.put(((IntTag) ((CompoundTag)t).getValue().get("V")).getValue(),((StringTag) ((CompoundTag)t).getValue().get("K")).getValue().substring(1));
+                LegacyIds_builder.put(((IntTag) ((CompoundTag)t).getValue().get("V")).getValue(),((StringTag) ((CompoundTag)t).getValue().get("K")).getValue().substring(1));
             }
 
             System.out.println("got legacy id's");
@@ -114,7 +70,7 @@ public class Data {
         catch (final ClassCastException | NullPointerException ex) {
             throw new IOException("Error during legacy id gathering");
         }
-        return LegacyIds;
+        this.LegacyIds = LegacyIds_builder;
     }
 
     //renewed id HashMap generator, ids can vary, hence the dynamic generation
@@ -170,64 +126,9 @@ public class Data {
     //instructions for calling:
     //make 1 per page instead of loading it everytime
     //make this null after the last usage
-    //error handling, use ifExists() on the HasMap itself, check if list items != ""
+    //error handling, use ifExists() on the HashMap itself, check if list items != ""
 
-    /**
-     * returns a map, with a String as the Key and a String List as the value, with the item mappings
-     * @return Map with key String and value List of Type String with the item mappings
-     */
-    public Map<String, List<String>> ItemNames() {
-        return (Map<String, List<String>>) Conversions.get("Items");
 
-    }
-
-    /**
-     * returns a dict with int id to string id
-     * @return a string dict
-     */
-    public Map<String,String> Enchantments() {
-        return (Map<String,String>) Conversions.get("Enchantments");
-    }
-
-    public Map<String,Map<String,?>> Potions() {
-        return (Map<String,Map<String,?>>) Conversions.get("Potions");
-    }
-    /**
-     * Function which returns a new IntArrayTag based off the given LongTags and name
-     * @param UUIDLeast {@link LongTag}
-     * @param UUIDMost {@link LongTag}
-     * @param name {@link String} name
-     * @return {@link IntArrayTag} with given name and param inputs
-     */
-    public static IntArrayTag UUIDFixer(LongTag UUIDMost, LongTag UUIDLeast, String name) {
-        //Creates the UUID in the new format based with name being the name of the intArrayTag
-        //Might have reversed the order though
-        long v1 = UUIDMost.getValue();
-        long v2 = UUIDLeast.getValue();
-        return new IntArrayTag(name,new int[]{(int)(v1 >> 32),(int)v1,(int)(v2 >> 32),(int)v2});
-    }
-
-    //Overload for when no special name is required (name is "UUID")
-    /**
-     * Overload for when name is "UUID"
-     * @param UUIDLeast {@link LongTag}
-     * @param UUIDMost {@link LongTag}
-     * @return {@link IntArrayTag} with name "UUID" and param inputs
-     */
-    public static IntArrayTag UUIDFixer(LongTag UUIDMost, LongTag UUIDLeast) {
-        return UUIDFixer(UUIDMost,UUIDLeast,"UUID");
-    }
-
-    /**
-     * Overload for StringTags
-     * @param UUID_t {@link StringTag}
-     * @param name String
-     * @return {@link IntArrayTag} with name as name and param inputs
-     */
-    public static IntArrayTag UUIDFixer(StringTag UUID_t, String name) {
-            UUID uuid = UUID.fromString(UUID_t.getValue());
-            return UUIDFixer(new LongTag("",uuid.getMostSignificantBits()),new LongTag("",uuid.getLeastSignificantBits()),name);
-    }
 
 }
 

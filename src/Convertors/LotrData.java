@@ -35,9 +35,9 @@ public class LotrData implements Convertor {
 	 */
 	@Override
 	public void modifier(Path p, String FileName) throws IOException {
-		Map<String,String> Waypoints = Data.Waypoints();
-		Map<String,String> Regions = Data.Regions();
-		Map<String,String> FacNames = Data.FacNames();
+		Map<String,String> Waypoints = Data.Waypoints;
+		Map<String,String> Regions = Data.Regions;
+		Map<String,String> FacNames = Data.FacNames;
 
 
 		Files.createDirectory(Paths.get(p +"/"+FileName+"_Converted/lotr/"));

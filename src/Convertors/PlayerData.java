@@ -19,16 +19,13 @@ import static misterymob475.Main.PrintLine;
  */
 public class PlayerData implements Convertor {
     private final Data Data;
-    private final Map<Integer,String> LegacyIds;
 
     /**
      * Creates an instance of PlayerData
      * @param data instance of {@link Data}
-     * @param legacyIds Dictionary with the ind id's as key and the (old) string-id as the value
      */
-    public PlayerData(Data data,Map<Integer,String> legacyIds) {
+    public PlayerData(Data data) {
         this.Data = data;
-        LegacyIds = legacyIds;
     }
 
     /**
@@ -40,7 +37,6 @@ public class PlayerData implements Convertor {
     @Override
     public void modifier(Path p, String FileName) throws IOException {
         //Map<Integer,String> LegacyIds = misterymob475.Data.LegacyIds(Paths.get(p + "/" + FileName+ "/level.dat").toAbsolutePath().toString());
-        Map<String,List<String>> ItemNames = Data.ItemNames();
         Files.createDirectory(Paths.get(p +"/"+FileName+"_Converted/playerdata"));
         //level.dat fixer/modifier
         //File renewedWorld = new File(p+"/"+this.pathName+"/level.dat");
@@ -62,7 +58,7 @@ public class PlayerData implements Convertor {
                 //this way I can modify the map directly, instead of regenerating it every time
                 Map <String, Tag> newData = new HashMap<>(originalData);
 //
-                Fixers.playerFixer(newData, LegacyIds, ItemNames, Data);
+                Fixers.playerFixer(newData, Data);
 //
 
                 final CompoundTag newTopLevelTag = new CompoundTag("", newData);
