@@ -11,7 +11,7 @@ import java.util.*;
  */
 public class Data {
     private final Map<?,?> Conversions;
-    public List<String> stringCache = new ArrayList<>();
+    public volatile List<String> stringCache = new ArrayList<>();
     public Map<String,String> Waypoints;
     public Map<Integer,String> LegacyIds;
     public Map<String,String> Colours;
@@ -24,6 +24,8 @@ public class Data {
     public Map<String, List<String>> ItemNames;
     public Map<String,String> Enchantments;
     public Map<String,Map<String,?>> Potions;
+    public List<String> AuthorBlacklist;
+    public List<String> TitleBlacklist;
 
     /**
      * Initializes Data
@@ -42,6 +44,8 @@ public class Data {
         this.ItemNames = (Map<String, List<String>>) Conversions.get("Items");
         this.Enchantments = (Map<String,String>) Conversions.get("Enchantments");
         this.Potions = (Map<String,Map<String,?>>) Conversions.get("Potions");
+        this.AuthorBlacklist = (List<String>) Conversions.get("AuthorBlacklist");
+        this.TitleBlacklist = (List<String>) Conversions.get("TitleBlacklist");
     }
 
 

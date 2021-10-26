@@ -129,7 +129,7 @@ public class Main {
             return "";
         }
     }
-
+    //wasn't thread safe, this article came in handy: https://www.baeldung.com/java-thread-safety
     public static void PrintLine(String msg, Data data, Boolean extended) {
         if (data.Settings.get("Debug Messages").getClass().equals(Double.class)) {
             if ((Double) data.Settings.get("Debug Messages") == 2.0) {

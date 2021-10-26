@@ -7414,7 +7414,15 @@
     "100": "minecraft:horse_spawn_egg",
     "120": "minecraft:villager_spawn_egg",
     "Comment": "Used for fixing spawn eggs, as otherwise they would require changing the json item format yet again"
-  }
+  },
+  "AuthorBlacklist" : [
+    "author_blacklist_example",
+    "formatting_example"
+  ],
+  "TitleBlacklist" : [
+    "title_blacklist_example",
+    "formatting_example"
+  ]
 }
 
 

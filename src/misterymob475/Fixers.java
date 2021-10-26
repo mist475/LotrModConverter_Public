@@ -385,6 +385,7 @@ public class Fixers {
                 for (Tag t : l) {
                     if (! (((CompoundTag) t).getValue()).isEmpty()) {
                         ShortTag id = (ShortTag) ((CompoundTag)t).getValue().get("id");
+                        boolean save = true;
                         //use this map instead of t and replace t with it as t is not modifiable, this map is though
                         Map<String, Tag> tMap = new HashMap<>(((CompoundTag) t).getValue());
                         //statement for pouches/cracker
@@ -574,6 +575,18 @@ public class Fixers {
                                             }
                                             //Book fixer
                                             else if (filler.containsKey("pages")) {
+                                                if (filler.containsKey("author") || filler.containsKey("title")) {
+                                                    if (filler.containsKey("author")) {
+                                                        if (Data.AuthorBlacklist.contains((String)filler.get("author").getValue())) {
+                                                            save = false;
+                                                        }
+                                                    }
+                                                    if (filler.containsKey("title")) {
+                                                        if (Data.TitleBlacklist.contains((String) filler.get("title").getValue())) {
+                                                            save = false;
+                                                        }
+                                                    }
+                                                }
                                                 //without this if book & quills get messed up
                                                 if (Objects.equals(item.get(0), "minecraft:written_book")) {
                                                     List<Tag> pages = new ArrayList<>();
@@ -686,7 +699,9 @@ public class Fixers {
                                         }
                                         else tMap.replace("id",new StringTag("id",item.get(0)));
                                         tMap.remove("Damage");
-                                        builder.add(new CompoundTag("",tMap));
+                                        if (save) {
+                                            builder.add(new CompoundTag("",tMap));
+                                        }
                                     }
                                     //vanilla spawn egg handler
                                     else if (Data.LegacyIds.get(compare1).equals("minecraft:spawn_egg")) {
