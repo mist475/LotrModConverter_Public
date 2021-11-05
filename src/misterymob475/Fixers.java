@@ -80,7 +80,7 @@ public class Fixers {
             String newDimension;
             if (Dimension == 0) newDimension = "minecraft:overworld";
             else if (Dimension == 1) newDimension = "Minecraft:the_nether";
-            else if (Dimension == 2) newDimension = "Minecraft:the_end";
+            else if (Dimension == -1) newDimension = "Minecraft:the_end";
             else if (Dimension == 100) newDimension = "lotr:middle_earth";
             else if (Dimension == 101) {
                 //should it be saved?
@@ -821,5 +821,16 @@ public class Fixers {
     public static IntArrayTag UUIDFixer(StringTag UUID_t, String name) {
         UUID uuid = UUID.fromString(UUID_t.getValue());
         return UUIDFixer(new LongTag("",uuid.getMostSignificantBits()),new LongTag("",uuid.getLeastSignificantBits()),name);
+    }
+
+    /**
+     * Fixer level levelfixer
+     * @param Chunk map of CompoundTag of chunk
+     * @param Data instance of Data
+     * @return fixed map
+     */
+    public static Map<String,Tag> ChunkFixer(Map<String,Tag> Chunk, Data Data) {
+        //TODO: Proper implementation
+        return Chunk;
     }
 }

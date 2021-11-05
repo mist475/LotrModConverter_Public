@@ -9,10 +9,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Copies {@literal &} Fixes the level.dat file
@@ -150,7 +147,9 @@ public class LevelDat implements Convertor{
 
                             Map<String,Tag> structures2_map = new HashMap<>();
                             Map<String,Tag> village_map = new HashMap<>();
-                            village_map.put("salt",new IntTag("salt",10387312));
+                            //Salt gen, should work, doesn't carry over old maps though
+                            int salt = (new Random()).nextInt(1000000000);
+                            village_map.put("salt",new IntTag("salt",salt));
                             village_map.put("separation",new IntTag("separation",8));
                             village_map.put("spacing",new IntTag("spacing",32));
                             structures2_map.put("minecraft:village", new CompoundTag("minecraft:village",village_map));

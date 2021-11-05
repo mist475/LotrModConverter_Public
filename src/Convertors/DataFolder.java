@@ -41,9 +41,8 @@ public class DataFolder implements Convertor{
             //idcounts fixer
             //map fixer (should be a quickie)
             File[] curDirList = currentFolder.listFiles((dir, name) -> name.toLowerCase().startsWith("map_"));
-            if (currentFolder.exists()) {
+            if (curDirList != null && curDirList.length > 0) {
                 int i = 1;
-                assert curDirList != null;
                 for (File mapFile : curDirList) {
 
                     i++;
@@ -63,7 +62,7 @@ public class DataFolder implements Convertor{
                             String newDimension;
                             if (Dimension == 0) newDimension = "minecraft:overworld";
                             else if (Dimension == 1) newDimension = "Minecraft:the_nether";
-                            else if (Dimension == 2) newDimension = "Minecraft:the_end";
+                            else if (Dimension == -1) newDimension = "Minecraft:the_end";
                             else if (Dimension == 100) newDimension = "lotr:middle_earth";
                             //not sure if this is gonna work, we'll see
                             else if (Dimension == 101) newDimension = "lotr:utumno";
@@ -87,30 +86,27 @@ public class DataFolder implements Convertor{
                 }
 
                 PrintLine("Converted all the maps",Data,false);
-            }
+                try {
+                    if (new File(currentFolder+"/idcounts.dat").exists()) {
 
-            try {
-                if (new File(currentFolder+"/idcounts.dat").exists()) {
+                        Map<String, Tag> newData = new HashMap<>();
+                        Map<String,Tag> tMap = new HashMap<>();
+                        tMap.put("map",new IntTag("map",curDirList.length-1));
+                        newData.put("map",new CompoundTag("data",tMap));
 
-                    Map<String, Tag> newData = new HashMap<>();
-                    Map<String,Tag> tMap = new HashMap<>();
-                    assert curDirList != null;
-                    tMap.put("map",new IntTag("map",curDirList.length-1));
-                    newData.put("map",new CompoundTag("data",tMap));
+                        final CompoundTag newTopLevelTag = new CompoundTag("", newData);
 
-                    final CompoundTag newTopLevelTag = new CompoundTag("", newData);
+                        final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p +"/"+FileName+"_Converted/data/idcounts.dat").toString())).getAbsolutePath()));
+                        output.writeTag(newTopLevelTag);
+                        output.close();
 
-                    final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p +"/"+FileName+"_Converted/data/idcounts.dat").toString())).getAbsolutePath()));
-                    output.writeTag(newTopLevelTag);
-                    output.close();
+                        Main.PrintLine("converted idcount.dat",Data,false);
+                    }
 
-                    Main.PrintLine("converted idcount.dat",Data,false);
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-
-            } catch (IOException e) {
-                e.printStackTrace();
             }
-
         }
 }
 }
