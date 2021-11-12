@@ -1,11 +1,10 @@
 package Convertors;
 
+import de.piegames.nbt.stream.NBTInputStream;
+import de.piegames.nbt.stream.NBTOutputStream;
 import misterymob475.Data;
 import misterymob475.Fixers;
-import org.jnbt.CompoundTag;
-import org.jnbt.NBTInputStream;
-import org.jnbt.NBTOutputStream;
-import org.jnbt.Tag;
+import de.piegames.nbt.*;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,8 +13,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 import static misterymob475.Main.PrintLine;
@@ -55,9 +52,9 @@ public class Nether implements Convertor{
                         input.close();
                         //DataVersion = 2586
                         //saves the input as a map, this is important for saving the file, for reading it is redundant
-                        Map<String, Tag> originalData = new HashMap<>(originalTopLevelTag.getValue());
+                        CompoundMap originalData = new CompoundMap(originalTopLevelTag.getValue());
                         //
-                        Map<String,Tag> chunk = Fixers.ChunkFixer(new HashMap<>(((CompoundTag) originalData.get("Chunk")).getValue()),Data);
+                        CompoundMap chunk = Fixers.ChunkFixer(new CompoundMap(((CompoundTag) originalData.get("Chunk")).getValue()),Data);
                         //
                         originalData.replace("data",new CompoundTag("data",chunk));
                         final CompoundTag newTopLevelTag = new CompoundTag("", originalData);

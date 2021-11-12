@@ -1,6 +1,7 @@
 package misterymob475;
 
-import org.jnbt.*;
+//import org.jnbt.*;
+import de.piegames.nbt.*;
 
 import java.io.IOException;
 import java.util.*;
@@ -17,7 +18,8 @@ public class Fixers {
      * @return Fixed Map
      * @throws IOException if something fails
      */
-    public static Map<String, Tag> EntityFixer(Map<String, Tag> Entity, Data Data, Boolean Important) throws IOException {
+    @SuppressWarnings("unchecked")
+    public static CompoundMap EntityFixer(CompoundMap Entity, Data Data, Boolean Important) throws IOException {
         //Determines the actual mob
         if (Entity.containsKey("id")) {
             if (Data.Entities.containsKey((String) (Entity.get("id").getValue()))) {
@@ -96,18 +98,19 @@ public class Fixers {
         if (inUtumno) {
             //sets the player coordinates at the coordinates of the pit if they're currently in Utumno (roughly, they'll be moved in renewed I've heard)
             //ListTag Pos1 = (ListTag) newData.get("Pos");
-            ArrayList<Tag> Pos = new ArrayList<Tag>(1) {};
+            ArrayList<DoubleTag> Pos = new ArrayList<DoubleTag>(1) {};
             Pos.add(new DoubleTag("",46158.0));
             Pos.add(new DoubleTag("",80.0));
             Pos.add(new DoubleTag("",-40274.0));
-            Entity.replace("Pos",new ListTag("Pos",DoubleTag.class,Pos));
+            Entity.replace("Pos",new ListTag<>("Pos",TagType.TAG_DOUBLE,Pos));
 
         }
 
         if (Entity.containsKey("SaddleItem")) {
-            Map<String,Tag> newSaddleItem = new HashMap<>();
+            CompoundMap newSaddleItem = new CompoundMap();
             newSaddleItem.put("Count",new ByteTag("Count", (byte) 1));
             newSaddleItem.put("id",new StringTag("id", "minecraft:saddle"));
+
             Entity.replace("SaddleItem",new CompoundTag("SaddleItem",newSaddleItem));
         }
 
@@ -133,56 +136,56 @@ public class Fixers {
         potion.healthBoost
          */
         if (Entity.containsKey("Attributes")) {
-            List<Tag> Attributes_old = ((ListTag) Entity.get("Attributes")).getValue();
-            List<Tag> Attributes_new = new ArrayList<>();
-            for (Tag t : Attributes_old) {
-                switch (((StringTag) ((CompoundTag) t).getValue().get("Name")).getValue()) {
+            List<CompoundTag> Attributes_old = (List<CompoundTag>) Entity.get("Attributes").getAsListTag().get().getValue();
+            List<CompoundTag> Attributes_new = new ArrayList<>();
+            for (CompoundTag t : Attributes_old) {
+                switch (((StringTag) t.getValue().get("Name")).getValue()) {
 
                     case "generic.attackDamage":
-                        Map<String,Tag> attackDamage = new HashMap<>();
-                        attackDamage.put("Modifiers",modifierFixer(((ListTag) ((CompoundTag) t).getValue().get("Modifiers"))));
+                        CompoundMap attackDamage = new CompoundMap();
+                        attackDamage.put("Modifiers",modifierFixer(((ListTag<CompoundTag>) t.getValue().get("Modifiers"))));
                         attackDamage.put("Name",new StringTag("Name","generic.attack_damage"));
                         Attributes_new.add(new CompoundTag("",attackDamage));
                         break;
 
                     //modifiers present here
                     case "zombie.spawnReinforcements":
-                        Map<String,Tag> spawnReinf = new HashMap<>(((CompoundTag) t).getValue());
+                        CompoundMap spawnReinf = new CompoundMap(t.getValue());
                         spawnReinf.replace("Name",new StringTag("Name","zombie.spawn_reinforcements"));
                         Attributes_new.add(new CompoundTag("",spawnReinf));
                         break;
 
                     case "generic.movementSpeed":
-                        Map<String,Tag> movSpeed = new HashMap<>();
-                        movSpeed.put("Base", ((CompoundTag) t).getValue().get("Base"));
+                        CompoundMap movSpeed = new CompoundMap();
+                        movSpeed.put("Base", t.getValue().get("Base"));
                         movSpeed.put("Name",new StringTag("Name","minecraft:generic.movement_speed"));
                         Attributes_new.add(new CompoundTag("",movSpeed));
                         break;
 
                     case "generic.followRange":
-                        Map<String,Tag> followRange = new HashMap<>();
+                        CompoundMap followRange = new CompoundMap();
                         //yet to be tested
-                        followRange.put("Modifiers",modifierFixer(((ListTag) ((CompoundTag) t).getValue().get("Modifiers"))));
-                        followRange.put("Base", ((CompoundTag) t).getValue().get("Base"));
+                        followRange.put("Modifiers",modifierFixer(((ListTag<CompoundTag>) t.getValue().get("Modifiers"))));
+                        followRange.put("Base", t.getValue().get("Base"));
                         followRange.put("Name",new StringTag("Name","minecraft:generic.follow_range"));
                         Attributes_new.add(new CompoundTag("",followRange));
                         break;
 
                     case "generic.maxHealth":
-                        Map<String,Tag> maxHealth = new HashMap<>();
-                        maxHealth.put("Base", ((CompoundTag) t).getValue().get("Base"));
+                        CompoundMap maxHealth = new CompoundMap();
+                        maxHealth.put("Base", t.getValue().get("Base"));
                         maxHealth.put("Name",new StringTag("Name","minecraft:generic.max_health"));
                         Attributes_new.add(new CompoundTag("",maxHealth));
                         break;
                     case "generic.knockbackResistance":
-                        Map<String,Tag> knockbackResistance = new HashMap<>();
-                        knockbackResistance.put("Base", ((CompoundTag) t).getValue().get("Base"));
+                        CompoundMap knockbackResistance = new CompoundMap();
+                        knockbackResistance.put("Base", t.getValue().get("Base"));
                         knockbackResistance.put("Name",new StringTag("Name","generic.knockback_resistance"));
                         Attributes_new.add(new CompoundTag("",knockbackResistance));
                         break;
                     case "horse.jumpStrength":
-                        Map<String,Tag> jumpStrength = new HashMap<>();
-                        jumpStrength.put("Base", ((CompoundTag) t).getValue().get("Base"));
+                        CompoundMap jumpStrength = new CompoundMap();
+                        jumpStrength.put("Base", t.getValue().get("Base"));
                         jumpStrength.put("Name",new StringTag("Name","horse.jump_strength"));
                         Attributes_new.add(new CompoundTag("",jumpStrength));
                         break;
@@ -192,18 +195,18 @@ public class Fixers {
                         break;
                 }
             }
-            ListTag Attributes = new ListTag("Attributes",CompoundTag.class,Attributes_new);
+            ListTag<CompoundTag> Attributes = new ListTag<>("Attributes",TagType.TAG_COMPOUND,Attributes_new);
             Entity.replace("Attributes",Attributes);
         }
 
         //will easily regenerate I hope
         Entity.remove("DropChances");
         if (Entity.containsKey("Equipment")) {
-            Entity.replace("Equipment",new ListTag("Equipment",CompoundTag.class,RecurItemFixer((((ListTag) Entity.get("Equipment")).getValue()),(double) 0,"Exception during Entity Equipment Fix", Data)));
+            Entity.replace("Equipment",new ListTag<>("Equipment",TagType.TAG_COMPOUND,RecurItemFixer((((ListTag<CompoundTag>) Entity.get("Equipment")).getValue()),(double) 0,"Exception during Entity Equipment Fix", Data)));
         }
         //The sole reason I implemented this before I started working on fixing the world
         if (Entity.containsKey("Items")) {
-            Entity.replace("Items",new ListTag("Items",CompoundTag.class,RecurItemFixer((((ListTag) Entity.get("Items")).getValue()),(double) 0,"Exception during Entity Inventory Fix", Data)));
+            Entity.replace("Items",new ListTag<>("Items",TagType.TAG_COMPOUND,RecurItemFixer((((ListTag<CompoundTag>) Entity.get("Items")).getValue()),(double) 0,"Exception during Entity Inventory Fix", Data)));
         }
         Entity.remove("AttackTime");
         //LOTR mod related
@@ -242,25 +245,25 @@ public class Fixers {
         }
         return Entity;
     }
-    public static Map<String, Tag> RiderEntityFixer(Map<String, Tag> Entity, Data Data) throws IOException {
-        Map<String,Tag> RootVehicle = new HashMap<>();
+    public static CompoundMap RiderEntityFixer(CompoundMap Entity, Data Data) throws IOException {
+        CompoundMap RootVehicle = new CompoundMap();
         if (Entity.containsKey("UUIDLeast")) {
             RootVehicle.put("Attach", UUIDFixer((LongTag) Entity.get("UUIDMost"),(LongTag) Entity.get("UUIDLeast"),"Attach"));
         }
 
         //
-        Map<String,Tag> Entity_map = EntityFixer(Entity, Data,true);
+        CompoundMap Entity_map = EntityFixer(Entity, Data,true);
         if (Entity_map != null) {
             RootVehicle.put("Entity",new CompoundTag("Entity",Entity_map));
             return RootVehicle;
         }
         else return null;
     }
-    public static ListTag modifierFixer(ListTag t) {
-        List<Tag> list = new ArrayList<>(t.getValue());
-        List<Tag> newList = new ArrayList<>();
-        for (Tag c : list) {
-            Map<String,Tag> Modifier = new HashMap<>(((CompoundTag) c).getValue());
+    public static ListTag<CompoundTag> modifierFixer(ListTag<CompoundTag> t) {
+        List<CompoundTag> list = t.getValue();
+        List<CompoundTag> newList = new ArrayList<>();
+        for (CompoundTag c : list) {
+            CompoundMap Modifier = new CompoundMap(c.getValue());
             if (Modifier.containsKey("UUIDLeast")) {
                 Modifier.put("UUID", UUIDFixer((LongTag) Modifier.get("UUIDMost"),(LongTag) Modifier.get("UUIDLeast"),"UUID"));
                 Modifier.remove("UUIDLeast");
@@ -268,7 +271,7 @@ public class Fixers {
             }
             newList.add(new CompoundTag("",Modifier));
         }
-        return new ListTag("Modifiers",CompoundTag.class,newList);
+        return new ListTag<>("Modifiers",TagType.TAG_COMPOUND,newList);
     }
 
     /**
@@ -276,7 +279,8 @@ public class Fixers {
      * @param newData  {@link Map} with key {@link String} and value {@link Tag} containing the to be fixed data
      * @throws IOException if something fails
      */
-    public static void playerFixer(Map<String, Tag> newData, Data Data) throws IOException {
+    @SuppressWarnings("unchecked")
+    public static void playerFixer(CompoundMap newData, Data Data) throws IOException {
         boolean inUtumno = false;
         //not needed in renewed
         newData.remove("ForgeData");
@@ -285,7 +289,7 @@ public class Fixers {
 
         if (newData.containsKey("Riding")) {
             //call to entity fixer, this means the player is riding on a mount (fixer will temporarily replace said mount with a donkey)
-            Map<String,Tag> Riding = new HashMap<>(((CompoundTag)newData.get("Riding")).getValue());
+            CompoundMap Riding = new CompoundMap(((CompoundTag)newData.get("Riding")).getValue());
             Riding = Fixers.RiderEntityFixer(Riding, Data);
             if (Riding != null) {
                 CompoundTag RootVehicle = new CompoundTag("RootVehicle",Riding);
@@ -301,12 +305,10 @@ public class Fixers {
 
 
         if (newData.containsKey("EnderItems")) {
-            newData.replace("EnderItems",new ListTag("EnderItems",CompoundTag.class,RecurItemFixer((((ListTag) newData.get("EnderItems")).getValue()), (double) 0,"Exception during Ender chest conversion", Data)));
+            newData.replace("EnderItems",new ListTag<>("EnderItems",TagType.TAG_COMPOUND,RecurItemFixer((((ListTag<CompoundTag>) newData.get("EnderItems")).getValue()), (double) 0,"Exception during Ender chest conversion", Data)));
         }
         if (newData.containsKey("Inventory")) {
-            //List<Tag> Invtemp = ((ListTag) newData.get("Inventory")).getValue();
-            newData.replace("Inventory",new ListTag("Inventory",CompoundTag.class,RecurItemFixer((((ListTag) newData.get("Inventory")).getValue()),(double) 0,"Exception during inventory conversion", Data)));
-            //List<Tag> debug2 =RecurItemFixer(Invtemp,LegacyIds,ItemNames,0,"Exception during Inventory Conversion");
+            newData.replace("Inventory",new ListTag<>("Inventory",TagType.TAG_COMPOUND,RecurItemFixer((((ListTag<CompoundTag>) newData.get("Inventory")).getValue()),(double) 0,"Exception during inventory conversion", Data)));
         }
 
         newData.remove("Attack Time");
@@ -330,11 +332,11 @@ public class Fixers {
         if (inUtumno) {
             //sets the player coordinates at the coordinates of the pit if they're currently in Utumno (roughly, they'll be moved in renewed I've heard)
             //ListTag Pos1 = (ListTag) newData.get("Pos");
-            ArrayList<Tag> Pos = new ArrayList<Tag>(1) {};
+            ArrayList<DoubleTag> Pos = new ArrayList<DoubleTag>(1) {};
             Pos.add(new DoubleTag("",46158.0));
             Pos.add(new DoubleTag("",80.0));
             Pos.add(new DoubleTag("",-40274.0));
-            newData.replace("Pos",new ListTag("Pos",DoubleTag.class,Pos));
+            newData.replace("Pos", new ListTag<>("Pos", TagType.TAG_DOUBLE, Pos));
 
         }
         newData.remove("HealF");
@@ -352,7 +354,7 @@ public class Fixers {
      * @return the display {@link CompoundTag}, but with fixed formatting to prevent custom names getting cut off
      */
     public static CompoundTag nameFixer(CompoundTag display, Data Data) {
-        Map<String,Tag> display_map = new HashMap<>(display.getValue());
+        CompoundMap display_map = new CompoundMap(display.getValue());
         if (display_map.containsKey("Name" )) {
             String name = (String) display_map.get("Name").getValue();
             String colour= "";
@@ -377,17 +379,18 @@ public class Fixers {
      * @return {@link List} of type {@link Tag} of the modified inventory
      * @throws IOException if something fails
      */
-    public static List<Tag> RecurItemFixer(List<Tag> l, Double depth, String exceptionMessage, Data Data) throws IOException {
+    @SuppressWarnings("unchecked")
+    public static List<CompoundTag> RecurItemFixer(List<CompoundTag> l, Double depth, String exceptionMessage, Data Data) throws IOException {
         try {
-            List<Tag> builder = new ArrayList<>();
+            List<CompoundTag> builder = new ArrayList<>();
 
             if (depth++<(Double) Data.Settings.get("Recursion Depth")) {
-                for (Tag t : l) {
-                    if (! (((CompoundTag) t).getValue()).isEmpty()) {
-                        ShortTag id = (ShortTag) ((CompoundTag)t).getValue().get("id");
+                for (CompoundTag t : l) {
+                    if (! (t.getValue()).isEmpty()) {
+                        ShortTag id = (ShortTag) t.getValue().get("id");
                         boolean save = true;
                         //use this map instead of t and replace t with it as t is not modifiable, this map is though
-                        Map<String, Tag> tMap = new HashMap<>(((CompoundTag) t).getValue());
+                        CompoundMap tMap = new CompoundMap(t.getValue());
                         //statement for pouches/cracker
                         Integer compare1 = ((int)id.getValue());
                         if (Data.LegacyIds.containsKey( compare1)) {
@@ -396,19 +399,19 @@ public class Fixers {
                                 //recursive call 1 (Pouches)
                                 if (item.get(0).equals("minecraft:shulker_box")) {
                                     if (tMap.containsKey("tag")) {
-                                        Map<String,Tag> filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
+                                        CompoundMap filler = new CompoundMap(((CompoundTag) tMap.get("tag")).getValue());
                                         //nameFixer
                                         if (filler.containsKey("display")) {
                                             filler.replace("display",nameFixer((CompoundTag) filler.get("display"),Data));
                                         }
                                         if (filler.containsKey("LOTRPouchData")) {
-                                            Map<String,Tag> LOTRPouchData = new HashMap<>(((CompoundTag) filler.get("LOTRPouchData")).getValue());
-                                            ListTag Items_tag = (ListTag) LOTRPouchData.get("Items");
+                                            CompoundMap LOTRPouchData = new CompoundMap(((CompoundTag) filler.get("LOTRPouchData")).getValue());
+                                            ListTag<CompoundTag> Items_tag = (ListTag<CompoundTag>) LOTRPouchData.get("Items");
                                             //
-                                            List<Tag> Items = Items_tag.getValue();
+                                            List<CompoundTag> Items = Items_tag.getValue();
                                             Items = RecurItemFixer(Items,depth,exceptionMessage, Data);
                                             //
-                                            LOTRPouchData.replace("Items",new ListTag("Items",CompoundTag.class,Items));
+                                            LOTRPouchData.replace("Items",new ListTag<>("Items",TagType.TAG_COMPOUND,Items));
                                             CompoundTag BlockEntityTag = new CompoundTag("BlockEntityTag",LOTRPouchData);
                                             filler.replace("LOTRPouchData",BlockEntityTag);
                                             tMap.replace("tag",new CompoundTag("tag",filler));
@@ -422,24 +425,26 @@ public class Fixers {
 
                                 //recursive call 2 (Barrels/Kegs)
                                 else if (item.get(0).equals("lotr:keg")) {
-                                    Map<String,Tag> filler = new HashMap<>();
+                                    CompoundMap filler = new CompoundMap();
                                     if (tMap.containsKey("tag")) {
-                                        filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
+                                        filler = new CompoundMap(((CompoundTag) tMap.get("tag")).getValue());
                                         //nameFixer
                                         if (filler.containsKey("display")) {
                                             filler.replace("display",nameFixer((CompoundTag) filler.get("display"),Data));
                                         }
-                                        Map<String,Tag> KegDroppableData_Map = new HashMap<>();
+                                        CompoundMap KegDroppableData_Map = new CompoundMap();
                                         if (filler.containsKey("LOTRBarrelData")) {
-                                            Map<String,Tag> LOTRBarrelData = new HashMap<>(((CompoundTag) filler.get("LOTRBarrelData")).getValue());
-                                            ListTag Items_tag = (ListTag) LOTRBarrelData.get("Items");
+                                            CompoundMap LOTRBarrelData = new CompoundMap(((CompoundTag) filler.get("LOTRBarrelData")).getValue());
+                                            ListTag<CompoundTag> Items_tag = (ListTag<CompoundTag>) LOTRBarrelData.get("Items").getAsListTag().get();
                                             //
-                                            List<Tag> Items = Items_tag.getValue();
+                                            List<CompoundTag> Items = Items_tag.getValue();
                                             Items = RecurItemFixer(Items,depth,exceptionMessage, Data);
                                             //
-                                            LOTRBarrelData.replace("Items",new ListTag("Items",CompoundTag.class,Items));
-                                            LOTRBarrelData.put("BrewingTimeTotal",new IntTag("BrewingTimeTotal",(int)(LOTRBarrelData.get("BrewingTime").getValue())));
-                                            LOTRBarrelData.replace("BarrelMode",new ByteTag("KegMode",(byte)(LOTRBarrelData.get("BarrelMode")).getValue()));
+                                            LOTRBarrelData.replace("Items",new ListTag<>("Items",TagType.TAG_COMPOUND,Items));
+                                            IntTag BrewingTime = LOTRBarrelData.get("BrewingTime").getAsIntTag().get();
+                                            LOTRBarrelData.put("BrewingTimeTotal",new IntTag("BrewingTimeTotal", BrewingTime.getValue()));
+                                            ByteTag BarrelMode = LOTRBarrelData.get("BarrelMode").getAsByteTag().get();
+                                            LOTRBarrelData.replace("BarrelMode",new ByteTag("KegMode", (BarrelMode).getValue()));
                                             CompoundTag KegDroppableData = new CompoundTag("KegDroppableData",LOTRBarrelData);
 
                                             KegDroppableData_Map.put("KegDroppableData",KegDroppableData);
@@ -457,15 +462,15 @@ public class Fixers {
 
                                 //Player head fixer (Apparently the game fixes this one automatically, except for custom names. So I added the full thing except the killed by message as I don't know how that is formatted)
                                 else if (item.get(0).equals("minecraft:skeleton_skull")) {
-                                    Map<String,Tag> filler = new HashMap<>();
+                                    CompoundMap filler = new CompoundMap();
                                     if (tMap.containsKey("tag")) {
-                                        filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
+                                        filler = new CompoundMap(((CompoundTag) tMap.get("tag")).getValue());
                                         if (filler.containsKey("display")) {
                                             filler.replace("display",nameFixer((CompoundTag) filler.get("display"),Data));
                                         }
                                         if (filler.containsKey("SkullOwner")) {
                                             String owner = (String) filler.get("SkullOwner").getValue();
-                                            Map<String,Tag> SkullOwner = new HashMap<>();
+                                            CompoundMap SkullOwner = new CompoundMap();
                                             SkullOwner.put("Id",new StringTag("Name",owner));
                                             filler.replace("SkullOwner",new CompoundTag("SkullOwner",SkullOwner));
                                         }
@@ -509,14 +514,14 @@ public class Fixers {
                                         )).contains(item.get(0));
 
                                         if (tMap.containsKey("tag")) {
-                                            Map<String,Tag> filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
+                                            CompoundMap filler = new CompoundMap(((CompoundTag) tMap.get("tag")).getValue());
                                             //itemFixer
                                             if (filler.containsKey("display")) {
                                                 filler.replace("display",nameFixer((CompoundTag) filler.get("display"),Data));
                                             }
                                             //pipe fixer
                                             if (filler.containsKey("SmokeColour")) {
-                                                Map<String,Tag> pipeMap = new HashMap<>();
+                                                CompoundMap pipeMap = new CompoundMap();
                                                 String color = (new ArrayList<>(Arrays.asList(
                                                         "white",
                                                         "orange",
@@ -541,7 +546,7 @@ public class Fixers {
                                                 filler.replace("SmokeColour",new CompoundTag("pipe",pipeMap));
                                             }
                                             if (drink) {
-                                                Map<String,Tag> vesselMap = new HashMap<>();
+                                                CompoundMap vesselMap = new CompoundMap();
                                                 if (tMap.containsKey("Damage")) {
                                                     Short Damage = (Short) tMap.get("Damage").getValue();
                                                     //Code for determining the strength of the drink
@@ -589,34 +594,37 @@ public class Fixers {
                                                 }
                                                 //without this if book & quills get messed up
                                                 if (Objects.equals(item.get(0), "minecraft:written_book")) {
-                                                    List<Tag> pages = new ArrayList<>();
-                                                    for (Tag st : (List<Tag>) filler.get("pages").getValue()) {
+                                                    List<StringTag> pages = new ArrayList<>();
+                                                    for (StringTag st : (List<StringTag>) filler.get("pages").getValue()) {
                                                         pages.add(new StringTag("",("{" + '"' + "text" + '"' +':' + '"' + st.getValue()  + '"'+ '}')));
                                                     }
-                                                    filler.replace("pages",new ListTag("pages",StringTag.class,pages));
+                                                    filler.replace("pages",new ListTag<>("pages",TagType.TAG_STRING,pages));
                                                 }
                                             }
                                             //Enchantments fixer
                                             else if (filler.containsKey("ench") || filler.containsKey("StoredEnchantments")) {
-                                                List<Tag> ench_filler = new ArrayList<>();
+                                                List<CompoundTag> ench_filler = new ArrayList<>();
                                                 if (filler.containsKey("ench")) {
                                                     //enchanted items
-                                                    for (Tag ench_t : ((ListTag) filler.get("ench")).getValue()) {
-                                                        Map<String,Tag> ench = new HashMap<>((((CompoundTag) ench_t).getValue()));
+                                                    //ListTag<CompoundTag> ench_t_2 = ((ListTag<CompoundTag>) filler.get("ench"));
+                                                    //(Tag ench_t : (((ListTag<CompoundTag>) filler.get("ench")).getValue()))
+                                                    //(Tag ench_t : filler.get("ench").getAsListTag().get().getValue())
+                                                    for (Tag<?> ench_t : filler.get("ench").getAsListTag().get().getValue()) {
+                                                        CompoundMap ench = new CompoundMap((((CompoundTag) ench_t).getValue()));
                                                         ench.replace("id",new StringTag("id",Data.Enchantments.get((((ShortTag) ench.get("id")).getValue().toString()))));
                                                         ench_filler.add(new CompoundTag("",ench));
                                                     }
-                                                    filler.replace("ench",new ListTag("Enchantments",CompoundTag.class,ench_filler));
+                                                    filler.replace("ench", new ListTag<>("Enchantments", TagType.TAG_COMPOUND, ench_filler));
                                                     filler.put("Damage", (new IntTag("Damage", (((ShortTag) tMap.get("Damage")).getValue()))));
                                                 }
                                                 else {
                                                     //enchanted books
-                                                    for (Tag ench_t : ((ListTag) filler.get("StoredEnchantments")).getValue()) {
-                                                        Map<String,Tag> ench = new HashMap<>((((CompoundTag) ench_t).getValue()));
+                                                    for (CompoundTag ench_t : ((ListTag<CompoundTag>) filler.get("StoredEnchantments")).getValue()) {
+                                                        CompoundMap ench = new CompoundMap((ench_t.getValue()));
                                                         ench.replace("id",new StringTag("id",Data.Enchantments.get((((ShortTag) ench.get("id")).getValue().toString()))));
                                                         ench_filler.add(new CompoundTag("",ench));
                                                     }
-                                                    filler.replace("StoredEnchantments",new ListTag("StoredEnchantments",CompoundTag.class,ench_filler));
+                                                    filler.replace("StoredEnchantments",new ListTag<>("StoredEnchantments",TagType.TAG_COMPOUND,ench_filler));
                                                 }
                                                 filler.remove("LOTRRandomEnch");
                                                 filler.remove("LOTRRepairCost");
@@ -636,9 +644,9 @@ public class Fixers {
                                             tMap.replace("tag",new CompoundTag("tag",filler));
                                         }
                                         else {
-                                            Map<String,Tag> filler = new HashMap<>();
+                                            CompoundMap filler = new CompoundMap();
                                             if (drink) {
-                                                Map<String,Tag> vesselMap = new HashMap<>();
+                                                CompoundMap vesselMap = new CompoundMap();
                                                 if (tMap.containsKey("Damage")) {
                                                     //I know, I don't like code repetition either, but I couldn't be bothered to write a function that will only be called twice
                                                     Short Damage = (Short) tMap.get("Damage").getValue();
@@ -707,7 +715,7 @@ public class Fixers {
                                     else if (Data.LegacyIds.get(compare1).equals("minecraft:spawn_egg")) {
                                         //itemFixer
                                         if (tMap.containsKey("tag")) {
-                                            Map<String,Tag> filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
+                                            CompoundMap filler = new CompoundMap(((CompoundTag) tMap.get("tag")).getValue());
                                             if (filler.containsKey("display")) {
                                                 filler.replace("display",nameFixer((CompoundTag) filler.get("display"),Data));
                                             }
@@ -724,7 +732,7 @@ public class Fixers {
                                     else if (Data.LegacyIds.get(compare1).equals("lotr:item.spawnEgg")) {
                                         //itemFixer
                                         if (tMap.containsKey("tag")) {
-                                            Map<String,Tag> filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
+                                            CompoundMap filler = new CompoundMap(((CompoundTag) tMap.get("tag")).getValue());
                                             if (filler.containsKey("display")) {
                                                 filler.replace("display",nameFixer((CompoundTag) filler.get("display"),Data));
                                             }
@@ -743,12 +751,12 @@ public class Fixers {
                                 }
                                 else {
                                     //code for blocks/some items here
-                                    Short Damage = ((ShortTag) ((CompoundTag)t).getValue().get("Damage")).getValue();
+                                    Short Damage = ((ShortTag) t.getValue().get("Damage")).getValue();
                                     //Check if block is actually in the list and not just a placeholder
                                     if (! Data.ItemNames.get(Data.LegacyIds.get(compare1)).get(Damage).equals("")) {
                                         if (tMap.containsKey("tag")) {
                                             //itemFixer
-                                            Map<String,Tag> filler = new HashMap<>(((CompoundTag) tMap.get("tag")).getValue());
+                                            CompoundMap filler = new CompoundMap(((CompoundTag) tMap.get("tag")).getValue());
                                             if (filler.containsKey("display") && !filler.containsKey("SkullOwner")) {
                                                 filler.replace("display",nameFixer((CompoundTag) filler.get("display"),Data));
                                             }
@@ -824,12 +832,12 @@ public class Fixers {
     }
 
     /**
-     * Fixer level levelfixer
+     * Fixer level LevelFixer
      * @param Chunk map of CompoundTag of chunk
      * @param Data instance of Data
      * @return fixed map
      */
-    public static Map<String,Tag> ChunkFixer(Map<String,Tag> Chunk, Data Data) {
+    public static CompoundMap ChunkFixer(CompoundMap Chunk, Data Data) {
         //TODO: Proper implementation
         return Chunk;
     }

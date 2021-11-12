@@ -1,8 +1,10 @@
 package Convertors;
 
+import de.piegames.nbt.stream.NBTInputStream;
+import de.piegames.nbt.stream.NBTOutputStream;
 import misterymob475.Data;
 import misterymob475.Fixers;
-import org.jnbt.*;
+import de.piegames.nbt.*;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -51,13 +53,13 @@ public class LevelDat implements Convertor{
             input1.close();
 
             //because of the way playerdata is stored in the level.dat I have moved the fixer to a slightly different function
-            Map<String, Tag> originalData = originalTopLevelTag.getValue();
+            CompoundMap originalData = originalTopLevelTag.getValue();
 
             //this way I can modify the map directly, instead of regenerating it every time
-            Map <String, Tag> newData = new HashMap<>(originalData);
+            CompoundMap newData = new CompoundMap(originalData);
             if (newData.containsKey("Data") && (originalTopLevelTag1.getValue()).containsKey("Data")) {
-                Map<String, Tag> Data = new HashMap<>(((CompoundTag) newData.get("Data")).getValue());
-                Map<String,Tag> Data1 = new HashMap<>(((CompoundTag) (originalTopLevelTag1.getValue()).get("Data")).getValue());
+                CompoundMap Data = new CompoundMap(((CompoundTag) newData.get("Data")).getValue());
+                CompoundMap Data1 = new CompoundMap(((CompoundTag) (originalTopLevelTag1.getValue()).get("Data")).getValue());
 
 
 
@@ -65,7 +67,7 @@ public class LevelDat implements Convertor{
                 //GameRules fix (only 9 added in 1.7.10, keeping rest of the selected Renewed World)
                 if (Data.containsKey("GameRules") && Data1.containsKey("GameRules")) {
                     CompoundTag GameRules1_tag = (CompoundTag) Data1.get("GameRules");
-                    Map<String,Tag> GameRules = new HashMap<>((((CompoundTag) Data.get("GameRules")).getValue()));
+                    CompoundMap GameRules = new CompoundMap((((CompoundTag) Data.get("GameRules")).getValue()));
                     GameRules.replace("commandBlockOutput",GameRules1_tag.getValue().get("commandBlockOutput"));
                     GameRules.replace("doDaylightCycle",GameRules1_tag.getValue().get("doDaylightCycle"));
                     GameRules.replace("doFireTick",GameRules1_tag.getValue().get("doFireTick"));
@@ -79,7 +81,7 @@ public class LevelDat implements Convertor{
                 }
 
                 if (Data.containsKey("WorldGenSettings")) {
-                    Map<String,Tag> WorldGenSettings = new HashMap<>((((CompoundTag) Data.get("WorldGenSettings")).getValue()));
+                    CompoundMap WorldGenSettings = new CompoundMap((((CompoundTag) Data.get("WorldGenSettings")).getValue()));
                     if (Data1.containsKey("MapFeatures")) {
                         WorldGenSettings.replace("generate_features",Data1.get("MapFeatures"));
                     }
@@ -90,29 +92,29 @@ public class LevelDat implements Convertor{
                     //dimensions
                     if (WorldGenSettings.containsKey("dimensions")) {
                         CompoundTag dimensions = (CompoundTag) WorldGenSettings.get("dimensions");
-                        Map<String,Tag> dimensions_map = new HashMap<>(dimensions.getValue());
+                        CompoundMap dimensions_map = new CompoundMap(dimensions.getValue());
 
                         //should have made this a loop in hindsight, oh well...
 
-                        Map<String,Tag> meDimension = new HashMap<>(((CompoundTag) dimensions.getValue().get("lotr:middle_earth")).getValue());
-                        Map<String,Tag> overworldDimension = new HashMap<>(((CompoundTag) dimensions.getValue().get("minecraft:overworld")).getValue());
-                        Map<String,Tag> endDimension = new HashMap<>(((CompoundTag) dimensions.getValue().get("minecraft:the_end")).getValue());
-                        Map<String,Tag> netherDimension = new HashMap<>(((CompoundTag) dimensions.getValue().get("minecraft:the_nether")).getValue());
+                        CompoundMap meDimension = new CompoundMap(((CompoundTag) dimensions.getValue().get("lotr:middle_earth")).getValue());
+                        CompoundMap overworldDimension = new CompoundMap(((CompoundTag) dimensions.getValue().get("minecraft:overworld")).getValue());
+                        CompoundMap endDimension = new CompoundMap(((CompoundTag) dimensions.getValue().get("minecraft:the_end")).getValue());
+                        CompoundMap netherDimension = new CompoundMap(((CompoundTag) dimensions.getValue().get("minecraft:the_nether")).getValue());
 
                         CompoundTag Generator1 = (CompoundTag) ((CompoundTag) dimensions.getValue().get("lotr:middle_earth")).getValue().get("generator");
                         CompoundTag Generator2 = (CompoundTag) ((CompoundTag) dimensions.getValue().get("minecraft:overworld")).getValue().get("generator");
                         CompoundTag Generator3 = (CompoundTag) ((CompoundTag) dimensions.getValue().get("minecraft:the_end")).getValue().get("generator");
                         CompoundTag Generator4 = (CompoundTag) ((CompoundTag) dimensions.getValue().get("minecraft:the_nether")).getValue().get("generator");
 
-                        Map<String,Tag> generatormap1 = new HashMap<>(Generator1.getValue());
-                        Map<String,Tag> generatormap2 = new HashMap<>(Generator2.getValue());
-                        Map<String,Tag> generatormap3 = new HashMap<>(Generator3.getValue());
-                        Map<String,Tag> generatormap4 = new HashMap<>(Generator4.getValue());
+                        CompoundMap generatormap1 = new CompoundMap(Generator1.getValue());
+                        CompoundMap generatormap2 = new CompoundMap(Generator2.getValue());
+                        CompoundMap generatormap3 = new CompoundMap(Generator3.getValue());
+                        CompoundMap generatormap4 = new CompoundMap(Generator4.getValue());
 
                         //lotr:middle_earth
                         //generatormap1.replace("seed",Data1.get("RandomSeed"));
                         generatormap1.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
-                        Map<String,Tag> biome_source1 = new HashMap<>((Map<String, Tag>) generatormap1.get("biome_source").getValue());
+                        CompoundMap biome_source1 = new CompoundMap((CompoundMap) generatormap1.get("biome_source").getValue());
                         biome_source1.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
                         //sets instant_middle_earth right in lotr:middle_earth
                         //meClassic apparently doesn't use this tag, even though you definitely spawn directly into middle-earth
@@ -134,19 +136,19 @@ public class LevelDat implements Convertor{
                             generatormap2.remove("biome_source");
                             generatormap2.remove("seed");
                             generatormap2.remove("settings");
-                            Map<String,Tag> settings_map = new HashMap<>();
+                            CompoundMap settings_map = new CompoundMap();
 
-                            Map<String,Tag> structures1_map = new HashMap<>();
+                            CompoundMap structures1_map = new CompoundMap();
 
 
-                            Map<String,Tag> stronghold_map = new HashMap<>();
+                            CompoundMap stronghold_map = new CompoundMap();
                             stronghold_map.put("count",new IntTag("count",128));
                             stronghold_map.put("distance",new IntTag("distance",32));
                             stronghold_map.put("spread",new IntTag("spread",3));
                             structures1_map.put("stronghold",new CompoundTag("stronghold",stronghold_map));
 
-                            Map<String,Tag> structures2_map = new HashMap<>();
-                            Map<String,Tag> village_map = new HashMap<>();
+                            CompoundMap structures2_map = new CompoundMap();
+                            CompoundMap village_map = new CompoundMap();
                             //Salt gen, should work, doesn't carry over old maps though
                             int salt = (new Random()).nextInt(1000000000);
                             village_map.put("salt",new IntTag("salt",salt));
@@ -157,20 +159,20 @@ public class LevelDat implements Convertor{
 
                             settings_map.put("structures",new CompoundTag("structures",structures1_map));
 
-                            List<Tag> layers_list = new ArrayList<>();
-                            Map<String,Tag> layer1_map = new HashMap<>();
+                            List<CompoundTag> layers_list = new ArrayList<>();
+                            CompoundMap layer1_map = new CompoundMap();
                             layer1_map.put("block",new StringTag("block","minecraft:bedrock"));
                             layer1_map.put("height", new IntTag("height",1));
                             layers_list.add(new CompoundTag("",layer1_map));
-                            Map<String,Tag> layer2_map = new HashMap<>();
+                            CompoundMap layer2_map = new CompoundMap();
                             layer2_map.put("block", new StringTag("block","minecraft:dirt"));
                             layer2_map.put("height",new IntTag("height",2));
                             layers_list.add(new CompoundTag("",layer2_map));
-                            Map<String,Tag> layer3_map = new HashMap<>();
+                            CompoundMap layer3_map = new CompoundMap();
                             layer3_map.put("block", new StringTag("block","minecraft:grass_block"));
                             layer3_map.put("height",new IntTag("height",1));
                             layers_list.add(new CompoundTag("",layer3_map));
-                            settings_map.put("layers",new ListTag("layers",CompoundTag.class,layers_list));
+                            settings_map.put("layers",new ListTag<>("layers",TagType.TAG_COMPOUND,layers_list));
 
                             settings_map.put("biome",new StringTag("biome","minecraft:plains"));
                             settings_map.put("features",new ByteTag("features",(byte)0));
@@ -179,7 +181,7 @@ public class LevelDat implements Convertor{
                         }
                         else {
                             generatormap2.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
-                            Map<String,Tag> biome_source2 = new HashMap<>((Map<String, Tag>) generatormap2.get("biome_source").getValue());
+                            CompoundMap biome_source2 = new CompoundMap((CompoundMap) generatormap2.get("biome_source").getValue());
                             biome_source2.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
                             generatormap2.replace("biome_source",new CompoundTag("biome_source",biome_source2));
                             if (Data1.get("generatorName").getValue().equals("largeBiomes"))generatormap2.replace("large_biomes",new ByteTag("large_biomes",(byte)1));
@@ -190,7 +192,7 @@ public class LevelDat implements Convertor{
 
                         //minecraft:the_end
                         generatormap3.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
-                        Map<String,Tag> biome_source3 = new HashMap<>((Map<String, Tag>) generatormap3.get("biome_source").getValue());
+                        CompoundMap biome_source3 = new CompoundMap((CompoundMap) generatormap3.get("biome_source").getValue());
                         biome_source3.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
                         generatormap3.replace("biome_source",new CompoundTag("biome_source",biome_source3));
                         endDimension.replace("generator",new CompoundTag("generator",generatormap3));
@@ -198,7 +200,7 @@ public class LevelDat implements Convertor{
 
                         //minecraft:the_nether
                         generatormap4.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
-                        HashMap<String, Tag> biome_source4 = new HashMap<>((Map<String, Tag>) generatormap4.get("biome_source").getValue());
+                        CompoundMap biome_source4 = new CompoundMap((CompoundMap) generatormap4.get("biome_source").getValue());
                         biome_source4.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
                         generatormap4.replace("biome_source",new CompoundTag("biome_source",biome_source4));
                         netherDimension.replace("generator",new CompoundTag("generator",generatormap4));
@@ -230,7 +232,7 @@ public class LevelDat implements Convertor{
                 Data.replace("version",Data1.get("version"));
                 if (Data.containsKey("Player") && Data1.containsKey("Player")) {
                     CompoundTag Player_tag = (CompoundTag) Data1.get("Player");
-                    Map<String,Tag> Player = new HashMap<>(Player_tag.getValue());
+                    CompoundMap Player = new CompoundMap(Player_tag.getValue());
                     Fixers.playerFixer(Player, this.Data);
                     Data.replace("Player",new CompoundTag("Player",Player));
                 }

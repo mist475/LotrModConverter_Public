@@ -1,8 +1,15 @@
 package Convertors;
 
+import de.piegames.nbt.CompoundMap;
+import de.piegames.nbt.CompoundTag;
+import de.piegames.nbt.stream.NBTInputStream;
+import de.piegames.nbt.stream.NBTOutputStream;
 import misterymob475.Data;
+import misterymob475.Fixers;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -40,38 +47,20 @@ public class Overworld implements Convertor{
                 for (File mapFile : curDirList) {
                     i++;
                     try {
-                        //final RootTag test = Nbt.read(new DataInputStream(new FileInputStream(mapFile)));
-                        System.out.println();
-                        //final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
-                        //input.close();
-                        //MCAFile mcaFile = MCAUtil.read(mapFile);
-
-                        //opens the file as a stream and saves the result as a CompoundTag
-                        //FileInputStream f_s = new FileInputStream(mapFile);
-                        //GZIPInputStream g_s = new GZIPInputStream(f_s);
-                        //NBTInputStream n_s = new NBTInputStream(f_s);
-
-                        //NamedTag namedTag = NBTUtil.read(mapFile);
-                        //NBTInputStream input = new NBTInputStream(new FileInputStream(mapFile));
-                        //Tag<?> test = input.readRawTag(512);
-
-/*
-                        final NBTInputStream input = new NBTInputStream(new GZIPInputStream(new FileInputStream(mapFile)));
-
+                        final NBTInputStream input = new NBTInputStream(new FileInputStream(mapFile));
                         final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
                         input.close();
                         //DataVersion = 2586
                         //saves the input as a map, this is important for saving the file, for reading it is redundant
-                        Map<String, Tag> originalData = new HashMap<>(originalTopLevelTag.getValue());
+                        CompoundMap originalData = new CompoundMap(originalTopLevelTag.getValue());
                         //
-                        Map<String,Tag> chunk = Fixers.ChunkFixer(new HashMap<>(((CompoundTag) originalData.get("Chunk")).getValue()),Data);
+                        CompoundMap chunk = Fixers.ChunkFixer(new CompoundMap(((CompoundTag) originalData.get("Chunk")).getValue()),Data);
                         //
                         originalData.replace("data",new CompoundTag("data",chunk));
                         final CompoundTag newTopLevelTag = new CompoundTag("", originalData);
-                        final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p +"/"+FileName+"_Converted/data/" + mapFile.getName()).toString())).getAbsolutePath()));
+                        final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p +"/"+FileName+"_Converted/region/" + mapFile.getName()).toString())).getAbsolutePath()));
                         output.writeTag(newTopLevelTag);
                         output.close();
- */
                     }
                     //took this out of an example I found, changed it as my ide wanted me to
                     catch (Exception e) {

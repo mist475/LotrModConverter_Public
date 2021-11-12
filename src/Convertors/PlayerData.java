@@ -1,8 +1,10 @@
 package Convertors;
 
+import de.piegames.nbt.stream.NBTInputStream;
+import de.piegames.nbt.stream.NBTOutputStream;
 import misterymob475.Data;
 import misterymob475.Fixers;
-import org.jnbt.*;
+import de.piegames.nbt.*;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -54,9 +56,9 @@ public class PlayerData implements Convertor {
                 input.close();
 
                 //because of the way playerdata is stored in the level.dat I have moved the fixer to a slightly different function lmao
-                Map<String, Tag> originalData = originalTopLevelTag.getValue();
+                CompoundMap originalData = originalTopLevelTag.getValue();
                 //this way I can modify the map directly, instead of regenerating it every time
-                Map <String, Tag> newData = new HashMap<>(originalData);
+                CompoundMap newData = new CompoundMap(originalData);
 //
                 Fixers.playerFixer(newData, Data);
 //

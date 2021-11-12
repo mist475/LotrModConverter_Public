@@ -1,8 +1,11 @@
 package Convertors;
 
+import de.piegames.nbt.stream.NBTInputStream;
+import de.piegames.nbt.stream.NBTOutputStream;
 import misterymob475.Data;
 import misterymob475.Main;
-import org.jnbt.*;
+//import org.jnbt.*;
+import de.piegames.nbt.*;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -53,8 +56,8 @@ public class DataFolder implements Convertor{
                         input.close();
                         //DataVersion = 2586
                         //saves the input as a map, this is important for saving the file, for reading it is redundant
-                        Map<String, Tag> originalData = new HashMap<>(originalTopLevelTag.getValue());
-                        Map<String,Tag> data = new HashMap<>(((CompoundTag) originalData.get("data")).getValue());
+                        CompoundMap originalData = new CompoundMap(originalTopLevelTag.getValue());
+                        CompoundMap data = new CompoundMap(((CompoundTag) originalData.get("data")).getValue());
                         //gets the values we want, note, = I'm doing the easy ones first (lists last) I'm keeping the order though as I've read somewhere that that matters
                         if (data.containsKey("dimension") ) {
                             //fixer here int --> string
@@ -89,8 +92,8 @@ public class DataFolder implements Convertor{
                 try {
                     if (new File(currentFolder+"/idcounts.dat").exists()) {
 
-                        Map<String, Tag> newData = new HashMap<>();
-                        Map<String,Tag> tMap = new HashMap<>();
+                        CompoundMap newData = new CompoundMap();
+                        CompoundMap tMap = new CompoundMap();
                         tMap.put("map",new IntTag("map",curDirList.length-1));
                         newData.put("map",new CompoundTag("data",tMap));
 

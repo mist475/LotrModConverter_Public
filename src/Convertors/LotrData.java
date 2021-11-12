@@ -1,7 +1,9 @@
 package Convertors;
 
+import de.piegames.nbt.stream.NBTInputStream;
+import de.piegames.nbt.stream.NBTOutputStream;
 import misterymob475.Data;
-import org.jnbt.*;
+import de.piegames.nbt.*;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -34,6 +36,7 @@ public class LotrData implements Convertor {
 	 * @throws IOException if something fails
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public void modifier(Path p, String FileName) throws IOException {
 		Map<String,String> Waypoints = Data.Waypoints;
 		Map<String,String> Regions = Data.Regions;
@@ -105,7 +108,7 @@ public class LotrData implements Convertor {
 			final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
 			input.close();
 			//saves the input as a map, this is important for saving the file, for reading it is redundant
-			Map<String, Tag> originalData = new HashMap<>(originalTopLevelTag.getValue());
+			CompoundMap originalData = new CompoundMap(originalTopLevelTag.getValue());
 			//discards: as they aren't in renewed yet or are now datapackable, if something gets ported to renewed in the exact same way as legacy I can simply uncomment these lines
 			originalData.remove("TravellingTraders");
 			originalData.remove("GreyWanderers");
@@ -117,12 +120,14 @@ public class LotrData implements Convertor {
 			originalData.remove("StructuresBanned");
 
 			IntTag CurrentDay = new IntTag("CurrentDay", ((IntTag) ((CompoundTag) originalData.get("Dates")).getValue().get("ShireDate")).getValue());
-			Map<String,Tag> Dates_map = new HashMap<>();
+			CompoundMap Dates_map = new CompoundMap();
 			Dates_map.put("CurrentDay",CurrentDay);
 			CompoundTag Dates = new CompoundTag("Dates",Dates_map);
 			originalData.replace("Dates",Dates);
-			originalData.replace("MadeMiddlePortal",new ByteTag("MadeMiddlePortal",(byte)(int) originalData.get("MadeMiddlePortal").getValue()));
-			originalData.replace("MadePortal",new ByteTag("MadePortal",(byte)(int) originalData.get("MadePortal").getValue()));
+			IntTag MadeMiddlePortal = originalData.get("MadeMiddlePortal").getAsIntTag().get();
+			IntTag MadePortal = originalData.get("MadePortal").getAsIntTag().get();
+			originalData.replace("MadeMiddlePortal",new ByteTag("MadeMiddlePortal",(byte)(int) MadeMiddlePortal.getValue()));
+			originalData.replace("MadePortal",new ByteTag("MadePortal",(byte)(int) MadePortal.getValue()));
 
 			//creates the new top level tag, otherwise it won't work
 			final CompoundTag newTopLevelTag = new CompoundTag("", originalData);
@@ -150,17 +155,17 @@ public class LotrData implements Convertor {
 				final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
 				input.close();
 				//saves the input as a map, this is important for saving the file, for reading it is redundant
-				Map<String, Tag> originalData = new HashMap<>(originalTopLevelTag.getValue());
+				CompoundMap originalData = new CompoundMap(originalTopLevelTag.getValue());
 				//gets the values we want, note, = I'm doing the easy ones first (lists last) I'm keeping the order though as I've read somewhere that that matters
-
-			ListTag AlignmentMap_old = (ListTag) originalData.get("AlignmentMap");
-			List<Tag> AlignmentMap_builder = new ArrayList<Tag>(1) {};
-			for (Tag tag : AlignmentMap_old.getValue()) {
-				StringTag Faction_tag = (StringTag) ((CompoundTag)tag).getValue().get("Faction");
+			//originalData.get("something").
+			ListTag<CompoundTag> AlignmentMap_old = (ListTag<CompoundTag>) originalData.get("AlignmentMap").getAsListTag().get();
+			List<CompoundTag> AlignmentMap_builder = new ArrayList<CompoundTag>(1) {};
+			for (CompoundTag tag : AlignmentMap_old.getValue()) {
+				StringTag Faction_tag = (StringTag) tag.getValue().get("Faction");
 				String Faction = Faction_tag.getValue();
 				if (FacNames.containsKey(Faction)) {
-					final Map<String, Tag> newData_CF = new HashMap<>(1);
-					newData_CF.put("AlignF", ((CompoundTag)tag).getValue().get("AlignF"));
+					final CompoundMap newData_CF = new CompoundMap();
+					newData_CF.put("AlignF", tag.getValue().get("AlignF"));
 					newData_CF.put("Faction",new StringTag("Faction",FacNames.get(Faction)));
 					CompoundTag AM_CT_Builder = new CompoundTag("",newData_CF);
 					AlignmentMap_builder.add(AM_CT_Builder);
@@ -168,34 +173,34 @@ public class LotrData implements Convertor {
 			}
 			//ListTag AlignmentMap = new ListTag("AlignmentMap",CompoundTag.class, AlignmentMap_builder);
 
-			ListTag FactionStats_old = (ListTag) originalData.get("FactionData");
-			List<Tag> FactionStats_builder = new ArrayList<Tag>(1) {};
-			for (Tag tag : FactionStats_old.getValue()) {
-				StringTag Faction_tag_AL = (StringTag) ((CompoundTag)tag).getValue().get("Faction");
+			ListTag<CompoundTag> FactionStats_old = (ListTag<CompoundTag>) originalData.get("FactionData");
+			List<CompoundTag> FactionStats_builder = new ArrayList<CompoundTag>(1) {};
+			for (CompoundTag tag : FactionStats_old.getValue()) {
+				StringTag Faction_tag_AL = (StringTag) tag.getValue().get("Faction");
 				String Faction_AL = Faction_tag_AL.getValue();
 				if (FacNames.containsKey(Faction_AL)) {
-					final Map<String, Tag> newData_AL = new HashMap<>(1);
-					newData_AL.put("ConquestHorn", ((CompoundTag)tag).getValue().get("ConquestHorn"));
-					newData_AL.put("EnemyKill", ((CompoundTag)tag).getValue().get("EnemyKill"));
+					final CompoundMap newData_AL = new CompoundMap();
+					newData_AL.put("ConquestHorn", tag.getValue().get("ConquestHorn"));
+					newData_AL.put("EnemyKill", tag.getValue().get("EnemyKill"));
 					newData_AL.put("Faction",new StringTag("Faction",FacNames.get(Faction_AL)));
-					newData_AL.put("Hired", ((CompoundTag)tag).getValue().get("Hired"));
-					newData_AL.put("MemberKill", ((CompoundTag)tag).getValue().get("NPCKill"));
-					newData_AL.put("MiniQuests", ((CompoundTag)tag).getValue().get("MiniQuests"));
-					newData_AL.put("Trades", ((CompoundTag)tag).getValue().get("Trades"));
+					newData_AL.put("Hired", tag.getValue().get("Hired"));
+					newData_AL.put("MemberKill", tag.getValue().get("NPCKill"));
+					newData_AL.put("MiniQuests", tag.getValue().get("MiniQuests"));
+					newData_AL.put("Trades", tag.getValue().get("Trades"));
 					CompoundTag AM_AL_Builder = new CompoundTag("",newData_AL);
 					FactionStats_builder.add(AM_AL_Builder);
 				}
 			}
 			//ListTag FactionStats = new ListTag("FactionStats",CompoundTag.class, FactionStats_builder);
 
-                ListTag PrevRegionFactions_Old = (ListTag) originalData.get("PrevRegionFactions");
-                List<Tag> PrevRegionFactions_builder = new ArrayList<Tag>(1) {};
-                for (Tag tag : PrevRegionFactions_Old.getValue()) {
-                    StringTag Faction_tag_PRF = (StringTag) ((CompoundTag)tag).getValue().get("Faction");
-                    String Region_PRF = ((StringTag) ((CompoundTag)tag).getValue().get("Region")).getValue();
+                ListTag<CompoundTag> PrevRegionFactions_Old = (ListTag<CompoundTag>) originalData.get("PrevRegionFactions");
+                List<CompoundTag> PrevRegionFactions_builder = new ArrayList<CompoundTag>(1) {};
+                for (CompoundTag tag : PrevRegionFactions_Old.getValue()) {
+                    StringTag Faction_tag_PRF = (StringTag) tag.getValue().get("Faction");
+                    String Region_PRF = ((StringTag) tag.getValue().get("Region")).getValue();
                     String Faction_PRF = Faction_tag_PRF.getValue();
 					if (FacNames.containsKey(Faction_PRF)) {
-                        final Map<String, Tag> newData_PRF = new HashMap<>(1);
+                        final CompoundMap newData_PRF = new CompoundMap();
                         newData_PRF.put("Faction",new StringTag("Faction",FacNames.get(Faction_PRF)));
                         switch (Region_PRF) {
                             case "west":
@@ -216,10 +221,10 @@ public class LotrData implements Convertor {
 
 				//SentMessageTypes
 
-				ListTag UnlockedFTRegions_Old = (ListTag) originalData.get("UnlockedFTRegions");
-				List<Tag> UnlockedFTRegions_Builder = new ArrayList<Tag>(0) {};
-				for (Tag tag : UnlockedFTRegions_Old.getValue()) {
-					StringTag RegionName_Tag = (StringTag) ((CompoundTag)tag).getValue().get("Name");
+				ListTag<CompoundTag> UnlockedFTRegions_Old = (ListTag<CompoundTag>) originalData.get("UnlockedFTRegions");
+				List<StringTag> UnlockedFTRegions_Builder = new ArrayList<StringTag>(0) {};
+				for (CompoundTag tag : UnlockedFTRegions_Old.getValue()) {
+					StringTag RegionName_Tag = (StringTag) tag.getValue().get("Name");
 					String RegionName = RegionName_Tag.getValue();
 					switch (RegionName) {
 						case "GONDOR":
@@ -247,21 +252,21 @@ public class LotrData implements Convertor {
 				//ListTag UnlockedFTRegions = new ListTag("UnlockedFTRegions",StringTag.class, UnlockedFTRegions_Builder);
 
 				//get the old WPUses
-				ListTag WPUses_old = (ListTag) originalData.get("WPUses");
+				ListTag<CompoundTag> WPUses_old = (ListTag<CompoundTag>) originalData.get("WPUses");
 				//create a new empty array put the new WPUses in
-				List<Tag> WPUses_builder = new ArrayList<Tag>(1) {};
+				List<CompoundTag> WPUses_builder = new ArrayList<CompoundTag>(1) {};
 				//loop though the entries in the list
-				for (Tag tag : WPUses_old.getValue()) {
+				for (CompoundTag tag : WPUses_old.getValue()) {
 					//get the StringTag of the waypoint
-					StringTag WPName_tag = (StringTag) ((CompoundTag)tag).getValue().get("WPName");
+					StringTag WPName_tag = (StringTag) tag.getValue().get("WPName");
 					//convert to string
 					String WPName = WPName_tag.getValue();
 					//if the waypoint exists in renewed (not everything has been ported yet)
 					if (Waypoints.containsKey(WPName)) {
 						//create empty map for the CompoundTag
-						final Map<String, Tag> newData_WP = new HashMap<>(1);
+						final CompoundMap newData_WP = new CompoundMap();
 						//put in the amount of waypoint usage (cooldown depends on it)
-						newData_WP.put("Count", ((CompoundTag)tag).getValue().get("Count"));
+						newData_WP.put("Count", tag.getValue().get("Count"));
 						//put in the new name
 						newData_WP.put("WPName",new StringTag("WPName",Waypoints.get(WPName)));
 						//create the CompoundTag
@@ -282,7 +287,7 @@ public class LotrData implements Convertor {
 				//removes redundant data (when said info gets ported I can simply uncomment it)
 				originalData.remove("QuestData");
 				originalData.remove("Achievements");
-				originalData.remove("SentMessageTypes"); //not sure what this does
+				originalData.remove("SentMessageTypes"); //Shows which pop-ups the mod has given (friendly fire, utumno etc.)
 				originalData.remove("BountiesPlaced");
 				originalData.remove("CustomWayPoints"); //additional requirements in renewed, might port these later as a thing you can only use once
 				originalData.remove("CWPSharedHidden");
@@ -310,11 +315,11 @@ public class LotrData implements Convertor {
 				originalData.remove("ChatBoundFellowship");
 				originalData.remove("DeathDim");
 
-				originalData.replace("AlignmentMap",new ListTag("AlignmentMap",CompoundTag.class, AlignmentMap_builder));
-				originalData.replace("FactionStats",new ListTag("FactionStats",CompoundTag.class, FactionStats_builder));
-				originalData.replace("PrevRegionFactions",new ListTag("PrevRegionFactions",CompoundTag.class, PrevRegionFactions_builder));
-				originalData.replace("UnlockedFTRegions",new ListTag("UnlockedFTRegions",StringTag.class, UnlockedFTRegions_Builder));
-				originalData.replace("WPUses",new ListTag("WPUses",CompoundTag.class, WPUses_builder));
+				originalData.replace("AlignmentMap", new ListTag<>("AlignmentMap", TagType.TAG_COMPOUND, AlignmentMap_builder));
+				originalData.replace("FactionStats",new ListTag<>("FactionStats",TagType.TAG_COMPOUND, FactionStats_builder));
+				originalData.replace("PrevRegionFactions",new ListTag<>("PrevRegionFactions",TagType.TAG_COMPOUND, PrevRegionFactions_builder));
+				originalData.replace("UnlockedFTRegions",new ListTag<>("UnlockedFTRegions",TagType.TAG_COMPOUND, UnlockedFTRegions_Builder));
+				originalData.replace("WPUses",new ListTag<>("WPUses",TagType.TAG_COMPOUND, WPUses_builder));
 				originalData.replace("CurrentFaction",new StringTag("CurrentFaction",FacNames.getOrDefault(originalData.get("CurrentFaction").getValue().toString(),"lotr:hobbit")));
 
 				if (Objects.equals(originalData.get("TeleportedME").getValue(), (byte) 1)) {
