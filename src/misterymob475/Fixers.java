@@ -136,67 +136,69 @@ public class Fixers {
         potion.healthBoost
          */
         if (Entity.containsKey("Attributes")) {
-            List<CompoundTag> Attributes_old = (List<CompoundTag>) Entity.get("Attributes").getAsListTag().get().getValue();
+            Optional<ListTag<?>> O_Attributes = Entity.get("Attributes").getAsListTag();
             List<CompoundTag> Attributes_new = new ArrayList<>();
-            for (CompoundTag t : Attributes_old) {
-                switch (((StringTag) t.getValue().get("Name")).getValue()) {
+            if (O_Attributes.isPresent()) {
+                List<CompoundTag> Attributes_old = (List<CompoundTag>) O_Attributes.get().getValue();
+                for (CompoundTag t : Attributes_old) {
+                    switch (((StringTag) t.getValue().get("Name")).getValue()) {
 
-                    case "generic.attackDamage":
-                        CompoundMap attackDamage = new CompoundMap();
-                        attackDamage.put("Modifiers",modifierFixer(((ListTag<CompoundTag>) t.getValue().get("Modifiers"))));
-                        attackDamage.put("Name",new StringTag("Name","generic.attack_damage"));
-                        Attributes_new.add(new CompoundTag("",attackDamage));
-                        break;
+                        case "generic.attackDamage":
+                            CompoundMap attackDamage = new CompoundMap();
+                            attackDamage.put("Modifiers",modifierFixer(((ListTag<CompoundTag>) t.getValue().get("Modifiers"))));
+                            attackDamage.put("Name",new StringTag("Name","generic.attack_damage"));
+                            Attributes_new.add(new CompoundTag("",attackDamage));
+                            break;
 
-                    //modifiers present here
-                    case "zombie.spawnReinforcements":
-                        CompoundMap spawnReinf = new CompoundMap(t.getValue());
-                        spawnReinf.replace("Name",new StringTag("Name","zombie.spawn_reinforcements"));
-                        Attributes_new.add(new CompoundTag("",spawnReinf));
-                        break;
+                        //modifiers present here
+                        case "zombie.spawnReinforcements":
+                            CompoundMap spawnReinf = new CompoundMap(t.getValue());
+                            spawnReinf.replace("Name",new StringTag("Name","zombie.spawn_reinforcements"));
+                            Attributes_new.add(new CompoundTag("",spawnReinf));
+                            break;
 
-                    case "generic.movementSpeed":
-                        CompoundMap movSpeed = new CompoundMap();
-                        movSpeed.put("Base", t.getValue().get("Base"));
-                        movSpeed.put("Name",new StringTag("Name","minecraft:generic.movement_speed"));
-                        Attributes_new.add(new CompoundTag("",movSpeed));
-                        break;
+                        case "generic.movementSpeed":
+                            CompoundMap movSpeed = new CompoundMap();
+                            movSpeed.put("Base", t.getValue().get("Base"));
+                            movSpeed.put("Name",new StringTag("Name","minecraft:generic.movement_speed"));
+                            Attributes_new.add(new CompoundTag("",movSpeed));
+                            break;
 
-                    case "generic.followRange":
-                        CompoundMap followRange = new CompoundMap();
-                        //yet to be tested
-                        followRange.put("Modifiers",modifierFixer(((ListTag<CompoundTag>) t.getValue().get("Modifiers"))));
-                        followRange.put("Base", t.getValue().get("Base"));
-                        followRange.put("Name",new StringTag("Name","minecraft:generic.follow_range"));
-                        Attributes_new.add(new CompoundTag("",followRange));
-                        break;
+                        case "generic.followRange":
+                            CompoundMap followRange = new CompoundMap();
+                            //yet to be tested
+                            followRange.put("Modifiers",modifierFixer(((ListTag<CompoundTag>) t.getValue().get("Modifiers"))));
+                            followRange.put("Base", t.getValue().get("Base"));
+                            followRange.put("Name",new StringTag("Name","minecraft:generic.follow_range"));
+                            Attributes_new.add(new CompoundTag("",followRange));
+                            break;
 
-                    case "generic.maxHealth":
-                        CompoundMap maxHealth = new CompoundMap();
-                        maxHealth.put("Base", t.getValue().get("Base"));
-                        maxHealth.put("Name",new StringTag("Name","minecraft:generic.max_health"));
-                        Attributes_new.add(new CompoundTag("",maxHealth));
-                        break;
-                    case "generic.knockbackResistance":
-                        CompoundMap knockbackResistance = new CompoundMap();
-                        knockbackResistance.put("Base", t.getValue().get("Base"));
-                        knockbackResistance.put("Name",new StringTag("Name","generic.knockback_resistance"));
-                        Attributes_new.add(new CompoundTag("",knockbackResistance));
-                        break;
-                    case "horse.jumpStrength":
-                        CompoundMap jumpStrength = new CompoundMap();
-                        jumpStrength.put("Base", t.getValue().get("Base"));
-                        jumpStrength.put("Name",new StringTag("Name","horse.jump_strength"));
-                        Attributes_new.add(new CompoundTag("",jumpStrength));
-                        break;
-                    default:
-                        //this is possible because unknown tags will get discarded by the game engine
-                        Attributes_new.add(t);
-                        break;
+                        case "generic.maxHealth":
+                            CompoundMap maxHealth = new CompoundMap();
+                            maxHealth.put("Base", t.getValue().get("Base"));
+                            maxHealth.put("Name",new StringTag("Name","minecraft:generic.max_health"));
+                            Attributes_new.add(new CompoundTag("",maxHealth));
+                            break;
+                        case "generic.knockbackResistance":
+                            CompoundMap knockbackResistance = new CompoundMap();
+                            knockbackResistance.put("Base", t.getValue().get("Base"));
+                            knockbackResistance.put("Name",new StringTag("Name","generic.knockback_resistance"));
+                            Attributes_new.add(new CompoundTag("",knockbackResistance));
+                            break;
+                        case "horse.jumpStrength":
+                            CompoundMap jumpStrength = new CompoundMap();
+                            jumpStrength.put("Base", t.getValue().get("Base"));
+                            jumpStrength.put("Name",new StringTag("Name","horse.jump_strength"));
+                            Attributes_new.add(new CompoundTag("",jumpStrength));
+                            break;
+                        default:
+                            //this is possible because unknown tags will get discarded by the game engine
+                            Attributes_new.add(t);
+                            break;
+                    }
                 }
             }
-            ListTag<CompoundTag> Attributes = new ListTag<>("Attributes",TagType.TAG_COMPOUND,Attributes_new);
-            Entity.replace("Attributes",Attributes);
+            Entity.replace("Attributes",(new ListTag<>("Attributes",TagType.TAG_COMPOUND,Attributes_new)));
         }
 
         //will easily regenerate I hope
@@ -435,16 +437,21 @@ public class Fixers {
                                         CompoundMap KegDroppableData_Map = new CompoundMap();
                                         if (filler.containsKey("LOTRBarrelData")) {
                                             CompoundMap LOTRBarrelData = new CompoundMap(((CompoundTag) filler.get("LOTRBarrelData")).getValue());
-                                            ListTag<CompoundTag> Items_tag = (ListTag<CompoundTag>) LOTRBarrelData.get("Items").getAsListTag().get();
-                                            //
-                                            List<CompoundTag> Items = Items_tag.getValue();
-                                            Items = RecurItemFixer(Items,depth,exceptionMessage, Data);
-                                            //
-                                            LOTRBarrelData.replace("Items",new ListTag<>("Items",TagType.TAG_COMPOUND,Items));
-                                            IntTag BrewingTime = LOTRBarrelData.get("BrewingTime").getAsIntTag().get();
-                                            LOTRBarrelData.put("BrewingTimeTotal",new IntTag("BrewingTimeTotal", BrewingTime.getValue()));
-                                            ByteTag BarrelMode = LOTRBarrelData.get("BarrelMode").getAsByteTag().get();
-                                            LOTRBarrelData.replace("BarrelMode",new ByteTag("KegMode", (BarrelMode).getValue()));
+                                            Optional<ListTag<?>> O_Items = LOTRBarrelData.get("Items").getAsListTag();
+                                            if (O_Items.isPresent()) {
+                                                //
+                                                List<CompoundTag> Items = ((ListTag<CompoundTag>) O_Items.get()).getValue();
+                                                Items = RecurItemFixer(Items,depth,exceptionMessage, Data);
+                                                //
+                                                LOTRBarrelData.replace("Items",new ListTag<>("Items",TagType.TAG_COMPOUND,Items));
+                                            }
+
+
+                                            Optional<IntTag> O_BrewingTime = LOTRBarrelData.get("BrewingTime").getAsIntTag();
+                                            O_BrewingTime.ifPresent(intTag -> LOTRBarrelData.put("BrewingTimeTotal", new IntTag("BrewingTimeTotal", (intTag).getValue())));
+
+                                            Optional<ByteTag> O_BarrelMode = LOTRBarrelData.get("BarrelMode").getAsByteTag();
+                                            O_BarrelMode.ifPresent(byteTag -> LOTRBarrelData.replace("BarrelMode", new ByteTag("KegMode", ((byteTag)).getValue())));
                                             CompoundTag KegDroppableData = new CompoundTag("KegDroppableData",LOTRBarrelData);
 
                                             KegDroppableData_Map.put("KegDroppableData",KegDroppableData);
@@ -605,17 +612,21 @@ public class Fixers {
                                             else if (filler.containsKey("ench") || filler.containsKey("StoredEnchantments")) {
                                                 List<CompoundTag> ench_filler = new ArrayList<>();
                                                 if (filler.containsKey("ench")) {
+                                                    Optional<ListTag<?>> O_ench = filler.get("ench").getAsListTag();
+                                                    if (O_ench.isPresent()) {
+                                                        for (Tag<?> ench_t : O_ench.get().getValue()) {
+                                                            CompoundMap ench = new CompoundMap((((CompoundTag) ench_t).getValue()));
+                                                            ench.replace("id",new StringTag("id",Data.Enchantments.get((((ShortTag) ench.get("id")).getValue().toString()))));
+                                                            ench_filler.add(new CompoundTag("",ench));
+                                                        }
+                                                        filler.replace("ench", new ListTag<>("Enchantments", TagType.TAG_COMPOUND, ench_filler));
+                                                        filler.put("Damage", (new IntTag("Damage", (((ShortTag) tMap.get("Damage")).getValue()))));
+                                                    }
                                                     //enchanted items
                                                     //ListTag<CompoundTag> ench_t_2 = ((ListTag<CompoundTag>) filler.get("ench"));
                                                     //(Tag ench_t : (((ListTag<CompoundTag>) filler.get("ench")).getValue()))
                                                     //(Tag ench_t : filler.get("ench").getAsListTag().get().getValue())
-                                                    for (Tag<?> ench_t : filler.get("ench").getAsListTag().get().getValue()) {
-                                                        CompoundMap ench = new CompoundMap((((CompoundTag) ench_t).getValue()));
-                                                        ench.replace("id",new StringTag("id",Data.Enchantments.get((((ShortTag) ench.get("id")).getValue().toString()))));
-                                                        ench_filler.add(new CompoundTag("",ench));
-                                                    }
-                                                    filler.replace("ench", new ListTag<>("Enchantments", TagType.TAG_COMPOUND, ench_filler));
-                                                    filler.put("Damage", (new IntTag("Damage", (((ShortTag) tMap.get("Damage")).getValue()))));
+
                                                 }
                                                 else {
                                                     //enchanted books

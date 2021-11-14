@@ -124,10 +124,11 @@ public class LotrData implements Convertor {
 			Dates_map.put("CurrentDay",CurrentDay);
 			CompoundTag Dates = new CompoundTag("Dates",Dates_map);
 			originalData.replace("Dates",Dates);
-			IntTag MadeMiddlePortal = originalData.get("MadeMiddlePortal").getAsIntTag().get();
-			IntTag MadePortal = originalData.get("MadePortal").getAsIntTag().get();
-			originalData.replace("MadeMiddlePortal",new ByteTag("MadeMiddlePortal",(byte)(int) MadeMiddlePortal.getValue()));
-			originalData.replace("MadePortal",new ByteTag("MadePortal",(byte)(int) MadePortal.getValue()));
+			Optional<IntTag> MadeMiddlePortal = originalData.get("MadeMiddlePortal").getAsIntTag();
+			MadeMiddlePortal.ifPresent(intTag -> originalData.replace("MadeMiddlePortal", new ByteTag("MadeMiddlePortal", (byte) (int) intTag.getValue())));
+			//IntTag MadeMiddlePortal = originalData.get("MadeMiddlePortal").getAsIntTag().get();
+			Optional<IntTag> MadePortal = originalData.get("MadePortal").getAsIntTag();
+			MadePortal.ifPresent(intTag -> originalData.replace("MadePortal", new ByteTag("MadePortal", (byte) (int) intTag.getValue())));
 
 			//creates the new top level tag, otherwise it won't work
 			final CompoundTag newTopLevelTag = new CompoundTag("", originalData);
@@ -158,19 +159,23 @@ public class LotrData implements Convertor {
 				CompoundMap originalData = new CompoundMap(originalTopLevelTag.getValue());
 				//gets the values we want, note, = I'm doing the easy ones first (lists last) I'm keeping the order though as I've read somewhere that that matters
 			//originalData.get("something").
-			ListTag<CompoundTag> AlignmentMap_old = (ListTag<CompoundTag>) originalData.get("AlignmentMap").getAsListTag().get();
-			List<CompoundTag> AlignmentMap_builder = new ArrayList<CompoundTag>(1) {};
-			for (CompoundTag tag : AlignmentMap_old.getValue()) {
-				StringTag Faction_tag = (StringTag) tag.getValue().get("Faction");
-				String Faction = Faction_tag.getValue();
-				if (FacNames.containsKey(Faction)) {
-					final CompoundMap newData_CF = new CompoundMap();
-					newData_CF.put("AlignF", tag.getValue().get("AlignF"));
-					newData_CF.put("Faction",new StringTag("Faction",FacNames.get(Faction)));
-					CompoundTag AM_CT_Builder = new CompoundTag("",newData_CF);
-					AlignmentMap_builder.add(AM_CT_Builder);
+				Optional<ListTag<?>> AlignmentMap = originalData.get("AlignmentMap").getAsListTag();
+				List<CompoundTag> AlignmentMap_builder = new ArrayList<CompoundTag>(1) {};
+				if (AlignmentMap.isPresent()) {
+					ListTag<CompoundTag> AlignmentMap_old = (ListTag<CompoundTag>) AlignmentMap.get();
+					for (CompoundTag tag : AlignmentMap_old.getValue()) {
+						StringTag Faction_tag = (StringTag) tag.getValue().get("Faction");
+						String Faction = Faction_tag.getValue();
+						if (FacNames.containsKey(Faction)) {
+							final CompoundMap newData_CF = new CompoundMap();
+							newData_CF.put("AlignF", tag.getValue().get("AlignF"));
+							newData_CF.put("Faction",new StringTag("Faction",FacNames.get(Faction)));
+							CompoundTag AM_CT_Builder = new CompoundTag("",newData_CF);
+							AlignmentMap_builder.add(AM_CT_Builder);
+						}
+					}
 				}
-			}
+
 			//ListTag AlignmentMap = new ListTag("AlignmentMap",CompoundTag.class, AlignmentMap_builder);
 
 			ListTag<CompoundTag> FactionStats_old = (ListTag<CompoundTag>) originalData.get("FactionData");
