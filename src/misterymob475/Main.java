@@ -20,6 +20,7 @@ import java.util.Scanner;
 public class Main {
     /**
      * Main class
+     *
      * @param args currently unused
      * @throws IOException if something fails
      */
@@ -43,21 +44,21 @@ public class Main {
             String legacyWorld = legacyWorldSelection();
             //basis for the new level.dat (modifying data is easier in this case then generating from scratch)
             String renewedWorld = renewedWorldSelection();
-            if (! legacyWorld.equals("") && ! renewedWorld.equals("")) {
+            if (!legacyWorld.equals("") && !renewedWorld.equals("")) {
                 File selectedWorld = new File(legacyWorld);
-                if (new File("../"+selectedWorld.getName()+"_Converted").exists()) {
-                    deleteDir(new File("../"+selectedWorld.getName()+"_Converted"));
+                if (new File("../" + selectedWorld.getName() + "_Converted").exists()) {
+                    deleteDir(new File("../" + selectedWorld.getName() + "_Converted"));
                 }
-                Files.createDirectories(Paths.get("../"+selectedWorld.getName()+"_Converted"));
+                Files.createDirectories(Paths.get("../" + selectedWorld.getName() + "_Converted"));
                 Path launchDir = Paths.get(".").toAbsolutePath().normalize().getParent();
-                data.LegacyIds(Paths.get(launchDir + "/" + legacyWorld+ "/level.dat").toAbsolutePath().toString());
+                data.LegacyIds(Paths.get(launchDir + "/" + legacyWorld + "/level.dat").toAbsolutePath().toString());
                 //HashMap<String, List<String>> ItemNames = Data.ItemNames();
                 //fancy way of looping through the implementations of the Convertor interface, this way I only have to change this line instead of adding an init, and the calling of the 2 functions per implementation
-                for (Convertor c : new Convertor[]{new LotrData(data),new PlayerData(data),new LevelDat(data,renewedWorld),new DataFolder(data)}) {
+                for (Convertor c : new Convertor[]{new LotrData(data), new PlayerData(data), new LevelDat(data, renewedWorld), new DataFolder(data)}) {
 
                     Thread t = new Thread(() -> {
                         try {
-                            c.modifier(launchDir,selectedWorld.getName());
+                            c.modifier(launchDir, selectedWorld.getName());
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -71,16 +72,14 @@ public class Main {
                 }
                 System.out.println("Done!");
             }
-        }
-        else System.out.println("Conversions.json wasn't found, have you unzipped the zip-file correctly?");
-
-
+        } else System.out.println("Conversions.json wasn't found, have you unzipped the zip-file correctly?");
 
 
     }
 
     /**
      * Gives an option prompt asking for a renewed world (if only one world is found no questions are asked), returns "" if no worlds are found
+     *
      * @return Path of the selected renewed world
      */
     public static String renewedWorldSelection() {
@@ -92,8 +91,7 @@ public class Main {
         FilenameFilter filter = (f1, name) -> {
             if (new File(f1, name).isDirectory()) {
                 return new File(f1, name + "/datapacks").exists();
-            }
-            else {
+            } else {
                 return false;
             }
         };
@@ -112,54 +110,51 @@ public class Main {
 
                 try {
                     int input = myScanner.nextInt();
-                    return pathnames[input-1];
+                    return pathnames[input - 1];
                 } catch (Exception e) {
                     System.out.println("Invalid selection");
                     return renewedWorldSelection();
 
                 }
-            }
-            else {
+            } else {
                 System.out.println("no legacy worlds found, are you sure you placed this file in the right directory?");
                 return "";
             }
-        }
-        else {
+        } else {
             System.out.println("no legacy worlds found, are you sure you placed this file in the right directory?");
             return "";
         }
     }
+
     //wasn't thread safe, this article came in handy: https://www.baeldung.com/java-thread-safety
     public static void PrintLine(String msg, Data data, Boolean extended) {
         if (data.Settings.get("Debug Messages").getClass().equals(Double.class)) {
             if ((Double) data.Settings.get("Debug Messages") == 2.0) {
-                if ((Boolean)data.Settings.get("Cache debug messages")) {
-                    if (! data.stringCache.contains(msg)) {
+                if ((Boolean) data.Settings.get("Cache debug messages")) {
+                    if (!data.stringCache.contains(msg)) {
                         System.out.println(msg);
                         data.stringCache.add(msg);
                     }
-                }
-                else System.out.println(msg);
+                } else System.out.println(msg);
 
-            }
-            else if ((Double) data.Settings.get("Debug Messages") == 1.0) {
-                 if (! extended) {
-                     if ((Boolean)data.Settings.get("Cache debug messages")) {
-                         if (! data.stringCache.contains(msg)) {
-                             System.out.println(msg);
-                             data.stringCache.add(msg);
-                         }
-                     }
-                    else System.out.println(msg);
-                 }
+            } else if ((Double) data.Settings.get("Debug Messages") == 1.0) {
+                if (!extended) {
+                    if ((Boolean) data.Settings.get("Cache debug messages")) {
+                        if (!data.stringCache.contains(msg)) {
+                            System.out.println(msg);
+                            data.stringCache.add(msg);
+                        }
+                    } else System.out.println(msg);
                 }
             }
         }
-        //if (data.Settings().get("Debug Messages")) System.out.println(msg);
+    }
+    //if (data.Settings().get("Debug Messages")) System.out.println(msg);
 
 
     /**
      * Gives an option prompt asking for a legacy world (if only one world is found no questions are asked), returns "" if no worlds are found
+     *
      * @return Path of the selected old world
      */
     public static String legacyWorldSelection() {
@@ -173,8 +168,7 @@ public class Main {
         FilenameFilter filter = (f1, name) -> {
             if (new File(f1, name).isDirectory()) {
                 return new File(f1, name + "/MiddleEarth").exists();
-            }
-            else {
+            } else {
                 return false;
             }
         };
@@ -193,19 +187,17 @@ public class Main {
                 Scanner myScanner = new Scanner(System.in);
                 try {
                     int input = myScanner.nextInt();
-                    return pathnames[input-1];
+                    return pathnames[input - 1];
                 } catch (Exception e) {
                     System.out.println("Invalid selection");
                     return legacyWorldSelection();
                 }
 
-            }
-            else {
+            } else {
                 System.out.println("no renewed worlds found, are you sure you placed this file in the right directory?");
                 return "";
             }
-        }
-        else {
+        } else {
             System.out.println("no renewed worlds found, are you sure you placed this file in the right directory?");
             return "";
         }
@@ -213,19 +205,20 @@ public class Main {
 
     /**
      * Deletes directory
+     *
      * @param file directory to be deleted
      */
     static void deleteDir(File file) {
         File[] contents = file.listFiles();
         if (contents != null) {
             for (File f : contents) {
-                if (! Files.isSymbolicLink(f.toPath())) {
+                if (!Files.isSymbolicLink(f.toPath())) {
                     deleteDir(f);
                 }
             }
         }
-        if (! file.delete())
-        System.out.println("Failed to delete file");
+        if (!file.delete())
+            System.out.println("Failed to delete file");
     }
 
 }

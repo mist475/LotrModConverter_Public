@@ -1,16 +1,20 @@
 package Convertors;
 
+import de.piegames.nbt.CompoundMap;
+import de.piegames.nbt.CompoundTag;
 import de.piegames.nbt.stream.NBTInputStream;
 import de.piegames.nbt.stream.NBTOutputStream;
 import misterymob475.Data;
 import misterymob475.Fixers;
-import de.piegames.nbt.*;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.Objects;
 
 import static misterymob475.Main.PrintLine;
 
@@ -24,6 +28,7 @@ public class PlayerData implements Convertor {
 
     /**
      * Creates an instance of PlayerData
+     *
      * @param data instance of {@link Data}
      */
     public PlayerData(Data data) {
@@ -31,47 +36,46 @@ public class PlayerData implements Convertor {
     }
 
     /**
-     *
-     * @param p path of the folder where files are copied
+     * @param p        path of the folder where files are copied
      * @param FileName name of the to be modified files
      * @throws IOException if something fails
      */
     @Override
     public void modifier(Path p, String FileName) throws IOException {
         //Map<Integer,String> LegacyIds = misterymob475.Data.LegacyIds(Paths.get(p + "/" + FileName+ "/level.dat").toAbsolutePath().toString());
-        Files.createDirectory(Paths.get(p +"/"+FileName+"_Converted/playerdata"));
+        Files.createDirectory(Paths.get(p + "/" + FileName + "_Converted/playerdata"));
         //level.dat fixer/modifier
         //File renewedWorld = new File(p+"/"+this.pathName+"/level.dat");
 
         //try {
-            //heavier filter on here to only use the current .dat's and not the old ones
-            File currentFolder = new File(Paths.get(p +"/"+FileName+"/playerdata").toString());
-            File[] curDirList = currentFolder.listFiles((dir, name) -> name.toLowerCase().endsWith(".dat"));
-            int i = 1;
-            assert curDirList != null;
-            for (File f : curDirList) {
-                i++;
-                final NBTInputStream input = new NBTInputStream(new FileInputStream(f));
-                final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
-                input.close();
+        //heavier filter on here to only use the current .dat's and not the old ones
+        File currentFolder = new File(Paths.get(p + "/" + FileName + "/playerdata").toString());
+        File[] curDirList = currentFolder.listFiles((dir, name) -> name.toLowerCase().endsWith(".dat"));
+        int i = 1;
+        assert curDirList != null;
+        for (File f : curDirList) {
+            i++;
+            final NBTInputStream input = new NBTInputStream(new FileInputStream(f));
+            final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
+            input.close();
 
-                //because of the way playerdata is stored in the level.dat I have moved the fixer to a slightly different function lmao
-                CompoundMap originalData = originalTopLevelTag.getValue();
-                //this way I can modify the map directly, instead of regenerating it every time
-                CompoundMap newData = new CompoundMap(originalData);
+            //because of the way playerdata is stored in the level.dat I have moved the fixer to a slightly different function lmao
+            CompoundMap originalData = originalTopLevelTag.getValue();
+            //this way I can modify the map directly, instead of regenerating it every time
+            CompoundMap newData = new CompoundMap(originalData);
 //
-                Fixers.playerFixer(newData, Data);
+            Fixers.playerFixer(newData, Data);
 //
 
-                final CompoundTag newTopLevelTag = new CompoundTag("", newData);
-                //(new File(Paths.get(p +"/"+FileName+"_Converted/playerdata/" + f.getName()).toString())).getAbsolutePath()
-                //final NBTOutputStream output = new NBTOutputStream(new FileOutputStream(f));
-                final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p +"/"+FileName+"_Converted/playerdata/" + f.getName()).toString())).getAbsolutePath()));
-                output.writeTag(newTopLevelTag);
-                output.close();
-                PrintLine("Converted " + (i-1) + "/ " + Objects.requireNonNull(currentFolder.listFiles()).length + " player data files",Data,true);
-            }
-            System.out.println("converted all the playerdata");
+            final CompoundTag newTopLevelTag = new CompoundTag("", newData);
+            //(new File(Paths.get(p +"/"+FileName+"_Converted/playerdata/" + f.getName()).toString())).getAbsolutePath()
+            //final NBTOutputStream output = new NBTOutputStream(new FileOutputStream(f));
+            final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p + "/" + FileName + "_Converted/playerdata/" + f.getName()).toString())).getAbsolutePath()));
+            output.writeTag(newTopLevelTag);
+            output.close();
+            PrintLine("Converted " + (i - 1) + "/ " + Objects.requireNonNull(currentFolder.listFiles()).length + " player data files", Data, true);
+        }
+        System.out.println("converted all the playerdata");
             /*
 
 
@@ -88,11 +92,6 @@ public class PlayerData implements Convertor {
         // 'fixer' will have to be called recursively due to pouches/ cracker with a max conversion depth (probably 7 or something like that), might put in a pieced of paper saying max depth reached or something similar
         // will have to look up 'special tags', so I have to modify the existing stream (i.e. make a map of it and replace it)
     }
-
-
-
-
-
 
 
 }

@@ -1,31 +1,36 @@
 package Convertors;
 
+import de.piegames.nbt.CompoundMap;
+import de.piegames.nbt.CompoundTag;
+import de.piegames.nbt.IntTag;
+import de.piegames.nbt.StringTag;
 import de.piegames.nbt.stream.NBTInputStream;
 import de.piegames.nbt.stream.NBTOutputStream;
 import misterymob475.Data;
 import misterymob475.Main;
-//import org.jnbt.*;
-import de.piegames.nbt.*;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.Objects;
 
 import static misterymob475.Main.PrintLine;
 
-public class DataFolder implements Convertor{
+public class DataFolder implements Convertor {
     private final Data Data;
 
     /**
      * Creates an instance of HandMapData
+     *
      * @param data instance of {@link Data}
      */
     public DataFolder(Data data) {
         this.Data = data;
     }
-
 
 
     /**
@@ -38,8 +43,8 @@ public class DataFolder implements Convertor{
     public void modifier(Path p, String FileName) throws IOException {
         //in this file: fixers for idcounts.dat and map_%.dat files
 
-        File currentFolder = new File(Paths.get(p +"/"+FileName+"/data").toString());
-        Files.createDirectory(Paths.get(p +"/"+FileName+"_Converted/data"));
+        File currentFolder = new File(Paths.get(p + "/" + FileName + "/data").toString());
+        Files.createDirectory(Paths.get(p + "/" + FileName + "_Converted/data"));
         if (currentFolder.exists()) {
             //idcounts fixer
             //map fixer (should be a quickie)
@@ -59,7 +64,7 @@ public class DataFolder implements Convertor{
                         CompoundMap originalData = new CompoundMap(originalTopLevelTag.getValue());
                         CompoundMap data = new CompoundMap(((CompoundTag) originalData.get("data")).getValue());
                         //gets the values we want, note, = I'm doing the easy ones first (lists last) I'm keeping the order though as I've read somewhere that that matters
-                        if (data.containsKey("dimension") ) {
+                        if (data.containsKey("dimension")) {
                             //fixer here int --> string
                             Integer Dimension = ((IntTag) data.get("dimension")).getValue();
                             String newDimension;
@@ -67,17 +72,17 @@ public class DataFolder implements Convertor{
                             else if (Dimension == 1) newDimension = "Minecraft:the_nether";
                             else if (Dimension == -1) newDimension = "Minecraft:the_end";
                             else if (Dimension == 100) newDimension = "lotr:middle_earth";
-                            //not sure if this is gonna work, we'll see
+                                //not sure if this is gonna work, we'll see
                             else if (Dimension == 101) newDimension = "lotr:utumno";
                             else newDimension = "minecraft:overworld";
-                            data.replace("dimension",new StringTag("dimension",newDimension));
+                            data.replace("dimension", new StringTag("dimension", newDimension));
                         }
                         //hmm?
                         data.remove("width");
                         data.remove("height");
-                        originalData.replace("data",new CompoundTag("data",data));
+                        originalData.replace("data", new CompoundTag("data", data));
                         final CompoundTag newTopLevelTag = new CompoundTag("", originalData);
-                        final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p +"/"+FileName+"_Converted/data/" + mapFile.getName()).toString())).getAbsolutePath()));
+                        final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p + "/" + FileName + "_Converted/data/" + mapFile.getName()).toString())).getAbsolutePath()));
                         output.writeTag(newTopLevelTag);
                         output.close();
                     }
@@ -85,25 +90,25 @@ public class DataFolder implements Convertor{
                     catch (Exception e) {
                         throw new IOException("Error during map conversion fix");
                     }
-                    PrintLine("Converted " + (i-1) + "/" + Objects.requireNonNull(curDirList).length + " maps",Data,true);
+                    PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + " maps", Data, true);
                 }
 
-                PrintLine("Converted all the maps",Data,false);
+                PrintLine("Converted all the maps", Data, false);
                 try {
-                    if (new File(currentFolder+"/idcounts.dat").exists()) {
+                    if (new File(currentFolder + "/idcounts.dat").exists()) {
 
                         CompoundMap newData = new CompoundMap();
                         CompoundMap tMap = new CompoundMap();
-                        tMap.put("map",new IntTag("map",curDirList.length-1));
-                        newData.put("map",new CompoundTag("data",tMap));
+                        tMap.put("map", new IntTag("map", curDirList.length - 1));
+                        newData.put("map", new CompoundTag("data", tMap));
 
                         final CompoundTag newTopLevelTag = new CompoundTag("", newData);
 
-                        final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p +"/"+FileName+"_Converted/data/idcounts.dat").toString())).getAbsolutePath()));
+                        final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p + "/" + FileName + "_Converted/data/idcounts.dat").toString())).getAbsolutePath()));
                         output.writeTag(newTopLevelTag);
                         output.close();
 
-                        Main.PrintLine("converted idcount.dat",Data,false);
+                        Main.PrintLine("converted idcount.dat", Data, false);
                     }
 
                 } catch (IOException e) {
@@ -111,5 +116,5 @@ public class DataFolder implements Convertor{
                 }
             }
         }
-}
+    }
 }

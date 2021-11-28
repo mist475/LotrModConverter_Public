@@ -1,10 +1,11 @@
 package Convertors;
 
+import de.piegames.nbt.CompoundMap;
+import de.piegames.nbt.CompoundTag;
 import de.piegames.nbt.stream.NBTInputStream;
 import de.piegames.nbt.stream.NBTOutputStream;
 import misterymob475.Data;
 import misterymob475.Fixers;
-import de.piegames.nbt.*;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -17,16 +18,18 @@ import java.util.Objects;
 
 import static misterymob475.Main.PrintLine;
 
-public class Nether implements Convertor{
+public class Nether implements Convertor {
     private final misterymob475.Data Data;
 
     /**
      * Creates an instance of HandMapData
+     *
      * @param data instance of {@link misterymob475.Data}
      */
     public Nether(Data data) {
         this.Data = data;
     }
+
     /**
      * Modifies the files to work in Renewed
      *
@@ -36,9 +39,9 @@ public class Nether implements Convertor{
      */
     @Override
     public void modifier(Path p, String FileName) throws IOException {
-        File currentFolder = new File(Paths.get(p +"/"+FileName+"/DIM1/region").toString());
+        File currentFolder = new File(Paths.get(p + "/" + FileName + "/DIM1/region").toString());
         //TODO:check if this works or if I need 2 createCalls
-        Files.createDirectory(Paths.get(p +"/"+FileName+"_Converted/DIM1/region"));
+        Files.createDirectory(Paths.get(p + "/" + FileName + "_Converted/DIM1/region"));
         if (currentFolder.exists()) {
             File[] curDirList = currentFolder.listFiles();
             if (curDirList != null) {
@@ -54,11 +57,11 @@ public class Nether implements Convertor{
                         //saves the input as a map, this is important for saving the file, for reading it is redundant
                         CompoundMap originalData = new CompoundMap(originalTopLevelTag.getValue());
                         //
-                        CompoundMap chunk = Fixers.ChunkFixer(new CompoundMap(((CompoundTag) originalData.get("Chunk")).getValue()),Data);
+                        CompoundMap chunk = Fixers.ChunkFixer(new CompoundMap(((CompoundTag) originalData.get("Chunk")).getValue()), Data);
                         //
-                        originalData.replace("data",new CompoundTag("data",chunk));
+                        originalData.replace("data", new CompoundTag("data", chunk));
                         final CompoundTag newTopLevelTag = new CompoundTag("", originalData);
-                        final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p +"/"+FileName+"_Converted/DIM1/region/" + mapFile.getName()).toString())).getAbsolutePath()));
+                        final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p + "/" + FileName + "_Converted/DIM1/region/" + mapFile.getName()).toString())).getAbsolutePath()));
                         output.writeTag(newTopLevelTag);
                         output.close();
                     }
@@ -66,10 +69,10 @@ public class Nether implements Convertor{
                     catch (Exception e) {
                         throw new IOException("Error during nether dimension fix");
                     }
-                    PrintLine("Converted " + (i-1) + "/" + Objects.requireNonNull(curDirList).length + " nether dimension region files",Data,true);
+                    PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + " nether dimension region files", Data, true);
                 }
 
-                PrintLine("Converted the nether dimension",Data,false);
+                PrintLine("Converted the nether dimension", Data, false);
             }
         }
     }

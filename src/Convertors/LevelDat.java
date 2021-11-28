@@ -1,28 +1,31 @@
 package Convertors;
 
+import de.piegames.nbt.*;
 import de.piegames.nbt.stream.NBTInputStream;
 import de.piegames.nbt.stream.NBTOutputStream;
 import misterymob475.Data;
 import misterymob475.Fixers;
-import de.piegames.nbt.*;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 /**
  * Copies {@literal &} Fixes the level.dat file
  */
-public class LevelDat implements Convertor{
+public class LevelDat implements Convertor {
     final private String pathName;
     final private Data Data;
 
     /**
      * Creates an instance of LevelDat using the provided parameters
-     * @param data Instance of {@link Data}
+     *
+     * @param data     Instance of {@link Data}
      * @param pathname String of the pathname, see {@link Convertor}
      */
     public LevelDat(Data data, String pathname) {
@@ -31,8 +34,7 @@ public class LevelDat implements Convertor{
     }
 
     /**
-     *
-     * @param p path of the folder where files are copied
+     * @param p        path of the folder where files are copied
      * @param FileName name of the to be modified files
      * @throws IOException if something fails
      */
@@ -41,14 +43,14 @@ public class LevelDat implements Convertor{
         try {
 
             //new level.dat
-            final NBTInputStream input = new NBTInputStream(new FileInputStream(Paths.get(p + "/" + this.pathName+"/level.dat").toString()));
+            final NBTInputStream input = new NBTInputStream(new FileInputStream(Paths.get(p + "/" + this.pathName + "/level.dat").toString()));
             //final NBTInputStream input = new NBTInputStream(new FileInputStream(Paths.get(p +"/"+FileName+"/level.dat").toString()));
             final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
             input.close();
 
             //old level.dat
             //final NBTInputStream input1 = new NBTInputStream(new FileInputStream(Paths.get(p +"/"+FileName+"/level.dat").toString()));
-            final NBTInputStream input1 = new NBTInputStream(new FileInputStream(Paths.get(p + "/" + FileName+ "/level.dat").toString()));
+            final NBTInputStream input1 = new NBTInputStream(new FileInputStream(Paths.get(p + "/" + FileName + "/level.dat").toString()));
             final CompoundTag originalTopLevelTag1 = (CompoundTag) input1.readTag();
             input1.close();
 
@@ -62,31 +64,29 @@ public class LevelDat implements Convertor{
                 CompoundMap Data1 = new CompoundMap(((CompoundTag) (originalTopLevelTag1.getValue()).get("Data")).getValue());
 
 
-
-
                 //GameRules fix (only 9 added in 1.7.10, keeping rest of the selected Renewed World)
                 if (Data.containsKey("GameRules") && Data1.containsKey("GameRules")) {
                     CompoundTag GameRules1_tag = (CompoundTag) Data1.get("GameRules");
                     CompoundMap GameRules = new CompoundMap((((CompoundTag) Data.get("GameRules")).getValue()));
-                    GameRules.replace("commandBlockOutput",GameRules1_tag.getValue().get("commandBlockOutput"));
-                    GameRules.replace("doDaylightCycle",GameRules1_tag.getValue().get("doDaylightCycle"));
-                    GameRules.replace("doFireTick",GameRules1_tag.getValue().get("doFireTick"));
-                    GameRules.replace("doMobLoot",GameRules1_tag.getValue().get("doMobLoot"));
-                    GameRules.replace("doMobSpawning",GameRules1_tag.getValue().get("doMobSpawning"));
-                    GameRules.replace("doTileDrops",GameRules1_tag.getValue().get("doTileDrops"));
-                    GameRules.replace("keepInventory",GameRules1_tag.getValue().get("keepInventory"));
-                    GameRules.replace("mobGriefing",GameRules1_tag.getValue().get("mobGriefing"));
-                    GameRules.replace("naturalRegeneration",GameRules1_tag.getValue().get("naturalRegeneration"));
-                    newData.replace("GameRules",new CompoundTag("GameRules",GameRules));
+                    GameRules.replace("commandBlockOutput", GameRules1_tag.getValue().get("commandBlockOutput"));
+                    GameRules.replace("doDaylightCycle", GameRules1_tag.getValue().get("doDaylightCycle"));
+                    GameRules.replace("doFireTick", GameRules1_tag.getValue().get("doFireTick"));
+                    GameRules.replace("doMobLoot", GameRules1_tag.getValue().get("doMobLoot"));
+                    GameRules.replace("doMobSpawning", GameRules1_tag.getValue().get("doMobSpawning"));
+                    GameRules.replace("doTileDrops", GameRules1_tag.getValue().get("doTileDrops"));
+                    GameRules.replace("keepInventory", GameRules1_tag.getValue().get("keepInventory"));
+                    GameRules.replace("mobGriefing", GameRules1_tag.getValue().get("mobGriefing"));
+                    GameRules.replace("naturalRegeneration", GameRules1_tag.getValue().get("naturalRegeneration"));
+                    newData.replace("GameRules", new CompoundTag("GameRules", GameRules));
                 }
 
                 if (Data.containsKey("WorldGenSettings")) {
                     CompoundMap WorldGenSettings = new CompoundMap((((CompoundTag) Data.get("WorldGenSettings")).getValue()));
                     if (Data1.containsKey("MapFeatures")) {
-                        WorldGenSettings.replace("generate_features",Data1.get("MapFeatures"));
+                        WorldGenSettings.replace("generate_features", Data1.get("MapFeatures"));
                     }
                     if (Data1.containsKey("RandomSeed")) {
-                        WorldGenSettings.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                        WorldGenSettings.replace("seed", new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
                     }
 
                     //dimensions
@@ -113,26 +113,27 @@ public class LevelDat implements Convertor{
 
                         //lotr:middle_earth
                         //generatormap1.replace("seed",Data1.get("RandomSeed"));
-                        generatormap1.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                        generatormap1.replace("seed", new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
                         CompoundMap biome_source1 = new CompoundMap((CompoundMap) generatormap1.get("biome_source").getValue());
-                        biome_source1.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                        biome_source1.replace("seed", new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
                         //sets instant_middle_earth right in lotr:middle_earth
                         //meClassic apparently doesn't use this tag, even though you definitely spawn directly into middle-earth
                         //Data1.get("generatorName").getValue().equals("meClassic") ||
                         if (Data1.get("generatorName").getValue().equals("middleEarth")) {
-                            generatormap1.replace("instant_middle_earth",new ByteTag("instant_middle_earth",(byte)1));
-                            if (Data1.get("generatorName").getValue().equals("meClassic")) biome_source1.replace("classic_biomes",new ByteTag("classic_biomes",(byte)1));
-                            else biome_source1.replace("classic_biomes",new ByteTag("classic_biomes",(byte)0));
-                        }
-                        else generatormap1.replace("instant_middle_earth",new ByteTag("instant_middle_earth",(byte)0));
+                            generatormap1.replace("instant_middle_earth", new ByteTag("instant_middle_earth", (byte) 1));
+                            if (Data1.get("generatorName").getValue().equals("meClassic"))
+                                biome_source1.replace("classic_biomes", new ByteTag("classic_biomes", (byte) 1));
+                            else biome_source1.replace("classic_biomes", new ByteTag("classic_biomes", (byte) 0));
+                        } else
+                            generatormap1.replace("instant_middle_earth", new ByteTag("instant_middle_earth", (byte) 0));
 
-                        generatormap1.replace("biome_source",new CompoundTag("biome_source",biome_source1));
-                        meDimension.replace("generator",new CompoundTag("generator",generatormap1));
-                        dimensions_map.replace("lotr:middle_earth",new CompoundTag("lotr:middle_earth",meDimension));
+                        generatormap1.replace("biome_source", new CompoundTag("biome_source", biome_source1));
+                        meDimension.replace("generator", new CompoundTag("generator", generatormap1));
+                        dimensions_map.replace("lotr:middle_earth", new CompoundTag("lotr:middle_earth", meDimension));
                         //minecraft:overworld
                         if ((Data1.get("generatorName").getValue().equals("flat"))) {
                             //handles flat-worlds, hardcodes the default values as transcribing them is beyond the scope of the convertor, salt might be the seed and not actually this odd value
-                            generatormap2.replace("type",new StringTag("type","minecraft:flat"));
+                            generatormap2.replace("type", new StringTag("type", "minecraft:flat"));
                             generatormap2.remove("biome_source");
                             generatormap2.remove("seed");
                             generatormap2.remove("settings");
@@ -142,109 +143,106 @@ public class LevelDat implements Convertor{
 
 
                             CompoundMap stronghold_map = new CompoundMap();
-                            stronghold_map.put("count",new IntTag("count",128));
-                            stronghold_map.put("distance",new IntTag("distance",32));
-                            stronghold_map.put("spread",new IntTag("spread",3));
-                            structures1_map.put("stronghold",new CompoundTag("stronghold",stronghold_map));
+                            stronghold_map.put("count", new IntTag("count", 128));
+                            stronghold_map.put("distance", new IntTag("distance", 32));
+                            stronghold_map.put("spread", new IntTag("spread", 3));
+                            structures1_map.put("stronghold", new CompoundTag("stronghold", stronghold_map));
 
                             CompoundMap structures2_map = new CompoundMap();
                             CompoundMap village_map = new CompoundMap();
                             //Salt gen, should work, doesn't carry over old maps though
                             int salt = (new Random()).nextInt(1000000000);
-                            village_map.put("salt",new IntTag("salt",salt));
-                            village_map.put("separation",new IntTag("separation",8));
-                            village_map.put("spacing",new IntTag("spacing",32));
-                            structures2_map.put("minecraft:village", new CompoundTag("minecraft:village",village_map));
-                            structures1_map.put("structures",new CompoundTag("structures",structures2_map));
+                            village_map.put("salt", new IntTag("salt", salt));
+                            village_map.put("separation", new IntTag("separation", 8));
+                            village_map.put("spacing", new IntTag("spacing", 32));
+                            structures2_map.put("minecraft:village", new CompoundTag("minecraft:village", village_map));
+                            structures1_map.put("structures", new CompoundTag("structures", structures2_map));
 
-                            settings_map.put("structures",new CompoundTag("structures",structures1_map));
+                            settings_map.put("structures", new CompoundTag("structures", structures1_map));
 
                             List<CompoundTag> layers_list = new ArrayList<>();
                             CompoundMap layer1_map = new CompoundMap();
-                            layer1_map.put("block",new StringTag("block","minecraft:bedrock"));
-                            layer1_map.put("height", new IntTag("height",1));
-                            layers_list.add(new CompoundTag("",layer1_map));
+                            layer1_map.put("block", new StringTag("block", "minecraft:bedrock"));
+                            layer1_map.put("height", new IntTag("height", 1));
+                            layers_list.add(new CompoundTag("", layer1_map));
                             CompoundMap layer2_map = new CompoundMap();
-                            layer2_map.put("block", new StringTag("block","minecraft:dirt"));
-                            layer2_map.put("height",new IntTag("height",2));
-                            layers_list.add(new CompoundTag("",layer2_map));
+                            layer2_map.put("block", new StringTag("block", "minecraft:dirt"));
+                            layer2_map.put("height", new IntTag("height", 2));
+                            layers_list.add(new CompoundTag("", layer2_map));
                             CompoundMap layer3_map = new CompoundMap();
-                            layer3_map.put("block", new StringTag("block","minecraft:grass_block"));
-                            layer3_map.put("height",new IntTag("height",1));
-                            layers_list.add(new CompoundTag("",layer3_map));
-                            settings_map.put("layers",new ListTag<>("layers",TagType.TAG_COMPOUND,layers_list));
+                            layer3_map.put("block", new StringTag("block", "minecraft:grass_block"));
+                            layer3_map.put("height", new IntTag("height", 1));
+                            layers_list.add(new CompoundTag("", layer3_map));
+                            settings_map.put("layers", new ListTag<>("layers", TagType.TAG_COMPOUND, layers_list));
 
-                            settings_map.put("biome",new StringTag("biome","minecraft:plains"));
-                            settings_map.put("features",new ByteTag("features",(byte)0));
-                            settings_map.put("lakes",new ByteTag("lakes",(byte)0));
-                            generatormap2.put("settings",new CompoundTag("settings",settings_map));
-                        }
-                        else {
-                            generatormap2.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                            settings_map.put("biome", new StringTag("biome", "minecraft:plains"));
+                            settings_map.put("features", new ByteTag("features", (byte) 0));
+                            settings_map.put("lakes", new ByteTag("lakes", (byte) 0));
+                            generatormap2.put("settings", new CompoundTag("settings", settings_map));
+                        } else {
+                            generatormap2.replace("seed", new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
                             CompoundMap biome_source2 = new CompoundMap((CompoundMap) generatormap2.get("biome_source").getValue());
-                            biome_source2.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
-                            generatormap2.replace("biome_source",new CompoundTag("biome_source",biome_source2));
-                            if (Data1.get("generatorName").getValue().equals("largeBiomes"))generatormap2.replace("large_biomes",new ByteTag("large_biomes",(byte)1));
-                            else generatormap2.replace("large_biomes",new ByteTag("large_biomes",(byte)0));
+                            biome_source2.replace("seed", new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                            generatormap2.replace("biome_source", new CompoundTag("biome_source", biome_source2));
+                            if (Data1.get("generatorName").getValue().equals("largeBiomes"))
+                                generatormap2.replace("large_biomes", new ByteTag("large_biomes", (byte) 1));
+                            else generatormap2.replace("large_biomes", new ByteTag("large_biomes", (byte) 0));
                         }
-                        overworldDimension.replace("generator",new CompoundTag("generator",generatormap2));
-                        dimensions_map.replace("minecraft:overworld",new CompoundTag("minecraft:overworld",overworldDimension));
+                        overworldDimension.replace("generator", new CompoundTag("generator", generatormap2));
+                        dimensions_map.replace("minecraft:overworld", new CompoundTag("minecraft:overworld", overworldDimension));
 
                         //minecraft:the_end
-                        generatormap3.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                        generatormap3.replace("seed", new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
                         CompoundMap biome_source3 = new CompoundMap((CompoundMap) generatormap3.get("biome_source").getValue());
-                        biome_source3.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
-                        generatormap3.replace("biome_source",new CompoundTag("biome_source",biome_source3));
-                        endDimension.replace("generator",new CompoundTag("generator",generatormap3));
-                        dimensions_map.replace("minecraft:the_end",new CompoundTag("minecraft:the_end",endDimension));
+                        biome_source3.replace("seed", new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                        generatormap3.replace("biome_source", new CompoundTag("biome_source", biome_source3));
+                        endDimension.replace("generator", new CompoundTag("generator", generatormap3));
+                        dimensions_map.replace("minecraft:the_end", new CompoundTag("minecraft:the_end", endDimension));
 
                         //minecraft:the_nether
-                        generatormap4.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                        generatormap4.replace("seed", new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
                         CompoundMap biome_source4 = new CompoundMap((CompoundMap) generatormap4.get("biome_source").getValue());
-                        biome_source4.replace("seed",new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
-                        generatormap4.replace("biome_source",new CompoundTag("biome_source",biome_source4));
-                        netherDimension.replace("generator",new CompoundTag("generator",generatormap4));
-                        dimensions_map.replace("minecraft:the_nether",new CompoundTag("minecraft:the_nether",netherDimension));
+                        biome_source4.replace("seed", new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                        generatormap4.replace("biome_source", new CompoundTag("biome_source", biome_source4));
+                        netherDimension.replace("generator", new CompoundTag("generator", generatormap4));
+                        dimensions_map.replace("minecraft:the_nether", new CompoundTag("minecraft:the_nether", netherDimension));
 
-                        WorldGenSettings.replace("dimensions",new CompoundTag("dimensions",dimensions_map));
-                        Data.replace("WorldGenSettings",new CompoundTag("WorldGenSettings",WorldGenSettings));
+                        WorldGenSettings.replace("dimensions", new CompoundTag("dimensions", dimensions_map));
+                        Data.replace("WorldGenSettings", new CompoundTag("WorldGenSettings", WorldGenSettings));
                     }
-                    }
-
-
+                }
 
 
                 //rest of 'Data' fix
-                Data.replace("DayTime",Data1.get("DayTime"));
-                Data.replace("GameType",Data1.get("GameType"));
-                Data.replace("hardcore",Data1.get("hardcore"));
-                Data.replace("initialized",Data1.get("initialized"));
-                Data.replace("LastPlayed",Data1.get("LastPlayed"));
-                Data.replace("LevelName",Data1.get("LevelName"));
-                Data.replace("raining",Data1.get("raining"));
-                Data.replace("rainTime",Data1.get("rainTime"));
-                Data.replace("SpawnX",Data1.get("SpawnX"));
-                Data.replace("SpawnY",Data1.get("SpawnY"));
-                Data.replace("SpawnZ",Data1.get("SpawnZ"));
-                Data.replace("thundering",Data1.get("thundering"));
-                Data.replace("thunderTime",Data1.get("thunderTime"));
-                Data.replace("Time",Data1.get("Time"));
-                Data.replace("version",Data1.get("version"));
+                Data.replace("DayTime", Data1.get("DayTime"));
+                Data.replace("GameType", Data1.get("GameType"));
+                Data.replace("hardcore", Data1.get("hardcore"));
+                Data.replace("initialized", Data1.get("initialized"));
+                Data.replace("LastPlayed", Data1.get("LastPlayed"));
+                Data.replace("LevelName", Data1.get("LevelName"));
+                Data.replace("raining", Data1.get("raining"));
+                Data.replace("rainTime", Data1.get("rainTime"));
+                Data.replace("SpawnX", Data1.get("SpawnX"));
+                Data.replace("SpawnY", Data1.get("SpawnY"));
+                Data.replace("SpawnZ", Data1.get("SpawnZ"));
+                Data.replace("thundering", Data1.get("thundering"));
+                Data.replace("thunderTime", Data1.get("thunderTime"));
+                Data.replace("Time", Data1.get("Time"));
+                Data.replace("version", Data1.get("version"));
                 if (Data.containsKey("Player") && Data1.containsKey("Player")) {
                     CompoundTag Player_tag = (CompoundTag) Data1.get("Player");
                     CompoundMap Player = new CompoundMap(Player_tag.getValue());
                     Fixers.playerFixer(Player, this.Data);
-                    Data.replace("Player",new CompoundTag("Player",Player));
+                    Data.replace("Player", new CompoundTag("Player", Player));
                 }
-                newData.replace("Data",new CompoundTag("Data",Data));
+                newData.replace("Data", new CompoundTag("Data", Data));
             }
             final CompoundTag newTopLevelTag = new CompoundTag("", newData);
-            final NBTOutputStream output = new NBTOutputStream(new FileOutputStream(Paths.get(p +"/"+FileName+"_Converted/level.dat").toString()));
+            final NBTOutputStream output = new NBTOutputStream(new FileOutputStream(Paths.get(p + "/" + FileName + "_Converted/level.dat").toString()));
             output.writeTag(newTopLevelTag);
             output.close();
             System.out.println("Converted the level.dat file");
-        }
-        catch (final ClassCastException | NullPointerException ex) {
+        } catch (final ClassCastException | NullPointerException ex) {
             throw new IOException("Error during level.dat fixing");
         }
     }

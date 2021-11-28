@@ -19,16 +19,18 @@ import java.util.Objects;
 import static misterymob475.Main.PrintLine;
 
 
-public class Overworld implements Convertor{
+public class Overworld implements Convertor {
     private final misterymob475.Data Data;
 
     /**
      * Creates an instance of HandMapData
+     *
      * @param data instance of {@link Data}
      */
     public Overworld(Data data) {
         this.Data = data;
     }
+
     /**
      * Modifies the files to work in Renewed
      *
@@ -38,8 +40,8 @@ public class Overworld implements Convertor{
      */
     @Override
     public void modifier(Path p, String FileName) throws IOException {
-        File currentFolder = new File(Paths.get(p +"/"+FileName+"/region").toString());
-        Files.createDirectory(Paths.get(p +"/"+FileName+"_Converted/region"));
+        File currentFolder = new File(Paths.get(p + "/" + FileName + "/region").toString());
+        Files.createDirectory(Paths.get(p + "/" + FileName + "_Converted/region"));
         if (currentFolder.exists()) {
             File[] curDirList = currentFolder.listFiles();
             if (curDirList != null) {
@@ -54,11 +56,11 @@ public class Overworld implements Convertor{
                         //saves the input as a map, this is important for saving the file, for reading it is redundant
                         CompoundMap originalData = new CompoundMap(originalTopLevelTag.getValue());
                         //
-                        CompoundMap chunk = Fixers.ChunkFixer(new CompoundMap(((CompoundTag) originalData.get("Chunk")).getValue()),Data);
+                        CompoundMap chunk = Fixers.ChunkFixer(new CompoundMap(((CompoundTag) originalData.get("Chunk")).getValue()), Data);
                         //
-                        originalData.replace("data",new CompoundTag("data",chunk));
+                        originalData.replace("data", new CompoundTag("data", chunk));
                         final CompoundTag newTopLevelTag = new CompoundTag("", originalData);
-                        final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p +"/"+FileName+"_Converted/region/" + mapFile.getName()).toString())).getAbsolutePath()));
+                        final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p + "/" + FileName + "_Converted/region/" + mapFile.getName()).toString())).getAbsolutePath()));
                         output.writeTag(newTopLevelTag);
                         output.close();
                     }
@@ -67,10 +69,10 @@ public class Overworld implements Convertor{
                         e.printStackTrace();
                         throw new IOException("Error during overworld dimension fix");
                     }
-                    PrintLine("Converted " + (i-1) + "/" + Objects.requireNonNull(curDirList).length + " overworld dimension region files",Data,true);
+                    PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + " overworld dimension region files", Data, true);
                 }
 
-                PrintLine("Converted the overworld dimension",Data,false);
+                PrintLine("Converted the overworld dimension", Data, false);
             }
         }
     }
