@@ -868,6 +868,452 @@ public class Fixers {
     }
 
     /**
+     * Fixes maps
+     *
+     * @param map {@link CompoundMap} with map data
+     */
+    public static void MapFixer(CompoundMap map) {
+        //gets the values we want, note, = I'm doing the easy ones first (lists last) I'm keeping the order though as I've read somewhere that that matters
+        if (map.containsKey("dimension")) {
+            //fixer here int --> string
+            Integer Dimension = ((IntTag) map.get("dimension")).getValue();
+            String newDimension;
+            if (Dimension == 0) newDimension = "minecraft:overworld";
+            else if (Dimension == 1) newDimension = "Minecraft:the_nether";
+            else if (Dimension == -1) newDimension = "Minecraft:the_end";
+            else if (Dimension == 100) newDimension = "lotr:middle_earth";
+                //not sure if this is gonna work, we'll see
+            else if (Dimension == 101) newDimension = "lotr:utumno";
+            else newDimension = "minecraft:overworld";
+            map.replace("dimension", new StringTag("dimension", newDimension));
+        }
+        //hmm?
+        map.remove("width");
+        map.remove("height");
+    }
+
+    /**
+     * Fixes the level.dat compoundMap using the existing map and a map from a renewed world
+     *
+     * @param newData              {@link CompoundMap} of the level.dat file
+     * @param data                 {@link Data} instance of Data
+     * @param originalTopLevelTag1 {@link CompoundTag} of a renewed level.dat file
+     * @throws IOException when something goes wrong
+     */
+    public static void LevelDatFixer(CompoundMap newData, Data data, CompoundTag originalTopLevelTag1) throws IOException {
+        if (newData.containsKey("Data") && (originalTopLevelTag1.getValue()).containsKey("Data")) {
+            CompoundMap Data = new CompoundMap(((CompoundTag) newData.get("Data")).getValue());
+            CompoundMap Data1 = new CompoundMap(((CompoundTag) (originalTopLevelTag1.getValue()).get("Data")).getValue());
+
+
+            //GameRules fix (only 9 added in 1.7.10, keeping rest of the selected Renewed World)
+            if (Data.containsKey("GameRules") && Data1.containsKey("GameRules")) {
+                CompoundTag GameRules1_tag = (CompoundTag) Data1.get("GameRules");
+                CompoundMap GameRules = new CompoundMap((((CompoundTag) Data.get("GameRules")).getValue()));
+                GameRules.replace("commandBlockOutput", GameRules1_tag.getValue().get("commandBlockOutput"));
+                GameRules.replace("doDaylightCycle", GameRules1_tag.getValue().get("doDaylightCycle"));
+                GameRules.replace("doFireTick", GameRules1_tag.getValue().get("doFireTick"));
+                GameRules.replace("doMobLoot", GameRules1_tag.getValue().get("doMobLoot"));
+                GameRules.replace("doMobSpawning", GameRules1_tag.getValue().get("doMobSpawning"));
+                GameRules.replace("doTileDrops", GameRules1_tag.getValue().get("doTileDrops"));
+                GameRules.replace("keepInventory", GameRules1_tag.getValue().get("keepInventory"));
+                GameRules.replace("mobGriefing", GameRules1_tag.getValue().get("mobGriefing"));
+                GameRules.replace("naturalRegeneration", GameRules1_tag.getValue().get("naturalRegeneration"));
+                newData.replace("GameRules", new CompoundTag("GameRules", GameRules));
+            }
+
+            if (Data.containsKey("WorldGenSettings")) {
+                CompoundMap WorldGenSettings = new CompoundMap((((CompoundTag) Data.get("WorldGenSettings")).getValue()));
+                if (Data1.containsKey("MapFeatures")) {
+                    WorldGenSettings.replace("generate_features", Data1.get("MapFeatures"));
+                }
+                if (Data1.containsKey("RandomSeed")) {
+                    WorldGenSettings.replace("seed", new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                }
+
+                //dimensions
+                if (WorldGenSettings.containsKey("dimensions")) {
+                    CompoundTag dimensions = (CompoundTag) WorldGenSettings.get("dimensions");
+                    CompoundMap dimensions_map = new CompoundMap(dimensions.getValue());
+
+                    //should have made this a loop in hindsight, oh well...
+
+                    CompoundMap meDimension = new CompoundMap(((CompoundTag) dimensions.getValue().get("lotr:middle_earth")).getValue());
+                    CompoundMap overworldDimension = new CompoundMap(((CompoundTag) dimensions.getValue().get("minecraft:overworld")).getValue());
+                    CompoundMap endDimension = new CompoundMap(((CompoundTag) dimensions.getValue().get("minecraft:the_end")).getValue());
+                    CompoundMap netherDimension = new CompoundMap(((CompoundTag) dimensions.getValue().get("minecraft:the_nether")).getValue());
+
+                    CompoundTag Generator1 = (CompoundTag) ((CompoundTag) dimensions.getValue().get("lotr:middle_earth")).getValue().get("generator");
+                    CompoundTag Generator2 = (CompoundTag) ((CompoundTag) dimensions.getValue().get("minecraft:overworld")).getValue().get("generator");
+                    CompoundTag Generator3 = (CompoundTag) ((CompoundTag) dimensions.getValue().get("minecraft:the_end")).getValue().get("generator");
+                    CompoundTag Generator4 = (CompoundTag) ((CompoundTag) dimensions.getValue().get("minecraft:the_nether")).getValue().get("generator");
+
+                    CompoundMap generatormap1 = new CompoundMap(Generator1.getValue());
+                    CompoundMap generatormap2 = new CompoundMap(Generator2.getValue());
+                    CompoundMap generatormap3 = new CompoundMap(Generator3.getValue());
+                    CompoundMap generatormap4 = new CompoundMap(Generator4.getValue());
+
+                    //lotr:middle_earth
+                    //generatormap1.replace("seed",Data1.get("RandomSeed"));
+                    generatormap1.replace("seed", new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                    CompoundMap biome_source1 = new CompoundMap((CompoundMap) generatormap1.get("biome_source").getValue());
+                    biome_source1.replace("seed", new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                    //sets instant_middle_earth right in lotr:middle_earth
+                    //meClassic apparently doesn't use this tag, even though you definitely spawn directly into middle-earth
+                    //Data1.get("generatorName").getValue().equals("meClassic") ||
+                    if (Data1.get("generatorName").getValue().equals("middleEarth")) {
+                        generatormap1.replace("instant_middle_earth", new ByteTag("instant_middle_earth", (byte) 1));
+                        if (Data1.get("generatorName").getValue().equals("meClassic"))
+                            biome_source1.replace("classic_biomes", new ByteTag("classic_biomes", (byte) 1));
+                        else biome_source1.replace("classic_biomes", new ByteTag("classic_biomes", (byte) 0));
+                    } else
+                        generatormap1.replace("instant_middle_earth", new ByteTag("instant_middle_earth", (byte) 0));
+
+                    generatormap1.replace("biome_source", new CompoundTag("biome_source", biome_source1));
+                    meDimension.replace("generator", new CompoundTag("generator", generatormap1));
+                    dimensions_map.replace("lotr:middle_earth", new CompoundTag("lotr:middle_earth", meDimension));
+                    //minecraft:overworld
+                    if ((Data1.get("generatorName").getValue().equals("flat"))) {
+                        //handles flat-worlds, hardcodes the default values as transcribing them is beyond the scope of the convertor, salt might be the seed and not actually this odd value
+                        generatormap2.replace("type", new StringTag("type", "minecraft:flat"));
+                        generatormap2.remove("biome_source");
+                        generatormap2.remove("seed");
+                        generatormap2.remove("settings");
+                        CompoundMap settings_map = new CompoundMap();
+
+                        CompoundMap structures1_map = new CompoundMap();
+
+
+                        CompoundMap stronghold_map = new CompoundMap();
+                        stronghold_map.put("count", new IntTag("count", 128));
+                        stronghold_map.put("distance", new IntTag("distance", 32));
+                        stronghold_map.put("spread", new IntTag("spread", 3));
+                        structures1_map.put("stronghold", new CompoundTag("stronghold", stronghold_map));
+
+                        CompoundMap structures2_map = new CompoundMap();
+                        CompoundMap village_map = new CompoundMap();
+                        //Salt gen, should work, doesn't carry over old maps though
+                        int salt = (new Random()).nextInt(1000000000);
+                        village_map.put("salt", new IntTag("salt", salt));
+                        village_map.put("separation", new IntTag("separation", 8));
+                        village_map.put("spacing", new IntTag("spacing", 32));
+                        structures2_map.put("minecraft:village", new CompoundTag("minecraft:village", village_map));
+                        structures1_map.put("structures", new CompoundTag("structures", structures2_map));
+
+                        settings_map.put("structures", new CompoundTag("structures", structures1_map));
+
+                        List<CompoundTag> layers_list = new ArrayList<>();
+                        CompoundMap layer1_map = new CompoundMap();
+                        layer1_map.put("block", new StringTag("block", "minecraft:bedrock"));
+                        layer1_map.put("height", new IntTag("height", 1));
+                        layers_list.add(new CompoundTag("", layer1_map));
+                        CompoundMap layer2_map = new CompoundMap();
+                        layer2_map.put("block", new StringTag("block", "minecraft:dirt"));
+                        layer2_map.put("height", new IntTag("height", 2));
+                        layers_list.add(new CompoundTag("", layer2_map));
+                        CompoundMap layer3_map = new CompoundMap();
+                        layer3_map.put("block", new StringTag("block", "minecraft:grass_block"));
+                        layer3_map.put("height", new IntTag("height", 1));
+                        layers_list.add(new CompoundTag("", layer3_map));
+                        settings_map.put("layers", new ListTag<>("layers", TagType.TAG_COMPOUND, layers_list));
+
+                        settings_map.put("biome", new StringTag("biome", "minecraft:plains"));
+                        settings_map.put("features", new ByteTag("features", (byte) 0));
+                        settings_map.put("lakes", new ByteTag("lakes", (byte) 0));
+                        generatormap2.put("settings", new CompoundTag("settings", settings_map));
+                    } else {
+                        generatormap2.replace("seed", new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                        CompoundMap biome_source2 = new CompoundMap((CompoundMap) generatormap2.get("biome_source").getValue());
+                        biome_source2.replace("seed", new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                        generatormap2.replace("biome_source", new CompoundTag("biome_source", biome_source2));
+                        if (Data1.get("generatorName").getValue().equals("largeBiomes"))
+                            generatormap2.replace("large_biomes", new ByteTag("large_biomes", (byte) 1));
+                        else generatormap2.replace("large_biomes", new ByteTag("large_biomes", (byte) 0));
+                    }
+                    overworldDimension.replace("generator", new CompoundTag("generator", generatormap2));
+                    dimensions_map.replace("minecraft:overworld", new CompoundTag("minecraft:overworld", overworldDimension));
+
+                    //minecraft:the_end
+                    generatormap3.replace("seed", new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                    CompoundMap biome_source3 = new CompoundMap((CompoundMap) generatormap3.get("biome_source").getValue());
+                    biome_source3.replace("seed", new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                    generatormap3.replace("biome_source", new CompoundTag("biome_source", biome_source3));
+                    endDimension.replace("generator", new CompoundTag("generator", generatormap3));
+                    dimensions_map.replace("minecraft:the_end", new CompoundTag("minecraft:the_end", endDimension));
+
+                    //minecraft:the_nether
+                    generatormap4.replace("seed", new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                    CompoundMap biome_source4 = new CompoundMap((CompoundMap) generatormap4.get("biome_source").getValue());
+                    biome_source4.replace("seed", new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
+                    generatormap4.replace("biome_source", new CompoundTag("biome_source", biome_source4));
+                    netherDimension.replace("generator", new CompoundTag("generator", generatormap4));
+                    dimensions_map.replace("minecraft:the_nether", new CompoundTag("minecraft:the_nether", netherDimension));
+
+                    WorldGenSettings.replace("dimensions", new CompoundTag("dimensions", dimensions_map));
+                    Data.replace("WorldGenSettings", new CompoundTag("WorldGenSettings", WorldGenSettings));
+                }
+            }
+
+
+            //rest of 'Data' fix
+            Data.replace("DayTime", Data1.get("DayTime"));
+            Data.replace("GameType", Data1.get("GameType"));
+            Data.replace("hardcore", Data1.get("hardcore"));
+            Data.replace("initialized", Data1.get("initialized"));
+            Data.replace("LastPlayed", Data1.get("LastPlayed"));
+            Data.replace("LevelName", Data1.get("LevelName"));
+            Data.replace("raining", Data1.get("raining"));
+            Data.replace("rainTime", Data1.get("rainTime"));
+            Data.replace("SpawnX", Data1.get("SpawnX"));
+            Data.replace("SpawnY", Data1.get("SpawnY"));
+            Data.replace("SpawnZ", Data1.get("SpawnZ"));
+            Data.replace("thundering", Data1.get("thundering"));
+            Data.replace("thunderTime", Data1.get("thunderTime"));
+            Data.replace("Time", Data1.get("Time"));
+            Data.replace("version", Data1.get("version"));
+            if (Data.containsKey("Player") && Data1.containsKey("Player")) {
+                CompoundTag Player_tag = (CompoundTag) Data1.get("Player");
+                CompoundMap Player = new CompoundMap(Player_tag.getValue());
+                Fixers.playerFixer(Player, data);
+                Data.replace("Player", new CompoundTag("Player", Player));
+            }
+            newData.replace("Data", new CompoundTag("Data", Data));
+        }
+    }
+
+    /**
+     * Fixes the LOTR.Dat file
+     *
+     * @param originalData {@link CompoundMap} the map of LOTR.dat
+     */
+    public static void LOTRDatFixer(CompoundMap originalData) {
+        //discards: as they aren't in renewed yet or are now datapackable, if something gets ported to renewed in the exact same way as legacy I can simply uncomment these lines
+        originalData.remove("TravellingTraders");
+        originalData.remove("GreyWanderers");
+        originalData.remove("AlignmentZones");
+        originalData.remove("ConqRate");
+        originalData.remove("DifficultyLock");
+        originalData.remove("GollumSpawned");
+        originalData.remove("GWSpawnTick");
+        originalData.remove("StructuresBanned");
+
+        IntTag CurrentDay = new IntTag("CurrentDay", ((IntTag) ((CompoundTag) originalData.get("Dates")).getValue().get("ShireDate")).getValue());
+        CompoundMap Dates_map = new CompoundMap();
+        Dates_map.put("CurrentDay", CurrentDay);
+        CompoundTag Dates = new CompoundTag("Dates", Dates_map);
+        originalData.replace("Dates", Dates);
+        (originalData.get("MadeMiddlePortal").getAsIntTag()).ifPresent(intTag -> originalData.replace("MadeMiddlePortal", new ByteTag("MadeMiddlePortal", (byte) (int) intTag.getValue())));
+        //IntTag MadeMiddlePortal = originalData.get("MadeMiddlePortal").getAsIntTag().get();
+        (originalData.get("MadePortal").getAsIntTag()).ifPresent(intTag -> originalData.replace("MadePortal", new ByteTag("MadePortal", (byte) (int) intTag.getValue())));
+    }
+
+    /**
+     * Fixes the lotr playerData files
+     *
+     * @param originalData {@link CompoundMap} of lotr player data
+     * @param Data         instance of {@link Data}
+     */
+    @SuppressWarnings("unchecked")
+    public static void LOTRPlayerDataFixer(CompoundMap originalData, Data Data) {
+        //gets the values we want, note, = I'm doing the easy ones first (lists last)
+        //originalData.get("something").
+        Optional<ListTag<?>> AlignmentMap = originalData.get("AlignmentMap").getAsListTag();
+        List<CompoundTag> AlignmentMap_builder = new ArrayList<CompoundTag>(1) {
+        };
+        if (AlignmentMap.isPresent()) {
+            ListTag<CompoundTag> AlignmentMap_old = (ListTag<CompoundTag>) AlignmentMap.get();
+            for (CompoundTag tag : AlignmentMap_old.getValue()) {
+                StringTag Faction_tag = (StringTag) tag.getValue().get("Faction");
+                String Faction = Faction_tag.getValue();
+                if (Data.FacNames.containsKey(Faction)) {
+                    final CompoundMap newData_CF = new CompoundMap();
+                    newData_CF.put("AlignF", tag.getValue().get("AlignF"));
+                    newData_CF.put("Faction", new StringTag("Faction", Data.FacNames.get(Faction)));
+                    CompoundTag AM_CT_Builder = new CompoundTag("", newData_CF);
+                    AlignmentMap_builder.add(AM_CT_Builder);
+                }
+            }
+        }
+
+        //ListTag AlignmentMap = new ListTag("AlignmentMap",CompoundTag.class, AlignmentMap_builder);
+
+        ListTag<CompoundTag> FactionStats_old = (ListTag<CompoundTag>) originalData.get("FactionData");
+        List<CompoundTag> FactionStats_builder = new ArrayList<CompoundTag>(1) {
+        };
+        for (CompoundTag tag : FactionStats_old.getValue()) {
+            StringTag Faction_tag_AL = (StringTag) tag.getValue().get("Faction");
+            String Faction_AL = Faction_tag_AL.getValue();
+            if (Data.FacNames.containsKey(Faction_AL)) {
+                final CompoundMap newData_AL = new CompoundMap();
+                newData_AL.put("ConquestHorn", tag.getValue().get("ConquestHorn"));
+                newData_AL.put("EnemyKill", tag.getValue().get("EnemyKill"));
+                newData_AL.put("Faction", new StringTag("Faction", Data.FacNames.get(Faction_AL)));
+                newData_AL.put("Hired", tag.getValue().get("Hired"));
+                newData_AL.put("MemberKill", tag.getValue().get("NPCKill"));
+                newData_AL.put("MiniQuests", tag.getValue().get("MiniQuests"));
+                newData_AL.put("Trades", tag.getValue().get("Trades"));
+                CompoundTag AM_AL_Builder = new CompoundTag("", newData_AL);
+                FactionStats_builder.add(AM_AL_Builder);
+            }
+        }
+        //ListTag FactionStats = new ListTag("FactionStats",CompoundTag.class, FactionStats_builder);
+
+        ListTag<CompoundTag> PrevRegionFactions_Old = (ListTag<CompoundTag>) originalData.get("PrevRegionFactions");
+        List<CompoundTag> PrevRegionFactions_builder = new ArrayList<CompoundTag>(1) {
+        };
+        for (CompoundTag tag : PrevRegionFactions_Old.getValue()) {
+            StringTag Faction_tag_PRF = (StringTag) tag.getValue().get("Faction");
+            String Region_PRF = ((StringTag) tag.getValue().get("Region")).getValue();
+            String Faction_PRF = Faction_tag_PRF.getValue();
+            if (Data.FacNames.containsKey(Faction_PRF)) {
+                final CompoundMap newData_PRF = new CompoundMap();
+                newData_PRF.put("Faction", new StringTag("Faction", Data.FacNames.get(Faction_PRF)));
+                switch (Region_PRF) {
+                    case "west":
+                        newData_PRF.put("Region", new StringTag("Region", "lotr:westlands"));
+                        break;
+                    case "east":
+                        newData_PRF.put("Region", new StringTag("Region", "lotr:rhun"));
+                        break;
+                    case "south":
+                        newData_PRF.put("Region", new StringTag("Region", "lotr:harad"));
+                        break;
+                }
+                CompoundTag PRF_AL_Builder = new CompoundTag("", newData_PRF);
+                PrevRegionFactions_builder.add(PRF_AL_Builder);
+            }
+        }
+        //ListTag PrevRegionFactions = new ListTag("PrevRegionFactions",CompoundTag.class, PrevRegionFactions_builder);
+
+        //SentMessageTypes
+
+        ListTag<CompoundTag> UnlockedFTRegions_Old = (ListTag<CompoundTag>) originalData.get("UnlockedFTRegions");
+        List<StringTag> UnlockedFTRegions_Builder = new ArrayList<StringTag>(0) {
+        };
+        for (CompoundTag tag : UnlockedFTRegions_Old.getValue()) {
+            StringTag RegionName_Tag = (StringTag) tag.getValue().get("Name");
+            String RegionName = RegionName_Tag.getValue();
+            switch (RegionName) {
+                case "GONDOR":
+
+                    UnlockedFTRegions_Builder.add(new StringTag("", "lotr:andrast"));
+                    UnlockedFTRegions_Builder.add(new StringTag("", "lotr:anfalas"));
+                    UnlockedFTRegions_Builder.add(new StringTag("", "lotr:anorien"));
+                    UnlockedFTRegions_Builder.add(new StringTag("", "lotr:western_gondor"));
+                    //gondor itself already gets handles on the if below, hence the lack of it here
+                    break;
+                case "FORODWAITH":
+                    UnlockedFTRegions_Builder.add(new StringTag("", "lotr:northlands"));
+                    UnlockedFTRegions_Builder.add(new StringTag("", "lotr:forochel"));
+                    break;
+                case "OCEAN":
+                    UnlockedFTRegions_Builder.add(new StringTag("", "lotr:western_isles"));
+                    break;
+            }
+            if (Data.FacNames.containsKey(RegionName)) {
+                StringTag Name = new StringTag("", Data.Regions.get(RegionName));
+                UnlockedFTRegions_Builder.add(Name);
+
+            }
+        }
+        //ListTag UnlockedFTRegions = new ListTag("UnlockedFTRegions",StringTag.class, UnlockedFTRegions_Builder);
+
+        //get the old WPUses
+        ListTag<CompoundTag> WPUses_old = (ListTag<CompoundTag>) originalData.get("WPUses");
+        //create a new empty array put the new WPUses in
+        List<CompoundTag> WPUses_builder = new ArrayList<CompoundTag>(1) {
+        };
+        //loop though the entries in the list
+        for (CompoundTag tag : WPUses_old.getValue()) {
+            //get the StringTag of the waypoint
+            StringTag WPName_tag = (StringTag) tag.getValue().get("WPName");
+            //convert to string
+            String WPName = WPName_tag.getValue();
+            //if the waypoint exists in renewed (not everything has been ported yet)
+            if (Data.Waypoints.containsKey(WPName)) {
+                //create empty map for the CompoundTag
+                final CompoundMap newData_WP = new CompoundMap();
+                //put in the amount of waypoint usage (cooldown depends on it)
+                newData_WP.put("Count", tag.getValue().get("Count"));
+                //put in the new name
+                newData_WP.put("WPName", new StringTag("WPName", Data.Waypoints.get(WPName)));
+                //create the CompoundTag
+                CompoundTag WPUses_CT_Builder = new CompoundTag("", newData_WP);
+                //add the CompoundTag to the List
+                WPUses_builder.add(WPUses_CT_Builder);
+            }
+        }
+        //create the ListTag from the List
+        //ListTag WPUses = new ListTag("WPUses",CompoundTag.class, WPUses_builder);
+
+
+        //the game will add missing items itself, hence the commented out fields
+        //ByteTag ShowMapMarkers = new ByteTag("ShowMapMarkers", (byte) 1);
+
+        //removes redundant data (when said info gets ported I can simply uncomment it)
+        originalData.remove("QuestData");
+        originalData.remove("Achievements");
+        originalData.remove("SentMessageTypes"); //Shows which pop-ups the mod has given (friendly fire, utumno etc.)
+        originalData.remove("BountiesPlaced");
+        originalData.remove("CustomWayPoints"); //additional requirements in renewed, might port these later as a thing you can only use once
+        originalData.remove("CWPSharedHidden");
+        originalData.remove("CWPSharedUnlocked");
+        originalData.remove("CWPSharedUses");
+        originalData.remove("CWPUses");
+        originalData.remove("FellowshipInvites");
+        originalData.remove("Fellowships");
+        originalData.remove("MiniQuests");
+        originalData.remove("MiniQuestsCompleted");
+        originalData.remove("TakenAlignmentRewards");
+        originalData.remove("AdminHideMap");
+        originalData.remove("Chosen35Align");
+        originalData.remove("ConquestKills");
+        originalData.remove("HideAlignment");
+        originalData.remove("HideOnMap");
+        originalData.remove("HiredDeathMessages");
+        originalData.remove("LastBiome");
+        originalData.remove("MiniQuestTrack");
+        originalData.remove("MQCompleteCount");
+        originalData.remove("MQCompletedBounties");
+        originalData.remove("Pre35Align");
+        originalData.remove("ShowHiddenSWP");
+        originalData.remove("StructuresBanned");
+        originalData.remove("ChatBoundFellowship");
+        originalData.remove("DeathDim");
+
+        originalData.replace("AlignmentMap", new ListTag<>("AlignmentMap", TagType.TAG_COMPOUND, AlignmentMap_builder));
+        originalData.replace("FactionStats", new ListTag<>("FactionStats", TagType.TAG_COMPOUND, FactionStats_builder));
+        originalData.replace("PrevRegionFactions", new ListTag<>("PrevRegionFactions", TagType.TAG_COMPOUND, PrevRegionFactions_builder));
+        originalData.replace("UnlockedFTRegions", new ListTag<>("UnlockedFTRegions", TagType.TAG_COMPOUND, UnlockedFTRegions_Builder));
+        originalData.replace("WPUses", new ListTag<>("WPUses", TagType.TAG_COMPOUND, WPUses_builder));
+        originalData.replace("CurrentFaction", new StringTag("CurrentFaction", Data.FacNames.getOrDefault(originalData.get("CurrentFaction").getValue().toString(), "lotr:hobbit")));
+
+        if (Objects.equals(originalData.get("TeleportedME").getValue(), (byte) 1)) {
+            originalData.replace("TeleportedME", (new ByteTag("InitialSpawnedIntoME", (byte) 0)));
+        } else {
+            originalData.replace("TeleportedME", (new ByteTag("InitialSpawnedIntoME", (byte) 1)));
+        }
+
+        //Byte in legacy, string in renewed, because of this you can replace it in the stream
+        if (Objects.equals(originalData.get("FemRankOverride").getValue(), (byte) 0)) {
+            originalData.put("RankGender", (new StringTag("RankGender", "M")));
+
+        } else {
+            originalData.put("RankGender", (new StringTag("RankGender", "F")));
+            // "FLOPPA_CAT" Mevans, really?
+        }
+
+        originalData.remove("FemRankOverride");
+        if (originalData.containsKey("HideOnMap")) {
+            if (Objects.equals(originalData.get("HideOnMap").getValue(), (byte) 1)) {
+                originalData.replace("HideOnMap", new ByteTag("ShowMapLocation", (byte) 0));
+            } else {
+                originalData.replace("HideOnMap", new ByteTag("ShowMapLocation", (byte) 1));
+            }
+        }
+    }
+
+    /**
      * Fixer level LevelFixer
      *
      * @param Chunk map of CompoundTag of chunk

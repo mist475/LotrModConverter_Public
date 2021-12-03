@@ -3,10 +3,10 @@ package Convertors;
 import de.piegames.nbt.CompoundMap;
 import de.piegames.nbt.CompoundTag;
 import de.piegames.nbt.IntTag;
-import de.piegames.nbt.StringTag;
 import de.piegames.nbt.stream.NBTInputStream;
 import de.piegames.nbt.stream.NBTOutputStream;
 import misterymob475.Data;
+import misterymob475.Fixers;
 import misterymob475.Main;
 
 import java.io.File;
@@ -42,7 +42,7 @@ public class DataFolder implements Convertor {
     @Override
     public void modifier(Path p, String FileName) throws IOException {
         //in this file: fixers for idcounts.dat and map_%.dat files
-
+        //TODO: Rewrite using the proper way (previously impossible due to library restrictions)
         File currentFolder = new File(Paths.get(p + "/" + FileName + "/data").toString());
         Files.createDirectory(Paths.get(p + "/" + FileName + "_Converted/data"));
         if (currentFolder.exists()) {
@@ -63,23 +63,9 @@ public class DataFolder implements Convertor {
                         //saves the input as a map, this is important for saving the file, for reading it is redundant
                         CompoundMap originalData = new CompoundMap(originalTopLevelTag.getValue());
                         CompoundMap data = new CompoundMap(((CompoundTag) originalData.get("data")).getValue());
-                        //gets the values we want, note, = I'm doing the easy ones first (lists last) I'm keeping the order though as I've read somewhere that that matters
-                        if (data.containsKey("dimension")) {
-                            //fixer here int --> string
-                            Integer Dimension = ((IntTag) data.get("dimension")).getValue();
-                            String newDimension;
-                            if (Dimension == 0) newDimension = "minecraft:overworld";
-                            else if (Dimension == 1) newDimension = "Minecraft:the_nether";
-                            else if (Dimension == -1) newDimension = "Minecraft:the_end";
-                            else if (Dimension == 100) newDimension = "lotr:middle_earth";
-                                //not sure if this is gonna work, we'll see
-                            else if (Dimension == 101) newDimension = "lotr:utumno";
-                            else newDimension = "minecraft:overworld";
-                            data.replace("dimension", new StringTag("dimension", newDimension));
-                        }
-                        //hmm?
-                        data.remove("width");
-                        data.remove("height");
+
+                        Fixers.MapFixer(data);
+
                         originalData.replace("data", new CompoundTag("data", data));
                         final CompoundTag newTopLevelTag = new CompoundTag("", originalData);
                         final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p + "/" + FileName + "_Converted/data/" + mapFile.getName()).toString())).getAbsolutePath()));
