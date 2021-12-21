@@ -3,6 +3,7 @@ package misterymob475;
 //import org.jnbt.*;
 
 import de.piegames.nbt.*;
+import de.piegames.nbt.regionfile.Chunk;
 
 import java.io.IOException;
 import java.util.*;
@@ -297,7 +298,6 @@ public class Fixers {
                 newData.replace("playerGameType", new IntTag("playerGameType", 1));
             }
         }
-
 
         if (newData.containsKey("EnderItems")) {
             newData.replace("EnderItems", new ListTag<>("EnderItems", TagType.TAG_COMPOUND, RecurItemFixer((((ListTag<CompoundTag>) newData.get("EnderItems")).getValue()), (double) 0, "Exception during Ender chest conversion", Data)));
@@ -836,7 +836,6 @@ public class Fixers {
      */
     public static IntArrayTag UUIDFixer(LongTag UUIDMost, LongTag UUIDLeast, String name) {
         //Creates the UUID in the new format based with name being the name of the intArrayTag
-        //Might have reversed the order though
         long v1 = UUIDMost.getValue();
         long v2 = UUIDLeast.getValue();
         return new IntArrayTag(name, new int[]{(int) (v1 >> 32), (int) v1, (int) (v2 >> 32), (int) v2});
@@ -1314,14 +1313,13 @@ public class Fixers {
     }
 
     /**
-     * Fixer level LevelFixer
-     *
-     * @param Chunk map of CompoundTag of chunk
-     * @param Data  instance of Data
-     * @return fixed map
+     * Fixes Regions
+     * @param Chunks {@link HashMap} with key Position and Value Chunk
+     * @param Data Instance of {@link Data}
+     * @return {@link HashMap} with the fixed chunks
      */
-    public static CompoundMap ChunkFixer(CompoundMap Chunk, Data Data) {
-        //TODO: Proper implementation
-        return Chunk;
+    public static HashMap<Integer, Chunk> regionFixer(HashMap<Integer, Chunk> Chunks, Data Data) {
+        //TODO: Implement
+        return Chunks;
     }
 }
