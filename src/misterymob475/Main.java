@@ -40,6 +40,7 @@ public class Main {
 
             //release should be ready now
             Data data = new Data(map);
+            StringCache stringCache = new StringCache(data);
             //used for copying data over
             String legacyWorld = legacyWorldSelection();
             //basis for the new level.dat (modifying data is easier in this case then generating from scratch)
@@ -54,7 +55,7 @@ public class Main {
                 data.LegacyIds(Paths.get(launchDir + "/" + legacyWorld + "/level.dat").toAbsolutePath().toString());
                 //HashMap<String, List<String>> ItemNames = Data.ItemNames();
                 //fancy way of looping through the implementations of the Convertor interface, this way I only have to change this line instead of adding an init, and the calling of the 2 functions per implementation
-                for (Convertor c : new Convertor[]{new LotrData(data), new PlayerData(data), new LevelDat(data, renewedWorld), new DataFolder(data)}) {
+                for (Convertor c : new Convertor[]{new LotrData(data), new PlayerData(data, stringCache), new LevelDat(data, renewedWorld, stringCache), new DataFolder(stringCache)}) {
 
                     Thread t = new Thread(() -> {
                         try {
@@ -126,31 +127,6 @@ public class Main {
         }
     }
 
-    //wasn't thread safe, this article came in handy: https://www.baeldung.com/java-thread-safety
-    public static void PrintLine(String msg, Data data, Boolean extended) {
-        if (data.Settings.get("Debug Messages").getClass().equals(Double.class)) {
-            if ((Double) data.Settings.get("Debug Messages") == 2.0) {
-                if ((Boolean) data.Settings.get("Cache debug messages")) {
-                    if (!data.stringCache.contains(msg)) {
-                        System.out.println(msg);
-                        data.stringCache.add(msg);
-                    }
-                } else System.out.println(msg);
-
-            } else if ((Double) data.Settings.get("Debug Messages") == 1.0) {
-                if (!extended) {
-                    if ((Boolean) data.Settings.get("Cache debug messages")) {
-                        if (!data.stringCache.contains(msg)) {
-                            System.out.println(msg);
-                            data.stringCache.add(msg);
-                        }
-                    } else System.out.println(msg);
-                }
-            }
-        }
-    }
-    //if (data.Settings().get("Debug Messages")) System.out.println(msg);
-
 
     /**
      * Gives an option prompt asking for a legacy world (if only one world is found no questions are asked), returns "" if no worlds are found
@@ -217,8 +193,7 @@ public class Main {
                 }
             }
         }
-        if (!file.delete())
-            System.out.println("Failed to delete file");
+        if (!file.delete()) System.out.println("Failed to delete file");
     }
 
 }

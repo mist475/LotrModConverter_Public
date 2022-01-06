@@ -16,8 +16,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Objects;
 
-import static misterymob475.Main.PrintLine;
-
 //this class fixes the data in the LOTR folder, this also means it renames the folder to lotr (so to lower case)
 
 /**
@@ -27,7 +25,7 @@ public class LotrData implements Convertor {
     private final Data Data;
 
     /**
-     * @param data instance of {@link Data}
+     * @param data        instance of {@link Data}
      */
 
     public LotrData(Data data) {
@@ -157,7 +155,7 @@ public class LotrData implements Convertor {
             catch (final ClassCastException | NullPointerException ex) {
                 throw new IOException("Error during playerData conversion fix");
             }
-            PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(PlayerDir.listFiles()).length + " Playerfiles", Data, true);
+            //stringCache.PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(PlayerDir.listFiles()).length + " Playerfiles", true);
         }
         System.out.println("Converted all the player files in the /lotr folder");
     }

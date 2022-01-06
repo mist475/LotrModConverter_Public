@@ -4,6 +4,7 @@ import de.piegames.nbt.regionfile.Chunk;
 import de.piegames.nbt.regionfile.RegionFile;
 import misterymob475.Data;
 import misterymob475.Fixers;
+import misterymob475.StringCache;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,15 +13,20 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
-
-import static misterymob475.Main.PrintLine;
 
 public class MiddleEarth implements Convertor {
     private final misterymob475.Data Data;
+    private final StringCache stringCache;
 
-    public MiddleEarth(Data Data) {
+    /**
+     * Creates an instance on MiddleEarth
+     *
+     * @param Data        instance of {@link Data}
+     * @param stringCache instance of {@link StringCache}
+     */
+    public MiddleEarth(Data Data, StringCache stringCache) {
         this.Data = Data;
+        this.stringCache = stringCache;
     }
 
     /**
@@ -53,15 +59,14 @@ public class MiddleEarth implements Convertor {
                         regionFile.close();
                         RegionFile new_Region = RegionFile.createNew(Paths.get(p + "/" + FileName + "_Converted/dimensions/lotr/middle_earth/region/" + mapFile.getName()));
 
-                        new_Region.writeChunks(Fixers.regionFixer(chunks, Data));
-                    }
-                    catch (Exception e) {
+                        new_Region.writeChunks(Fixers.regionFixer(chunks, Data, stringCache));
+                    } catch (Exception e) {
                         throw new IOException("Error during middle earth dimension fix");
                     }
-                    PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + " region files of middle earth dimension", Data, true);
+                    //stringCache.PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + " region files of middle earth dimension", true);
                 }
 
-                PrintLine("Converted the middle earth dimension", Data, false);
+                stringCache.PrintLine("Converted the middle earth dimension", false);
             }
         }
     }

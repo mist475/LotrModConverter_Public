@@ -4,6 +4,7 @@ import de.piegames.nbt.regionfile.Chunk;
 import de.piegames.nbt.regionfile.RegionFile;
 import misterymob475.Data;
 import misterymob475.Fixers;
+import misterymob475.StringCache;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,19 +15,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
-import static misterymob475.Main.PrintLine;
-
 
 public class Overworld implements Convertor {
     private final misterymob475.Data Data;
+    private final StringCache stringCache;
 
     /**
      * Creates an instance of HandMapData
      *
-     * @param data instance of {@link Data}
+     * @param data        instance of {@link Data}
+     * @param stringCache instance of {@link StringCache}
      */
-    public Overworld(Data data) {
+    public Overworld(Data data, StringCache stringCache) {
         this.Data = data;
+        this.stringCache = stringCache;
     }
 
     /**
@@ -57,15 +59,15 @@ public class Overworld implements Convertor {
                         RegionFile new_Region = RegionFile.createNew(Paths.get(p + "/" + FileName + "_Converted/region/" + mapFile.getName()));
 
                         //TODO: Speed test 1 thread vs 1 thread per mca file
-                        new_Region.writeChunks(Fixers.regionFixer(chunks, Data));
+                        new_Region.writeChunks(Fixers.regionFixer(chunks, Data, stringCache));
                     } catch (Exception e) {
                         e.printStackTrace();
                         throw new IOException("Error during overworld dimension fix");
                     }
-                    PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + " overworld dimension region files", Data, true);
+                    //stringCache.PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + " overworld dimension region files", true);
                 }
 
-                PrintLine("Converted the overworld dimension", Data, false);
+                stringCache.PrintLine("Converted the overworld dimension", false);
             }
         }
     }

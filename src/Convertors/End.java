@@ -4,6 +4,7 @@ import de.piegames.nbt.regionfile.Chunk;
 import de.piegames.nbt.regionfile.RegionFile;
 import misterymob475.Data;
 import misterymob475.Fixers;
+import misterymob475.StringCache;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,20 +13,20 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
-
-import static misterymob475.Main.PrintLine;
 
 public class End implements Convertor {
     private final misterymob475.Data Data;
+    private final StringCache stringCache;
 
     /**
      * Creates an instance of HandMapData
      *
-     * @param data instance of {@link misterymob475.Data}
+     * @param data        instance of {@link misterymob475.Data}
+     * @param stringCache instance of {@link StringCache}
      */
-    public End(Data data) {
+    public End(Data data, StringCache stringCache) {
         this.Data = data;
+        this.stringCache = stringCache;
     }
 
     /**
@@ -57,15 +58,14 @@ public class End implements Convertor {
                         regionFile.close();
                         RegionFile new_Region = RegionFile.createNew(Paths.get(p + "/" + FileName + "_Converted/DIM-1/region/" + mapFile.getName()));
 
-                        new_Region.writeChunks(Fixers.regionFixer(chunks, Data));
-                    }
-                    catch (Exception e) {
+                        new_Region.writeChunks(Fixers.regionFixer(chunks, Data, stringCache));
+                    } catch (Exception e) {
                         throw new IOException("Error during end dimension fix");
                     }
-                    PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + " region files of end dimension", Data, true);
+                    //stringCache.PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + " region files of end dimension", true);
                 }
 
-                PrintLine("Converted the end dimension", Data, false);
+                stringCache.PrintLine("Converted the end dimension", false);
             }
         }
     }

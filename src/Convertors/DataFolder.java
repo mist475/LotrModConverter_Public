@@ -5,9 +5,8 @@ import de.piegames.nbt.CompoundTag;
 import de.piegames.nbt.IntTag;
 import de.piegames.nbt.stream.NBTInputStream;
 import de.piegames.nbt.stream.NBTOutputStream;
-import misterymob475.Data;
 import misterymob475.Fixers;
-import misterymob475.Main;
+import misterymob475.StringCache;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -16,20 +15,17 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Objects;
-
-import static misterymob475.Main.PrintLine;
 
 public class DataFolder implements Convertor {
-    private final Data Data;
+    private final StringCache stringCache;
 
     /**
      * Creates an instance of HandMapData
      *
-     * @param data instance of {@link Data}
+     * @param stringCache instance of {@link StringCache}
      */
-    public DataFolder(Data data) {
-        this.Data = data;
+    public DataFolder(StringCache stringCache) {
+        this.stringCache = stringCache;
     }
 
 
@@ -76,10 +72,10 @@ public class DataFolder implements Convertor {
                     catch (Exception e) {
                         throw new IOException("Error during map conversion fix");
                     }
-                    PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + " maps", Data, true);
+                    //stringCache.PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + " maps", true);
                 }
 
-                PrintLine("Converted all the maps", Data, false);
+                stringCache.PrintLine("Converted all the maps", false);
                 try {
                     if (new File(currentFolder + "/idcounts.dat").exists()) {
 
@@ -94,7 +90,7 @@ public class DataFolder implements Convertor {
                         output.writeTag(newTopLevelTag);
                         output.close();
 
-                        Main.PrintLine("converted idcount.dat", Data, false);
+                        stringCache.PrintLine("converted idcount.dat", false);
                     }
 
                 } catch (IOException e) {

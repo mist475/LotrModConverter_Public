@@ -6,6 +6,7 @@ import de.piegames.nbt.stream.NBTInputStream;
 import de.piegames.nbt.stream.NBTOutputStream;
 import misterymob475.Data;
 import misterymob475.Fixers;
+import misterymob475.StringCache;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -16,8 +17,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Objects;
 
-import static misterymob475.Main.PrintLine;
-
 //this class fixes the regular player data (the files in the playerdata folder) and the level.dat file (mainly because playerdata is also stored in there)
 
 /**
@@ -25,14 +24,17 @@ import static misterymob475.Main.PrintLine;
  */
 public class PlayerData implements Convertor {
     private final Data Data;
+    private final StringCache stringCache;
 
     /**
      * Creates an instance of PlayerData
      *
-     * @param data instance of {@link Data}
+     * @param data        instance of {@link Data}
+     * @param stringCache instance of {@link StringCache}
      */
-    public PlayerData(Data data) {
+    public PlayerData(Data data, StringCache stringCache) {
         this.Data = data;
+        this.stringCache = stringCache;
     }
 
     /**
@@ -64,7 +66,7 @@ public class PlayerData implements Convertor {
             //this way I can modify the map directly, instead of regenerating it every time
             CompoundMap newData = new CompoundMap(originalData);
 //
-            Fixers.playerFixer(newData, Data);
+            Fixers.playerFixer(newData, stringCache, Data);
 //
 
             final CompoundTag newTopLevelTag = new CompoundTag("", newData);
@@ -73,7 +75,7 @@ public class PlayerData implements Convertor {
             final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p + "/" + FileName + "_Converted/playerdata/" + f.getName()).toString())).getAbsolutePath()));
             output.writeTag(newTopLevelTag);
             output.close();
-            PrintLine("Converted " + (i - 1) + "/ " + Objects.requireNonNull(currentFolder.listFiles()).length + " player data files", Data, true);
+            //stringCache.PrintLine("Converted " + (i - 1) + "/ " + Objects.requireNonNull(currentFolder.listFiles()).length + " player data files", true);
         }
         System.out.println("converted all the playerdata");
             /*

@@ -5,7 +5,6 @@ import de.piegames.nbt.stream.NBTInputStream;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,7 +13,6 @@ import java.util.Map;
  * Manages the mappings
  */
 public class Data {
-    public volatile List<String> stringCache = new ArrayList<>();
     public Map<String, String> Waypoints;
     public Map<Integer, String> LegacyIds;
     public Map<String, String> Colours;
