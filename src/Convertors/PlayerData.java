@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Objects;
 
 //this class fixes the regular player data (the files in the playerdata folder) and the level.dat file (mainly because playerdata is also stored in there)
 
@@ -54,30 +53,32 @@ public class PlayerData implements Convertor {
         File currentFolder = new File(Paths.get(p + "/" + FileName + "/playerdata").toString());
         File[] curDirList = currentFolder.listFiles((dir, name) -> name.toLowerCase().endsWith(".dat"));
         int i = 1;
-        assert curDirList != null;
-        for (File f : curDirList) {
-            i++;
-            final NBTInputStream input = new NBTInputStream(new FileInputStream(f));
-            final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
-            input.close();
+        if (curDirList != null) {
+            for (File f : curDirList) {
+                i++;
+                final NBTInputStream input = new NBTInputStream(new FileInputStream(f));
+                final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
+                input.close();
 
-            //because of the way playerdata is stored in the level.dat I have moved the fixer to a slightly different function lmao
-            CompoundMap originalData = originalTopLevelTag.getValue();
-            //this way I can modify the map directly, instead of regenerating it every time
-            CompoundMap newData = new CompoundMap(originalData);
+                //because of the way playerdata is stored in the level.dat I have moved the fixer to a slightly different function lmao
+                CompoundMap originalData = originalTopLevelTag.getValue();
+                //this way I can modify the map directly, instead of regenerating it every time
+                CompoundMap newData = new CompoundMap(originalData);
 //
-            Fixers.playerFixer(newData, stringCache, Data);
+                Fixers.playerFixer(newData, stringCache, Data);
 //
 
-            final CompoundTag newTopLevelTag = new CompoundTag("", newData);
-            //(new File(Paths.get(p +"/"+FileName+"_Converted/playerdata/" + f.getName()).toString())).getAbsolutePath()
-            //final NBTOutputStream output = new NBTOutputStream(new FileOutputStream(f));
-            final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p + "/" + FileName + "_Converted/playerdata/" + f.getName()).toString())).getAbsolutePath()));
-            output.writeTag(newTopLevelTag);
-            output.close();
-            //stringCache.PrintLine("Converted " + (i - 1) + "/ " + Objects.requireNonNull(currentFolder.listFiles()).length + " player data files", true);
+                final CompoundTag newTopLevelTag = new CompoundTag("", newData);
+                //(new File(Paths.get(p +"/"+FileName+"_Converted/playerdata/" + f.getName()).toString())).getAbsolutePath()
+                //final NBTOutputStream output = new NBTOutputStream(new FileOutputStream(f));
+                final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p + "/" + FileName + "_Converted/playerdata/" + f.getName()).toString())).getAbsolutePath()));
+                output.writeTag(newTopLevelTag);
+                output.close();
+                //stringCache.PrintLine("Converted " + (i - 1) + "/ " + Objects.requireNonNull(currentFolder.listFiles()).length + " player data files", true);
+            }
+            System.out.println("converted all the playerdata");
         }
-        System.out.println("converted all the playerdata");
+
             /*
 
 

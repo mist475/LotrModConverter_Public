@@ -769,7 +769,7 @@ public class Fixers {
                             stringCache.PrintLine("No string id found for id: " + compare1, false);
                         }
                     } else {
-                        stringCache.PrintLine("Empty tag found, skipping", true);
+                        stringCache.PrintLine("Empty tag found, skipping", false);
                     }
                 }
             } else {
@@ -818,8 +818,11 @@ public class Fixers {
      * @return {@link IntArrayTag} with name as name and param inputs
      */
     public static IntArrayTag UUIDFixer(StringTag UUID_t, String name) {
-        UUID uuid = UUID.fromString(UUID_t.getValue());
-        return UUIDFixer(new LongTag("", uuid.getMostSignificantBits()), new LongTag("", uuid.getLeastSignificantBits()), name);
+        if (! UUID_t.getValue().equals("")) {
+            UUID uuid = UUID.fromString(UUID_t.getValue());
+            return UUIDFixer(new LongTag("", uuid.getMostSignificantBits()), new LongTag("", uuid.getLeastSignificantBits()), name);
+        }
+        else return new IntArrayTag(name, new int[]{0, 0, 0, 0}); //Not sure if game reads this correctly, otherwise the entire tag might have to be removed instead, this is purely to prevent a crash when the uuid is non-existent
     }
 
     /**
@@ -1267,6 +1270,79 @@ public class Fixers {
         }
     }
 
+    public static CompoundMap TileEntityFixer(CompoundMap map, Data Data) {
+        //TODO: implementation
+        //map.clear();
+        return map;
+    }
+
+    public static void SectionMapFixer(List<CompoundTag> list, Data Data) {
+        //TODO: this hellscape (this is the trickiest part of the entire converter as you're essentially creating entirely new data, thankfully the used library has a lot of helper functions which should make it slightly easier)
+    }
+
+    /**
+     * Fixes Chunk {@link CompoundMap}
+     *
+     * @param Chunk {@link CompoundMap} of a chunk
+     * @param Data  instance of {@link Data}
+     */
+    @SuppressWarnings("unchecked")
+    public static void ChunkFixer(CompoundMap Chunk, Data Data, StringCache stringCache) throws IOException {
+        if (Chunk.containsKey("Level")) {
+            Optional<CompoundTag> OLevel = Chunk.get("Level").getAsCompoundTag();
+            if (OLevel.isPresent()) {
+                CompoundMap Level = OLevel.get().getValue();
+                //Will regenerate the biomes automatically, might cause some weird things with older worlds, but it isn't a priority right now
+                Level.remove("Biomes");
+                //I don't know what this does, it isn't present in newer versions I know that for sure
+                Level.remove("V");
+                //Removed until I know exactly what it does (I don't know the modern format, again, not a priority)
+                Level.remove("TileTicks");
+                Level.remove("LightPopulated");
+                Level.remove("TerrainPopulated");
+                //Will hopefully regenerate, easily testable by just removing them from a new world via NBTExplorer, I'm just too lazy to do it.
+                Level.remove("Heightmap");
+                if (Level.containsKey("Entities")) {
+                    Optional<ListTag<?>> OEntities = Level.get("Entities").getAsListTag();
+                    if (OEntities.isPresent()) {
+                        ListTag<CompoundTag> Entities = (ListTag<CompoundTag>) OEntities.get();
+                        List<CompoundTag> EntityBuilder = new ArrayList<>();
+                        for (CompoundTag t : Entities.getValue()) {
+                            //EntityFixer was made in a hurry and is probably unfinished/ prone to crashing. For testing purposes you can disable this line if you get crashes
+                            CompoundMap Entity = EntityFixer(t.getValue(), Data, stringCache, false);
+                            if (Entity != null) EntityBuilder.add(new CompoundTag("",Entity));
+                        }
+                        Level.replace("Entities", new ListTag<>("Entities", TagType.TAG_COMPOUND, EntityBuilder));
+                    }
+                }
+                if (Level.containsKey("TileEntities")) {
+                    Optional<ListTag<?>> OTileEntities = Level.get("TileEntities").getAsListTag();
+                    if (OTileEntities.isPresent()) {
+                        ListTag<CompoundTag> TileEntities = (ListTag<CompoundTag>) OTileEntities.get();
+                        List<CompoundTag> EntityBuilder = new ArrayList<>();
+                        for (CompoundTag t : TileEntities.getValue()) {
+                            EntityBuilder.add(new CompoundTag("", TileEntityFixer(t.getValue(), Data)));
+                        }
+                        Level.replace("TileEntities", new ListTag<>("TileEntities", TagType.TAG_COMPOUND, EntityBuilder));
+                    }
+                }
+                if (Level.containsKey("Sections")) {
+                    Optional<ListTag<?>> OSections = Level.get("Sections").getAsListTag();
+                    if (OSections.isPresent()) {
+                        ListTag<CompoundTag> SectionsTag = (ListTag<CompoundTag>) OSections.get();
+                        List<CompoundTag> Sections = SectionsTag.getValue();
+                        SectionMapFixer(Sections,Data);
+                        Level.replace("Sections", new ListTag<>("Sections", TagType.TAG_COMPOUND, Sections));
+                    }
+                }
+                Chunk.replace("Level", new CompoundTag("Level", Level));
+                //This value triggers Mojangs own DataFixers so use with caution
+                Chunk.put(new IntTag("DataVersion", 2586));
+                //System.out.println();
+            }
+        }
+    }
+
     /**
      * Fixes Regions
      *
@@ -1274,8 +1350,20 @@ public class Fixers {
      * @param Data   Instance of {@link Data}
      * @return {@link HashMap} with the fixed chunks
      */
-    public static HashMap<Integer, Chunk> regionFixer(HashMap<Integer, Chunk> Chunks, Data Data, StringCache stringCache) {
-        //TODO: Implement
+    public static HashMap<Integer, Chunk> regionFixer(HashMap<Integer, Chunk> Chunks, Data Data, StringCache stringCache) throws IOException {
+        for (Map.Entry<Integer, Chunk> entry : Chunks.entrySet()) {
+            int pos = entry.getKey();
+            Chunk chunk = entry.getValue();
+            CompoundTag tag = chunk.readTag();
+            CompoundMap map = tag.getValue();
+            ChunkFixer(map, Data, stringCache);
+            tag.setValue(map);
+            //System.out.println();
+            //Chunk(int x, int z, int timestamp, Tag<?> data, byte compression)
+            chunk = new Chunk(chunk.x, chunk.z, chunk.timestamp, tag, chunk.getCompression());
+            entry.setValue(chunk);
+            //System.out.println();
+        }
         return Chunks;
     }
 }

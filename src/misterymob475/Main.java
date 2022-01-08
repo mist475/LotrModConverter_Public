@@ -55,7 +55,7 @@ public class Main {
                 data.LegacyIds(Paths.get(launchDir + "/" + legacyWorld + "/level.dat").toAbsolutePath().toString());
                 //HashMap<String, List<String>> ItemNames = Data.ItemNames();
                 //fancy way of looping through the implementations of the Convertor interface, this way I only have to change this line instead of adding an init, and the calling of the 2 functions per implementation
-                for (Convertor c : new Convertor[]{new LotrData(data), new PlayerData(data, stringCache), new LevelDat(data, renewedWorld, stringCache), new DataFolder(stringCache)}) {
+                for (Convertor c : new Convertor[]{new LotrData(data), new PlayerData(data, stringCache), new LevelDat(data, renewedWorld, stringCache), new DataFolder(stringCache), new Overworld(data,stringCache)}) {
 
                     Thread t = new Thread(() -> {
                         try {

@@ -25,7 +25,7 @@ public class LotrData implements Convertor {
     private final Data Data;
 
     /**
-     * @param data        instance of {@link Data}
+     * @param data instance of {@link Data}
      */
 
     public LotrData(Data data) {
@@ -102,22 +102,25 @@ public class LotrData implements Convertor {
             //LOTR.dat fix
 
             //opens the file as a stream and saves the result as a CompoundTag
-            final NBTInputStream input = new NBTInputStream(new FileInputStream(currentFolder + "/LOTR.dat"));
-            final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
-            input.close();
-            //saves the input as a map, this is important for saving the file, for reading it is redundant
-            CompoundMap originalData = new CompoundMap(originalTopLevelTag.getValue());
+            if (new File(Paths.get(p + "/" + FileName + "/LOTR/LOTR.dat").toString()).exists()) {
+                final NBTInputStream input = new NBTInputStream(new FileInputStream(currentFolder + "/LOTR.dat"));
+                final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
+                input.close();
+                //saves the input as a map, this is important for saving the file, for reading it is redundant
+                CompoundMap originalData = new CompoundMap(originalTopLevelTag.getValue());
 
-            Fixers.LOTRDatFixer(originalData);
+                Fixers.LOTRDatFixer(originalData);
 
-            //creates the new top level tag, otherwise it won't work
-            final CompoundTag newTopLevelTag = new CompoundTag("", originalData);
+                //creates the new top level tag, otherwise it won't work
+                final CompoundTag newTopLevelTag = new CompoundTag("", originalData);
 
-            //creates an output stream, this overwrites the file so deleting it is not necessary
-            final NBTOutputStream output = new NBTOutputStream(new FileOutputStream(Paths.get(p + "/" + FileName + "_Converted/lotr/LOTR.dat").toString()));
-            output.writeTag(newTopLevelTag);
-            output.close();
-            System.out.println("converted LOTR.dat");
+                //creates an output stream, this overwrites the file so deleting it is not necessary
+                final NBTOutputStream output = new NBTOutputStream(new FileOutputStream(Paths.get(p + "/" + FileName + "_Converted/lotr/LOTR.dat").toString()));
+                output.writeTag(newTopLevelTag);
+                output.close();
+                System.out.println("converted LOTR.dat");
+            }
+
         }
         //took this out of an example I found, changed it as my ide wanted me to
         catch (final ClassCastException | NullPointerException ex) {

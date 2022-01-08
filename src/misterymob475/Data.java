@@ -27,6 +27,7 @@ public class Data {
     public Map<String, Map<String, ?>> Potions;
     public List<String> AuthorBlacklist;
     public List<String> TitleBlacklist;
+    public Map<String, Map<String,?>> BlockMappings;
 
     /**
      * Initializes Data
@@ -48,6 +49,7 @@ public class Data {
         this.Potions = (Map<String, Map<String, ?>>) conversions.get("Potions");
         this.AuthorBlacklist = (List<String>) conversions.get("AuthorBlacklist");
         this.TitleBlacklist = (List<String>) conversions.get("TitleBlacklist");
+        this.BlockMappings = (Map<String, Map<String, ?>>) conversions.get("BlockMappings");
     }
 
 

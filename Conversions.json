@@ -7149,7 +7149,8 @@
     "Cache debug messages": true,
     "Recursion Depth": 7,
     "Creative Mode spawn" : false,
-    "Comments": "Debug messages determines debug messages (Converted x/y files, no mapping found for x, etc.), 0 means no debug messages, 1 means basic info, 2 is full (1 is recommended),Cache debug messages ensures messages will only get sent once. Creative mode spawn should be self-explanatory"
+    "Comments": "Debug messages determines debug messages (Converted x/y files, no mapping found for x, etc.), 0 means no debug messages, 1 means basic info, 2 is full (1 is recommended),Cache debug messages ensures messages will only get sent once. Creative mode spawn should be self-explanatory",
+    "comments" : "about BlockMappings: this is temporary, note that if properties don't exist there isn't a tab for it as I wanted to model the vanilla saving method as closely as possible. If it's easier to generate the JSON with the properties field empty, It won't be a difficult change"
   },
   "Waypoints": {
     "LAST_BRIDGE": "lotr:last_bridge",
@@ -7422,7 +7423,28 @@
   "TitleBlacklist" : [
     "title_blacklist_example",
     "formatting_example"
-  ]
+  ],
+  "BlockMappings" : {
+    "minecraft:redstone_ore" : {
+      "0" : {
+        "name" : "minecraft:redstone_ore",
+        "properties" : {
+          "lit": false
+        }
+      },
+      "1" : {
+        "name" : "minecraft:redstone_ore",
+        "properties" : {
+          "lit": true
+        }
+      }
+    },
+    "minecraft:air" : {
+      "0" : {
+        "name" : "minecraft:air"
+      }
+    }
+  }
 }
 
 
