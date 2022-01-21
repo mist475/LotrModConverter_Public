@@ -23,7 +23,7 @@ public class StringCache {
      * Starts a thread which checks if msg is in the stringCache, if not, it will be added and printed
      *
      * @param msg      {@link String} the message that might be printed
-     * @param extended {@link Boolean}, determines if the message should only be printed during if all messages should be displayed (particularly spammy messages)
+     * @param extended {@link Boolean}, determines if the message should always be printed or only if it hasn't been printed yet
      */
     public void PrintLine(String msg, Boolean extended) {
         Thread t = new Thread(() -> {

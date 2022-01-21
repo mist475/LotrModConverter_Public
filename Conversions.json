@@ -7429,19 +7429,37 @@
       "0" : {
         "name" : "minecraft:redstone_ore",
         "properties" : {
-          "lit": false
+          "lit": "false"
         }
       },
       "1" : {
         "name" : "minecraft:redstone_ore",
         "properties" : {
-          "lit": true
+          "lit": "true"
         }
       }
     },
     "minecraft:air" : {
       "0" : {
         "name" : "minecraft:air"
+      }
+    },
+    "minecraft:stone" : {
+      "0" : {
+        "name" : "minecraft:stone"
+      }
+    },
+    "minecraft:bedrock" : {
+      "0" : {
+        "name" : "minecraft:bedrock"
+      }
+    },
+    "minecraft:dirt" : {
+      "0" : {
+        "name" : "minecraft:dirt"
+      },
+      "1" : {
+        "name" : "add the rest of the block here too lazy rn"
       }
     }
   }
