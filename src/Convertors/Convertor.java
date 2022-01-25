@@ -15,5 +15,5 @@ public interface Convertor {
      * @throws IOException if something fails
      */
     //modifies the information to be compatible
-    void modifier(Path p, String FileName) throws IOException;
+    void modifier(Path p, String FileName) throws IOException, InterruptedException;
 }

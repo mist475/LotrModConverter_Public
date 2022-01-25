@@ -60,7 +60,7 @@ public class Main {
                     Thread t = new Thread(() -> {
                         try {
                             c.modifier(launchDir, selectedWorld.getName());
-                        } catch (IOException e) {
+                        } catch (IOException | InterruptedException e) {
                             e.printStackTrace();
                         }
                     });

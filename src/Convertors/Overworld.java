@@ -13,7 +13,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 
 public class Overworld implements Convertor {
@@ -45,9 +44,9 @@ public class Overworld implements Convertor {
         if (currentFolder.exists()) {
             File[] curDirList = currentFolder.listFiles();
             if (curDirList != null) {
-                int i = 1;
+                //int i = 1;
                 for (File mapFile : curDirList) {
-                    i++;
+                    //i++;
                     try {
                         RegionFile regionFile = RegionFile.openReadOnly(Paths.get(mapFile.getPath()));
                         HashMap<Integer, Chunk> chunks = new HashMap<>();

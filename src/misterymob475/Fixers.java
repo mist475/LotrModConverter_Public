@@ -1274,11 +1274,10 @@ public class Fixers {
     public static CompoundMap TileEntityFixer(CompoundMap map, Data Data) {
         //TODO: implementation
         //map.clear();
-        return map;
+        return new CompoundMap();
     }
 
-    @SuppressWarnings("unchecked")
-    public static List<CompoundTag> SectionMapFixer(List<CompoundTag> list, Data Data, StringCache stringCache) {
+    public static void SectionMapFixer(List<CompoundTag> list, Data Data, StringCache stringCache) {
         //TODO: this hellscape (this is the trickiest part of the entire converter as you're essentially creating entirely new data, thankfully the used library has a lot of helper functions which should make it slightly easier)
         //Plan for now:
         /*
@@ -1289,100 +1288,134 @@ public class Fixers {
         /*
          * This is probably caused by unnecessary calls to various functions
          * */
-        List<CompoundTag> builder = new ArrayList<>();
-        for (CompoundTag t : list) {
+        for (int i = 0; i < list.size(); i++) {
+            CompoundMap SectionCompoundMap = list.get(i).getValue();
             List<CompoundTag> PaletteBuilderList = new ArrayList<>();
             //used for making sure no identical palette entries exist
             List<String> PaletteCheckerList = new ArrayList<>();
             // Blocks = 4096 Bytes
             // Data = 2048 Bytes, I'm assuming 2 blocks share one data entry in data
-            Optional<ByteArrayTag> OBlocksByteArray = t.getAsByteArrayTag("Blocks");
-            Optional<ByteArrayTag> ODataByteArray = t.getAsByteArrayTag("Data");
+            Optional<ByteArrayTag> OBlocksByteArray = SectionCompoundMap.get("Blocks").getAsByteArrayTag();
+            Optional<ByteArrayTag> ODataByteArray = SectionCompoundMap.get("Data").getAsByteArrayTag();
 
             if (OBlocksByteArray.isPresent() && ODataByteArray.isPresent()) {
                 byte[] BlocksByteArray = OBlocksByteArray.get().getValue();
                 byte[] DataByteArray = ODataByteArray.get().getValue();
                 //this should never fail as far as I know, purely redundancy
                 if (BlocksByteArray.length == 4096 && DataByteArray.length == 2048) {
-                    long[] BlockStates = new long[256];
+                    //long[] BlockStates = new long[256];
                     //to loop through both lists at once.
                     int DataCounter = 0;
                     while (DataCounter < 4096) {
                         int dataValue = Math.floorDiv(DataCounter, 2);
                         //I might've reversed this one accidentally, time will tell...
                         boolean SecondEntry = DataCounter % 2 == 1;
-                        if (Data.LegacyIds.containsKey((int) BlocksByteArray[DataCounter])) {
-                            stringCache.PrintLine(Data.LegacyIds.get((int) BlocksByteArray[DataCounter]), false);
-                            if (Data.BlockMappings.containsKey(Data.LegacyIds.get((int) BlocksByteArray[DataCounter]))) {
-                                //If were here it means we're actually getting somewhere
-                                Optional<LinkedTreeMap> OEntry = GetEntryIfExists((Map<String, LinkedTreeMap>) Data.BlockMappings.get(Data.LegacyIds.get((int) BlocksByteArray[DataCounter])), DataByteArray[dataValue], SecondEntry);
-                                if (OEntry.isPresent()) {
-                                    if (!PaletteCheckerList.contains(OEntry.get().toString())) {
-                                        PaletteCheckerList.add(OEntry.get().toString());
-                                        //Add Palette entry to builder, should always be true due to the earlier check
-                                        Optional<CompoundMap> OPaletteEntry = BlockStatePaletteEntryGenerator(Data.BlockMappings.get(Data.LegacyIds.get((int) BlocksByteArray[DataCounter])), DataByteArray[dataValue], SecondEntry);
-                                        OPaletteEntry.ifPresent(tags -> PaletteBuilderList.add(new CompoundTag("", tags)));
-                                    }
-                                } else {
-                                    if (!PaletteCheckerList.contains("{name=minecraft:air}")) {
-                                        PaletteCheckerList.add("{name=minecraft:air}");
-                                        CompoundMap air = new CompoundMap();
-                                        air.put(new StringTag("Name", "minecraft:air"));
-                                        PaletteBuilderList.add(new CompoundTag("", air));
-                                    }
-                                }
+                        if (Data.BlockIdToName.containsKey(String.valueOf(BlocksByteArray[DataCounter]))) {
+                            String LegacyId = Data.BlockIdToName.get(String.valueOf(BlocksByteArray[DataCounter]));
+
+                            //Only print for debugging purposes, this is extremely slow (1 region file with this on takes 15 min, with this of it takes 15 seconds)
+                            //stringCache.PrintLine(LegacyId, false);
+                            //Here the main optimisations could occur
+                            if (Data.BlockMappings.containsKey(LegacyId)) {
+                                AddPaletteEntryIfNecessary(Data.BlockMappings.get(LegacyId), DataByteArray[dataValue], SecondEntry, PaletteCheckerList, PaletteBuilderList);
                             } else {
-                                if (!PaletteCheckerList.contains("{name=minecraft:air}")) {
-                                    PaletteCheckerList.add("{name=minecraft:air}");
-                                    CompoundMap air = new CompoundMap();
-                                    air.put(new StringTag("Name", "minecraft:air"));
-                                    PaletteBuilderList.add(new CompoundTag("", air));
-                                }
+                                AddAirIfNotExists(PaletteCheckerList, PaletteBuilderList);
                             }
                         } else {
                             String debug = "no legacy id found for id: " + BlocksByteArray[DataCounter];
                             stringCache.PrintLine(debug, false);
-                            if (!PaletteCheckerList.contains("{name=minecraft:air}")) {
-                                PaletteCheckerList.add("{name=minecraft:air}");
-                                CompoundMap air = new CompoundMap();
-                                air.put(new StringTag("Name", "minecraft:air"));
-                                PaletteBuilderList.add(new CompoundTag("", air));
-                            }
+                            AddAirIfNotExists(PaletteCheckerList, PaletteBuilderList);
                         }
                         DataCounter++;
                     }
+
                     ListTag<CompoundTag> Palette = new ListTag<>("Palette", TagType.TAG_COMPOUND, PaletteBuilderList);
+                    /*
+                    Original way of doing things:
+
                     CompoundMap mapBuilder = new CompoundMap();
                     mapBuilder.put(Palette);
-                    Optional<ByteTag> OY = t.getValue().get("Y").getAsByteTag();
-                    Optional<ByteArrayTag> OBlockLight = t.getValue().get("BlockLight").getAsByteArrayTag();
-                    Optional<ByteArrayTag> OSkyLight = t.getValue().get("SkyLight").getAsByteArrayTag();
+                    Optional<ByteTag> OY = list.get(i).getValue().get("Y").getAsByteTag();
+                    Optional<ByteArrayTag> OBlockLight = list.get(i).getValue().get("BlockLight").getAsByteArrayTag();
+                    Optional<ByteArrayTag> OSkyLight = list.get(i).getValue().get("SkyLight").getAsByteArrayTag();
 
                     OY.ifPresent(mapBuilder::put);
                     OBlockLight.ifPresent(mapBuilder::put);
                     OSkyLight.ifPresent(mapBuilder::put);
                     builder.add(new CompoundTag("", mapBuilder));
+                    */
+
+                    SectionCompoundMap.remove("Blocks");
+                    SectionCompoundMap.remove("Data");
+                    SectionCompoundMap.put(Palette);
+
+                    list.set(i, new CompoundTag("", SectionCompoundMap));
+
                 } else {
                     stringCache.PrintLine("Invalid section format!", false);
                 }
             }
         }
-        return builder;
     }
 
     /**
-     * If a Sub entry for a BlockMapping Exists this function will return it, otherwise it will return an empty {@link Optional}
+     * Adds an entry to the Palette if it's necessary (it doesn't exist yet)
      *
-     * @param Mapping     {@link Map} with K {@link String} and V {@link LinkedTreeMap} Containing the outer BlockMapping
-     * @param DataValue   byte value of the BlockData, shared between 2 blocks
-     * @param SecondEntry boolean determining which of the 2 blocks should be used
-     * @return {@link Optional} of {@link LinkedTreeMap} containing the proper mapping that should be used by the Palette
+     * @param BlockMapping       {@link Map<String>} Mapping of the main id
+     * @param DataEntry          byte second id of the block
+     * @param SecondEntry        werther the first or second id of DataEntry should be used
+     * @param PaletteCheckerList {@link List<String>} containing String versions of the Palette entries, used for faster searching
+     * @param PaletteBuilderList {@link List<CompoundTag>} containing the Palette entries
      */
-    public static Optional<LinkedTreeMap> GetEntryIfExists(Map<String, LinkedTreeMap> Mapping, byte DataValue, boolean SecondEntry) {
-        if (EntryExists(Mapping, DataValue, SecondEntry)) {
-            LinkedTreeMap temp = (Mapping.get(String.valueOf((BlockDataSelector(DataValue, SecondEntry)))));
-            return Optional.of(temp);
-        } else return Optional.empty();
+    @SuppressWarnings("unchecked")
+    public static void AddPaletteEntryIfNecessary(Map<String, ?> BlockMapping, byte DataEntry, boolean SecondEntry, List<String> PaletteCheckerList, List<CompoundTag> PaletteBuilderList) {
+        if (EntryExists(BlockMapping, DataEntry, SecondEntry)) {
+            LinkedTreeMap<?, ?> Entry = (LinkedTreeMap<?, ?>) BlockMapping.get(String.valueOf((BlockDataSelector(DataEntry, SecondEntry))));
+            if (!PaletteCheckerList.contains(Entry.toString())) {
+                PaletteCheckerList.add(Entry.toString());
+                CompoundMap map = new CompoundMap();
+                if (Entry.containsKey("name")) {
+                    map.put(new StringTag("Name", (String) Entry.get("name")));
+                    if (Entry.containsKey("properties")) {
+                        CompoundMap innerCompoundBuilder = new CompoundMap();
+                        Map<String, ?> properties = (Map<String, ?>) Entry.get("properties");
+                        for (Map.Entry<String, ?> property : properties.entrySet()) {
+                            //probably always a string if I read the wiki correctly, just in case I put in the case of a Boolean
+                            if (property.getValue() instanceof String)
+                                innerCompoundBuilder.put(new StringTag(property.getKey(), (String) property.getValue()));
+                            else if (property.getValue() instanceof Boolean)
+                                innerCompoundBuilder.put(new ByteTag(property.getKey(), (Boolean) property.getValue()));
+                        }
+                        map.put(new CompoundTag("Properties", innerCompoundBuilder));
+                    }
+                    PaletteBuilderList.add(new CompoundTag("Palette", map));
+                }
+
+            } else {
+                AddAirIfNotExists(PaletteCheckerList, PaletteBuilderList);
+            }
+        } else {
+            AddAirIfNotExists(PaletteCheckerList, PaletteBuilderList);
+        }
+        if (PaletteCheckerList.size() != PaletteBuilderList.size()) {
+            System.out.println();
+        }
+    }
+
+
+    /**
+     * Adds an entry for air to PaletteCheckerList & PaletteBuilderList if it doesn't exist yet
+     *
+     * @param PaletteCheckerList {@link List<String>} containing string entries of the palette
+     * @param PaletteBuilderList {@link List<CompoundTag>} containing entries of the palette
+     */
+    public static void AddAirIfNotExists(List<String> PaletteCheckerList, List<CompoundTag> PaletteBuilderList) {
+        if (!PaletteCheckerList.contains("{name=minecraft:air}")) {
+            PaletteCheckerList.add("{name=minecraft:air}");
+            CompoundMap air = new CompoundMap();
+            air.put(new StringTag("Name", "minecraft:air"));
+            PaletteBuilderList.add(new CompoundTag("", air));
+        }
     }
 
     /**
@@ -1407,40 +1440,6 @@ public class Fixers {
     public static byte BlockDataSelector(byte DataValue, boolean SecondEntry) {
         //Binary is not really my forte, as such I hope this will work
         return (SecondEntry ? (byte) (DataValue >> 4) : (byte) (DataValue & 15));
-    }
-
-    /**
-     * Takes an entry from BlockMappings and the byte it should have and creates a CompoundMap to put into the Palette
-     *
-     * @param entry       Entry from {@link Data}.BlockMappings
-     * @param DataValue   byte determining the position in the entry
-     * @param SecondEntry boolean that determines werther the first 4 bits or the last 4 bits of DataValue need to be taken into account as data from 2 separate blocks is stored in 1 byte
-     * @return Optional of {@link CompoundMap} which should be turned into a Palette entry
-     */
-    @SuppressWarnings("unchecked")
-    public static Optional<CompoundMap> BlockStatePaletteEntryGenerator(Map<String, ?> entry, byte DataValue, boolean SecondEntry) {
-        byte dataValue = BlockDataSelector(DataValue, SecondEntry);
-
-        if (entry.containsKey(String.valueOf(dataValue))) {
-            CompoundMap map = new CompoundMap();
-            Map<String, ?> innerMap = (Map<String, ?>) entry.get(String.valueOf(dataValue));
-            if (innerMap.containsKey("name")) {
-                map.put(new StringTag("Name", (String) innerMap.get("name")));
-                if (innerMap.containsKey("properties")) {
-                    CompoundMap innerCompoundBuilder = new CompoundMap();
-                    Map<String, ?> properties = (Map<String, ?>) innerMap.get("properties");
-                    for (Map.Entry<String, ?> property : properties.entrySet()) {
-                        //probably always a string if I read the wiki correctly, just in case I put in the case of a Boolean
-                        if (property.getValue() instanceof String)
-                            innerCompoundBuilder.put(new StringTag(property.getKey(), (String) property.getValue()));
-                        else if (property.getValue() instanceof Boolean)
-                            innerCompoundBuilder.put(new ByteTag(property.getKey(), (Boolean) property.getValue()));
-                    }
-                    map.put(new CompoundTag("Properties", innerCompoundBuilder));
-                }
-            }
-            return Optional.of(map);
-        } else return Optional.empty();
     }
 
     /**
@@ -1494,14 +1493,13 @@ public class Fixers {
                     if (OSections.isPresent()) {
                         ListTag<CompoundTag> SectionsTag = (ListTag<CompoundTag>) OSections.get();
                         List<CompoundTag> Sections = SectionsTag.getValue();
-                        Sections = SectionMapFixer(Sections, Data, stringCache);
+                        SectionMapFixer(Sections, Data, stringCache);
                         Level.replace("Sections", new ListTag<>("Sections", TagType.TAG_COMPOUND, Sections));
                     }
                 }
                 Chunk.replace("Level", new CompoundTag("Level", Level));
                 //This value triggers Mojangs own DataFixers so use with caution
                 Chunk.put(new IntTag("DataVersion", 2586));
-                //System.out.println();
             }
         }
     }
@@ -1514,18 +1512,19 @@ public class Fixers {
      * @return {@link HashMap} with the fixed chunks
      */
     public static HashMap<Integer, Chunk> regionFixer(HashMap<Integer, Chunk> Chunks, Data Data, StringCache stringCache) throws IOException {
+        //int i = 0;
         for (Map.Entry<Integer, Chunk> entry : Chunks.entrySet()) {
-            int pos = entry.getKey();
+            //i++;
+            //int pos = entry.getKey();
             Chunk chunk = entry.getValue();
             CompoundTag tag = chunk.readTag();
             CompoundMap map = tag.getValue();
             ChunkFixer(map, Data, stringCache);
             tag.setValue(map);
-            //System.out.println();
             //Chunk(int x, int z, int timestamp, Tag<?> data, byte compression)
             chunk = new Chunk(chunk.x, chunk.z, chunk.timestamp, tag, chunk.getCompression());
             entry.setValue(chunk);
-            //System.out.println();
+            //stringCache.PrintLine("converted chunk nr: " + i, false);
         }
         return Chunks;
     }

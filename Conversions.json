@@ -6839,240 +6839,307 @@
       "lotr:wattle_and_daub"
     ]
   },
-  "Potions" : {
-    "0" : {
-      "Name" : "minecraft:water",
-      "Splash" : false
+  "Potions": {
+    "0": {
+      "Name": "minecraft:water",
+      "Splash": false
+    },
+    "373": {
+      "Name": "minecraft:awkward",
+      "Splash": false
+    },
+    "32": {
+      "Name": "minecraft:thick",
+      "Splash": false
+    },
+    "64": {
+      "Name": "minecraft:mundane",
+      "Splash": false
+    },
+    "8192": {
+      "Name": "minecraft:mundane",
+      "Splash": false
+    },
+    "8193": {
+      "Name": "minecraft:regeneration",
+      "Splash": false
+    },
+    "8194": {
+      "Name": "minecraft:swiftness",
+      "Splash": false
+    },
+    "8195": {
+      "Name": "minecraft:fire_resistance",
+      "Splash": false
+    },
+    "8196": {
+      "Name": "minecraft:poison",
+      "Splash": false
+    },
+    "8197": {
+      "Name": "minecraft:healing",
+      "Splash": false
+    },
+    "8198": {
+      "Name": "minecraft:night_vision",
+      "Splash": false
+    },
+    "8200": {
+      "Name": "minecraft:weakness",
+      "Splash": false
+    },
+    "8201": {
+      "Name": "minecraft:strength",
+      "Splash": false
+    },
+    "8202": {
+      "Name": "minecraft:slowness",
+      "Splash": false
+    },
+    "8204": {
+      "Name": "minecraft:harming",
+      "Splash": false
+    },
+    "8205": {
+      "Name": "minecraft:water_breathing",
+      "Splash": false
+    },
+    "8206": {
+      "Name": "minecraft:invisibility",
+      "Splash": false
+    },
+    "8225": {
+      "Name": "minecraft:strong_regeneration",
+      "Splash": false
+    },
+    "8226": {
+      "Name": "minecraft:strong_strength",
+      "Splash": false
+    },
+    "8228": {
+      "Name": "minecraft:strong_poison",
+      "Splash": false
+    },
+    "8229": {
+      "Name": "minecraftL:strong_healing",
+      "Splash": false
+    },
+    "8232": {
+      "Name": "minecraft:weakness",
+      "Splash": false
+    },
+    "8233": {
+      "Name": "minecraft:strength_strength",
+      "Splash": false
+    },
+    "8234": {
+      "Name": "minecraft:strong_slowness",
+      "Splash": false
+    },
+    "8236": {
+      "Name": "minecraft:strong_harming",
+      "Splash": false
+    },
+    "8257": {
+      "Name": "minecraft:long_regeneration",
+      "Splash": false
     },
-    "373" : {
-      "Name" :"minecraft:awkward","Splash" : false
+    "8258": {
+      "Name": "minecraft:long_swiftness",
+      "Splash": false
     },
-    "32" : {
-      "Name" :"minecraft:thick","Splash" : false
+    "8259": {
+      "Name": "minecraft:long_fire_resistance",
+      "Splash": false
     },
-    "64" : {
-      "Name" :"minecraft:mundane","Splash" : false
+    "8260": {
+      "Name": "minecraft:long_poison",
+      "Splash": false
     },
-    "8192" : {
-      "Name" :"minecraft:mundane","Splash" : false
+    "8262": {
+      "Name": "minecraft:long_night_vision",
+      "Splash": false
     },
-    "8193" : {
-      "Name" :"minecraft:regeneration","Splash" : false
+    "8264": {
+      "Name": "minecraft:long_weakness",
+      "Splash": false
     },
-    "8194" : {
-      "Name" :"minecraft:swiftness","Splash" : false
+    "8265": {
+      "Name": "minecraft:long_strength",
+      "Splash": false
     },
-    "8195" : {
-      "Name" :"minecraft:fire_resistance","Splash" : false
+    "8266": {
+      "Name": "minecraft:long_slowness",
+      "Splash": false
     },
-    "8196" : {
-      "Name" :"minecraft:poison","Splash" : false
+    "8268": {
+      "Name": "minecraft:harming",
+      "Splash": false
     },
-    "8197" : {
-      "Name" :"minecraft:healing","Splash" : false
+    "8269": {
+      "Name": "minecraft:long_water_breathing",
+      "Splash": false
     },
-    "8198" : {
-      "Name" :"minecraft:night_vision","Splash" : false
+    "8270": {
+      "Name": "minecraft:long_invisibility",
+      "Splash": false
     },
-    "8200" : {
-      "Name" :"minecraft:weakness","Splash" : false
+    "16384": {
+      "Name": "minecraft:mundane",
+      "Splash": true
     },
-    "8201" : {
-      "Name" :"minecraft:strength","Splash" : false
+    "16385": {
+      "Name": "minecraft:regeneration",
+      "Splash": true
     },
-    "8202" : {
-      "Name" :"minecraft:slowness","Splash" : false
+    "16386": {
+      "Name": "minecraft:swiftness",
+      "Splash": true
     },
-    "8204" : {
-      "Name" :"minecraft:harming","Splash" : false
+    "16387": {
+      "Name": "minecraft:fire_resistance",
+      "Splash": true
     },
-    "8205" : {
-      "Name" :"minecraft:water_breathing","Splash" : false
+    "16388": {
+      "Name": "minecraft:poison",
+      "Splash": true
     },
-    "8206" : {
-      "Name" :"minecraft:invisibility","Splash" : false
+    "16389": {
+      "Name": "minecraft:healing",
+      "Splash": true
     },
-    "8225" : {
-      "Name" :"minecraft:strong_regeneration","Splash" : false
+    "16390": {
+      "Name": "minecraft:night_vision",
+      "Splash": true
     },
-    "8226" : {
-      "Name" :"minecraft:strong_strength","Splash" : false
+    "16392": {
+      "Name": "minecraft:weakness",
+      "Splash": true
     },
-    "8228" : {
-      "Name" :"minecraft:strong_poison","Splash" : false
+    "16393": {
+      "Name": "minecraft:strength",
+      "Splash": true
     },
-    "8229" : {
-      "Name" :"minecraftL:strong_healing","Splash" : false
+    "16394": {
+      "Name": "minecraft:slowness",
+      "Splash": true
     },
-    "8232" : {
-      "Name" :"minecraft:weakness","Splash" : false
+    "16396": {
+      "Name": "minecraft:harming",
+      "Splash": true
     },
-    "8233" : {
-      "Name" :"minecraft:strength_strength","Splash" : false
+    "16397": {
+      "Name": "minecraft:water_breathing",
+      "Splash": true
     },
-    "8234" : {
-      "Name" :"minecraft:strong_slowness","Splash" : false
+    "16398": {
+      "Name": "minecraft:invisibility",
+      "Splash": true
     },
-    "8236" : {
-      "Name" :"minecraft:strong_harming","Splash" : false
+    "16417": {
+      "Name": "minecraft:strong_regeneration",
+      "Splash": true
     },
-    "8257" : {
-      "Name" :"minecraft:long_regeneration","Splash" : false
+    "16418": {
+      "Name": "minecraft:strong_swiftness",
+      "Splash": true
     },
-    "8258" : {
-      "Name" :"minecraft:long_swiftness","Splash" : false
+    "16420": {
+      "Name": "minecraft:strong_poison",
+      "Splash": true
     },
-    "8259" : {
-      "Name" :"minecraft:long_fire_resistance","Splash" : false
+    "16421": {
+      "Name": "minecraft:strong_healing",
+      "Splash": true
     },
-    "8260" : {
-      "Name" :"minecraft:long_poison","Splash" : false
+    "16424": {
+      "Name": "minecraft:weakness",
+      "Splash": true
     },
-    "8262" : {
-      "Name" :"minecraft:long_night_vision","Splash" : false
+    "16425": {
+      "Name": "minecraft:strong_strength",
+      "Splash": true
     },
-    "8264" : {
-      "Name" :"minecraft:long_weakness","Splash" : false
+    "16426": {
+      "Name": "minecraft:strong_slowness",
+      "Splash": true
     },
-    "8265" : {
-      "Name" :"minecraft:long_strength","Splash" : false
+    "16428": {
+      "Name": "minecraft:strong_harming",
+      "Splash": true
     },
-    "8266" : {
-      "Name" :"minecraft:long_slowness","Splash" : false
+    "16449": {
+      "Name": "minecraft:strong_regeneration",
+      "Splash": true
     },
-    "8268" : {
-      "Name" :"minecraft:harming","Splash" : false
+    "16450": {
+      "Name": "minecraft:strong_swiftness",
+      "Splash": true
     },
-    "8269" : {
-      "Name" :"minecraft:long_water_breathing","Splash" : false
+    "16451": {
+      "Name": "minecraft:fire_resistance",
+      "Splash": true
     },
-    "8270" : {
-      "Name" :"minecraft:long_invisibility","Splash" : false
+    "16452": {
+      "Name": "minecraft:strong_poison",
+      "Splash": true
     },
-    "16384" : {
-      "Name" :"minecraft:mundane","Splash" : true
+    "16454": {
+      "Name": "minecraft:long_night_vision",
+      "Splash": true
     },
-    "16385" : {
-      "Name" :"minecraft:regeneration","Splash" : true
+    "16456": {
+      "Name": "minecraft:long_weakness",
+      "Splash": true
     },
-    "16386" : {
-      "Name" :"minecraft:swiftness","Splash" : true
+    "16457": {
+      "Name": "minecraft:long_strength",
+      "Splash": true
     },
-    "16387" : {
-      "Name" :"minecraft:fire_resistance","Splash" : true
+    "16458": {
+      "Name": "minecraft:long_slowness",
+      "Splash": true
     },
-    "16388" : {
-      "Name" :"minecraft:poison","Splash" : true
+    "16460": {
+      "Name": "minecraft:harming",
+      "Splash": true
     },
-    "16389" : {
-      "Name" :"minecraft:healing","Splash" : true
-    },
-    "16390" : {
-      "Name" :"minecraft:night_vision","Splash" : true
-    },
-    "16392" : {
-      "Name" :"minecraft:weakness","Splash" : true
-    },
-    "16393" : {
-      "Name" :"minecraft:strength","Splash" : true
-    },
-    "16394" : {
-      "Name" :"minecraft:slowness","Splash" : true
-    },
-    "16396" : {
-      "Name" :"minecraft:harming","Splash" : true
-    },
-    "16397" : {
-      "Name" :"minecraft:water_breathing","Splash" : true
-    },
-    "16398" : {
-      "Name" :"minecraft:invisibility","Splash" : true
-    },
-    "16417" : {
-      "Name" :"minecraft:strong_regeneration","Splash" : true
-    },
-    "16418" : {
-      "Name" :"minecraft:strong_swiftness","Splash" : true
-    },
-    "16420" : {
-      "Name" :"minecraft:strong_poison","Splash" : true
-    },
-    "16421" : {
-      "Name" :"minecraft:strong_healing","Splash" : true
-    },
-    "16424" : {
-      "Name" :"minecraft:weakness","Splash" : true
-    },
-    "16425" : {
-      "Name" :"minecraft:strong_strength","Splash" : true
-    },
-    "16426" : {
-      "Name" :"minecraft:strong_slowness","Splash" : true
-    },
-    "16428" : {
-      "Name" :"minecraft:strong_harming","Splash" : true
-    },
-    "16449" : {
-      "Name" :"minecraft:strong_regeneration","Splash" : true
-    },
-    "16450" : {
-      "Name" :"minecraft:strong_swiftness","Splash" : true
-    },
-    "16451" : {
-      "Name" :"minecraft:fire_resistance","Splash" : true
-    },
-    "16452" : {
-      "Name" :"minecraft:strong_poison","Splash" : true
-    },
-    "16454" : {
-      "Name" :"minecraft:long_night_vision","Splash" : true
-    },
-    "16456" : {
-      "Name" :"minecraft:long_weakness","Splash" : true
-    },
-    "16457" : {
-      "Name" :"minecraft:long_strength","Splash" : true
-    },
-    "16458" : {
-      "Name" :"minecraft:long_slowness","Splash" : true
-    },
-    "16460" : {
-      "Name" :"minecraft:harming","Splash" : true
-    },
-    "16461" : {
-      "Name" :"minecraft:long_water_breathing","Splash" : true
+    "16461": {
+      "Name": "minecraft:long_water_breathing",
+      "Splash": true
     },
     "16462": {
-      "Name" :"minecraft:long_invisibility","Splash" : true
+      "Name": "minecraft:long_invisibility",
+      "Splash": true
     }
   },
-  "Enchantments" : {
-    "0" : "minecraft:protection",
-    "1" : "minecraft:fire_protection",
-    "2" : "minecraft:feather_falling",
-    "3" : "minecraft:blast_protection",
-    "4" : "minecraft:projectile_protection",
-    "5" : "minecraft:respiration",
-    "6" : "minecraft:aqua_affinity",
-    "7" : "minecraft:thorns",
-    "16" : "minecraft:sharpness",
-    "17" : "minecraft:smite",
-    "18" : "minecraft:bane_of_arthropods",
-    "19" : "minecraft:knockback",
-    "20" : "minecraft:fire_aspect",
-    "21" : "minecraft:looting",
+  "Enchantments": {
+    "0": "minecraft:protection",
+    "1": "minecraft:fire_protection",
+    "2": "minecraft:feather_falling",
+    "3": "minecraft:blast_protection",
+    "4": "minecraft:projectile_protection",
+    "5": "minecraft:respiration",
+    "6": "minecraft:aqua_affinity",
+    "7": "minecraft:thorns",
+    "16": "minecraft:sharpness",
+    "17": "minecraft:smite",
+    "18": "minecraft:bane_of_arthropods",
+    "19": "minecraft:knockback",
+    "20": "minecraft:fire_aspect",
+    "21": "minecraft:looting",
     "32": "minecraft:efficiency",
-    "33" : "minecraft:silk_touch",
-    "34" : "minecraft:unbreaking",
-    "35" : "minecraft:fortune",
-    "48" : "minecraft:power",
-    "49" : "minecraft:punch",
-    "50" : "minecraft:flame",
-    "51" : "minecraft:infinity",
-    "61" : "minecraft:luck_of_the_sea",
-    "62" : "minecraft:lure"
+    "33": "minecraft:silk_touch",
+    "34": "minecraft:unbreaking",
+    "35": "minecraft:fortune",
+    "48": "minecraft:power",
+    "49": "minecraft:punch",
+    "50": "minecraft:flame",
+    "51": "minecraft:infinity",
+    "61": "minecraft:luck_of_the_sea",
+    "62": "minecraft:lure"
   },
-  "Colours" : {
+  "Colours": {
     "§0": "black",
     "§1": "dark_blue",
     "§2": "dark_green",
@@ -7148,9 +7215,9 @@
     "Debug Messages": 1,
     "Cache debug messages": true,
     "Recursion Depth": 7,
-    "Creative Mode spawn" : false,
+    "Creative Mode spawn": false,
     "Comments": "Debug messages determines debug messages (Converted x/y files, no mapping found for x, etc.), 0 means no debug messages, 1 means basic info, 2 is full (1 is recommended),Cache debug messages ensures messages will only get sent once. Creative mode spawn should be self-explanatory",
-    "comments" : "about BlockMappings: this is temporary, note that if properties don't exist there isn't a tab for it as I wanted to model the vanilla saving method as closely as possible. If it's easier to generate the JSON with the properties field empty, It won't be a difficult change"
+    "comments": "about BlockMappings: this is temporary, note that if properties don't exist there isn't a tab for it as I wanted to model the vanilla saving method as closely as possible. If it's easier to generate the JSON with the properties field empty, It won't be a difficult change"
   },
   "Waypoints": {
     "LAST_BRIDGE": "lotr:last_bridge",
@@ -7416,52 +7483,70 @@
     "120": "minecraft:villager_spawn_egg",
     "Comment": "Used for fixing spawn eggs, as otherwise they would require changing the json item format yet again"
   },
-  "AuthorBlacklist" : [
+  "AuthorBlacklist": [
     "author_blacklist_example",
     "formatting_example"
   ],
-  "TitleBlacklist" : [
+  "TitleBlacklist": [
     "title_blacklist_example",
     "formatting_example"
   ],
-  "BlockMappings" : {
-    "minecraft:redstone_ore" : {
-      "0" : {
-        "name" : "minecraft:redstone_ore",
-        "properties" : {
+  "BlockMappings": {
+    "minecraft:redstone_ore": {
+      "0": {
+        "name": "minecraft:redstone_ore",
+        "properties": {
           "lit": "false"
         }
       },
-      "1" : {
-        "name" : "minecraft:redstone_ore",
-        "properties" : {
+      "1": {
+        "name": "minecraft:redstone_ore",
+        "properties": {
           "lit": "true"
         }
       }
     },
-    "minecraft:air" : {
-      "0" : {
-        "name" : "minecraft:air"
+    "minecraft:air": {
+      "0": {
+        "name": "minecraft:air"
       }
     },
-    "minecraft:stone" : {
-      "0" : {
-        "name" : "minecraft:stone"
+    "minecraft:stone": {
+      "0": {
+        "name": "minecraft:stone"
       }
     },
-    "minecraft:bedrock" : {
-      "0" : {
-        "name" : "minecraft:bedrock"
+    "minecraft:bedrock": {
+      "0": {
+        "name": "minecraft:bedrock"
       }
     },
-    "minecraft:dirt" : {
-      "0" : {
-        "name" : "minecraft:dirt"
+    "minecraft:dirt": {
+      "0": {
+        "name": "minecraft:dirt"
       },
-      "1" : {
-        "name" : "add the rest of the block here too lazy rn"
+      "1": {
+        "name": "add the rest of the block here too lazy rn"
+      }
+    },
+    "minecraft:grass": {
+      "0": {
+        "name": "minecraft:grass_block"
+      }
+    },
+    "lotr:tile.brick": {
+      "0": {
+        "name": "lotr:mordor_brick"
+      },
+      "6": {
+        "name": "lotr:dwarven_brick"
       }
     }
+  },
+  "BlockIdToName": {
+    "0": "minecraft:air",
+    "1": "minecraft:stone",
+    "-70": "lotr:tile.brick"
   }
 }
 
