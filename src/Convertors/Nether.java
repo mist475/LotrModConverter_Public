@@ -62,7 +62,7 @@ public class Nether implements Convertor {
                     } catch (Exception e) {
                         throw new IOException("Error during nether dimension fix");
                     }
-                    //stringCache.PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + " nether dimension region files", true);
+                    stringCache.PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + " nether dimension region files", true);
                 }
 
                 stringCache.PrintLine("Converted the nether dimension", false);

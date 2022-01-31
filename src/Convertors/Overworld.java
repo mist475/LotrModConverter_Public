@@ -13,6 +13,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 
 public class Overworld implements Convertor {
@@ -44,9 +45,9 @@ public class Overworld implements Convertor {
         if (currentFolder.exists()) {
             File[] curDirList = currentFolder.listFiles();
             if (curDirList != null) {
-                //int i = 1;
+                int i = 1;
                 for (File mapFile : curDirList) {
-                    //i++;
+                    i++;
                     try {
                         RegionFile regionFile = RegionFile.openReadOnly(Paths.get(mapFile.getPath()));
                         HashMap<Integer, Chunk> chunks = new HashMap<>();
@@ -63,7 +64,7 @@ public class Overworld implements Convertor {
                         e.printStackTrace();
                         throw new IOException("Error during overworld dimension fix");
                     }
-                    //stringCache.PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + " overworld dimension region files", true);
+                    stringCache.PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + " overworld dimension region files", true);
                 }
 
                 stringCache.PrintLine("Converted the overworld dimension", false);

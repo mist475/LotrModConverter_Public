@@ -7541,12 +7541,75 @@
       "6": {
         "name": "lotr:dwarven_brick"
       }
+    },
+    "minecraft:clay": {
+      "0": {
+        "name": "minecraft:clay"
+      }
+    },
+    "minecraft:hardened_clay": {
+      "0": {
+        "name": "minecraft:terracotta"
+      }
+    },
+    "minecraft:stained_hardened_clay": {
+      "0": {
+        "name": "minecraft:white_terracotta"
+      },
+      "1": {
+        "name": "minecraft:orange_terracotta"
+      },
+      "2": {
+        "name": "minecraft:magenta_terracotta"
+      },
+      "3": {
+        "name": "minecraft:light_blue_terracotta"
+      },
+      "4": {
+        "name": "minecraft:yellow_terracotta"
+      },
+      "5": {
+        "name": "minecraft:lime_terracotta"
+      },
+      "6": {
+        "name": "minecraft:pink_terracotta"
+      },
+      "7": {
+        "name": "minecraft:gray_terracotta"
+      },
+      "8": {
+        "name": "minecraft:light_gray_terracotta"
+      },
+      "9": {
+        "name": "minecraft:cyan_terracotta"
+      },
+      "10": {
+        "name": "minecraft:purple_terracotta"
+      },
+      "11": {
+        "name": "minecraft:blue_terracotta"
+      },
+      "12": {
+        "name": "minecraft:brown_terracotta"
+      },
+      "13": {
+        "name": "minecraft:green_terracotta"
+      },
+      "14": {
+        "name": "minecraft:red_terracotta"
+      },
+      "15": {
+        "name": "minecraft:black_terracotta"
+      }
     }
   },
   "BlockIdToName": {
     "0": "minecraft:air",
     "1": "minecraft:stone",
-    "-70": "lotr:tile.brick"
+    "-70": "lotr:tile.brick",
+    "-97": "minecraft:stained_hardened_clay",
+    "82": "minecraft:hardened_clay",
+    "-84": "minecraft:clay"
   }
 }
 

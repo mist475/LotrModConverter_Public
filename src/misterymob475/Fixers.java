@@ -158,7 +158,9 @@ public class Fixers {
                         case "generic.followRange":
                             CompoundMap followRange = new CompoundMap();
                             //yet to be tested
-                            followRange.put("Modifiers", modifierFixer(((ListTag<CompoundTag>) t.getValue().get("Modifiers"))));
+                            Optional<ListTag<?>> Modifiers = t.getValue().get("Modifiers").getAsListTag();
+                            Modifiers.ifPresent(listTag -> followRange.put(modifierFixer((ListTag<CompoundTag>) listTag)));
+
                             followRange.put("Base", t.getValue().get("Base"));
                             followRange.put("Name", new StringTag("Name", "minecraft:generic.follow_range"));
                             Attributes_new.add(new CompoundTag("", followRange));
@@ -1278,34 +1280,201 @@ public class Fixers {
     }
 
     public static void SectionMapFixer(List<CompoundTag> list, Data Data, StringCache stringCache) {
-        //TODO: this hellscape (this is the trickiest part of the entire converter as you're essentially creating entirely new data, thankfully the used library has a lot of helper functions which should make it slightly easier)
-        //Plan for now:
         /*
-         * Have one loop to build for efficiency
-         *
-         * */
-        //TODO: Optimise, even without constructing the long[] it already takes too long to do a single chunk, doing 1 big region file (0,0.mca) took more than 15 minutes
-        /*
-         * This is probably caused by unnecessary calls to various functions
-         * */
+I created a flatworld with the 'the void' preset.
+In this world chunk 0,0 had a small stone platform with one block of cobblestone, except for that the chunk is empty
+The BlockStates Array has the following contents:
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+1229782938247303441  1229782938247303441
+1229782938247303441  1229782938247303441
+1229782938247303441  1229782938247303441
+1229782938247303441  1229782938247303441
+1229782942542270737  1229782938247303441
+1229782938247303441  1229782938247303441
+1229782938247303441  1229782938247303441
+1229782938247303441  1229782938247303441
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+0  0
+
+This doesn't tell much on it's own though, here is the palette:
+"minecraft:air"
+"minecraft:stone"
+"minecraft:cobblestone"
+
+what we expect are a lot of zeros (we can see that, a few longs with only references to 1 (stone) and 1 with a reference to 2 (cobblestone))
+
+disregarding the zeros, these longs count for this test:
+
+1229782938247303441  1229782938247303441
+1229782938247303441  1229782938247303441
+1229782938247303441  1229782938247303441
+1229782938247303441  1229782938247303441
+1229782942542270737  1229782938247303441
+1229782938247303441  1229782938247303441
+1229782938247303441  1229782938247303441
+1229782938247303441  1229782938247303441
+
+as you can see, of them is different from the others.
+Now lets view these in binary form:
+1229782938247303441 -> 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001
+1229782942542270737 -> 0001 0001 0001 0001 0001 0001 0001 0010 0001 0001 0001 0001 0001 0001 0001 0001
+
+as you can see, with 4 bits per block all of these belong to stone except for one
+
+because of this, constructing the longs shouldn't be too difficult
+
+except it's still difficult, as 4 bits per index only allows for 16 BlockStates per section, whereas you can have a lot more than that.
+The format changes depending on the size of the palette, though more than 6 bits per index is pretty rare
+
+as you always have 4096 blocks in a section (counting air obviously) you can have the following bits per index technically (minimum is 4)
+* 1 (palette of up to 2)
+* 2 (palette of up to 4)
+* 3 (palette of up to 8)
+* 4 (palette of up to 16, games minimum)
+* 5 (palette of up to 32)
+* 6 (palette of up to 64)
+* 7 (palette of up to 128)
+* 8 (palette of up to 256)
+* 9 (palette of up to 512)
+* 10 (palette of up to 1024)
+* 11 (palette of up to 2048)
+* 12 (palette of up to 4096)
+        */
         for (int i = 0; i < list.size(); i++) {
             CompoundMap SectionCompoundMap = list.get(i).getValue();
             List<CompoundTag> PaletteBuilderList = new ArrayList<>();
             //used for making sure no identical palette entries exist
             List<String> PaletteCheckerList = new ArrayList<>();
-            // Blocks = 4096 Bytes
-            // Data = 2048 Bytes, I'm assuming 2 blocks share one data entry in data
             Optional<ByteArrayTag> OBlocksByteArray = SectionCompoundMap.get("Blocks").getAsByteArrayTag();
             Optional<ByteArrayTag> ODataByteArray = SectionCompoundMap.get("Data").getAsByteArrayTag();
 
             if (OBlocksByteArray.isPresent() && ODataByteArray.isPresent()) {
                 byte[] BlocksByteArray = OBlocksByteArray.get().getValue();
                 byte[] DataByteArray = ODataByteArray.get().getValue();
+                int[] BlockPaletteReferences = new int[4096];
                 //this should never fail as far as I know, purely redundancy
                 if (BlocksByteArray.length == 4096 && DataByteArray.length == 2048) {
                     //long[] BlockStates = new long[256];
                     //to loop through both lists at once.
                     int DataCounter = 0;
+
                     while (DataCounter < 4096) {
                         int dataValue = Math.floorDiv(DataCounter, 2);
                         //I might've reversed this one accidentally, time will tell...
@@ -1313,49 +1482,95 @@ public class Fixers {
                         if (Data.BlockIdToName.containsKey(String.valueOf(BlocksByteArray[DataCounter]))) {
                             String LegacyId = Data.BlockIdToName.get(String.valueOf(BlocksByteArray[DataCounter]));
 
-                            //Only print for debugging purposes, this is extremely slow (1 region file with this on takes 15 min, with this of it takes 15 seconds)
+                            //Only print for debugging purposes, this is extremely slow (1 region file with this on takes 15 min, with this off it takes 15 seconds)
                             //stringCache.PrintLine(LegacyId, false);
-                            //Here the main optimisations could occur
+
                             if (Data.BlockMappings.containsKey(LegacyId)) {
-                                AddPaletteEntryIfNecessary(Data.BlockMappings.get(LegacyId), DataByteArray[dataValue], SecondEntry, PaletteCheckerList, PaletteBuilderList);
+                                BlockPaletteReferences[DataCounter] = AddPaletteEntryIfNecessary(Data.BlockMappings.get(LegacyId), DataByteArray[dataValue], SecondEntry, PaletteCheckerList, PaletteBuilderList);
                             } else {
-                                AddAirIfNotExists(PaletteCheckerList, PaletteBuilderList);
+                                BlockPaletteReferences[DataCounter] = AddAirIfNotExists(PaletteCheckerList, PaletteBuilderList);
                             }
                         } else {
-                            String debug = "no legacy id found for id: " + BlocksByteArray[DataCounter];
-                            stringCache.PrintLine(debug, false);
-                            AddAirIfNotExists(PaletteCheckerList, PaletteBuilderList);
+                            //stringCache.PrintLine(("no legacy id found for id: " + BlocksByteArray[DataCounter]), false);
+                            BlockPaletteReferences[DataCounter] = AddAirIfNotExists(PaletteCheckerList, PaletteBuilderList);
                         }
                         DataCounter++;
                     }
 
                     ListTag<CompoundTag> Palette = new ListTag<>("Palette", TagType.TAG_COMPOUND, PaletteBuilderList);
-                    /*
-                    Original way of doing things:
-
-                    CompoundMap mapBuilder = new CompoundMap();
-                    mapBuilder.put(Palette);
-                    Optional<ByteTag> OY = list.get(i).getValue().get("Y").getAsByteTag();
-                    Optional<ByteArrayTag> OBlockLight = list.get(i).getValue().get("BlockLight").getAsByteArrayTag();
-                    Optional<ByteArrayTag> OSkyLight = list.get(i).getValue().get("SkyLight").getAsByteArrayTag();
-
-                    OY.ifPresent(mapBuilder::put);
-                    OBlockLight.ifPresent(mapBuilder::put);
-                    OSkyLight.ifPresent(mapBuilder::put);
-                    builder.add(new CompoundTag("", mapBuilder));
-                    */
 
                     SectionCompoundMap.remove("Blocks");
                     SectionCompoundMap.remove("Data");
                     SectionCompoundMap.put(Palette);
-
+                    SectionCompoundMap.put(new LongArrayTag("BlockStates", BlockStatesGenerator(PaletteCheckerList, BlockPaletteReferences)));
                     list.set(i, new CompoundTag("", SectionCompoundMap));
 
                 } else {
                     stringCache.PrintLine("Invalid section format!", false);
+
                 }
             }
         }
+    }
+
+    /**
+     * Creates the long[] for the BlockStates Tag
+     *
+     * @param PaletteCheckerList {@link List<String>} with the palette entries stringified
+     * @param PaletteReferences  int[] with the block values
+     * @return long[] containing the encoded BlockStates
+     */
+    public static long[] BlockStatesGenerator(List<String> PaletteCheckerList, int[] PaletteReferences) {
+        long[] BlockStates;
+        //Should always be true due to where we call it, just making sure
+        if (PaletteReferences.length == 4096) {
+            int bitsPerIndex = BitsPerIndex(PaletteCheckerList.size());
+            //with this, we can calculate the amount of longs needed to fit all 4096 blocks
+            int BlocksPerLong = Math.floorDiv(64, bitsPerIndex);
+            int LongsNeeded = (int) Math.ceil((double) 4096 / BlocksPerLong);
+            BlockStates = new long[LongsNeeded];
+
+            //Which long should we write to, value should be [0,255]
+            int ExternalLongPosition = 0;
+            //Which position within the long are we gonna use, value should be [0,15]
+            int InternalLongPosition = 0;
+            for (int i = 0; i < 4096; i++) {
+                BlockStates[ExternalLongPosition] = BlockStateLongUpdater(BlockStates[ExternalLongPosition], PaletteReferences[i], bitsPerIndex, InternalLongPosition);
+                //progression for switching to the next long
+                ExternalLongPosition = Math.floorDiv(i, BlocksPerLong);
+                //progression within the long
+                InternalLongPosition = i % BlocksPerLong;
+            }
+
+        } else BlockStates = new long[256]; //returns an empty section with bpi of 4
+        return BlockStates;
+    }
+
+    /**
+     * Updates the value of a long with its new value depending on the bits per index (BPI), blocks per long (BPL) and the internal position
+     *
+     * @param Base                  the long to be updated
+     * @param Value                 the value the long should be updated with
+     * @param BPI                   Bits per Index
+     * @param InternalBlockPosition Position of the Long that should be updated
+     */
+    public static long BlockStateLongUpdater(long Base, int Value, int BPI, int InternalBlockPosition) {
+        //if value is 0 there is no need to update the value of the long
+        if (Value != 0) {
+            //long LongValue = ((long) Value << (BPI * InternalBlockPosition));
+            Base = Base | ((long) Value << (BPI * InternalBlockPosition));
+        }
+        return Base;
+    }
+
+    /**
+     * @param PaletteCheckerListLength Length of the Palette
+     * @return the bits per Index of the Palette
+     * @author PieGames
+     * Gets the Bits per Index, used in the extractFromLong1_16 method in {@link Chunk}, unfortunately it's not a seperate method, so I added it here
+     */
+    public static int BitsPerIndex(int PaletteCheckerListLength) {
+        return Math.max(4, 32 - Integer.numberOfLeadingZeros(PaletteCheckerListLength - 1));
     }
 
     /**
@@ -1368,7 +1583,8 @@ public class Fixers {
      * @param PaletteBuilderList {@link List<CompoundTag>} containing the Palette entries
      */
     @SuppressWarnings("unchecked")
-    public static void AddPaletteEntryIfNecessary(Map<String, ?> BlockMapping, byte DataEntry, boolean SecondEntry, List<String> PaletteCheckerList, List<CompoundTag> PaletteBuilderList) {
+    public static int AddPaletteEntryIfNecessary(Map<String, ?> BlockMapping, byte DataEntry, boolean SecondEntry, List<String> PaletteCheckerList, List<CompoundTag> PaletteBuilderList) {
+        int returner;
         if (EntryExists(BlockMapping, DataEntry, SecondEntry)) {
             LinkedTreeMap<?, ?> Entry = (LinkedTreeMap<?, ?>) BlockMapping.get(String.valueOf((BlockDataSelector(DataEntry, SecondEntry))));
             if (!PaletteCheckerList.contains(Entry.toString())) {
@@ -1390,16 +1606,14 @@ public class Fixers {
                     }
                     PaletteBuilderList.add(new CompoundTag("Palette", map));
                 }
-
+                returner = PaletteCheckerList.indexOf(Entry.toString());
             } else {
-                AddAirIfNotExists(PaletteCheckerList, PaletteBuilderList);
+                returner = AddAirIfNotExists(PaletteCheckerList, PaletteBuilderList);
             }
         } else {
-            AddAirIfNotExists(PaletteCheckerList, PaletteBuilderList);
+            returner = AddAirIfNotExists(PaletteCheckerList, PaletteBuilderList);
         }
-        if (PaletteCheckerList.size() != PaletteBuilderList.size()) {
-            System.out.println();
-        }
+        return returner;
     }
 
 
@@ -1409,13 +1623,14 @@ public class Fixers {
      * @param PaletteCheckerList {@link List<String>} containing string entries of the palette
      * @param PaletteBuilderList {@link List<CompoundTag>} containing entries of the palette
      */
-    public static void AddAirIfNotExists(List<String> PaletteCheckerList, List<CompoundTag> PaletteBuilderList) {
+    public static int AddAirIfNotExists(List<String> PaletteCheckerList, List<CompoundTag> PaletteBuilderList) {
         if (!PaletteCheckerList.contains("{name=minecraft:air}")) {
             PaletteCheckerList.add("{name=minecraft:air}");
             CompoundMap air = new CompoundMap();
             air.put(new StringTag("Name", "minecraft:air"));
             PaletteBuilderList.add(new CompoundTag("", air));
         }
+        return PaletteCheckerList.indexOf("{name=minecraft:air}");
     }
 
     /**
@@ -1438,8 +1653,10 @@ public class Fixers {
      * @return the selected bits from DataValue
      */
     public static byte BlockDataSelector(byte DataValue, boolean SecondEntry) {
-        //Binary is not really my forte, as such I hope this will work
-        return (SecondEntry ? (byte) (DataValue >> 4) : (byte) (DataValue & 15));
+        byte Result = (SecondEntry ? (byte) (DataValue >> 4) : (byte) (DataValue & 15));
+        if (Result < 0) return (byte) (Result + 16);
+        else return Result;
+        //return (SecondEntry ? (byte) (DataValue >> 4) : (byte) (DataValue & 15));
     }
 
     /**
@@ -1449,7 +1666,7 @@ public class Fixers {
      * @param Data  instance of {@link Data}
      */
     @SuppressWarnings("unchecked")
-    public static void ChunkFixer(CompoundMap Chunk, Data Data, StringCache stringCache) throws IOException {
+    public static void ChunkFixer(CompoundMap Chunk, Data Data, StringCache stringCache) {
         if (Chunk.containsKey("Level")) {
             Optional<CompoundTag> OLevel = Chunk.get("Level").getAsCompoundTag();
             if (OLevel.isPresent()) {
@@ -1471,7 +1688,8 @@ public class Fixers {
                         List<CompoundTag> EntityBuilder = new ArrayList<>();
                         for (CompoundTag t : Entities.getValue()) {
                             //EntityFixer was made in a hurry and is probably unfinished/ prone to crashing. For testing purposes you can disable this line if you get crashes
-                            CompoundMap Entity = EntityFixer(t.getValue(), Data, stringCache, false);
+                            //CompoundMap Entity = EntityFixer(t.getValue(), Data, stringCache, false);
+                            CompoundMap Entity = new CompoundMap();
                             if (Entity != null) EntityBuilder.add(new CompoundTag("", Entity));
                         }
                         Level.replace("Entities", new ListTag<>("Entities", TagType.TAG_COMPOUND, EntityBuilder));
@@ -1497,6 +1715,8 @@ public class Fixers {
                         Level.replace("Sections", new ListTag<>("Sections", TagType.TAG_COMPOUND, Sections));
                     }
                 }
+                Level.put(new StringTag("Status", "full"));
+                Level.put(new ByteTag("isLightOn", (byte) 1));
                 Chunk.replace("Level", new CompoundTag("Level", Level));
                 //This value triggers Mojangs own DataFixers so use with caution
                 Chunk.put(new IntTag("DataVersion", 2586));
@@ -1524,7 +1744,7 @@ public class Fixers {
             //Chunk(int x, int z, int timestamp, Tag<?> data, byte compression)
             chunk = new Chunk(chunk.x, chunk.z, chunk.timestamp, tag, chunk.getCompression());
             entry.setValue(chunk);
-            //stringCache.PrintLine("converted chunk nr: " + i, false);
+            //stringCache.PrintLine("converted chunk nr: " + i, true);
         }
         return Chunks;
     }

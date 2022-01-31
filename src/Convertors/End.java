@@ -13,6 +13,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 public class End implements Convertor {
     private final misterymob475.Data Data;
@@ -62,7 +63,7 @@ public class End implements Convertor {
                     } catch (Exception e) {
                         throw new IOException("Error during end dimension fix");
                     }
-                    //stringCache.PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + " region files of end dimension", true);
+                    stringCache.PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + " region files of end dimension", true);
                 }
 
                 stringCache.PrintLine("Converted the end dimension", false);

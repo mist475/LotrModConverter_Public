@@ -13,6 +13,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 public class MiddleEarth implements Convertor {
     private final misterymob475.Data Data;
@@ -63,7 +64,7 @@ public class MiddleEarth implements Convertor {
                     } catch (Exception e) {
                         throw new IOException("Error during middle earth dimension fix");
                     }
-                    //stringCache.PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + " region files of middle earth dimension", true);
+                    stringCache.PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + " region files of middle earth dimension", true);
                 }
 
                 stringCache.PrintLine("Converted the middle earth dimension", false);
