@@ -7,13 +7,15 @@ import java.nio.file.Path;
  * Interface to make looping over these easier
  */
 public interface Convertor {
+
     /**
-     * Modifies the files to work in Renewed
+     * Modifies the world such that the files become readable in renewed
      *
-     * @param p        path of the folder where files are copied
-     * @param FileName name of the to be modified files
+     * @param p        {@link Path} path to use
+     * @param FileName {@link String} filename to use
      * @throws IOException if something fails
      */
     //modifies the information to be compatible
-    void modifier(Path p, String FileName) throws IOException, InterruptedException;
+    void modifier(Path p, String FileName) throws IOException;
+
 }

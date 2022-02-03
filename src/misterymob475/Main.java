@@ -11,6 +11,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Optional;
 
 import static misterymob475.Util.*;
 
@@ -40,24 +41,24 @@ public class Main {
             Data data = new Data(map);
             StringCache stringCache = new StringCache(data);
             //used for copying data over
-            String legacyWorld = legacyWorldSelection();
+            Optional<String> legacyWorld = LegacyWorldSelection();
             //basis for the new level.dat (modifying data is easier in this case then generating from scratch)
-            String renewedWorld = renewedWorldSelection();
-            if (!legacyWorld.equals("") && !renewedWorld.equals("")) {
-                File selectedWorld = new File(legacyWorld);
+            Optional<String> renewedWorld = RenewedWorldSelection();
+            if (legacyWorld.isPresent() && renewedWorld.isPresent()) {
+                File selectedWorld = new File(legacyWorld.get());
                 if (new File("../" + selectedWorld.getName() + "_Converted").exists()) {
                     deleteDir(new File("../" + selectedWorld.getName() + "_Converted"));
                 }
                 Files.createDirectories(Paths.get("../" + selectedWorld.getName() + "_Converted"));
                 Path launchDir = Paths.get(".").toAbsolutePath().normalize().getParent();
-                data.LegacyIds(Paths.get(launchDir + "/" + legacyWorld + "/level.dat").toAbsolutePath().toString());
+                data.LegacyIds(Paths.get(launchDir + "/" + legacyWorld.get() + "/level.dat").toAbsolutePath().toString());
                 //HashMap<String, List<String>> ItemNames = Data.ItemNames();
                 //fancy way of looping through the implementations of the Convertor interface, this way I only have to change this line instead of adding an init, and the calling of the 2 functions per implementation
-                for (Convertor c : new Convertor[]{new LotrData(data), new PlayerData(data, stringCache), new LevelDat(data, renewedWorld, stringCache), new DataFolder(stringCache), new MiddleEarth(data, stringCache), new Overworld(data,stringCache),new Nether(data,stringCache),new End(data,stringCache)}) {
+                for (Convertor c : new Convertor[]{new LotrData(data), new PlayerData(data, stringCache), new LevelDat(data, renewedWorld.get(), stringCache), new DataFolder(stringCache), new Overworld(data, stringCache), new MiddleEarth(data, stringCache), new Nether(data, stringCache), new End(data, stringCache)}) {
                     Thread t = new Thread(() -> {
                         try {
                             c.modifier(launchDir, selectedWorld.getName());
-                        } catch (IOException | InterruptedException e) {
+                        } catch (IOException e) {
                             e.printStackTrace();
                         }
                     });

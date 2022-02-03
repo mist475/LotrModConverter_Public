@@ -65,8 +65,6 @@ public class Fixers {
         } else return null;
         //if Important, entity will always be saved, otherwise entity will only be saved if it maxes sense (Utumno mobs will get deleted)
         boolean inUtumno = false;
-        //has something to do with the lotrmod
-        Entity.remove("ForgeData");
 
 
         if (Entity.containsKey("Dimension")) {
@@ -98,11 +96,7 @@ public class Fixers {
         }
 
         if (Entity.containsKey("SaddleItem")) {
-            CompoundMap newSaddleItem = new CompoundMap();
-            newSaddleItem.put("Count", new ByteTag("Count", (byte) 1));
-            newSaddleItem.put("id", new StringTag("id", "minecraft:saddle"));
-
-            Entity.replace("SaddleItem", new CompoundTag("SaddleItem", newSaddleItem));
+            Entity.replace("SaddleItem", new CompoundTag("SaddleItem", Util.CreateCompoundMapWithContents(new ByteTag("Count", (byte) 1), new StringTag("id", "minecraft:saddle"))));
         }
 
         // I've had enough of this for know
@@ -135,10 +129,7 @@ public class Fixers {
                     switch (((StringTag) t.getValue().get("Name")).getValue()) {
 
                         case "generic.attackDamage":
-                            CompoundMap attackDamage = new CompoundMap();
-                            attackDamage.put("Modifiers", modifierFixer(((ListTag<CompoundTag>) t.getValue().get("Modifiers"))));
-                            attackDamage.put("Name", new StringTag("Name", "generic.attack_damage"));
-                            Attributes_new.add(new CompoundTag("", attackDamage));
+                            Attributes_new.add(new CompoundTag("", Util.CreateCompoundMapWithContents(modifierFixer(((ListTag<CompoundTag>) t.getValue().get("Modifiers"))), new StringTag("Name", "generic.attack_damage"))));
                             break;
 
                         //modifiers present here
@@ -149,40 +140,26 @@ public class Fixers {
                             break;
 
                         case "generic.movementSpeed":
-                            CompoundMap movSpeed = new CompoundMap();
-                            movSpeed.put("Base", t.getValue().get("Base"));
-                            movSpeed.put("Name", new StringTag("Name", "minecraft:generic.movement_speed"));
-                            Attributes_new.add(new CompoundTag("", movSpeed));
+                            Attributes_new.add(new CompoundTag("", Util.CreateCompoundMapWithContents(t.getValue().get("Base"), new StringTag("Name", "minecraft:generic.movement_speed"))));
                             break;
 
                         case "generic.followRange":
-                            CompoundMap followRange = new CompoundMap();
+                            CompoundMap followRange = Util.CreateCompoundMapWithContents(t.getValue().get("Base"), new StringTag("Name", "minecraft:generic.follow_range"));
                             //yet to be tested
                             Optional<ListTag<?>> Modifiers = t.getValue().get("Modifiers").getAsListTag();
                             Modifiers.ifPresent(listTag -> followRange.put(modifierFixer((ListTag<CompoundTag>) listTag)));
 
-                            followRange.put("Base", t.getValue().get("Base"));
-                            followRange.put("Name", new StringTag("Name", "minecraft:generic.follow_range"));
                             Attributes_new.add(new CompoundTag("", followRange));
                             break;
 
                         case "generic.maxHealth":
-                            CompoundMap maxHealth = new CompoundMap();
-                            maxHealth.put("Base", t.getValue().get("Base"));
-                            maxHealth.put("Name", new StringTag("Name", "minecraft:generic.max_health"));
-                            Attributes_new.add(new CompoundTag("", maxHealth));
+                            Attributes_new.add(new CompoundTag("", Util.CreateCompoundMapWithContents(t.getValue().get("Base"), new StringTag("Name", "minecraft:generic.max_health"))));
                             break;
                         case "generic.knockbackResistance":
-                            CompoundMap knockbackResistance = new CompoundMap();
-                            knockbackResistance.put("Base", t.getValue().get("Base"));
-                            knockbackResistance.put("Name", new StringTag("Name", "generic.knockback_resistance"));
-                            Attributes_new.add(new CompoundTag("", knockbackResistance));
+                            Attributes_new.add(new CompoundTag("", Util.CreateCompoundMapWithContents(t.getValue().get("Base"), new StringTag("Name", "generic.knockback_resistance"))));
                             break;
                         case "horse.jumpStrength":
-                            CompoundMap jumpStrength = new CompoundMap();
-                            jumpStrength.put("Base", t.getValue().get("Base"));
-                            jumpStrength.put("Name", new StringTag("Name", "horse.jump_strength"));
-                            Attributes_new.add(new CompoundTag("", jumpStrength));
+                            Attributes_new.add(new CompoundTag("", Util.CreateCompoundMapWithContents(t.getValue().get("Base"), new StringTag("Name", "horse.jump_strength"))));
                             break;
                         default:
                             //this is possible because unknown tags will get discarded by the game engine
@@ -194,8 +171,7 @@ public class Fixers {
             Entity.replace("Attributes", (new ListTag<>("Attributes", TagType.TAG_COMPOUND, Attributes_new)));
         }
 
-        //will easily regenerate I hope
-        Entity.remove("DropChances");
+
         if (Entity.containsKey("Equipment")) {
             Entity.replace("Equipment", new ListTag<>("Equipment", TagType.TAG_COMPOUND, RecurItemFixer((((ListTag<CompoundTag>) Entity.get("Equipment")).getValue()), (double) 0, "Exception during Entity Equipment Fix", stringCache, Data)));
         }
@@ -203,13 +179,13 @@ public class Fixers {
         if (Entity.containsKey("Items")) {
             Entity.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, RecurItemFixer((((ListTag<CompoundTag>) Entity.get("Items")).getValue()), (double) 0, "Exception during Entity Inventory Fix", stringCache, Data)));
         }
-        Entity.remove("AttackTime");
-        //LOTR mod related
-        Entity.remove("BelongsNPC");
 
-        Entity.remove("HasReproduced");
+        Entity.put("LeftHanded", new ByteTag("LeftHanded", (byte) 0));
+        if (Entity.containsKey("OwnerUUID")) {
+            Entity.put("Owner", UUIDFixer((StringTag) Entity.get("OwnerUUID"), "Owner"));
+        }
 
-        Entity.remove("HealF");
+
 /*
         Not needed anymore, I added these to debug inventories nog getting saved properly.
         However, that was because I called recurItemFixer the wrong way again
@@ -218,25 +194,27 @@ public class Fixers {
         Entity.put("ForcedAge",new IntTag("ForcedAge",0));
         Entity.put("HurtByTimestamp",new IntTag("HurtByTimestamp",0));
  */
-        Entity.remove("Leashed");
-        Entity.remove("Mountable");
 
-        Entity.put("LeftHanded", new ByteTag("LeftHanded", (byte) 0));
-        if (Entity.containsKey("OwnerUUID")) {
-            Entity.put("Owner", UUIDFixer((StringTag) Entity.get("OwnerUUID"), "Owner"));
-        }
 
-        Entity.remove("OwnerUUID");
-        Entity.remove("TicksSinceFeed");
-
-        Entity.remove("Type");
-        //has to do with splitting horses into donkeys and such
-        Entity.remove("Variant");
+        /*
+        ForgeData has to do with the lotr mod, it's not present in renewed, so I simply removed it for now
+        DropChances will regenerate, removed as I'm not sure if there's a format change or not
+        AttackTime is not present in renewed (unless I've missed it)
+        BelongsNPC is not present in renewed (yet), normally used on mounts
+        HasReproduced, not encountered this yet in renewed, will have to test with some cows
+        HealF, not sure what this does, but I haven't seen it in renewed
+        Leashed, not yet encountered in renewed, should test
+        Mountable, idem ditto
+        OwnerUUID, value just used for the "Owner" tag, so it can be safely removed
+        TicksSinceFeed, should test
+        Type, should be implemented eventually, just got lazy when I did this
+        Variant, idem ditto
+        */
+        Util.CMRemoveVarArgs(Entity, "ForgeData", "DropChances", "AttackTime", "BelongsNPC", "HasReproduced", "HealF", "Leashed", "Mountable", "OwnerUUID", "TicksSinceFeed", "Type", "Variant");
 
         if (Entity.containsKey("UUIDLeast")) {
             Entity.put("UUID", UUIDFixer((LongTag) Entity.get("UUIDMost"), (LongTag) Entity.get("UUIDLeast")));
-            Entity.remove("UUIDLeast");
-            Entity.remove("UUIDMost");
+            Util.CMRemoveVarArgs(Entity, "UUIDLeast", "UUIDMost");
         }
         return Entity;
     }
@@ -478,6 +456,8 @@ public class Fixers {
                                             CompoundMap SkullOwner = new CompoundMap();
                                             SkullOwner.put("Id", new StringTag("Name", owner));
                                             filler.replace("SkullOwner", new CompoundTag("SkullOwner", SkullOwner));
+                                            //Should check if this works
+                                            //filler.replace("SkullOwner", new CompoundTag("SkullOwner", Util.CreateCompoundMapWithContents(new StringTag("Id", owner))));
                                         }
                                     }
                                     tMap.replace("id", new StringTag("id", item.get((Short) tMap.get("Damage").getValue())));
@@ -503,11 +483,10 @@ public class Fixers {
                                             }
                                             //pipe fixer
                                             if (filler.containsKey("SmokeColour")) {
-                                                CompoundMap pipeMap = new CompoundMap();
                                                 String color = (new ArrayList<>(Arrays.asList("white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black", "magic"))).get((Integer) filler.get("SmokeColour").getValue());
+                                                CompoundMap pipeMap = Util.CreateCompoundMapWithContents(new StringTag("color", color));
                                                 if (color.equals("magic"))
                                                     pipeMap.put("magic", new ByteTag("magic", (byte) 1));
-                                                pipeMap.put("color", new StringTag("color", color));
                                                 filler.replace("SmokeColour", new CompoundTag("pipe", pipeMap));
                                             }
                                             if (drink) {
@@ -670,8 +649,7 @@ public class Fixers {
                                                     else if (Damage < 1200)
                                                         vesselMap.put("type", new StringTag("type", "golden_ale_horn"));
                                                 }
-                                                CompoundTag vessel = new CompoundTag("vessel", vesselMap);
-                                                filler.put("vessel", vessel);
+                                                filler.put("vessel", new CompoundTag("vessel", vesselMap));
                                             }
                                             //potion
                                             else if (item.get(0).equals("minecraft:potion")) {
@@ -939,47 +917,26 @@ public class Fixers {
                         generatormap2.remove("biome_source");
                         generatormap2.remove("seed");
                         generatormap2.remove("settings");
-                        CompoundMap settings_map = new CompoundMap();
+                        CompoundMap settings_map = Util.CreateCompoundMapWithContents(new StringTag("biome", "minecraft:plains"), new ByteTag("features", (byte) 0), new ByteTag("lakes", (byte) 0));
 
-                        CompoundMap structures1_map = new CompoundMap();
+                        CompoundMap stronghold_map = Util.CreateCompoundMapWithContents(new IntTag("count", 128), new IntTag("distance", 32), new IntTag("spread", 3));
+                        CompoundMap structures1_map = Util.CreateCompoundMapWithContents(new CompoundTag("stronghold", stronghold_map));
 
+                        //TODO: Fix salt to use seed
+                        CompoundMap village_map = Util.CreateCompoundMapWithContents(new IntTag("salt", ((new Random()).nextInt(1000000000))), new IntTag("separation", 8), new IntTag("spacing", 32));
 
-                        CompoundMap stronghold_map = new CompoundMap();
-                        stronghold_map.put("count", new IntTag("count", 128));
-                        stronghold_map.put("distance", new IntTag("distance", 32));
-                        stronghold_map.put("spread", new IntTag("spread", 3));
-                        structures1_map.put("stronghold", new CompoundTag("stronghold", stronghold_map));
-
-                        CompoundMap structures2_map = new CompoundMap();
-                        CompoundMap village_map = new CompoundMap();
-                        //Salt gen, should work, doesn't carry over old maps though
-                        int salt = (new Random()).nextInt(1000000000);
-                        village_map.put("salt", new IntTag("salt", salt));
-                        village_map.put("separation", new IntTag("separation", 8));
-                        village_map.put("spacing", new IntTag("spacing", 32));
-                        structures2_map.put("minecraft:village", new CompoundTag("minecraft:village", village_map));
-                        structures1_map.put("structures", new CompoundTag("structures", structures2_map));
+                        structures1_map.put("structures", new CompoundTag("structures", Util.CreateCompoundMapWithContents(new CompoundTag("minecraft:village", village_map))));
 
                         settings_map.put("structures", new CompoundTag("structures", structures1_map));
 
+                        //Adds the entries for flatworld generation
                         List<CompoundTag> layers_list = new ArrayList<>();
-                        CompoundMap layer1_map = new CompoundMap();
-                        layer1_map.put("block", new StringTag("block", "minecraft:bedrock"));
-                        layer1_map.put("height", new IntTag("height", 1));
-                        layers_list.add(new CompoundTag("", layer1_map));
-                        CompoundMap layer2_map = new CompoundMap();
-                        layer2_map.put("block", new StringTag("block", "minecraft:dirt"));
-                        layer2_map.put("height", new IntTag("height", 2));
-                        layers_list.add(new CompoundTag("", layer2_map));
-                        CompoundMap layer3_map = new CompoundMap();
-                        layer3_map.put("block", new StringTag("block", "minecraft:grass_block"));
-                        layer3_map.put("height", new IntTag("height", 1));
-                        layers_list.add(new CompoundTag("", layer3_map));
+                        layers_list.add(new CompoundTag("", Util.CreateCompoundMapWithContents(new StringTag("block", "minecraft:bedrock"), new IntTag("height", 1))));
+                        layers_list.add(new CompoundTag("", Util.CreateCompoundMapWithContents(new StringTag("block", "minecraft:dirt"), new IntTag("height", 2))));
+                        layers_list.add(new CompoundTag("", Util.CreateCompoundMapWithContents(new StringTag("block", "minecraft:grass_block"), new IntTag("height", 1))));
+
                         settings_map.put("layers", new ListTag<>("layers", TagType.TAG_COMPOUND, layers_list));
 
-                        settings_map.put("biome", new StringTag("biome", "minecraft:plains"));
-                        settings_map.put("features", new ByteTag("features", (byte) 0));
-                        settings_map.put("lakes", new ByteTag("lakes", (byte) 0));
                         generatormap2.put("settings", new CompoundTag("settings", settings_map));
                     } else {
                         generatormap2.replace("seed", new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
@@ -1057,10 +1014,7 @@ public class Fixers {
         originalData.remove("GWSpawnTick");
         originalData.remove("StructuresBanned");
 
-        IntTag CurrentDay = new IntTag("CurrentDay", ((IntTag) ((CompoundTag) originalData.get("Dates")).getValue().get("ShireDate")).getValue());
-        CompoundMap Dates_map = new CompoundMap();
-        Dates_map.put("CurrentDay", CurrentDay);
-        CompoundTag Dates = new CompoundTag("Dates", Dates_map);
+        CompoundTag Dates = new CompoundTag("Dates", Util.CreateCompoundMapWithContents(new IntTag("CurrentDay", ((IntTag) ((CompoundTag) originalData.get("Dates")).getValue().get("ShireDate")).getValue())));
         originalData.replace("Dates", Dates);
         (originalData.get("MadeMiddlePortal").getAsIntTag()).ifPresent(intTag -> originalData.replace("MadeMiddlePortal", new ByteTag("MadeMiddlePortal", (byte) (int) intTag.getValue())));
         //IntTag MadeMiddlePortal = originalData.get("MadeMiddlePortal").getAsIntTag().get();
@@ -1086,11 +1040,7 @@ public class Fixers {
                 StringTag Faction_tag = (StringTag) tag.getValue().get("Faction");
                 String Faction = Faction_tag.getValue();
                 if (Data.FacNames.containsKey(Faction)) {
-                    final CompoundMap newData_CF = new CompoundMap();
-                    newData_CF.put("AlignF", tag.getValue().get("AlignF"));
-                    newData_CF.put("Faction", new StringTag("Faction", Data.FacNames.get(Faction)));
-                    CompoundTag AM_CT_Builder = new CompoundTag("", newData_CF);
-                    AlignmentMap_builder.add(AM_CT_Builder);
+                    AlignmentMap_builder.add(new CompoundTag("", Util.CreateCompoundMapWithContents(tag.getValue().get("AlignF"), new StringTag("Faction", Data.FacNames.get(Faction)))));
                 }
             }
         }
@@ -1104,14 +1054,10 @@ public class Fixers {
             StringTag Faction_tag_AL = (StringTag) tag.getValue().get("Faction");
             String Faction_AL = Faction_tag_AL.getValue();
             if (Data.FacNames.containsKey(Faction_AL)) {
-                final CompoundMap newData_AL = new CompoundMap();
-                newData_AL.put("ConquestHorn", tag.getValue().get("ConquestHorn"));
-                newData_AL.put("EnemyKill", tag.getValue().get("EnemyKill"));
-                newData_AL.put("Faction", new StringTag("Faction", Data.FacNames.get(Faction_AL)));
-                newData_AL.put("Hired", tag.getValue().get("Hired"));
+                final CompoundMap newData_AL = Util.CreateCompoundMapWithContents(tag.getValue().get("ConquestHorn"), tag.getValue().get("EnemyKill"), new StringTag("Faction", Data.FacNames.get(Faction_AL)), tag.getValue().get("Hired"), tag.getValue().get("MiniQuests"), tag.getValue().get("Trades"));
+
+                //Couldn't think of a way to do renaming implicitly
                 newData_AL.put("MemberKill", tag.getValue().get("NPCKill"));
-                newData_AL.put("MiniQuests", tag.getValue().get("MiniQuests"));
-                newData_AL.put("Trades", tag.getValue().get("Trades"));
                 CompoundTag AM_AL_Builder = new CompoundTag("", newData_AL);
                 FactionStats_builder.add(AM_AL_Builder);
             }
@@ -1126,8 +1072,7 @@ public class Fixers {
             String Region_PRF = ((StringTag) tag.getValue().get("Region")).getValue();
             String Faction_PRF = Faction_tag_PRF.getValue();
             if (Data.FacNames.containsKey(Faction_PRF)) {
-                final CompoundMap newData_PRF = new CompoundMap();
-                newData_PRF.put("Faction", new StringTag("Faction", Data.FacNames.get(Faction_PRF)));
+                final CompoundMap newData_PRF = Util.CreateCompoundMapWithContents(new StringTag("Faction", Data.FacNames.get(Faction_PRF)));
                 switch (Region_PRF) {
                     case "west":
                         newData_PRF.put("Region", new StringTag("Region", "lotr:westlands"));
@@ -1191,16 +1136,11 @@ public class Fixers {
             String WPName = WPName_tag.getValue();
             //if the waypoint exists in renewed (not everything has been ported yet)
             if (Data.Waypoints.containsKey(WPName)) {
-                //create empty map for the CompoundTag
-                final CompoundMap newData_WP = new CompoundMap();
-                //put in the amount of waypoint usage (cooldown depends on it)
-                newData_WP.put("Count", tag.getValue().get("Count"));
-                //put in the new name
-                newData_WP.put("WPName", new StringTag("WPName", Data.Waypoints.get(WPName)));
-                //create the CompoundTag
-                CompoundTag WPUses_CT_Builder = new CompoundTag("", newData_WP);
                 //add the CompoundTag to the List
-                WPUses_builder.add(WPUses_CT_Builder);
+                //CompoundMap Info:
+                //Var1: the amount of waypoint usage (cooldown depends on it)
+                //Var2: the new name
+                WPUses_builder.add(new CompoundTag("", Util.CreateCompoundMapWithContents(tag.getValue().get("Count"), new StringTag("WPName", Data.Waypoints.get(WPName)))));
             }
         }
         //create the ListTag from the List
@@ -1210,37 +1150,8 @@ public class Fixers {
         //the game will add missing items itself, hence the commented out fields
         //ByteTag ShowMapMarkers = new ByteTag("ShowMapMarkers", (byte) 1);
 
-        //removes redundant data (when said info gets ported I can simply uncomment it)
-        originalData.remove("QuestData");
-        originalData.remove("Achievements");
-        originalData.remove("SentMessageTypes"); //Shows which pop-ups the mod has given (friendly fire, utumno etc.)
-        originalData.remove("BountiesPlaced");
-        originalData.remove("CustomWayPoints"); //additional requirements in renewed, might port these later as a thing you can only use once
-        originalData.remove("CWPSharedHidden");
-        originalData.remove("CWPSharedUnlocked");
-        originalData.remove("CWPSharedUses");
-        originalData.remove("CWPUses");
-        originalData.remove("FellowshipInvites");
-        originalData.remove("Fellowships");
-        originalData.remove("MiniQuests");
-        originalData.remove("MiniQuestsCompleted");
-        originalData.remove("TakenAlignmentRewards");
-        originalData.remove("AdminHideMap");
-        originalData.remove("Chosen35Align");
-        originalData.remove("ConquestKills");
-        originalData.remove("HideAlignment");
-        originalData.remove("HideOnMap");
-        originalData.remove("HiredDeathMessages");
-        originalData.remove("LastBiome");
-        originalData.remove("MiniQuestTrack");
-        originalData.remove("MQCompleteCount");
-        originalData.remove("MQCompletedBounties");
-        originalData.remove("Pre35Align");
-        originalData.remove("ShowHiddenSWP");
-        originalData.remove("StructuresBanned");
-        originalData.remove("ChatBoundFellowship");
-        originalData.remove("DeathDim");
-
+        //removes redundant data (for now, at least)
+        Util.CMRemoveVarArgs(originalData, "QuestData", "Achievements", "SentMessageTypes", "BountiesPlaced", "CustomWayPoints", "CWPSharedHidden", "CWPSharedUnlocked", "CWPSharedUses", "CWPUses", "FellowshipInvites", "Fellowships", "MiniQuests", "MiniQuestsCompleted", "TakenAlignmentRewards", "AdminHideMap", "Chosen35Align", "ConquestKills", "HideAlignment", "HideOnMap", "HiredDeathMessages", "LastBiome", "MiniQuestTrack", "MQCompleteCount", "MQCompletedBounties", "Pre35Align", "ShowHiddenSWP", "StructuresBanned", "ChatBoundFellowship", "DeathDim");
         originalData.replace("AlignmentMap", new ListTag<>("AlignmentMap", TagType.TAG_COMPOUND, AlignmentMap_builder));
         originalData.replace("FactionStats", new ListTag<>("FactionStats", TagType.TAG_COMPOUND, FactionStats_builder));
         originalData.replace("PrevRegionFactions", new ListTag<>("PrevRegionFactions", TagType.TAG_COMPOUND, PrevRegionFactions_builder));
@@ -1456,18 +1367,34 @@ as you always have 4096 blocks in a section (counting air obviously) you can hav
 * 10 (palette of up to 1024)
 * 11 (palette of up to 2048)
 * 12 (palette of up to 4096)
+
+
+
+
+
+
+
+issues:
+1229782938247303441 -> 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001
         */
         for (int i = 0; i < list.size(); i++) {
             CompoundMap SectionCompoundMap = list.get(i).getValue();
             List<CompoundTag> PaletteBuilderList = new ArrayList<>();
+
+            //Apparently air is always in the palette, or once it's in it never leaves, I don't know yet
+            PaletteBuilderList.add(new CompoundTag("", Util.CreateCompoundMapWithContents(new StringTag("Name", "minecraft:air"))));
+
             //used for making sure no identical palette entries exist
             List<String> PaletteCheckerList = new ArrayList<>();
+            PaletteCheckerList.add("{name=minecraft:air}");
+
             Optional<ByteArrayTag> OBlocksByteArray = SectionCompoundMap.get("Blocks").getAsByteArrayTag();
             Optional<ByteArrayTag> ODataByteArray = SectionCompoundMap.get("Data").getAsByteArrayTag();
 
             if (OBlocksByteArray.isPresent() && ODataByteArray.isPresent()) {
                 byte[] BlocksByteArray = OBlocksByteArray.get().getValue();
                 byte[] DataByteArray = ODataByteArray.get().getValue();
+                //initializes with 0 as default value, as air is always the first entry, nothing needs to happen with air
                 int[] BlockPaletteReferences = new int[4096];
                 //this should never fail as far as I know, purely redundancy
                 if (BlocksByteArray.length == 4096 && DataByteArray.length == 2048) {
@@ -1487,12 +1414,7 @@ as you always have 4096 blocks in a section (counting air obviously) you can hav
 
                             if (Data.BlockMappings.containsKey(LegacyId)) {
                                 BlockPaletteReferences[DataCounter] = AddPaletteEntryIfNecessary(Data.BlockMappings.get(LegacyId), DataByteArray[dataValue], SecondEntry, PaletteCheckerList, PaletteBuilderList);
-                            } else {
-                                BlockPaletteReferences[DataCounter] = AddAirIfNotExists(PaletteCheckerList, PaletteBuilderList);
                             }
-                        } else {
-                            //stringCache.PrintLine(("no legacy id found for id: " + BlocksByteArray[DataCounter]), false);
-                            BlockPaletteReferences[DataCounter] = AddAirIfNotExists(PaletteCheckerList, PaletteBuilderList);
                         }
                         DataCounter++;
                     }
@@ -1584,7 +1506,7 @@ as you always have 4096 blocks in a section (counting air obviously) you can hav
      */
     @SuppressWarnings("unchecked")
     public static int AddPaletteEntryIfNecessary(Map<String, ?> BlockMapping, byte DataEntry, boolean SecondEntry, List<String> PaletteCheckerList, List<CompoundTag> PaletteBuilderList) {
-        int returner;
+        int returner = 0;
         if (EntryExists(BlockMapping, DataEntry, SecondEntry)) {
             LinkedTreeMap<?, ?> Entry = (LinkedTreeMap<?, ?>) BlockMapping.get(String.valueOf((BlockDataSelector(DataEntry, SecondEntry))));
             if (!PaletteCheckerList.contains(Entry.toString())) {
@@ -1607,31 +1529,11 @@ as you always have 4096 blocks in a section (counting air obviously) you can hav
                     PaletteBuilderList.add(new CompoundTag("Palette", map));
                 }
                 returner = PaletteCheckerList.indexOf(Entry.toString());
-            } else {
-                returner = AddAirIfNotExists(PaletteCheckerList, PaletteBuilderList);
             }
-        } else {
-            returner = AddAirIfNotExists(PaletteCheckerList, PaletteBuilderList);
         }
         return returner;
     }
 
-
-    /**
-     * Adds an entry for air to PaletteCheckerList & PaletteBuilderList if it doesn't exist yet
-     *
-     * @param PaletteCheckerList {@link List<String>} containing string entries of the palette
-     * @param PaletteBuilderList {@link List<CompoundTag>} containing entries of the palette
-     */
-    public static int AddAirIfNotExists(List<String> PaletteCheckerList, List<CompoundTag> PaletteBuilderList) {
-        if (!PaletteCheckerList.contains("{name=minecraft:air}")) {
-            PaletteCheckerList.add("{name=minecraft:air}");
-            CompoundMap air = new CompoundMap();
-            air.put(new StringTag("Name", "minecraft:air"));
-            PaletteBuilderList.add(new CompoundTag("", air));
-        }
-        return PaletteCheckerList.indexOf("{name=minecraft:air}");
-    }
 
     /**
      * Returns if the corresponding value exists
@@ -1690,7 +1592,8 @@ as you always have 4096 blocks in a section (counting air obviously) you can hav
                             //EntityFixer was made in a hurry and is probably unfinished/ prone to crashing. For testing purposes you can disable this line if you get crashes
                             //CompoundMap Entity = EntityFixer(t.getValue(), Data, stringCache, false);
                             CompoundMap Entity = new CompoundMap();
-                            if (Entity != null) EntityBuilder.add(new CompoundTag("", Entity));
+                            //if (Entity != null) EntityBuilder.add(new CompoundTag("", Entity));
+                            EntityBuilder.add(new CompoundTag("", Entity));
                         }
                         Level.replace("Entities", new ListTag<>("Entities", TagType.TAG_COMPOUND, EntityBuilder));
                     }
@@ -1715,6 +1618,8 @@ as you always have 4096 blocks in a section (counting air obviously) you can hav
                         Level.replace("Sections", new ListTag<>("Sections", TagType.TAG_COMPOUND, Sections));
                     }
                 }
+
+                //One of these 2 is needed for the game to try to use the changed data, otherwise it'll regenerate
                 Level.put(new StringTag("Status", "full"));
                 Level.put(new ByteTag("isLightOn", (byte) 1));
                 Chunk.replace("Level", new CompoundTag("Level", Level));

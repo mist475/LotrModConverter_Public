@@ -12,7 +12,7 @@ public class Test implements Convertor {
      * @throws IOException if something fails
      */
     @Override
-    public void modifier(Path p, String FileName) throws IOException, InterruptedException {
+    public void modifier(Path p, String FileName) throws IOException {
         /*
         byte[] BlockStateDataValueGetterTester = new byte[]{0, 14, 15, 16, 32, 48, 64, 80, 96, 112, -128, -112, -96, -80, -64, -48, 0};
         byte[] BSDVGT_Result1 = new byte[BlockStateDataValueGetterTester.length];
