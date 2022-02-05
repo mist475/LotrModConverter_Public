@@ -1385,11 +1385,19 @@ issues:
             PaletteBuilderList.add(new CompoundTag("", Util.CreateCompoundMapWithContents(new StringTag("Name", "minecraft:air"))));
 
             //used for making sure no identical palette entries exist
-            List<String> PaletteCheckerList = new ArrayList<>();
-            PaletteCheckerList.add("{name=minecraft:air}");
+            List<String> PaletteCheckerList = new ArrayList<>(Collections.singleton("{name=minecraft:air}"));
 
             Optional<ByteArrayTag> OBlocksByteArray = SectionCompoundMap.get("Blocks").getAsByteArrayTag();
             Optional<ByteArrayTag> ODataByteArray = SectionCompoundMap.get("Data").getAsByteArrayTag();
+
+            //TODO: test again, if it throws a NuLLPointer again write a bugreport as it shouldn't do that due to the Optional
+            /*
+            Optional<ByteArrayTag> OAddArray;
+            if (SectionCompoundMap.containsKey("Add")) {
+                OAddArray = SectionCompoundMap.get("Add").getAsByteArrayTag();
+            } else OAddArray = Optional.empty();
+             */
+
 
             if (OBlocksByteArray.isPresent() && ODataByteArray.isPresent()) {
                 byte[] BlocksByteArray = OBlocksByteArray.get().getValue();
@@ -1400,9 +1408,30 @@ issues:
                 if (BlocksByteArray.length == 4096 && DataByteArray.length == 2048) {
                     //long[] BlockStates = new long[256];
                     //to loop through both lists at once.
-                    int DataCounter = 0;
 
-                    while (DataCounter < 4096) {
+                    //if (OAddArray.isPresent()) {
+                    /*
+                        byte[] AddArray = OAddArray.get().getValue();
+                        for (int DataCounter = 0; DataCounter < 4096; DataCounter++) {
+                            int dataValue = Math.floorDiv(DataCounter, 2);
+                            //I might've reversed this one accidentally, time will tell...
+                            boolean SecondEntry = DataCounter % 2 == 1;
+                            if (Data.BlockIdToName.containsKey(String.valueOf(BlocksByteArray[DataCounter]))) {
+                                String LegacyId = Data.BlockIdToName.get(String.valueOf(BlocksByteArray[DataCounter]));
+
+                                //Only print for debugging purposes, this is extremely slow (1 region file with this on takes 15 min, with this off it takes 15 seconds)
+                                //stringCache.PrintLine(LegacyId, false);
+
+                                if (Data.BlockMappings.containsKey(LegacyId)) {
+                                    BlockPaletteReferences[DataCounter] = AddPaletteEntryIfNecessary(Data.BlockMappings.get(LegacyId), DataByteArray[dataValue], AddArray[dataValue], SecondEntry, PaletteCheckerList, PaletteBuilderList);
+                                }
+                            }
+                            DataCounter++;
+                        }
+                     */
+
+                    //} else {
+                    for (int DataCounter = 0; DataCounter < 4096; DataCounter++) {
                         int dataValue = Math.floorDiv(DataCounter, 2);
                         //I might've reversed this one accidentally, time will tell...
                         boolean SecondEntry = DataCounter % 2 == 1;
@@ -1416,20 +1445,22 @@ issues:
                                 BlockPaletteReferences[DataCounter] = AddPaletteEntryIfNecessary(Data.BlockMappings.get(LegacyId), DataByteArray[dataValue], SecondEntry, PaletteCheckerList, PaletteBuilderList);
                             }
                         }
-                        DataCounter++;
                     }
+                    //}
+
 
                     ListTag<CompoundTag> Palette = new ListTag<>("Palette", TagType.TAG_COMPOUND, PaletteBuilderList);
 
                     SectionCompoundMap.remove("Blocks");
                     SectionCompoundMap.remove("Data");
+                    //TODO: use add combined with Data as otherwise there will be bugs
+                    SectionCompoundMap.remove("Add");
                     SectionCompoundMap.put(Palette);
                     SectionCompoundMap.put(new LongArrayTag("BlockStates", BlockStatesGenerator(PaletteCheckerList, BlockPaletteReferences)));
                     list.set(i, new CompoundTag("", SectionCompoundMap));
 
                 } else {
                     stringCache.PrintLine("Invalid section format!", false);
-
                 }
             }
         }
@@ -1479,7 +1510,6 @@ issues:
     public static long BlockStateLongUpdater(long Base, int Value, int BPI, int InternalBlockPosition) {
         //if value is 0 there is no need to update the value of the long
         if (Value != 0) {
-            //long LongValue = ((long) Value << (BPI * InternalBlockPosition));
             Base = Base | ((long) Value << (BPI * InternalBlockPosition));
         }
         return Base;
@@ -1528,11 +1558,45 @@ issues:
                     }
                     PaletteBuilderList.add(new CompoundTag("Palette", map));
                 }
-                returner = PaletteCheckerList.indexOf(Entry.toString());
             }
+            returner = PaletteCheckerList.indexOf(Entry.toString());
         }
         return returner;
     }
+
+/*
+    @SuppressWarnings("unchecked")
+    public static int AddPaletteEntryIfNecessary(Map<String, ?> BlockMapping, byte DataEntry, byte AddEntry, boolean SecondEntry, List<String> PaletteCheckerList, List<CompoundTag> PaletteBuilderList) {
+        int returner = 0;
+        //blockId = ((add << 8) + baseId)
+        //((AddEntry << 8) + DataEntry)
+        if (EntryExists(BlockMapping, ((AddEntry << 8) + DataEntry), SecondEntry)) {
+            LinkedTreeMap<?, ?> Entry = (LinkedTreeMap<?, ?>) BlockMapping.get(String.valueOf((BlockDataSelector(((AddEntry << 8) + DataEntry), SecondEntry))));
+            if (!PaletteCheckerList.contains(Entry.toString())) {
+                PaletteCheckerList.add(Entry.toString());
+                CompoundMap map = new CompoundMap();
+                if (Entry.containsKey("name")) {
+                    map.put(new StringTag("Name", (String) Entry.get("name")));
+                    if (Entry.containsKey("properties")) {
+                        CompoundMap innerCompoundBuilder = new CompoundMap();
+                        Map<String, ?> properties = (Map<String, ?>) Entry.get("properties");
+                        for (Map.Entry<String, ?> property : properties.entrySet()) {
+                            //probably always a string if I read the wiki correctly, just in case I put in the case of a Boolean
+                            if (property.getValue() instanceof String)
+                                innerCompoundBuilder.put(new StringTag(property.getKey(), (String) property.getValue()));
+                            else if (property.getValue() instanceof Boolean)
+                                innerCompoundBuilder.put(new ByteTag(property.getKey(), (Boolean) property.getValue()));
+                        }
+                        map.put(new CompoundTag("Properties", innerCompoundBuilder));
+                    }
+                    PaletteBuilderList.add(new CompoundTag("Palette", map));
+                }
+            }
+            returner = PaletteCheckerList.indexOf(Entry.toString());
+        }
+        return returner;
+    }
+ */
 
 
     /**
@@ -1556,10 +1620,12 @@ issues:
      */
     public static byte BlockDataSelector(byte DataValue, boolean SecondEntry) {
         byte Result = (SecondEntry ? (byte) (DataValue >> 4) : (byte) (DataValue & 15));
-        if (Result < 0) return (byte) (Result + 16);
-        else return Result;
+        if (Result < 0) {
+            return (byte) (Result + 16);
+        } else return Result;
         //return (SecondEntry ? (byte) (DataValue >> 4) : (byte) (DataValue & 15));
     }
+
 
     /**
      * Fixes Chunk {@link CompoundMap}
@@ -1583,6 +1649,7 @@ issues:
                 Level.remove("TerrainPopulated");
                 //Will hopefully regenerate, easily testable by just removing them from a new world via NBTExplorer, I'm just too lazy to do it.
                 Level.remove("Heightmap");
+                /*
                 if (Level.containsKey("Entities")) {
                     Optional<ListTag<?>> OEntities = Level.get("Entities").getAsListTag();
                     if (OEntities.isPresent()) {
@@ -1598,6 +1665,8 @@ issues:
                         Level.replace("Entities", new ListTag<>("Entities", TagType.TAG_COMPOUND, EntityBuilder));
                     }
                 }
+                */
+                Level.remove("Entities");
                 if (Level.containsKey("TileEntities")) {
                     Optional<ListTag<?>> OTileEntities = Level.get("TileEntities").getAsListTag();
                     if (OTileEntities.isPresent()) {
@@ -1637,10 +1706,7 @@ issues:
      * @return {@link HashMap} with the fixed chunks
      */
     public static HashMap<Integer, Chunk> regionFixer(HashMap<Integer, Chunk> Chunks, Data Data, StringCache stringCache) throws IOException {
-        //int i = 0;
         for (Map.Entry<Integer, Chunk> entry : Chunks.entrySet()) {
-            //i++;
-            //int pos = entry.getKey();
             Chunk chunk = entry.getValue();
             CompoundTag tag = chunk.readTag();
             CompoundMap map = tag.getValue();
@@ -1649,7 +1715,6 @@ issues:
             //Chunk(int x, int z, int timestamp, Tag<?> data, byte compression)
             chunk = new Chunk(chunk.x, chunk.z, chunk.timestamp, tag, chunk.getCompression());
             entry.setValue(chunk);
-            //stringCache.PrintLine("converted chunk nr: " + i, true);
         }
         return Chunks;
     }
