@@ -7608,7 +7608,7 @@
     "1": "minecraft:stone",
     "-70": "lotr:tile.brick",
     "-97": "minecraft:stained_hardened_clay",
-    "82": "minecraft:hardened_clay",
-    "-84": "minecraft:clay"
+    "-84": "minecraft:hardened_clay",
+    "82": "minecraft:clay"
   }
 }

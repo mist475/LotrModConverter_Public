@@ -1406,7 +1406,6 @@ issues:
                 int[] BlockPaletteReferences = new int[4096];
                 //this should never fail as far as I know, purely redundancy
                 if (BlocksByteArray.length == 4096 && DataByteArray.length == 2048) {
-                    //long[] BlockStates = new long[256];
                     //to loop through both lists at once.
 
                     //if (OAddArray.isPresent()) {
@@ -1448,7 +1447,6 @@ issues:
                     }
                     //}
 
-
                     ListTag<CompoundTag> Palette = new ListTag<>("Palette", TagType.TAG_COMPOUND, PaletteBuilderList);
 
                     SectionCompoundMap.remove("Blocks");
@@ -1477,22 +1475,25 @@ issues:
         long[] BlockStates;
         //Should always be true due to where we call it, just making sure
         if (PaletteReferences.length == 4096) {
+            //How many bits do you need to store the data of 1 block, minimum is 4
             int bitsPerIndex = BitsPerIndex(PaletteCheckerList.size());
-            //with this, we can calculate the amount of longs needed to fit all 4096 blocks
+            //How many blocks can you fit in 1 long, a long stores the data of 64 bits, so you simply divide and floor
             int BlocksPerLong = Math.floorDiv(64, bitsPerIndex);
+            //How many longs do you need to store 4096 blocks with BlockPerLong
             int LongsNeeded = (int) Math.ceil((double) 4096 / BlocksPerLong);
             BlockStates = new long[LongsNeeded];
 
-            //Which long should we write to, value should be [0,255]
-            int ExternalLongPosition = 0;
-            //Which position within the long are we gonna use, value should be [0,15]
-            int InternalLongPosition = 0;
+            //Which long should we write to, ranges from 0 up to LongsNeeded
+            int ExternalLongPosition;
+            //Which position within the long are we gonna use, value ranges from 0 to 16
+            int InternalLongPosition;
             for (int i = 0; i < 4096; i++) {
-                BlockStates[ExternalLongPosition] = BlockStateLongUpdater(BlockStates[ExternalLongPosition], PaletteReferences[i], bitsPerIndex, InternalLongPosition);
                 //progression for switching to the next long
                 ExternalLongPosition = Math.floorDiv(i, BlocksPerLong);
                 //progression within the long
                 InternalLongPosition = i % BlocksPerLong;
+                //Updates the long accordingly to the Palette reference, the BPI (Bits Per Index) & the internal position
+                BlockStates[ExternalLongPosition] = BlockStateLongUpdater(BlockStates[ExternalLongPosition], PaletteReferences[i], bitsPerIndex, InternalLongPosition);
             }
 
         } else BlockStates = new long[256]; //returns an empty section with bpi of 4
@@ -1612,7 +1613,7 @@ issues:
     }
 
     /**
-     * returns the bits that should be used
+     * Returns the bits that should be used
      *
      * @param DataValue   original byte
      * @param SecondEntry determines if the first or the last 4 bits will be picked
@@ -1687,10 +1688,8 @@ issues:
                         Level.replace("Sections", new ListTag<>("Sections", TagType.TAG_COMPOUND, Sections));
                     }
                 }
-
-                //One of these 2 is needed for the game to try to use the changed data, otherwise it'll regenerate
+                //Needed for the game to try to use the changed data, otherwise it'll regenerate the chunks
                 Level.put(new StringTag("Status", "full"));
-                Level.put(new ByteTag("isLightOn", (byte) 1));
                 Chunk.replace("Level", new CompoundTag("Level", Level));
                 //This value triggers Mojangs own DataFixers so use with caution
                 Chunk.put(new IntTag("DataVersion", 2586));
