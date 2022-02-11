@@ -164,6 +164,11 @@ lotr:bone_boots
 lotr:bone_chestplate
 lotr:bone_helmet
 lotr:bone_leggings
+lotr:book_of_true_silver
+lotr:bree_crafting_table
+lotr:bree_guard_spawn_egg
+lotr:bree_hobbit_spawn_egg
+lotr:bree_man_spawn_egg
 lotr:brick_pillar
 lotr:brick_pillar_slab
 lotr:bronze_axe
@@ -386,6 +391,27 @@ lotr:cracked_wood_elven_brick_slab
 lotr:cracked_wood_elven_brick_stairs
 lotr:cracked_wood_elven_brick_wall
 lotr:cram
+lotr:culumalda_beam
+lotr:culumalda_beam_slab
+lotr:culumalda_boat
+lotr:culumalda_branch
+lotr:culumalda_button
+lotr:culumalda_door
+lotr:culumalda_fence
+lotr:culumalda_fence_gate
+lotr:culumalda_leaves
+lotr:culumalda_log
+lotr:culumalda_log_slab
+lotr:culumalda_planks
+lotr:culumalda_pressure_plate
+lotr:culumalda_sapling
+lotr:culumalda_sign
+lotr:culumalda_slab
+lotr:culumalda_stairs
+lotr:culumalda_trapdoor
+lotr:culumalda_wood
+lotr:culumalda_wood_slab
+lotr:culumalda_wood_stairs
 lotr:cut_white_sandstone
 lotr:cut_white_sandstone_slab
 lotr:cyan_clay_tiling
@@ -491,6 +517,7 @@ lotr:durnor
 lotr:durnor_block
 lotr:durnor_ore
 lotr:dwarf_archer_spawn_egg
+lotr:dwarf_bone
 lotr:dwarf_spawn_egg
 lotr:dwarf_warrior_spawn_egg
 lotr:dwarfwort
@@ -525,6 +552,7 @@ lotr:edhelvir_block
 lotr:edhelvir_crystal
 lotr:edhelvir_ore
 lotr:elanor
+lotr:elf_bone
 lotr:elven_forge
 lotr:elven_steel_block
 lotr:elven_steel_ingot
@@ -535,6 +563,7 @@ lotr:fallen_beech_leaves
 lotr:fallen_birch_leaves
 lotr:fallen_cedar_leaves
 lotr:fallen_cherry_leaves
+lotr:fallen_culumalda_leaves
 lotr:fallen_cypress_leaves
 lotr:fallen_dark_oak_leaves
 lotr:fallen_fir_leaves
@@ -752,6 +781,7 @@ lotr:high_elven_pillar
 lotr:high_elven_pillar_slab
 lotr:high_elven_torch
 lotr:high_elven_wood_bars
+lotr:hobbit_bone
 lotr:hobbit_crafting_table
 lotr:hobbit_oven
 lotr:hobbit_spawn_egg
@@ -837,6 +867,7 @@ lotr:larch_trapdoor
 lotr:larch_wood
 lotr:larch_wood_slab
 lotr:larch_wood_stairs
+lotr:large_pouch
 lotr:lavender
 lotr:leather_bundle
 lotr:lebethron_beam
@@ -966,6 +997,7 @@ lotr:maple_wood_slab
 lotr:maple_wood_stairs
 lotr:marigold
 lotr:mead
+lotr:medium_pouch
 lotr:melon_liqueur
 lotr:milk_drink
 lotr:mirk_oak_beam
@@ -1030,6 +1062,7 @@ lotr:mordor_chestplate
 lotr:mordor_crafting_table
 lotr:mordor_dagger
 lotr:mordor_dirt
+lotr:mordor_dirt_path
 lotr:mordor_dripstone
 lotr:mordor_grass
 lotr:mordor_gravel
@@ -1161,6 +1194,7 @@ lotr:orange_fine_glass_pane
 lotr:orange_wool_slab
 lotr:orange_wool_stairs
 lotr:orc_bars
+lotr:orc_bone
 lotr:orc_draught
 lotr:orc_forge
 lotr:orc_gate
@@ -1170,6 +1204,7 @@ lotr:orc_plating_stairs
 lotr:orc_steel_block
 lotr:orc_steel_ingot
 lotr:orc_torch
+lotr:palantir
 lotr:papyrus
 lotr:pear
 lotr:pear_beam
@@ -1395,6 +1430,7 @@ lotr:silver_trimmed_dwarven_chestplate
 lotr:silver_trimmed_dwarven_helmet
 lotr:silver_trimmed_dwarven_leggings
 lotr:simbelmyne
+lotr:small_pouch
 lotr:smoking_pipe
 lotr:smooth_blue_rock
 lotr:smooth_blue_rock_slab
@@ -1480,6 +1516,12 @@ lotr:stripped_cherry_log_slab
 lotr:stripped_cherry_wood
 lotr:stripped_cherry_wood_slab
 lotr:stripped_cherry_wood_stairs
+lotr:stripped_culumalda_branch
+lotr:stripped_culumalda_log
+lotr:stripped_culumalda_log_slab
+lotr:stripped_culumalda_wood
+lotr:stripped_culumalda_wood_slab
+lotr:stripped_culumalda_wood_stairs
 lotr:stripped_cypress_branch
 lotr:stripped_cypress_log
 lotr:stripped_cypress_log_slab
@@ -1590,6 +1632,7 @@ lotr:thistle
 lotr:tin_block
 lotr:tin_ingot
 lotr:tin_ore
+lotr:troll_bone
 lotr:umbar_archer_spawn_egg
 lotr:umbar_boots
 lotr:umbar_brick
@@ -1662,6 +1705,8 @@ lotr:wicker_fence_gate
 lotr:wild_flax
 lotr:wild_pipeweed
 lotr:winged_gondor_helmet
+lotr:wood_elf_spawn_egg
+lotr:wood_elf_warrior_spawn_egg
 lotr:wood_elven_axe
 lotr:wood_elven_bars
 lotr:wood_elven_boots

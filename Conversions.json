@@ -1123,7 +1123,7 @@
       ""
     ],
     "lotr:item.mithrilBook": [
-      ""
+      "lotr:book_of_true_silver"
     ],
     "lotr:item.dunlendingClub": [
       "lotr:dunlending_club"
@@ -2939,7 +2939,7 @@
       ""
     ],
     "lotr:item.orcBone": [
-      ""
+      "lotr:orc_bone"
     ],
     "lotr:tile.doorSpruce": [
       "minecraft:spruce_door"
@@ -5499,7 +5499,7 @@
       "lotr:dwarven_pickaxe"
     ],
     "lotr:item.hobbitBone": [
-      ""
+      "lotr:hobbit_bone"
     ],
     "lotr:item.morgulBlade": [
       ""
@@ -5666,7 +5666,7 @@
       ""
     ],
     "lotr:item.trollBone": [
-      ""
+      "lotr:troll_bone"
     ],
     "lotr:tile.mordorThorn": [
       "lotr:mordor_thorn"
@@ -6329,7 +6329,7 @@
       "lotr:harad_warlord_helmet"
     ],
     "lotr:item.dwarfBone": [
-      ""
+      "lotr:dwarf_bone"
     ],
     "lotr:item.mugDwarvenTonic": [
       "lotr:dwarven_tonic"
@@ -6635,7 +6635,7 @@
       ""
     ],
     "lotr:item.elfBone": [
-      ""
+      "lotr:elf_bone"
     ],
     "lotr:item.mugBlueberryJuice": [
       "lotr:sweet_berry_juice"
@@ -6707,7 +6707,9 @@
       ""
     ],
     "lotr:item.pouch": [
-      "minecraft:shulker_box"
+      "lotr:small_pouch",
+      "lotr:medium_pouch",
+      "lotr:large_pouch"
     ],
     "lotr:item.daggerWoodElven": [
       "lotr:wood_elven_dagger"
@@ -6737,7 +6739,7 @@
       ""
     ],
     "lotr:tile.breeCraftingTable": [
-      ""
+      "lotr:bree_crafting_table"
     ],
     "minecraft:coal_block": [
       ""
@@ -7416,44 +7418,49 @@
     "CARN_DUM": "lotr:carn_dum"
   },
   "Mod_mob_ids": {
-    "52": "lotr:dunlending_spawn_egg",
-    "192": "lotr:uruk_archer_spawn_egg",
-    "99": "lotr:lindon_warrior_spawn_egg",
-    "14": "lotr:mordor_orc_archer_spawn_egg",
-    "78": "lotr:gundabad_orc_archer_spawn_egg",
-    "119": "lotr:blue_mountains_dwarf_spawn_egg",
-    "306": "lotr:harnedhrim_spawn_egg",
-    "117": "lotr:coast_southron_archer_spawn_egg",
-    "296": "lotr:rivendell_warrior_spawn_egg",
-    "308": "lotr:harnennor_archer_spawn_egg",
-    "191": "lotr:uruk_spawn_egg",
-    "311": "lotr:umbar_soldier_spawn_egg",
-    "295": "lotr:rivendell_elf_spawn_egg",
-    "312": "lotr:umbar_archer_spawn_egg",
-    "6": "lotr:gondor_soldier_spawn_egg",
-    "27": "lotr:gondor_archer_spawn_egg",
-    "7": "lotr:gondor_man_spawn_egg",
-    "94": "lotr:lindon_elf_spawn_egg",
-    "310": "lotr:umbar_man_spawn_egg",
-    "200": "lotr:dale_bowman_spawn_egg",
-    "3": "lotr:mordor_orc_spawn_egg",
-    "18": "lotr:dwarf_spawn_egg",
-    "93": "lotr:coast_southron_warrior_spawn_egg",
-    "19": "lotr:dwarf_warrior_spawn_egg",
-    "92": "lotr:coast_southron_spawn_egg",
-    "41": "lotr:rohirrim_warrior_spawn_egg",
-    "50": "lotr:dunlending_bowman_spawn_egg",
-    "49": "lotr:dunlending_warrior_spawn_egg",
-    "11": "lotr:galadhrim_warrior_spawn_egg",
-    "199": "lotr:dale_soldier_spawn_egg",
-    "197": "lotr:dale_man_spawn_egg",
-    "8": "lotr:galadhrim_elf_spawn_egg",
-    "77": "lotr:gundabad_orc_spawn_egg",
-    "42": "lotr:rohirrim_bowman_spawn_egg",
-    "307": "lotr:harnennor_warrior_spawn_egg",
     "2": "lotr:hobbit_spawn_egg",
+    "3": "lotr:mordor_orc_spawn_egg",
+    "6": "lotr:gondor_soldier_spawn_egg",
+    "7": "lotr:gondor_man_spawn_egg",
+    "8": "lotr:galadhrim_elf_spawn_egg",
     "10": "lotr:rohan_man_spawn_egg",
+    "11": "lotr:galadhrim_warrior_spawn_egg",
+    "14": "lotr:mordor_orc_archer_spawn_egg",
+    "18": "lotr:dwarf_spawn_egg",
+    "19": "lotr:dwarf_warrior_spawn_egg",
+    "27": "lotr:gondor_archer_spawn_egg",
+    "38": "lotr:wood_elf_spawn_egg",
+    "41": "lotr:rohirrim_warrior_spawn_egg",
+    "42": "lotr:rohirrim_bowman_spawn_egg",
+    "49": "lotr:dunlending_warrior_spawn_egg",
+    "50": "lotr:dunlending_bowman_spawn_egg",
+    "52": "lotr:dunlending_spawn_egg",
+    "60": "lotr:wood_elf_warrior_spawn_egg",
+    "77": "lotr:gundabad_orc_spawn_egg",
+    "78": "lotr:gundabad_orc_archer_spawn_egg",
+    "92": "lotr:coast_southron_spawn_egg",
+    "93": "lotr:coast_southron_warrior_spawn_egg",
+    "94": "lotr:lindon_elf_spawn_egg",
+    "99": "lotr:lindon_warrior_spawn_egg",
+    "117": "lotr:coast_southron_archer_spawn_egg",
+    "119": "lotr:blue_mountains_dwarf_spawn_egg",
     "120": "lotr:blue_mountains_warrior_spawn_egg",
+    "191": "lotr:uruk_spawn_egg",
+    "192": "lotr:uruk_archer_spawn_egg",
+    "197": "lotr:dale_man_spawn_egg",
+    "199": "lotr:dale_soldier_spawn_egg",
+    "200": "lotr:dale_bowman_spawn_egg",
+    "295": "lotr:rivendell_elf_spawn_egg",
+    "296": "lotr:rivendell_warrior_spawn_egg",
+    "306": "lotr:harnedhrim_spawn_egg",
+    "307": "lotr:harnennor_warrior_spawn_egg",
+    "308": "lotr:harnennor_archer_spawn_egg",
+    "310": "lotr:umbar_man_spawn_egg",
+    "311": "lotr:umbar_soldier_spawn_egg",
+    "312": "lotr:umbar_archer_spawn_egg",
+    "385": "lotr:bree_man_spawn_egg",
+    "386": "bree_guard_spawn_egg",
+    "391": "lotr:bree_hobbit_spawn_egg",
     "Comments": "Used for fixing spawn eggs, as otherwise they would require changing the json item format yet again"
   },
   "Vanilla_mob_ids": {

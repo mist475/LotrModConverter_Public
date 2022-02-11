@@ -173,11 +173,11 @@ public class Fixers {
 
 
         if (Entity.containsKey("Equipment")) {
-            Entity.replace("Equipment", new ListTag<>("Equipment", TagType.TAG_COMPOUND, RecurItemFixer((((ListTag<CompoundTag>) Entity.get("Equipment")).getValue()), (double) 0, "Exception during Entity Equipment Fix", stringCache, Data)));
+            Entity.replace("Equipment", new ListTag<>("Equipment", TagType.TAG_COMPOUND, RecurItemFixer((((ListTag<CompoundTag>) Entity.get("Equipment")).getValue()), 0, "Exception during Entity Equipment Fix", stringCache, Data)));
         }
         //The sole reason I implemented this before I started working on fixing the world
         if (Entity.containsKey("Items")) {
-            Entity.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, RecurItemFixer((((ListTag<CompoundTag>) Entity.get("Items")).getValue()), (double) 0, "Exception during Entity Inventory Fix", stringCache, Data)));
+            Entity.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, RecurItemFixer((((ListTag<CompoundTag>) Entity.get("Items")).getValue()), 0, "Exception during Entity Inventory Fix", stringCache, Data)));
         }
 
         Entity.put("LeftHanded", new ByteTag("LeftHanded", (byte) 0));
@@ -278,10 +278,10 @@ public class Fixers {
         }
 
         if (newData.containsKey("EnderItems")) {
-            newData.replace("EnderItems", new ListTag<>("EnderItems", TagType.TAG_COMPOUND, RecurItemFixer((((ListTag<CompoundTag>) newData.get("EnderItems")).getValue()), (double) 0, "Exception during Ender chest conversion", stringCache, Data)));
+            newData.replace("EnderItems", new ListTag<>("EnderItems", TagType.TAG_COMPOUND, RecurItemFixer((((ListTag<CompoundTag>) newData.get("EnderItems")).getValue()), 0, "Exception during Ender chest conversion", stringCache, Data)));
         }
         if (newData.containsKey("Inventory")) {
-            newData.replace("Inventory", new ListTag<>("Inventory", TagType.TAG_COMPOUND, RecurItemFixer((((ListTag<CompoundTag>) newData.get("Inventory")).getValue()), (double) 0, "Exception during inventory conversion", stringCache, Data)));
+            newData.replace("Inventory", new ListTag<>("Inventory", TagType.TAG_COMPOUND, RecurItemFixer((((ListTag<CompoundTag>) newData.get("Inventory")).getValue()), 0, "Exception during inventory conversion", stringCache, Data)));
         }
 
         newData.remove("Attack Time");
@@ -350,56 +350,94 @@ public class Fixers {
     }
 
     /**
+     * Fixes the "Belonged to" section of an item
+     *
+     * @param s {@link String} to be fixed
+     * @return fixed {@link String} s
+     */
+    public static String BelongedToFixer(String s) {
+        //{"text":"some text here"}
+        return "{" + '"' + "text" + '"' + ':' + '"' + s + '"' + '}';
+    }
+
+    /**
      * Recursively runs through the provided inventory (recursive because of shulkerboxes/pouches/crackers)
      *
-     * @param l                {@link List} of type {@link Tag} of the given inventory
+     * @param itemList         {@link List} of type {@link CompoundTag} of the given inventory
      * @param depth            Maximum recursive depth
-     * @param exceptionMessage String printed when exception is thrown
-     * @return {@link List} of type {@link Tag} of the modified inventory
+     * @param exceptionMessage {@link String} printed when exception is thrown
+     * @return {@link List} of type {@link CompoundTag} of the modified inventory
      * @throws IOException if something fails
      */
     @SuppressWarnings("unchecked")
-    public static List<CompoundTag> RecurItemFixer(List<CompoundTag> l, Double depth, String exceptionMessage, StringCache stringCache, Data Data) throws IOException {
+    public static List<CompoundTag> RecurItemFixer(List<CompoundTag> itemList, double depth, String exceptionMessage, StringCache stringCache, Data Data) throws IOException {
         try {
-            List<CompoundTag> builder = new ArrayList<>();
-
+            List<CompoundTag> itemListBuilder = new ArrayList<>();
             if (depth++ < (Double) Data.Settings.get("Recursion Depth")) {
-                for (CompoundTag t : l) {
-                    if (!(t.getValue()).isEmpty()) {
-                        ShortTag id = (ShortTag) t.getValue().get("id");
+                for (CompoundTag itemCompoundTag : itemList) {
+                    if (!(itemCompoundTag.getValue()).isEmpty()) {
+                        ShortTag idTag = (ShortTag) itemCompoundTag.getValue().get("id");
                         boolean save = true;
-                        //use this map instead of t and replace t with it as t is not modifiable, this map is though
-                        CompoundMap tMap = new CompoundMap(t.getValue());
+                        //use this map instead of itemCompoundTag and replace itemCompoundTag with it as itemCompoundTag is not modifiable, this map is though
+                        CompoundMap tMap = new CompoundMap(itemCompoundTag.getValue());
                         //statement for pouches/cracker
-                        Integer compare1 = ((int) id.getValue());
-                        if (Data.LegacyIds.containsKey(compare1)) {
-                            if (Data.ItemNames.containsKey(Data.LegacyIds.get(compare1))) {
-                                List<String> item = Data.ItemNames.get(Data.LegacyIds.get(compare1));
+                        Integer idTagValue = ((int) idTag.getValue());
+                        if (Data.LegacyIds.containsKey(idTagValue)) {
+                            if (Data.ItemNames.containsKey(Data.LegacyIds.get(idTagValue))) {
+                                List<String> item = Data.ItemNames.get(Data.LegacyIds.get(idTagValue));
                                 //recursive call 1 (Pouches)
-                                if (item.get(0).equals("minecraft:shulker_box")) {
+                                if (item.get(0).equals("lotr:small_pouch")) {
                                     if (tMap.containsKey("tag")) {
-                                        CompoundMap filler = new CompoundMap(((CompoundTag) tMap.get("tag")).getValue());
+                                        CompoundMap filler = ((CompoundTag) tMap.get("tag")).getValue();
                                         //nameFixer
                                         if (filler.containsKey("display")) {
                                             filler.replace("display", nameFixer((CompoundTag) filler.get("display"), Data));
                                         }
-                                        if (filler.containsKey("LOTRPouchData")) {
-                                            CompoundMap LOTRPouchData = new CompoundMap(((CompoundTag) filler.get("LOTRPouchData")).getValue());
-                                            ListTag<CompoundTag> Items_tag = (ListTag<CompoundTag>) LOTRPouchData.get("Items");
-                                            //
-                                            List<CompoundTag> Items = Items_tag.getValue();
-                                            Items = RecurItemFixer(Items, depth, exceptionMessage, stringCache, Data);
-                                            //
-                                            LOTRPouchData.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, Items));
-                                            CompoundTag BlockEntityTag = new CompoundTag("BlockEntityTag", LOTRPouchData);
-                                            filler.replace("LOTRPouchData", BlockEntityTag);
-                                            tMap.replace("tag", new CompoundTag("tag", filler));
+                                        Optional<IntTag> OPouchColor;
+                                        if (filler.containsKey("PouchColor")) {
+                                            OPouchColor = Optional.of(new IntTag("Color", ((IntTag) filler.get("PouchColor")).getValue()));
+                                            filler.remove("PouchColor");
+                                        } else {
+                                            OPouchColor = Optional.empty();
                                         }
-                                    }
-                                    tMap.remove("Damage");
-                                    tMap.replace("id", new StringTag("id", "minecraft:shulker_box"));
-                                    builder.add(new CompoundTag("", tMap));
 
+                                        if (filler.containsKey("LOTRPrevOwnerList")) {
+                                            Optional<ListTag<?>> PreviousOwners = filler.get("LOTRPrevOwnerList").getAsListTag();
+                                            if (PreviousOwners.isPresent()) {
+                                                List<StringTag> OwnerList = (List<StringTag>) PreviousOwners.get().getValue();
+                                                for (int i = 0; i < OwnerList.size(); i++) {
+                                                    OwnerList.set(i, new StringTag(OwnerList.get(i).getName(), BelongedToFixer(OwnerList.get(i).getValue())));
+                                                }
+                                                filler.put(new CompoundTag("LOTROwnership", Util.CreateCompoundMapWithContents(new ListTag<>("PreviousOwners", TagType.TAG_STRING, OwnerList))));
+                                            }
+                                            filler.remove("LOTRPrevOwnerList");
+                                        }
+                                        if (filler.containsKey("LOTRPouchData") || OPouchColor.isPresent()) {
+
+                                            CompoundMap LOTRPouchData;
+                                            if (filler.containsKey("LOTRPouchData")) {
+                                                LOTRPouchData = ((CompoundTag) filler.get("LOTRPouchData")).getValue();
+                                            } else {
+                                                LOTRPouchData = new CompoundMap();
+                                            }
+
+                                            if (LOTRPouchData.containsKey("Items")) {
+                                                ListTag<CompoundTag> Items_tag = (ListTag<CompoundTag>) LOTRPouchData.get("Items");
+                                                //
+                                                List<CompoundTag> Items = Items_tag.getValue();
+                                                Items = RecurItemFixer(Items, depth, exceptionMessage, stringCache, Data);
+                                                //
+                                                LOTRPouchData.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, Items));
+                                            }
+                                            OPouchColor.ifPresent(LOTRPouchData::put);
+                                            filler.remove("LOTRPouchData");
+                                            filler.put(new CompoundTag("Pouch", LOTRPouchData));
+                                        }
+                                        tMap.replace("tag", new CompoundTag("tag", filler));
+                                    }
+                                    tMap.replace("id", new StringTag("id", item.get((Short) tMap.get("Damage").getValue())));
+                                    tMap.remove("Damage");
+                                    itemListBuilder.add(new CompoundTag("", tMap));
                                 }
 
                                 //recursive call 2 (Barrels/Kegs)
@@ -411,6 +449,7 @@ public class Fixers {
                                         if (filler.containsKey("display")) {
                                             filler.replace("display", nameFixer((CompoundTag) filler.get("display"), Data));
                                         }
+
                                         CompoundMap KegDroppableData_Map = new CompoundMap();
                                         if (filler.containsKey("LOTRBarrelData")) {
                                             CompoundMap LOTRBarrelData = new CompoundMap(((CompoundTag) filler.get("LOTRBarrelData")).getValue());
@@ -439,9 +478,9 @@ public class Fixers {
                                     tMap.remove("Damage");
                                     tMap.replace("id", new StringTag("id", "lotr:keg"));
                                     tMap.replace("tag", new CompoundTag("tag", filler));
-                                    builder.add(new CompoundTag("", tMap));
+                                    itemListBuilder.add(new CompoundTag("", tMap));
                                 }
-
+                                //recursive call 3? (Crackers)
 
                                 //Player head fixer (Apparently the game fixes this one automatically, except for custom names. So I added the full thing except the killed by message as I don't know how that is formatted)
                                 else if (item.get(0).equals("minecraft:skeleton_skull")) {
@@ -451,6 +490,19 @@ public class Fixers {
                                         if (filler.containsKey("display")) {
                                             filler.replace("display", nameFixer((CompoundTag) filler.get("display"), Data));
                                         }
+
+                                        if (filler.containsKey("LOTRPrevOwnerList")) {
+                                            Optional<ListTag<?>> PreviousOwners = filler.get("LOTRPrevOwnerList").getAsListTag();
+                                            if (PreviousOwners.isPresent()) {
+                                                List<StringTag> OwnerList = (List<StringTag>) PreviousOwners.get().getValue();
+                                                for (int i = 0; i < OwnerList.size(); i++) {
+                                                    OwnerList.set(i, new StringTag(OwnerList.get(i).getName(), BelongedToFixer(OwnerList.get(i).getValue())));
+                                                }
+                                                filler.put(new CompoundTag("LOTROwnership", Util.CreateCompoundMapWithContents(new ListTag<>("PreviousOwners", TagType.TAG_STRING, OwnerList))));
+                                            }
+                                            filler.remove("LOTRPrevOwnerList");
+                                        }
+
                                         if (filler.containsKey("SkullOwner")) {
                                             String owner = (String) filler.get("SkullOwner").getValue();
                                             CompoundMap SkullOwner = new CompoundMap();
@@ -463,15 +515,11 @@ public class Fixers {
                                     tMap.replace("id", new StringTag("id", item.get((Short) tMap.get("Damage").getValue())));
                                     tMap.remove("Damage");
                                     tMap.replace("tag", new CompoundTag("tag", filler));
-                                    builder.add(new CompoundTag("", tMap));
-                                }
+                                    itemListBuilder.add(new CompoundTag("", tMap));
+                                } else if (item.size() <= 1) {
 
-                                //recursive call 3? (Crackers)
-
-                                else if (item.size() <= 1) {
-
-                                    //code for single id values (mostly items, stairs) here
-                                    //simply carries over all the tags, except the id, which gets modified to the new one. moves the damage tag to its new location and changes it to an IntTag(was ShortTag before)
+                                    //code for single idTag values (mostly items, stairs) here
+                                    //simply carries over all the tags, except the idTag, which gets modified to the new one. moves the damage tag to its new location and changes it to an IntTag(was ShortTag before)
                                     if (!Objects.equals(item.get(0), "")) {
                                         boolean drink = new ArrayList<>(Arrays.asList("lotr:ale", "lotr:apple_juice", "lotr:athelas_brew", "lotr:cactus_liqueur", "lotr:carrot_wine", "lotr:cherry_liqueur", "lotr:cider", "lotr:chocolate_drink", "lotr:dwarven_ale", "lotr:dwarven_tonic", "lotr:maple_beer", "lotr:mead", "lotr:melon_liqueur", "lotr:milk_drink", "lotr:miruvor", "lotr:morgul_draught", "lotr:perry", "lotr:rum", "lotr:soured_milk", "lotr:sweet_berry_juice", "lotr:vodka", "lotr:water_drink")).contains(item.get(0));
 
@@ -480,6 +528,17 @@ public class Fixers {
                                             //itemFixer
                                             if (filler.containsKey("display")) {
                                                 filler.replace("display", nameFixer((CompoundTag) filler.get("display"), Data));
+                                            }
+                                            if (filler.containsKey("LOTRPrevOwnerList")) {
+                                                Optional<ListTag<?>> PreviousOwners = filler.get("LOTRPrevOwnerList").getAsListTag();
+                                                if (PreviousOwners.isPresent()) {
+                                                    List<StringTag> OwnerList = (List<StringTag>) PreviousOwners.get().getValue();
+                                                    for (int i = 0; i < OwnerList.size(); i++) {
+                                                        OwnerList.set(i, new StringTag(OwnerList.get(i).getName(), BelongedToFixer(OwnerList.get(i).getValue())));
+                                                    }
+                                                    filler.put(new CompoundTag("LOTROwnership", Util.CreateCompoundMapWithContents(new ListTag<>("PreviousOwners", TagType.TAG_STRING, OwnerList))));
+                                                }
+                                                filler.remove("LOTRPrevOwnerList");
                                             }
                                             //pipe fixer
                                             if (filler.containsKey("SmokeColour")) {
@@ -553,7 +612,7 @@ public class Fixers {
                                                         }
                                                     }
                                                 }
-                                                //without this if book & quills get messed up
+                                                //without this book & quills get messed up
                                                 if (Objects.equals(item.get(0), "minecraft:written_book")) {
                                                     List<StringTag> pages = new ArrayList<>();
                                                     for (StringTag st : (List<StringTag>) filler.get("pages").getValue()) {
@@ -684,11 +743,11 @@ public class Fixers {
                                         } else tMap.replace("id", new StringTag("id", item.get(0)));
                                         tMap.remove("Damage");
                                         if (save) {
-                                            builder.add(new CompoundTag("", tMap));
+                                            itemListBuilder.add(new CompoundTag("", tMap));
                                         }
                                     }
                                     //vanilla spawn egg handler
-                                    else if (Data.LegacyIds.get(compare1).equals("minecraft:spawn_egg")) {
+                                    else if (Data.LegacyIds.get(idTagValue).equals("minecraft:spawn_egg")) {
                                         //itemFixer
                                         if (tMap.containsKey("tag")) {
                                             CompoundMap filler = new CompoundMap(((CompoundTag) tMap.get("tag")).getValue());
@@ -700,12 +759,12 @@ public class Fixers {
                                         if (Data.Vanilla_mob_ids.containsKey(((Short) tMap.get("Damage").getValue()).toString())) {
                                             tMap.replace("id", new StringTag("id", Data.Vanilla_mob_ids.get(((Short) tMap.get("Damage").getValue()).toString())));
                                             tMap.remove("Damage");
-                                            builder.add(new CompoundTag("", tMap));
+                                            itemListBuilder.add(new CompoundTag("", tMap));
                                         } else
                                             stringCache.PrintLine("No vanilla spawn Egg found for Damage value : " + tMap.get("Damage").getValue(), false);
                                     }
                                     //lotr spawn egg handler
-                                    else if (Data.LegacyIds.get(compare1).equals("lotr:item.spawnEgg")) {
+                                    else if (Data.LegacyIds.get(idTagValue).equals("lotr:item.spawnEgg")) {
                                         //itemFixer
                                         if (tMap.containsKey("tag")) {
                                             CompoundMap filler = new CompoundMap(((CompoundTag) tMap.get("tag")).getValue());
@@ -717,20 +776,31 @@ public class Fixers {
                                         if (Data.Mod_mob_ids.containsKey(((Short) tMap.get("Damage").getValue()).toString())) {
                                             tMap.replace("id", new StringTag("id", Data.Mod_mob_ids.get(((Short) tMap.get("Damage").getValue()).toString())));
                                             tMap.remove("Damage");
-                                            builder.add(new CompoundTag("", tMap));
+                                            itemListBuilder.add(new CompoundTag("", tMap));
                                         } else
                                             stringCache.PrintLine("No lotr mod spawn Egg found for Damage value : " + tMap.get("Damage").getValue(), false);
                                     } else {
-                                        stringCache.PrintLine("No mapping found for legacy id: " + Data.LegacyIds.get(compare1), false);
+                                        stringCache.PrintLine("No mapping found for legacy id: " + Data.LegacyIds.get(idTagValue), false);
                                     }
                                 } else {
                                     //code for blocks/some items here
-                                    Short Damage = ((ShortTag) t.getValue().get("Damage")).getValue();
+                                    Short Damage = ((ShortTag) itemCompoundTag.getValue().get("Damage")).getValue();
                                     //Check if block is actually in the list and not just a placeholder
-                                    if (!Data.ItemNames.get(Data.LegacyIds.get(compare1)).get(Damage).equals("")) {
+                                    if (!Data.ItemNames.get(Data.LegacyIds.get(idTagValue)).get(Damage).equals("")) {
                                         if (tMap.containsKey("tag")) {
                                             //itemFixer
                                             CompoundMap filler = new CompoundMap(((CompoundTag) tMap.get("tag")).getValue());
+                                            if (filler.containsKey("LOTRPrevOwnerList")) {
+                                                Optional<ListTag<?>> PreviousOwners = filler.get("LOTRPrevOwnerList").getAsListTag();
+                                                if (PreviousOwners.isPresent()) {
+                                                    List<StringTag> OwnerList = (List<StringTag>) PreviousOwners.get().getValue();
+                                                    for (int i = 0; i < OwnerList.size(); i++) {
+                                                        OwnerList.set(i, new StringTag(OwnerList.get(i).getName(), BelongedToFixer(OwnerList.get(i).getValue())));
+                                                    }
+                                                    filler.put(new CompoundTag("LOTROwnership", Util.CreateCompoundMapWithContents(new ListTag<>("PreviousOwners", TagType.TAG_STRING, OwnerList))));
+                                                }
+                                                filler.remove("LOTRPrevOwnerList");
+                                            }
                                             if (filler.containsKey("display") && !filler.containsKey("SkullOwner")) {
                                                 filler.replace("display", nameFixer((CompoundTag) filler.get("display"), Data));
                                             }
@@ -738,16 +808,16 @@ public class Fixers {
                                         }
                                         tMap.remove("Damage");
                                         tMap.replace("id", new StringTag("id", item.get(Damage)));
-                                        builder.add(new CompoundTag("", tMap));
+                                        itemListBuilder.add(new CompoundTag("", tMap));
                                     } else
-                                        stringCache.PrintLine("No mapping found for " + Data.LegacyIds.get(compare1) + ":" + Damage, false);
+                                        stringCache.PrintLine("No mapping found for " + Data.LegacyIds.get(idTagValue) + ":" + Damage, false);
                                 }
                             } else {
-                                stringCache.PrintLine("No mapping found for id: " + Data.LegacyIds.get(compare1), false);
+                                stringCache.PrintLine("No mapping found for id: " + Data.LegacyIds.get(idTagValue), false);
                             }
                         } else {
                             //this should never happen as I gather these ids dynamically
-                            stringCache.PrintLine("No string id found for id: " + compare1, false);
+                            stringCache.PrintLine("No string id found for id: " + idTagValue, false);
                         }
                     } else {
                         stringCache.PrintLine("Empty tag found, skipping", false);
@@ -757,7 +827,7 @@ public class Fixers {
                 //if this actually gets triggered someone has been annoying on purpose
                 stringCache.PrintLine("Maximum set recursion depth reached (default = 7, defined in JSON)", false);
             }
-            return builder;
+            return itemListBuilder;
         } catch (final ClassCastException | NullPointerException ex) {
             throw new IOException(exceptionMessage);
         }
