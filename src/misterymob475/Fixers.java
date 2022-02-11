@@ -388,11 +388,8 @@ public class Fixers {
                                 //recursive call 1 (Pouches)
                                 if (item.get(0).equals("lotr:small_pouch")) {
                                     if (tMap.containsKey("tag")) {
-                                        CompoundMap filler = ((CompoundTag) tMap.get("tag")).getValue();
-                                        //nameFixer
-                                        if (filler.containsKey("display")) {
-                                            filler.replace("display", nameFixer((CompoundTag) filler.get("display"), Data));
-                                        }
+                                        CompoundMap filler = BaseTagItemFixer((((CompoundTag) tMap.get("tag")).getValue()), Data);
+
                                         Optional<IntTag> OPouchColor;
                                         if (filler.containsKey("PouchColor")) {
                                             OPouchColor = Optional.of(new IntTag("Color", ((IntTag) filler.get("PouchColor")).getValue()));
@@ -401,19 +398,7 @@ public class Fixers {
                                             OPouchColor = Optional.empty();
                                         }
 
-                                        if (filler.containsKey("LOTRPrevOwnerList")) {
-                                            Optional<ListTag<?>> PreviousOwners = filler.get("LOTRPrevOwnerList").getAsListTag();
-                                            if (PreviousOwners.isPresent()) {
-                                                List<StringTag> OwnerList = (List<StringTag>) PreviousOwners.get().getValue();
-                                                for (int i = 0; i < OwnerList.size(); i++) {
-                                                    OwnerList.set(i, new StringTag(OwnerList.get(i).getName(), BelongedToFixer(OwnerList.get(i).getValue())));
-                                                }
-                                                filler.put(new CompoundTag("LOTROwnership", Util.CreateCompoundMapWithContents(new ListTag<>("PreviousOwners", TagType.TAG_STRING, OwnerList))));
-                                            }
-                                            filler.remove("LOTRPrevOwnerList");
-                                        }
                                         if (filler.containsKey("LOTRPouchData") || OPouchColor.isPresent()) {
-
                                             CompoundMap LOTRPouchData;
                                             if (filler.containsKey("LOTRPouchData")) {
                                                 LOTRPouchData = ((CompoundTag) filler.get("LOTRPouchData")).getValue();
@@ -422,16 +407,11 @@ public class Fixers {
                                             }
 
                                             if (LOTRPouchData.containsKey("Items")) {
-                                                ListTag<CompoundTag> Items_tag = (ListTag<CompoundTag>) LOTRPouchData.get("Items");
-                                                //
-                                                List<CompoundTag> Items = Items_tag.getValue();
-                                                Items = RecurItemFixer(Items, depth, exceptionMessage, stringCache, Data);
-                                                //
-                                                LOTRPouchData.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, Items));
+                                                LOTRPouchData.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, RecurItemFixer(((ListTag<CompoundTag>) LOTRPouchData.get("Items")).getValue(), depth, exceptionMessage, stringCache, Data)));
                                             }
+
                                             OPouchColor.ifPresent(LOTRPouchData::put);
-                                            filler.remove("LOTRPouchData");
-                                            filler.put(new CompoundTag("Pouch", LOTRPouchData));
+                                            filler.replace("LOTRPouchData", new CompoundTag("Pouch", LOTRPouchData));
                                         }
                                         tMap.replace("tag", new CompoundTag("tag", filler));
                                     }
@@ -444,35 +424,29 @@ public class Fixers {
                                 else if (item.get(0).equals("lotr:keg")) {
                                     CompoundMap filler = new CompoundMap();
                                     if (tMap.containsKey("tag")) {
-                                        filler = new CompoundMap(((CompoundTag) tMap.get("tag")).getValue());
-                                        //nameFixer
-                                        if (filler.containsKey("display")) {
-                                            filler.replace("display", nameFixer((CompoundTag) filler.get("display"), Data));
-                                        }
+                                        filler = BaseTagItemFixer((((CompoundTag) tMap.get("tag")).getValue()), Data);
 
-                                        CompoundMap KegDroppableData_Map = new CompoundMap();
+
                                         if (filler.containsKey("LOTRBarrelData")) {
                                             CompoundMap LOTRBarrelData = new CompoundMap(((CompoundTag) filler.get("LOTRBarrelData")).getValue());
-                                            Optional<ListTag<?>> O_Items = LOTRBarrelData.get("Items").getAsListTag();
-                                            if (O_Items.isPresent()) {
-                                                //
-                                                List<CompoundTag> Items = ((ListTag<CompoundTag>) O_Items.get()).getValue();
-                                                Items = RecurItemFixer(Items, depth, exceptionMessage, stringCache, Data);
-                                                //
-                                                LOTRBarrelData.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, Items));
+                                            if (LOTRBarrelData.containsKey("Items")) {
+                                                Optional<ListTag<?>> O_Items = LOTRBarrelData.get("Items").getAsListTag();
+                                                if (O_Items.isPresent()) {
+                                                    //
+                                                    List<CompoundTag> Items = ((ListTag<CompoundTag>) O_Items.get()).getValue();
+                                                    Items = RecurItemFixer(Items, depth, exceptionMessage, stringCache, Data);
+                                                    //
+                                                    LOTRBarrelData.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, Items));
+                                                }
+                                            }
+                                            if (LOTRBarrelData.containsKey("BrewingTime")) {
+                                                (LOTRBarrelData.get("BrewingTime").getAsIntTag()).ifPresent(intTag -> LOTRBarrelData.put("BrewingTimeTotal", new IntTag("BrewingTimeTotal", (intTag).getValue())));
+                                            }
+                                            if (LOTRBarrelData.containsKey("BarrelMode")) {
+                                                (LOTRBarrelData.get("BarrelMode").getAsByteTag()).ifPresent(byteTag -> LOTRBarrelData.replace("BarrelMode", new ByteTag("KegMode", ((byteTag)).getValue())));
                                             }
 
-
-                                            Optional<IntTag> O_BrewingTime = LOTRBarrelData.get("BrewingTime").getAsIntTag();
-                                            O_BrewingTime.ifPresent(intTag -> LOTRBarrelData.put("BrewingTimeTotal", new IntTag("BrewingTimeTotal", (intTag).getValue())));
-
-                                            Optional<ByteTag> O_BarrelMode = LOTRBarrelData.get("BarrelMode").getAsByteTag();
-                                            O_BarrelMode.ifPresent(byteTag -> LOTRBarrelData.replace("BarrelMode", new ByteTag("KegMode", ((byteTag)).getValue())));
-                                            CompoundTag KegDroppableData = new CompoundTag("KegDroppableData", LOTRBarrelData);
-
-                                            KegDroppableData_Map.put("KegDroppableData", KegDroppableData);
-                                            CompoundTag BlockEntityTag = new CompoundTag("BlockEntityTag", KegDroppableData_Map);
-                                            filler.replace("LOTRBarrelData", BlockEntityTag);
+                                            filler.replace("LOTRBarrelData", new CompoundTag("BlockEntityTag", Util.CreateCompoundMapWithContents(new CompoundTag("KegDroppableData", LOTRBarrelData))));
                                         }
                                     }
                                     tMap.remove("Damage");
@@ -486,30 +460,10 @@ public class Fixers {
                                 else if (item.get(0).equals("minecraft:skeleton_skull")) {
                                     CompoundMap filler = new CompoundMap();
                                     if (tMap.containsKey("tag")) {
-                                        filler = new CompoundMap(((CompoundTag) tMap.get("tag")).getValue());
-                                        if (filler.containsKey("display")) {
-                                            filler.replace("display", nameFixer((CompoundTag) filler.get("display"), Data));
-                                        }
-
-                                        if (filler.containsKey("LOTRPrevOwnerList")) {
-                                            Optional<ListTag<?>> PreviousOwners = filler.get("LOTRPrevOwnerList").getAsListTag();
-                                            if (PreviousOwners.isPresent()) {
-                                                List<StringTag> OwnerList = (List<StringTag>) PreviousOwners.get().getValue();
-                                                for (int i = 0; i < OwnerList.size(); i++) {
-                                                    OwnerList.set(i, new StringTag(OwnerList.get(i).getName(), BelongedToFixer(OwnerList.get(i).getValue())));
-                                                }
-                                                filler.put(new CompoundTag("LOTROwnership", Util.CreateCompoundMapWithContents(new ListTag<>("PreviousOwners", TagType.TAG_STRING, OwnerList))));
-                                            }
-                                            filler.remove("LOTRPrevOwnerList");
-                                        }
+                                        filler = BaseTagItemFixer((((CompoundTag) tMap.get("tag")).getValue()), Data);
 
                                         if (filler.containsKey("SkullOwner")) {
-                                            String owner = (String) filler.get("SkullOwner").getValue();
-                                            CompoundMap SkullOwner = new CompoundMap();
-                                            SkullOwner.put("Id", new StringTag("Name", owner));
-                                            filler.replace("SkullOwner", new CompoundTag("SkullOwner", SkullOwner));
-                                            //Should check if this works
-                                            //filler.replace("SkullOwner", new CompoundTag("SkullOwner", Util.CreateCompoundMapWithContents(new StringTag("Id", owner))));
+                                            filler.replace("SkullOwner", new CompoundTag("SkullOwner", Util.CreateCompoundMapWithContents(new StringTag("Id", ((String) filler.get("SkullOwner").getValue())))));
                                         }
                                     }
                                     tMap.replace("id", new StringTag("id", item.get((Short) tMap.get("Damage").getValue())));
@@ -520,26 +474,13 @@ public class Fixers {
 
                                     //code for single idTag values (mostly items, stairs) here
                                     //simply carries over all the tags, except the idTag, which gets modified to the new one. moves the damage tag to its new location and changes it to an IntTag(was ShortTag before)
-                                    if (!Objects.equals(item.get(0), "")) {
-                                        boolean drink = new ArrayList<>(Arrays.asList("lotr:ale", "lotr:apple_juice", "lotr:athelas_brew", "lotr:cactus_liqueur", "lotr:carrot_wine", "lotr:cherry_liqueur", "lotr:cider", "lotr:chocolate_drink", "lotr:dwarven_ale", "lotr:dwarven_tonic", "lotr:maple_beer", "lotr:mead", "lotr:melon_liqueur", "lotr:milk_drink", "lotr:miruvor", "lotr:morgul_draught", "lotr:perry", "lotr:rum", "lotr:soured_milk", "lotr:sweet_berry_juice", "lotr:vodka", "lotr:water_drink")).contains(item.get(0));
 
+                                    //If there is a mapping (empty mappings are "" in the JSON)
+                                    if (!Objects.equals(item.get(0), "")) {
+                                        boolean drink = new ArrayList<>(Arrays.asList("lotr:ale", "lotr:orc_draught","lotr:apple_juice", "lotr:athelas_brew", "lotr:cactus_liqueur", "lotr:carrot_wine", "lotr:cherry_liqueur", "lotr:cider", "lotr:chocolate_drink", "lotr:dwarven_ale", "lotr:dwarven_tonic", "lotr:maple_beer", "lotr:mead", "lotr:melon_liqueur", "lotr:milk_drink", "lotr:miruvor", "lotr:morgul_draught", "lotr:perry", "lotr:rum", "lotr:soured_milk", "lotr:sweet_berry_juice", "lotr:vodka", "lotr:water_drink")).contains(item.get(0));
+                                        CompoundMap filler;
                                         if (tMap.containsKey("tag")) {
-                                            CompoundMap filler = new CompoundMap(((CompoundTag) tMap.get("tag")).getValue());
-                                            //itemFixer
-                                            if (filler.containsKey("display")) {
-                                                filler.replace("display", nameFixer((CompoundTag) filler.get("display"), Data));
-                                            }
-                                            if (filler.containsKey("LOTRPrevOwnerList")) {
-                                                Optional<ListTag<?>> PreviousOwners = filler.get("LOTRPrevOwnerList").getAsListTag();
-                                                if (PreviousOwners.isPresent()) {
-                                                    List<StringTag> OwnerList = (List<StringTag>) PreviousOwners.get().getValue();
-                                                    for (int i = 0; i < OwnerList.size(); i++) {
-                                                        OwnerList.set(i, new StringTag(OwnerList.get(i).getName(), BelongedToFixer(OwnerList.get(i).getValue())));
-                                                    }
-                                                    filler.put(new CompoundTag("LOTROwnership", Util.CreateCompoundMapWithContents(new ListTag<>("PreviousOwners", TagType.TAG_STRING, OwnerList))));
-                                                }
-                                                filler.remove("LOTRPrevOwnerList");
-                                            }
+                                            filler = BaseTagItemFixer((((CompoundTag) tMap.get("tag")).getValue()), Data);
                                             //pipe fixer
                                             if (filler.containsKey("SmokeColour")) {
                                                 String color = (new ArrayList<>(Arrays.asList("white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black", "magic"))).get((Integer) filler.get("SmokeColour").getValue());
@@ -547,56 +488,6 @@ public class Fixers {
                                                 if (color.equals("magic"))
                                                     pipeMap.put("magic", new ByteTag("magic", (byte) 1));
                                                 filler.replace("SmokeColour", new CompoundTag("pipe", pipeMap));
-                                            }
-                                            if (drink) {
-                                                CompoundMap vesselMap = new CompoundMap();
-                                                if (tMap.containsKey("Damage")) {
-                                                    Short Damage = (Short) tMap.get("Damage").getValue();
-                                                    //Code for determining the strength of the drink
-                                                    if (Damage.toString().endsWith("0"))
-                                                        vesselMap.put("potency", new StringTag("potency", "weak"));
-                                                    else if (Damage.toString().endsWith("1"))
-                                                        vesselMap.put("potency", new StringTag("potency", "light"));
-                                                    else if (Damage.toString().endsWith("2"))
-                                                        vesselMap.put("potency", new StringTag("potency", "moderate"));
-                                                    else if (Damage.toString().endsWith("3"))
-                                                        vesselMap.put("potency", new StringTag("potency", "string"));
-                                                    else if (Damage.toString().endsWith("4"))
-                                                        vesselMap.put("potency", new StringTag("potency", "potent"));
-                                                    //Code for determining the vessel (wooden mug, goblet etc.)
-                                                    if (Damage < 100)
-                                                        vesselMap.put("type", new StringTag("type", "wooden_mug"));
-                                                    else if (Damage < 200)
-                                                        vesselMap.put("type", new StringTag("type", "ceramic_mug"));
-                                                    else if (Damage < 300)
-                                                        vesselMap.put("type", new StringTag("type", "golden_goblet"));
-                                                    else if (Damage < 400)
-                                                        vesselMap.put("type", new StringTag("type", "silver_goblet"));
-                                                    else if (Damage < 500)
-                                                        vesselMap.put("type", new StringTag("type", "copper_goblet"));
-                                                    else if (Damage < 600)
-                                                        vesselMap.put("type", new StringTag("type", "wooden_cup"));
-                                                    else if (Damage < 700)
-                                                        vesselMap.put("type", new StringTag("type", "wooden_mug")); //skull cups not in yet
-                                                    else if (Damage < 800)
-                                                        vesselMap.put("type", new StringTag("type", "bottle")); //wine glasses not in yet
-                                                    else if (Damage < 900)
-                                                        vesselMap.put("type", new StringTag("type", "bottle"));
-                                                    else if (Damage < 1000)
-                                                        vesselMap.put("type", new StringTag("type", "waterskin"));
-                                                    else if (Damage < 1100)
-                                                        vesselMap.put("type", new StringTag("type", "ale_horn"));
-                                                    else if (Damage < 1200)
-                                                        vesselMap.put("type", new StringTag("type", "golden_ale_horn"));
-                                                }
-                                                CompoundTag vessel = new CompoundTag("vessel", vesselMap);
-                                                filler.put("vessel", vessel);
-                                            }
-                                            //potion fixer
-                                            else if (item.get(0).equals("minecraft:potion")) {
-                                                if (Data.Potions.containsKey(tMap.get("Damage").getValue().toString())) {
-                                                    filler.put("Potion", new StringTag("Potion", (String) (Data.Potions.get(tMap.get("Damage").getValue().toString())).get("Name")));
-                                                }
                                             }
                                             //Book fixer
                                             else if (filler.containsKey("pages")) {
@@ -635,10 +526,6 @@ public class Fixers {
                                                         filler.replace("ench", new ListTag<>("Enchantments", TagType.TAG_COMPOUND, ench_filler));
                                                         filler.put("Damage", (new IntTag("Damage", (((ShortTag) tMap.get("Damage")).getValue()))));
                                                     }
-                                                    //enchanted items
-                                                    //ListTag<CompoundTag> ench_t_2 = ((ListTag<CompoundTag>) filler.get("ench"));
-                                                    //(Tag ench_t : (((ListTag<CompoundTag>) filler.get("ench")).getValue()))
-                                                    //(Tag ench_t : filler.get("ench").getAsListTag().get().getValue())
 
                                                 } else {
                                                     //enchanted books
@@ -652,96 +539,42 @@ public class Fixers {
                                                 filler.remove("LOTRRandomEnch");
                                                 filler.remove("LOTRRepairCost");
                                             }
-                                            //map fixer (very simple thankfully)
-                                            else if (item.get(0).equals("minecraft:filled_map")) {
-                                                if (tMap.containsKey("Damage")) {
-                                                    filler.put("map", new IntTag("map", (int) ((Short) tMap.get("Damage").getValue())));
-                                                }
-                                            } else if (tMap.containsKey("Damage")) {
-                                                //check to prevent non-weapons to get a nbt-tag, making them unable to stack with regular items
-                                                if ((((ShortTag) tMap.get("Damage")).getValue()) != 0) {
-                                                    filler.put("Damage", (new IntTag("Damage", (((ShortTag) tMap.get("Damage")).getValue()))));
-                                                }
-                                            }
-                                            tMap.replace("tag", new CompoundTag("tag", filler));
-                                        } else {
-                                            CompoundMap filler = new CompoundMap();
-                                            if (drink) {
-                                                CompoundMap vesselMap = new CompoundMap();
-                                                if (tMap.containsKey("Damage")) {
-                                                    //I know, I don't like code repetition either, but I couldn't be bothered to write a function that will only be called twice
-                                                    Short Damage = (Short) tMap.get("Damage").getValue();
-                                                    //Code for determining the strength of the drink
-                                                    if (Damage.toString().endsWith("0"))
-                                                        vesselMap.put("potency", new StringTag("potency", "weak"));
-                                                    else if (Damage.toString().endsWith("1"))
-                                                        vesselMap.put("potency", new StringTag("potency", "light"));
-                                                    else if (Damage.toString().endsWith("2"))
-                                                        vesselMap.put("potency", new StringTag("potency", "moderate"));
-                                                    else if (Damage.toString().endsWith("3"))
-                                                        vesselMap.put("potency", new StringTag("potency", "string"));
-                                                    else if (Damage.toString().endsWith("4"))
-                                                        vesselMap.put("potency", new StringTag("potency", "potent"));
-                                                    //Code for determining the vessel (wooden mug, goblet etc.)
-                                                    if (Damage < 100)
-                                                        vesselMap.put("type", new StringTag("type", "wooden_mug"));
-                                                    else if (Damage < 200)
-                                                        vesselMap.put("type", new StringTag("type", "ceramic_mug"));
-                                                    else if (Damage < 300)
-                                                        vesselMap.put("type", new StringTag("type", "golden_goblet"));
-                                                    else if (Damage < 400)
-                                                        vesselMap.put("type", new StringTag("type", "silver_goblet"));
-                                                    else if (Damage < 500)
-                                                        vesselMap.put("type", new StringTag("type", "copper_goblet"));
-                                                    else if (Damage < 600)
-                                                        vesselMap.put("type", new StringTag("type", "wooden_cup"));
-                                                    else if (Damage < 700)
-                                                        vesselMap.put("type", new StringTag("type", "wooden_mug")); //skull cups not in yet
-                                                    else if (Damage < 800)
-                                                        vesselMap.put("type", new StringTag("type", "bottle")); //wine glasses not in yet
-                                                    else if (Damage < 900)
-                                                        vesselMap.put("type", new StringTag("type", "bottle"));
-                                                    else if (Damage < 1000)
-                                                        vesselMap.put("type", new StringTag("type", "waterskin"));
-                                                    else if (Damage < 1100)
-                                                        vesselMap.put("type", new StringTag("type", "ale_horn"));
-                                                    else if (Damage < 1200)
-                                                        vesselMap.put("type", new StringTag("type", "golden_ale_horn"));
-                                                }
-                                                filler.put("vessel", new CompoundTag("vessel", vesselMap));
-                                            }
-                                            //potion
-                                            else if (item.get(0).equals("minecraft:potion")) {
-                                                if (tMap.containsKey("Damage")) {
-                                                    if (Data.Potions.containsKey(tMap.get("Damage").getValue().toString())) {
-                                                        filler.put("Potion", new StringTag("Potion", (String) (Data.Potions.get(tMap.get("Damage").getValue().toString())).get("Name")));
-                                                    }
-                                                }
-                                            }
-                                            //map fixer (very simple thankfully)
-                                            else if (item.get(0).equals("minecraft:filled_map")) {
-                                                if (tMap.containsKey("Damage")) {
-                                                    filler.put("map", new IntTag("map", (int) ((Short) tMap.get("Damage").getValue())));
-                                                }
-                                            } else {
-                                                if ((((ShortTag) tMap.get("Damage")).getValue()) != 0) {
-                                                    filler.put("Damage", (new IntTag("Damage", (((ShortTag) tMap.get("Damage")).getValue()))));
-                                                }
-                                            }
-                                            if (!filler.isEmpty()) {
-                                                tMap.put("tag", new CompoundTag("tag", filler));
+                                        } else filler = new CompoundMap();
+
+                                        if (drink) {
+                                            if (tMap.containsKey("Damage")) {
+                                                filler.put("vessel", VesselMapCreator((Short) tMap.get("Damage").getValue()));
                                             }
                                         }
-                                        //sets name to potion or splash potion
-                                        if (item.get(0).equals("minecraft:potion")) {
+                                        //potion fixer
+                                        else if (item.get(0).equals("minecraft:potion")) {
                                             if (Data.Potions.containsKey(tMap.get("Damage").getValue().toString())) {
+                                                filler.put("Potion", new StringTag("Potion", (String) (Data.Potions.get(tMap.get("Damage").getValue().toString())).get("Name")));
                                                 //Boolean Splash = (boolean) (Data.Potions().get(tMap.get("Damage").getValue().toString())).get("Splash");
                                                 if ((Boolean) (Data.Potions.get(tMap.get("Damage").getValue().toString())).get("Splash"))
                                                     tMap.replace("id", new StringTag("id", "minecraft:splash_potion"));
                                                 else tMap.replace("id", new StringTag("id", "minecraft:potion"));
                                             } else tMap.replace("id", new StringTag("id", "minecraft:potion"));
-                                        } else tMap.replace("id", new StringTag("id", item.get(0)));
+                                        }
+                                        //map fixer (very simple thankfully)
+                                        else if (item.get(0).equals("minecraft:filled_map")) {
+                                            if (tMap.containsKey("Damage")) {
+                                                filler.put("map", new IntTag("map", (int) ((Short) tMap.get("Damage").getValue())));
+                                            }
+                                        } else {
+                                            if ((((ShortTag) tMap.get("Damage")).getValue()) != 0) {
+                                                filler.put("Damage", (new IntTag("Damage", (((ShortTag) tMap.get("Damage")).getValue()))));
+                                            }
+                                        }
+
+                                        tMap.remove("tag");
+                                        if (!filler.isEmpty()) tMap.put(new CompoundTag("tag", filler));
+
+                                        //sets name to potion or splash potion
+                                        if (!item.get(0).equals("minecraft:potion"))
+                                            tMap.replace("id", new StringTag("id", item.get(0)));
                                         tMap.remove("Damage");
+
                                         if (save) {
                                             itemListBuilder.add(new CompoundTag("", tMap));
                                         }
@@ -750,11 +583,7 @@ public class Fixers {
                                     else if (Data.LegacyIds.get(idTagValue).equals("minecraft:spawn_egg")) {
                                         //itemFixer
                                         if (tMap.containsKey("tag")) {
-                                            CompoundMap filler = new CompoundMap(((CompoundTag) tMap.get("tag")).getValue());
-                                            if (filler.containsKey("display")) {
-                                                filler.replace("display", nameFixer((CompoundTag) filler.get("display"), Data));
-                                            }
-                                            tMap.replace("tag", new CompoundTag("tag", filler));
+                                            tMap.replace("tag", new CompoundTag("tag", BaseTagItemFixer((((CompoundTag) tMap.get("tag")).getValue()), Data)));
                                         }
                                         if (Data.Vanilla_mob_ids.containsKey(((Short) tMap.get("Damage").getValue()).toString())) {
                                             tMap.replace("id", new StringTag("id", Data.Vanilla_mob_ids.get(((Short) tMap.get("Damage").getValue()).toString())));
@@ -767,11 +596,7 @@ public class Fixers {
                                     else if (Data.LegacyIds.get(idTagValue).equals("lotr:item.spawnEgg")) {
                                         //itemFixer
                                         if (tMap.containsKey("tag")) {
-                                            CompoundMap filler = new CompoundMap(((CompoundTag) tMap.get("tag")).getValue());
-                                            if (filler.containsKey("display")) {
-                                                filler.replace("display", nameFixer((CompoundTag) filler.get("display"), Data));
-                                            }
-                                            tMap.replace("tag", new CompoundTag("tag", filler));
+                                            tMap.replace("tag", new CompoundTag("tag", BaseTagItemFixer((((CompoundTag) tMap.get("tag")).getValue()), Data)));
                                         }
                                         if (Data.Mod_mob_ids.containsKey(((Short) tMap.get("Damage").getValue()).toString())) {
                                             tMap.replace("id", new StringTag("id", Data.Mod_mob_ids.get(((Short) tMap.get("Damage").getValue()).toString())));
@@ -788,23 +613,7 @@ public class Fixers {
                                     //Check if block is actually in the list and not just a placeholder
                                     if (!Data.ItemNames.get(Data.LegacyIds.get(idTagValue)).get(Damage).equals("")) {
                                         if (tMap.containsKey("tag")) {
-                                            //itemFixer
-                                            CompoundMap filler = new CompoundMap(((CompoundTag) tMap.get("tag")).getValue());
-                                            if (filler.containsKey("LOTRPrevOwnerList")) {
-                                                Optional<ListTag<?>> PreviousOwners = filler.get("LOTRPrevOwnerList").getAsListTag();
-                                                if (PreviousOwners.isPresent()) {
-                                                    List<StringTag> OwnerList = (List<StringTag>) PreviousOwners.get().getValue();
-                                                    for (int i = 0; i < OwnerList.size(); i++) {
-                                                        OwnerList.set(i, new StringTag(OwnerList.get(i).getName(), BelongedToFixer(OwnerList.get(i).getValue())));
-                                                    }
-                                                    filler.put(new CompoundTag("LOTROwnership", Util.CreateCompoundMapWithContents(new ListTag<>("PreviousOwners", TagType.TAG_STRING, OwnerList))));
-                                                }
-                                                filler.remove("LOTRPrevOwnerList");
-                                            }
-                                            if (filler.containsKey("display") && !filler.containsKey("SkullOwner")) {
-                                                filler.replace("display", nameFixer((CompoundTag) filler.get("display"), Data));
-                                            }
-                                            tMap.replace("tag", new CompoundTag("tag", filler));
+                                            tMap.replace("tag", new CompoundTag("tag", BaseTagItemFixer(new CompoundMap(((CompoundTag) tMap.get("tag")).getValue()), Data)));
                                         }
                                         tMap.remove("Damage");
                                         tMap.replace("id", new StringTag("id", item.get(Damage)));
@@ -824,7 +633,7 @@ public class Fixers {
                     }
                 }
             } else {
-                //if this actually gets triggered someone has been annoying on purpose
+                //if this actually gets triggered someone has been annoying on purpose, and you're dealing with an old worlds as triggering this is only possible in older versions of the lotr mod
                 stringCache.PrintLine("Maximum set recursion depth reached (default = 7, defined in JSON)", false);
             }
             return itemListBuilder;
@@ -847,8 +656,6 @@ public class Fixers {
         long v2 = UUIDLeast.getValue();
         return new IntArrayTag(name, new int[]{(int) (v1 >> 32), (int) v1, (int) (v2 >> 32), (int) v2});
     }
-
-    //Overload for when no special name is required (name is "UUID")
 
     /**
      * Overload for when name is "UUID"
@@ -874,6 +681,65 @@ public class Fixers {
             return UUIDFixer(new LongTag("", uuid.getMostSignificantBits()), new LongTag("", uuid.getLeastSignificantBits()), name);
         } else
             return new IntArrayTag(name, new int[]{0, 0, 0, 0}); //Not sure if game reads this correctly, otherwise the entire tag might have to be removed instead, this is purely to prevent a crash when the uuid is non-existent
+    }
+
+    /**
+     * Fixes the "tag" section of an Item
+     *
+     * @param filler {@link CompoundMap} to be fixed
+     * @param Data   instance of {@link Data}
+     * @return fixed version of filler
+     */
+    @SuppressWarnings("unchecked")
+    public static CompoundMap BaseTagItemFixer(CompoundMap filler, Data Data) {
+        if (filler.containsKey("display")) {
+            filler.replace("display", nameFixer((CompoundTag) filler.get("display"), Data));
+        }
+
+        if (filler.containsKey("LOTRPrevOwnerList")) {
+            Optional<ListTag<?>> PreviousOwners = filler.get("LOTRPrevOwnerList").getAsListTag();
+            if (PreviousOwners.isPresent()) {
+                List<StringTag> OwnerList = (List<StringTag>) PreviousOwners.get().getValue();
+                for (int i = 0; i < OwnerList.size(); i++) {
+                    OwnerList.set(i, new StringTag(OwnerList.get(i).getName(), BelongedToFixer(OwnerList.get(i).getValue())));
+                }
+                filler.put(new CompoundTag("LOTROwnership", Util.CreateCompoundMapWithContents(new ListTag<>("PreviousOwners", TagType.TAG_STRING, OwnerList))));
+            }
+            filler.remove("LOTRPrevOwnerList");
+        }
+        return filler;
+    }
+
+    /**
+     * Creates a {@link CompoundTag} containing the special data for drinks
+     *
+     * @param Damage short storing the damage value determining the type & potency
+     * @return {@link CompoundTag} containing the special data for drinks
+     */
+    public static CompoundTag VesselMapCreator(short Damage) {
+        CompoundMap vesselMap = new CompoundMap();
+
+        //Code for determining the strength of the drink
+        if ((Damage % 10) == 0) vesselMap.put("potency", new StringTag("potency", "weak"));
+        else if ((Damage % 10) == 1) vesselMap.put("potency", new StringTag("potency", "light"));
+        else if ((Damage % 10) == 2) vesselMap.put("potency", new StringTag("potency", "moderate"));
+        else if ((Damage % 10) == 3) vesselMap.put("potency", new StringTag("potency", "string"));
+        else if ((Damage % 10) == 4) vesselMap.put("potency", new StringTag("potency", "potent"));
+        //Code for determining the vessel (wooden mug, goblet etc.)
+        if (Damage < 100) vesselMap.put("type", new StringTag("type", "wooden_mug"));
+        else if (Damage < 200) vesselMap.put("type", new StringTag("type", "ceramic_mug"));
+        else if (Damage < 300) vesselMap.put("type", new StringTag("type", "golden_goblet"));
+        else if (Damage < 400) vesselMap.put("type", new StringTag("type", "silver_goblet"));
+        else if (Damage < 500) vesselMap.put("type", new StringTag("type", "copper_goblet"));
+        else if (Damage < 600) vesselMap.put("type", new StringTag("type", "wooden_cup"));
+        else if (Damage < 700) vesselMap.put("type", new StringTag("type", "wooden_mug")); //skull cups not in yet
+        else if (Damage < 800) vesselMap.put("type", new StringTag("type", "bottle")); //wine glasses not in yet
+        else if (Damage < 900) vesselMap.put("type", new StringTag("type", "bottle"));
+        else if (Damage < 1000) vesselMap.put("type", new StringTag("type", "waterskin"));
+        else if (Damage < 1100) vesselMap.put("type", new StringTag("type", "ale_horn"));
+        else if (Damage < 1200) vesselMap.put("type", new StringTag("type", "golden_ale_horn"));
+
+        return new CompoundTag("vessel", vesselMap);
     }
 
     /**
@@ -1074,7 +940,7 @@ public class Fixers {
      * @param originalData {@link CompoundMap} the map of LOTR.dat
      */
     public static void LOTRDatFixer(CompoundMap originalData) {
-        //discards: as they aren't in renewed yet or are now datapackable, if something gets ported to renewed in the exact same way as legacy I can simply uncomment these lines
+        //discards: as they aren't in renewed yet or are now datapackable, if something gets ported to renewed in the exact same way as legacy I can simply remove these lines
         originalData.remove("TravellingTraders");
         originalData.remove("GreyWanderers");
         originalData.remove("AlignmentZones");
@@ -1460,7 +1326,6 @@ issues:
             Optional<ByteArrayTag> OBlocksByteArray = SectionCompoundMap.get("Blocks").getAsByteArrayTag();
             Optional<ByteArrayTag> ODataByteArray = SectionCompoundMap.get("Data").getAsByteArrayTag();
 
-            //TODO: test again, if it throws a NuLLPointer again write a bugreport as it shouldn't do that due to the Optional
             /*
             Optional<ByteArrayTag> OAddArray;
             if (SectionCompoundMap.containsKey("Add")) {
