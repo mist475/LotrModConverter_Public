@@ -3,10 +3,12 @@ package Convertors;
 import de.piegames.nbt.CompoundMap;
 import de.piegames.nbt.CompoundTag;
 import de.piegames.nbt.IntTag;
+import de.piegames.nbt.ShortTag;
 import de.piegames.nbt.stream.NBTInputStream;
 import de.piegames.nbt.stream.NBTOutputStream;
 import misterymob475.Fixers;
 import misterymob475.StringCache;
+import misterymob475.Util;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,6 +17,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Objects;
+import java.util.Optional;
 
 public class DataFolder implements Convertor {
     private final StringCache stringCache;
@@ -72,25 +76,28 @@ public class DataFolder implements Convertor {
                     catch (Exception e) {
                         throw new IOException("Error during map conversion fix");
                     }
-                    //stringCache.PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + " maps", true);
+                    stringCache.PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + " maps", true);
                 }
 
                 stringCache.PrintLine("Converted all the maps", false);
                 try {
                     if (new File(currentFolder + "/idcounts.dat").exists()) {
+                        final NBTInputStream input = new NBTInputStream(Files.newInputStream(Paths.get(currentFolder + "/idcounts.dat")), NBTInputStream.NO_COMPRESSION);
+                        final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
+                        input.close();
 
-                        CompoundMap newData = new CompoundMap();
-                        CompoundMap tMap = new CompoundMap();
-                        tMap.put("map", new IntTag("map", curDirList.length - 1));
-                        newData.put("map", new CompoundTag("data", tMap));
-
-                        final CompoundTag newTopLevelTag = new CompoundTag("", newData);
-
-                        final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p + "/" + FileName + "_Converted/data/idcounts.dat").toString())).getAbsolutePath()));
-                        output.writeTag(newTopLevelTag);
-                        output.close();
-
-                        stringCache.PrintLine("converted idcount.dat", false);
+                        if (originalTopLevelTag.getValue().containsKey("map")) {
+                            Optional<ShortTag> tag = originalTopLevelTag.getValue().get("map").getAsShortTag();
+                            Optional<IntTag> newMap;
+                            newMap = tag.map(shortTag -> new IntTag("map", shortTag.getValue()));
+                            if (newMap.isPresent()) {
+                                final CompoundTag newTopLevelTag = new CompoundTag("", Util.CreateCompoundMapWithContents(new CompoundTag("data", Util.CreateCompoundMapWithContents(newMap.get())), new IntTag("DataVersion", 2586)));
+                                final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p + "/" + FileName + "_Converted/data/idcounts.dat").toString())).getAbsolutePath()), NBTInputStream.NO_COMPRESSION);
+                                output.writeTag(newTopLevelTag);
+                                output.close();
+                                stringCache.PrintLine("converted idcount.dat", false);
+                            }
+                        }
                     }
 
                 } catch (IOException e) {
