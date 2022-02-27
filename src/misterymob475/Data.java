@@ -29,6 +29,7 @@ public class Data {
     public List<String> TitleBlacklist;
     public Map<String, Map<String,?>> BlockMappings;
     public Map<String,String> BlockIdToName;
+    public Map<String,String> BlockEntityMappings;
 
     /**
      * Initializes Data
@@ -52,6 +53,7 @@ public class Data {
         this.TitleBlacklist = (List<String>) conversions.get("TitleBlacklist");
         this.BlockMappings = (Map<String, Map<String, ?>>) conversions.get("BlockMappings");
         this.BlockIdToName = (Map<String,String>) conversions.get("BlockIdToName");
+        this.BlockEntityMappings = (Map<String, String>) conversions.get("BlockEntityMappings");
     }
 
 

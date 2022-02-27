@@ -68,6 +68,15 @@ public class StringCache {
     }
 
     /**
+     * Overload for basic version
+     *
+     * @param msg {@link String} to be printed
+     */
+    public void PrintLine(String msg) {
+        PrintLine(msg, false);
+    }
+
+    /**
      * Synchronized method that checks if msg is in the cache. if it is, nothing will happen, if isn't, it will get printed and added to the list.
      *
      * @param msg the message that might be printed

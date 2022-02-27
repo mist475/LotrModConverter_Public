@@ -66,10 +66,13 @@ public class LevelDat implements Convertor {
 
 
             final CompoundTag newTopLevelTag = new CompoundTag("", newData);
-            final NBTOutputStream output = new NBTOutputStream(new FileOutputStream(Paths.get(p + "/" + FileName + "_Converted/level.dat").toString()));
+            String PathToUse = p + "/" + FileName + "_Converted/level.dat";
+            //System.out.println(Paths.get(PathToUse));
+            final NBTOutputStream output = new NBTOutputStream(new FileOutputStream(Paths.get(PathToUse).toString()));
             output.writeTag(newTopLevelTag);
             output.close();
-            System.out.println("Converted the level.dat file");
+            //System.out.println("Converted the level.dat file");
+            stringCache.PrintLine("Converted the level.dat file");
         } catch (final ClassCastException | NullPointerException ex) {
             throw new IOException("Error during level.dat fixing");
         }

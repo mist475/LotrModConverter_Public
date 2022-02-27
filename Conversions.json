@@ -1,5 +1,643 @@
 {
   "Additional Comments": "If you want to support items from others mods, simply add them to the Items dictionary, usually it will work just fine",
+  "AuthorBlacklist": [
+    "author_blacklist_example",
+    "formatting_example"
+  ],
+  "BlockEntityMappings": {
+    "Beacon": "minecraft:beacon",
+    "Bed": "minecraft:bed",
+    "Cauldron": "",
+    "Chest": "minecraft:chest",
+    "Comparator": "minecraft:comparator",
+    "Control": "minecraft:command_block",
+    "DLDetector": "minecraft:daylight_detector",
+    "Dropper": "minecraft:dropper",
+    "EnchantTable": "minecraft:enchanting_table",
+    "EnderChest": "minecraft:ender_chest",
+    "FlowerPot": "",
+    "Furnace": "minecraft:furnace",
+    "Hopper": "minecraft:hopper",
+    "LOTRAlloyForge": "lotr:alloy_forge",
+    "LOTRArmorStand": "",
+    "LOTRBarrel": "lotr:keg",
+    "LOTRBeacon": "lotr:gondor_beacon",
+    "LOTRBookshelf": "",
+    "LOTRButterflyJar": "",
+    "LOTRChest": "",
+    "LOTRDartTrap": "",
+    "LOTRDwarvenDoor": "",
+    "LOTRElven_Forge": "lotr:elven_forge",
+    "LOTREntJar": "",
+    "LOTRFlowerPot": "",
+    "LOTRForge": "lotr:dwarven_forge",
+    "LOTRGulduril": "",
+    "LOTRKebabStand": "",
+    "LOTRMillstone": "",
+    "LOTRMobSpawner": "",
+    "LOTRMug": "lotr:vessel_drink",
+    "LOTROrcForge": "lotr:orc_forge",
+    "LOTROven": "lotr:hobbit_oven",
+    "LOTRPlate": "lotr:plate",
+    "LOTRSignCarved": "",
+    "LOTRSignCarvedIthildin": "",
+    "LOTRSpawnerChest": "",
+    "LOTRTrollTotem": "",
+    "LOTRUnsmeltery": "",
+    "LOTRUtumnoPortal": "",
+    "LOTRWeaponRack": "",
+    "MobSpawner": "minecraft:mob_spawner",
+    "Music": "",
+    "RecordPlayer": "minecraft:jukebox",
+    "Sign": "minecraft:sign",
+    "Skull": "minecraft:skull",
+    "Trap": "minecraft:dispenser",
+    "orc_bomb,crafting_tables,orc_bomb,khamul_fire,hearth,vegetables": ""
+  },
+  "BlockIdToName": {
+    "0": "minecraft:air",
+    "1": "minecraft:stone",
+    "-70": "lotr:tile.brick",
+    "-97": "minecraft:stained_hardened_clay",
+    "-84": "minecraft:hardened_clay",
+    "82": "minecraft:clay"
+  },
+  "BlockMappings": {
+    "minecraft:oak_button": {
+      "1": {
+        "name": "minecraft:oak_button",
+        "properties": {
+          "face": "wall",
+          "facing": "west",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:oak_button",
+        "properties": {
+          "face": "wall",
+          "facing": "east",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:oak_button",
+        "properties": {
+          "face": "wall",
+          "facing": "north",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:oak_button",
+        "properties": {
+          "face": "wall",
+          "facing": "south",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:oak_button",
+        "properties": {
+          "face": "wall",
+          "facing": "west",
+          "powered": "true"
+        }
+      },
+      "9": {
+        "name": "minecraft:oak_button",
+        "properties": {
+          "face": "wall",
+          "facing": "west",
+          "powered": "true"
+        }
+      },
+      "10": {
+        "name": "minecraft:oak_button",
+        "properties": {
+          "face": "wall",
+          "facing": "east",
+          "powered": "true"
+        }
+      },
+      "11": {
+        "name": "minecraft:oak_button",
+        "properties": {
+          "face": "wall",
+          "facing": "north",
+          "powered": "true"
+        }
+      },
+      "12": {
+        "name": "minecraft:oak_button",
+        "properties": {
+          "face": "wall",
+          "facing": "south",
+          "powered": "true"
+        }
+      }
+    },
+    "": {
+      "0": {
+        "name": ""
+      }
+    },
+    "minecraft:deadbush": {
+      "0": {
+        "name": "minecraft:deadbush"
+      }
+    },
+    "lotr:tile.oreSalt": {
+      "0": {
+        "name": "lotr:salt_ore"
+      }
+    },
+    "lotr:tile.stairsGondorRock": {
+      "0": {
+        "name": "lotr:gondor_rock_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:gondor_rock_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:gondor_rock_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:gondor_rock_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:gondor_rock_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:gondor_rock_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:gondor_rock_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:gondor_rock_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:item.naurite": {
+      "0": {
+        "name": "lotr:durnor"
+      }
+    },
+    "lotr:tile.gateElven": {
+      "0": {
+        "name": "lotr:galadhrim_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:lotr:galadhrim_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:lotr:galadhrim_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:lotr:galadhrim_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:galadhrim_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:galadhrim_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      }
+    },
+    "lotr:tile.stairsClayTileDyedMagenta": {
+      "0": {
+        "name": "lotr:magenta_clay_tiling_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:magenta_clay_tiling_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:magenta_clay_tiling_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:magenta_clay_tiling_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:magenta_clay_tiling_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:magenta_clay_tiling_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:magenta_clay_tiling_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:magenta_clay_tiling_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.bookshelfStorage": {
+      "0": {
+        "name": "minecraft:bookshelf",
+        "info": "temporary, doesn't accept tile entities yet"
+      }
+    },
+    "minecraft:beacon": {
+      "0": {
+        "name": "minecraft:beacon"
+      }
+    },
+    "lotr:tile.woodPlate": {
+      "0": {
+        "name": "lotr:wooden_plate"
+      }
+    },
+    "minecraft:wool": {
+      "0": {
+        "name": "minecraft:white_wool"
+      },
+      "1": {
+        "name": "minecraft:orange_wool"
+      },
+      "2": {
+        "name": "minecraft:magenta_wool"
+      },
+      "3": {
+        "name": "minecraft:light_blue_wool"
+      },
+      "4": {
+        "name": "minecraft:yellow_wool"
+      },
+      "5": {
+        "name": "minecraft:lime_wool"
+      },
+      "6": {
+        "name": "minecraft:pink_wool"
+      },
+      "7": {
+        "name": "minecraft:gray_wool"
+      },
+      "8": {
+        "name": "minecraft:light_gray_wool"
+      },
+      "9": {
+        "name": "minecraft:cyan_wool"
+      },
+      "10": {
+        "name": "minecraft:purple_wool"
+      },
+      "11": {
+        "name": "minecraft:blue_wool"
+      },
+      "12": {
+        "name": "minecraft:brown_wool"
+      },
+      "13": {
+        "name": "minecraft:green_wool"
+      },
+      "14": {
+        "name": "minecraft:red_wool"
+      },
+      "15": {
+        "name": "minecraft:black_wool"
+      }
+    },
+    "lotr:tile.fallenLeaves": {
+      "0": {
+        "name": "lotr:fallen_oak_leaves"
+      },
+      "1": {
+        "name": "lotr:fallen_spruce_leaves"
+      },
+      "2": {
+        "name": "lotr:fallen_birch_leaves"
+      },
+      "3": {
+        "name": "lotr:fallen_jungle_leaves"
+      },
+      "4": {
+        "name": "lotr:fallen_acacia_leaves"
+      },
+      "5": {
+        "name": "lotr:fallen_dark_oak_leaves"
+      }
+    },
+    "lotr:tile.trapdoorMallorn": {
+      "0": {
+        "name": "lotr:mallorn_trapdoor",
+        "properties": {
+          "facing": "top",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "minecraft:redstone_ore": {
+      "0": {
+        "name": "minecraft:redstone_ore",
+        "properties": {
+          "lit": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:redstone_ore",
+        "properties": {
+          "lit": "true"
+        }
+      }
+    },
+    "minecraft:air": {
+      "0": {
+        "name": "minecraft:air"
+      }
+    },
+    "minecraft:stone": {
+      "0": {
+        "name": "minecraft:stone"
+      }
+    },
+    "minecraft:bedrock": {
+      "0": {
+        "name": "minecraft:bedrock"
+      }
+    },
+    "minecraft:dirt": {
+      "0": {
+        "name": "minecraft:dirt"
+      },
+      "1": {
+        "name": "add the rest of the block here too lazy rn"
+      }
+    },
+    "minecraft:grass": {
+      "0": {
+        "name": "minecraft:grass_block"
+      }
+    },
+    "lotr:tile.brick": {
+      "0": {
+        "name": "lotr:mordor_brick"
+      },
+      "6": {
+        "name": "lotr:dwarven_brick"
+      }
+    },
+    "minecraft:clay": {
+      "0": {
+        "name": "minecraft:clay"
+      }
+    },
+    "minecraft:hardened_clay": {
+      "0": {
+        "name": "minecraft:terracotta"
+      }
+    },
+    "minecraft:stained_hardened_clay": {
+      "0": {
+        "name": "minecraft:white_terracotta"
+      },
+      "1": {
+        "name": "minecraft:orange_terracotta"
+      },
+      "2": {
+        "name": "minecraft:magenta_terracotta"
+      },
+      "3": {
+        "name": "minecraft:light_blue_terracotta"
+      },
+      "4": {
+        "name": "minecraft:yellow_terracotta"
+      },
+      "5": {
+        "name": "minecraft:lime_terracotta"
+      },
+      "6": {
+        "name": "minecraft:pink_terracotta"
+      },
+      "7": {
+        "name": "minecraft:gray_terracotta"
+      },
+      "8": {
+        "name": "minecraft:light_gray_terracotta"
+      },
+      "9": {
+        "name": "minecraft:cyan_terracotta"
+      },
+      "10": {
+        "name": "minecraft:purple_terracotta"
+      },
+      "11": {
+        "name": "minecraft:blue_terracotta"
+      },
+      "12": {
+        "name": "minecraft:brown_terracotta"
+      },
+      "13": {
+        "name": "minecraft:green_terracotta"
+      },
+      "14": {
+        "name": "minecraft:red_terracotta"
+      },
+      "15": {
+        "name": "minecraft:black_terracotta"
+      }
+    }
+  },
+  "Colours": {
+    "§0": "black",
+    "§1": "dark_blue",
+    "§2": "dark_green",
+    "§3": "dark_aqua",
+    "§4": "dark_red",
+    "§5": "dark_purple",
+    "§6": "gold",
+    "§7": "gray",
+    "§8": "dark_gray",
+    "§9": "blue",
+    "§a": "green",
+    "§b": "aqua",
+    "§c": "red",
+    "§d": "light_purple",
+    "§e": "yellow",
+    "§f": "white"
+  },
+  "Enchantments": {
+    "0": "minecraft:protection",
+    "1": "minecraft:fire_protection",
+    "2": "minecraft:feather_falling",
+    "3": "minecraft:blast_protection",
+    "4": "minecraft:projectile_protection",
+    "5": "minecraft:respiration",
+    "6": "minecraft:aqua_affinity",
+    "7": "minecraft:thorns",
+    "16": "minecraft:sharpness",
+    "17": "minecraft:smite",
+    "18": "minecraft:bane_of_arthropods",
+    "19": "minecraft:knockback",
+    "20": "minecraft:fire_aspect",
+    "21": "minecraft:looting",
+    "32": "minecraft:efficiency",
+    "33": "minecraft:silk_touch",
+    "34": "minecraft:unbreaking",
+    "35": "minecraft:fortune",
+    "48": "minecraft:power",
+    "49": "minecraft:punch",
+    "50": "minecraft:flame",
+    "51": "minecraft:infinity",
+    "61": "minecraft:luck_of_the_sea",
+    "62": "minecraft:lure"
+  },
   "Entities": {
     "lotr.Horse": "minecraft:donkey",
     "lotr.Hobbit": "lotr:hobbit",
@@ -6841,6 +7479,52 @@
       "lotr:wattle_and_daub"
     ]
   },
+  "Mod_mob_ids": {
+    "2": "lotr:hobbit_spawn_egg",
+    "3": "lotr:mordor_orc_spawn_egg",
+    "6": "lotr:gondor_soldier_spawn_egg",
+    "7": "lotr:gondor_man_spawn_egg",
+    "8": "lotr:galadhrim_elf_spawn_egg",
+    "10": "lotr:rohan_man_spawn_egg",
+    "11": "lotr:galadhrim_warrior_spawn_egg",
+    "14": "lotr:mordor_orc_archer_spawn_egg",
+    "18": "lotr:dwarf_spawn_egg",
+    "19": "lotr:dwarf_warrior_spawn_egg",
+    "27": "lotr:gondor_archer_spawn_egg",
+    "38": "lotr:wood_elf_spawn_egg",
+    "41": "lotr:rohirrim_warrior_spawn_egg",
+    "42": "lotr:rohirrim_bowman_spawn_egg",
+    "49": "lotr:dunlending_warrior_spawn_egg",
+    "50": "lotr:dunlending_bowman_spawn_egg",
+    "52": "lotr:dunlending_spawn_egg",
+    "60": "lotr:wood_elf_warrior_spawn_egg",
+    "77": "lotr:gundabad_orc_spawn_egg",
+    "78": "lotr:gundabad_orc_archer_spawn_egg",
+    "92": "lotr:coast_southron_spawn_egg",
+    "93": "lotr:coast_southron_warrior_spawn_egg",
+    "94": "lotr:lindon_elf_spawn_egg",
+    "99": "lotr:lindon_warrior_spawn_egg",
+    "117": "lotr:coast_southron_archer_spawn_egg",
+    "119": "lotr:blue_mountains_dwarf_spawn_egg",
+    "120": "lotr:blue_mountains_warrior_spawn_egg",
+    "191": "lotr:uruk_spawn_egg",
+    "192": "lotr:uruk_archer_spawn_egg",
+    "197": "lotr:dale_man_spawn_egg",
+    "199": "lotr:dale_soldier_spawn_egg",
+    "200": "lotr:dale_bowman_spawn_egg",
+    "295": "lotr:rivendell_elf_spawn_egg",
+    "296": "lotr:rivendell_warrior_spawn_egg",
+    "306": "lotr:harnedhrim_spawn_egg",
+    "307": "lotr:harnennor_warrior_spawn_egg",
+    "308": "lotr:harnennor_archer_spawn_egg",
+    "310": "lotr:umbar_man_spawn_egg",
+    "311": "lotr:umbar_soldier_spawn_egg",
+    "312": "lotr:umbar_archer_spawn_egg",
+    "385": "lotr:bree_man_spawn_egg",
+    "386": "bree_guard_spawn_egg",
+    "391": "lotr:bree_hobbit_spawn_egg",
+    "Comments": "Used for fixing spawn eggs, as otherwise they would require changing the json item format yet again"
+  },
   "Potions": {
     "0": {
       "Name": "minecraft:water",
@@ -7115,50 +7799,6 @@
       "Splash": true
     }
   },
-  "Enchantments": {
-    "0": "minecraft:protection",
-    "1": "minecraft:fire_protection",
-    "2": "minecraft:feather_falling",
-    "3": "minecraft:blast_protection",
-    "4": "minecraft:projectile_protection",
-    "5": "minecraft:respiration",
-    "6": "minecraft:aqua_affinity",
-    "7": "minecraft:thorns",
-    "16": "minecraft:sharpness",
-    "17": "minecraft:smite",
-    "18": "minecraft:bane_of_arthropods",
-    "19": "minecraft:knockback",
-    "20": "minecraft:fire_aspect",
-    "21": "minecraft:looting",
-    "32": "minecraft:efficiency",
-    "33": "minecraft:silk_touch",
-    "34": "minecraft:unbreaking",
-    "35": "minecraft:fortune",
-    "48": "minecraft:power",
-    "49": "minecraft:punch",
-    "50": "minecraft:flame",
-    "51": "minecraft:infinity",
-    "61": "minecraft:luck_of_the_sea",
-    "62": "minecraft:lure"
-  },
-  "Colours": {
-    "§0": "black",
-    "§1": "dark_blue",
-    "§2": "dark_green",
-    "§3": "dark_aqua",
-    "§4": "dark_red",
-    "§5": "dark_purple",
-    "§6": "gold",
-    "§7": "gray",
-    "§8": "dark_gray",
-    "§9": "blue",
-    "§a": "green",
-    "§b": "aqua",
-    "§c": "red",
-    "§d": "light_purple",
-    "§e": "yellow",
-    "§f": "white"
-  },
   "Regions": {
     "PUKEL": "lotr:druwaith_iaur",
     "NINDALF": "lotr:nindalf",
@@ -7220,6 +7860,65 @@
     "Creative Mode spawn": false,
     "Comments": "Debug messages determines debug messages (Converted x/y files, no mapping found for x, etc.), 0 means no debug messages, 1 means basic info, 2 is full (1 is recommended),Cache debug messages ensures messages will only get sent once. Creative mode spawn should be self-explanatory",
     "comments": "about BlockMappings: this is temporary, note that if properties don't exist there isn't a tab for it as I wanted to model the vanilla saving method as closely as possible. If it's easier to generate the JSON with the properties field empty, It won't be a difficult change"
+  },
+  "Text_Formatting": {
+    "Colours": {
+      "§0": "black",
+      "§1": "dark_blue",
+      "§2": "dark_green",
+      "§3": "dark_aqua",
+      "§4": "dark_red",
+      "§5": "dark_purple",
+      "§6": "gold",
+      "§7": "gray",
+      "§8": "dark_gray",
+      "§9": "blue",
+      "§a": "green",
+      "§b": "aqua",
+      "§c": "red",
+      "§d": "light_purple",
+      "§e": "yellow",
+      "§f": "white"
+    },
+    "Formatting_Codes": {
+      "§k": "obfuscated",
+      "§l": "bold",
+      "§m": "strikethrough",
+      "§n": "underline",
+      "§o": "italic",
+      "§r": "reset"
+    }
+  },
+  "TitleBlacklist": [
+    "title_blacklist_example",
+    "formatting_example"
+  ],
+  "Vanilla_mob_ids": {
+    "50": "minecraft:creeper_spawn_egg",
+    "51": "minecraft:skeleton_spawn_egg",
+    "52": "minecraft:spider_spawn_egg",
+    "54": "minecraft:zombie_spawn_egg",
+    "55": "minecraft:slime_spawn_egg",
+    "56": "minecraft:ghast_spawn_egg",
+    "57": "minecraft:zombified_piglin_spawn_egg",
+    "58": "minecraft:enderman_spawn_egg",
+    "59": "minecraft:cave_spider_spawn_egg",
+    "60": "minecraft:silverfish_spawn_egg",
+    "61": "minecraft:blaze_spawn_egg",
+    "62": "minecraft:magma_cube_spawn_egg",
+    "65": "minecraft:minecraft:bat_spawn_egg",
+    "66": "minecraft:witch_spawn_egg",
+    "90": "minecraft:pig_spawn_egg",
+    "91": "minecraft:sheep_spawn_egg",
+    "92": "minecraft:cow_spawn_egg",
+    "93": "minecraft:chicken_spawn_egg",
+    "94": "minecraft:squid_spawn_egg",
+    "95": "minecraft:wolf_spawn_egg",
+    "96": "minecraft:mooshroom_spawn_egg",
+    "98": "minecraft:ocelot_spawn_egg",
+    "100": "minecraft:horse_spawn_egg",
+    "120": "minecraft:villager_spawn_egg",
+    "Comment": "Used for fixing spawn eggs, as otherwise they would require changing the json item format yet again"
   },
   "Waypoints": {
     "LAST_BRIDGE": "lotr:last_bridge",
@@ -7416,206 +8115,5 @@
     "ENCHANTED_RIVER": "lotr:enchanted_river",
     "MOUNT_DOOM": "lotr:mount_doom",
     "CARN_DUM": "lotr:carn_dum"
-  },
-  "Mod_mob_ids": {
-    "2": "lotr:hobbit_spawn_egg",
-    "3": "lotr:mordor_orc_spawn_egg",
-    "6": "lotr:gondor_soldier_spawn_egg",
-    "7": "lotr:gondor_man_spawn_egg",
-    "8": "lotr:galadhrim_elf_spawn_egg",
-    "10": "lotr:rohan_man_spawn_egg",
-    "11": "lotr:galadhrim_warrior_spawn_egg",
-    "14": "lotr:mordor_orc_archer_spawn_egg",
-    "18": "lotr:dwarf_spawn_egg",
-    "19": "lotr:dwarf_warrior_spawn_egg",
-    "27": "lotr:gondor_archer_spawn_egg",
-    "38": "lotr:wood_elf_spawn_egg",
-    "41": "lotr:rohirrim_warrior_spawn_egg",
-    "42": "lotr:rohirrim_bowman_spawn_egg",
-    "49": "lotr:dunlending_warrior_spawn_egg",
-    "50": "lotr:dunlending_bowman_spawn_egg",
-    "52": "lotr:dunlending_spawn_egg",
-    "60": "lotr:wood_elf_warrior_spawn_egg",
-    "77": "lotr:gundabad_orc_spawn_egg",
-    "78": "lotr:gundabad_orc_archer_spawn_egg",
-    "92": "lotr:coast_southron_spawn_egg",
-    "93": "lotr:coast_southron_warrior_spawn_egg",
-    "94": "lotr:lindon_elf_spawn_egg",
-    "99": "lotr:lindon_warrior_spawn_egg",
-    "117": "lotr:coast_southron_archer_spawn_egg",
-    "119": "lotr:blue_mountains_dwarf_spawn_egg",
-    "120": "lotr:blue_mountains_warrior_spawn_egg",
-    "191": "lotr:uruk_spawn_egg",
-    "192": "lotr:uruk_archer_spawn_egg",
-    "197": "lotr:dale_man_spawn_egg",
-    "199": "lotr:dale_soldier_spawn_egg",
-    "200": "lotr:dale_bowman_spawn_egg",
-    "295": "lotr:rivendell_elf_spawn_egg",
-    "296": "lotr:rivendell_warrior_spawn_egg",
-    "306": "lotr:harnedhrim_spawn_egg",
-    "307": "lotr:harnennor_warrior_spawn_egg",
-    "308": "lotr:harnennor_archer_spawn_egg",
-    "310": "lotr:umbar_man_spawn_egg",
-    "311": "lotr:umbar_soldier_spawn_egg",
-    "312": "lotr:umbar_archer_spawn_egg",
-    "385": "lotr:bree_man_spawn_egg",
-    "386": "bree_guard_spawn_egg",
-    "391": "lotr:bree_hobbit_spawn_egg",
-    "Comments": "Used for fixing spawn eggs, as otherwise they would require changing the json item format yet again"
-  },
-  "Vanilla_mob_ids": {
-    "50": "minecraft:creeper_spawn_egg",
-    "51": "minecraft:skeleton_spawn_egg",
-    "52": "minecraft:spider_spawn_egg",
-    "54": "minecraft:zombie_spawn_egg",
-    "55": "minecraft:slime_spawn_egg",
-    "56": "minecraft:ghast_spawn_egg",
-    "57": "minecraft:zombified_piglin_spawn_egg",
-    "58": "minecraft:enderman_spawn_egg",
-    "59": "minecraft:cave_spider_spawn_egg",
-    "60": "minecraft:silverfish_spawn_egg",
-    "61": "minecraft:blaze_spawn_egg",
-    "62": "minecraft:magma_cube_spawn_egg",
-    "65": "minecraft:minecraft:bat_spawn_egg",
-    "66": "minecraft:witch_spawn_egg",
-    "90": "minecraft:pig_spawn_egg",
-    "91": "minecraft:sheep_spawn_egg",
-    "92": "minecraft:cow_spawn_egg",
-    "93": "minecraft:chicken_spawn_egg",
-    "94": "minecraft:squid_spawn_egg",
-    "95": "minecraft:wolf_spawn_egg",
-    "96": "minecraft:mooshroom_spawn_egg",
-    "98": "minecraft:ocelot_spawn_egg",
-    "100": "minecraft:horse_spawn_egg",
-    "120": "minecraft:villager_spawn_egg",
-    "Comment": "Used for fixing spawn eggs, as otherwise they would require changing the json item format yet again"
-  },
-  "AuthorBlacklist": [
-    "author_blacklist_example",
-    "formatting_example"
-  ],
-  "TitleBlacklist": [
-    "title_blacklist_example",
-    "formatting_example"
-  ],
-  "BlockMappings": {
-    "minecraft:redstone_ore": {
-      "0": {
-        "name": "minecraft:redstone_ore",
-        "properties": {
-          "lit": "false"
-        }
-      },
-      "1": {
-        "name": "minecraft:redstone_ore",
-        "properties": {
-          "lit": "true"
-        }
-      }
-    },
-    "minecraft:air": {
-      "0": {
-        "name": "minecraft:air"
-      }
-    },
-    "minecraft:stone": {
-      "0": {
-        "name": "minecraft:stone"
-      }
-    },
-    "minecraft:bedrock": {
-      "0": {
-        "name": "minecraft:bedrock"
-      }
-    },
-    "minecraft:dirt": {
-      "0": {
-        "name": "minecraft:dirt"
-      },
-      "1": {
-        "name": "add the rest of the block here too lazy rn"
-      }
-    },
-    "minecraft:grass": {
-      "0": {
-        "name": "minecraft:grass_block"
-      }
-    },
-    "lotr:tile.brick": {
-      "0": {
-        "name": "lotr:mordor_brick"
-      },
-      "6": {
-        "name": "lotr:dwarven_brick"
-      }
-    },
-    "minecraft:clay": {
-      "0": {
-        "name": "minecraft:clay"
-      }
-    },
-    "minecraft:hardened_clay": {
-      "0": {
-        "name": "minecraft:terracotta"
-      }
-    },
-    "minecraft:stained_hardened_clay": {
-      "0": {
-        "name": "minecraft:white_terracotta"
-      },
-      "1": {
-        "name": "minecraft:orange_terracotta"
-      },
-      "2": {
-        "name": "minecraft:magenta_terracotta"
-      },
-      "3": {
-        "name": "minecraft:light_blue_terracotta"
-      },
-      "4": {
-        "name": "minecraft:yellow_terracotta"
-      },
-      "5": {
-        "name": "minecraft:lime_terracotta"
-      },
-      "6": {
-        "name": "minecraft:pink_terracotta"
-      },
-      "7": {
-        "name": "minecraft:gray_terracotta"
-      },
-      "8": {
-        "name": "minecraft:light_gray_terracotta"
-      },
-      "9": {
-        "name": "minecraft:cyan_terracotta"
-      },
-      "10": {
-        "name": "minecraft:purple_terracotta"
-      },
-      "11": {
-        "name": "minecraft:blue_terracotta"
-      },
-      "12": {
-        "name": "minecraft:brown_terracotta"
-      },
-      "13": {
-        "name": "minecraft:green_terracotta"
-      },
-      "14": {
-        "name": "minecraft:red_terracotta"
-      },
-      "15": {
-        "name": "minecraft:black_terracotta"
-      }
-    }
-  },
-  "BlockIdToName": {
-    "0": "minecraft:air",
-    "1": "minecraft:stone",
-    "-70": "lotr:tile.brick",
-    "-97": "minecraft:stained_hardened_clay",
-    "-84": "minecraft:hardened_clay",
-    "82": "minecraft:clay"
   }
 }

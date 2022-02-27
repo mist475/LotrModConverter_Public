@@ -71,15 +71,19 @@ public class DimensionConverter implements Convertor {
                             chunks.put(j, regionFile.loadChunk(j));
                         }
                         regionFile.close();
-                        RegionFile new_Region = RegionFile.createNew(Paths.get(p + "/" + FileName + this.CDStrings[this.CDStrings.length - 1] + '/' + mapFile.getName()));
+                        String PathToUse = p + "/" + FileName + this.CDStrings[this.CDStrings.length - 1] + '/' + mapFile.getName();
+                        //System.out.println(Paths.get(PathToUse));
+                        RegionFile new_Region = RegionFile.createNew(Paths.get(PathToUse));
 
-                        //TODO: Speed test 1 thread vs 1 thread per mca file
-                        new_Region.writeChunks(Fixers.regionFixer(chunks, Data, stringCache));
+                        //TODO: Start using multithreading here
+                        HashMap<Integer,Chunk> result = Fixers.regionFixer(chunks, Data, stringCache);
+                        new_Region.writeChunks(result);
                     } catch (Exception e) {
                         e.printStackTrace();
                         throw new IOException(this.ExceptionMessage);
                     }
                     stringCache.PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + this.SingleFileMessage, true);
+                    //System.out.println("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + this.SingleFileMessage);
                 }
 
                 stringCache.PrintLine(this.DoneMessage, false);

@@ -1,7 +1,6 @@
 package misterymob475;
 
-import de.piegames.nbt.CompoundMap;
-import de.piegames.nbt.Tag;
+import de.piegames.nbt.*;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -153,4 +152,109 @@ public class Util {
         }
     }
 
+    /**
+     * If an entry for key exists as a {@link ByteArrayTag} it will be returned in an {@link Optional}, otherwise it will return an empty {@link Optional}
+     *
+     * @param map {@link CompoundMap} that might contain key
+     * @param key {@link String} the key to be searched with
+     * @return {@link Optional} of type {@link ByteArrayTag}
+     */
+    public static Optional<ByteArrayTag> GetAsByteArrayTagIfExistsFromCompoundMap(CompoundMap map, String key) {
+        if (map.containsKey(key)) {
+            Tag<?> t = map.get(key);
+            if (t instanceof ByteArrayTag) return Optional.of((ByteArrayTag)t);
+            else return Optional.empty();
+        } else return Optional.empty();
+    }
+
+    /**
+     * If an entry for key exists as a {@link ByteTag} it will be returned in an {@link Optional}, otherwise it will return an empty {@link Optional}
+     *
+     * @param map {@link CompoundMap} that might contain key
+     * @param key {@link String} the key to be searched with
+     * @return {@link Optional} of type {@link ByteArrayTag}
+     */
+    public static Optional<ByteTag> GetAsByteTagIfExistsFromCompoundMap(CompoundMap map, String key) {
+        if (map.containsKey(key)) {
+            Tag<?> t = map.get(key);
+            if (t instanceof ByteTag) return Optional.of((ByteTag)t);
+            else return Optional.empty();
+        } else return Optional.empty();
+    }
+
+    /**
+     * If an entry for key exists as a {@link de.piegames.nbt.CompoundTag} it will be returned in an {@link Optional}, otherwise it will return an empty {@link Optional}
+     *
+     * @param map {@link CompoundMap} that might contain key
+     * @param key {@link String} the key to be searched with
+     * @return {@link Optional} of type {@link ByteArrayTag}
+     */
+    public static Optional<CompoundTag> GetAsCompoundTagIfExistsFromCompoundMap(CompoundMap map, String key) {
+        if (map.containsKey(key)) {
+            Tag<?> t = map.get(key);
+            if (t instanceof CompoundTag) return Optional.of((CompoundTag) t);
+            else return Optional.empty();
+        } else return Optional.empty();
+    }
+
+/*
+    **
+     * If a value exists as the given type in the given map it will get returned, otherwise an empty {@link Optional} gets returned
+     * @param map {@link CompoundMap} map
+     * @param key {@link String} key
+     * @param type int representation of enum
+     * @return {@link Optional} of given tag if exists, empty otherwise
+     *
+public static <T extends Tag> Optional<T> GetAsTagTypeIfExists(CompoundMap map, String key, TagType type, T TagTemp) {
+    if (map.containsKey(key)) {
+        Tag<?> t = map.get(key);
+        switch(type) {
+            case TAG_END : if (t instanceof EndTag) {
+                return (Optional<T>) Optional.of((EndTag)t);
+            } else return Optional.empty();
+            case TAG_BYTE : if (t instanceof ByteTag) {
+                return Optional.of(t);
+            } else return Optional.empty();
+            case TAG_SHORT : if (t instanceof ShortTag) {
+                return Optional.of(t);
+            } else return Optional.empty();
+            case TAG_INT : if (t instanceof IntTag) {
+                return Optional.of(t);
+            } else return Optional.empty();
+            case TAG_LONG : if (t instanceof LongTag) {
+                return Optional.of(t);
+            } else return Optional.empty();
+            case TAG_FLOAT : if (t instanceof FloatTag) {
+                return Optional.of(t);
+            } else return Optional.empty();
+            case TAG_DOUBLE : if (t instanceof DoubleTag) {
+                return Optional.of(t);
+            } else return Optional.empty();
+            case TAG_BYTE_ARRAY : if (t instanceof ByteArrayTag) {
+                return Optional.of(t);
+            } else return Optional.empty();
+            case TAG_STRING : if (t instanceof StringTag) {
+                return Optional.of(t);
+            } else return Optional.empty();
+            case TAG_LIST : if (t instanceof ListTag) {
+                return Optional.of(t);
+            } else return Optional.empty();
+            case TAG_COMPOUND : if (t instanceof CompoundTag) {
+                return Optional.of(t);
+            } else return Optional.empty();
+            case TAG_INT_ARRAY : if (t instanceof IntArrayTag) {
+                return Optional.of(t);
+            } else return Optional.empty();
+            case TAG_LONG_ARRAY : if (t instanceof LongArrayTag) {
+                return Optional.of(t);
+            } else return Optional.empty();
+            case TAG_SHORT_ARRAY : if (t instanceof ShortArrayTag) {
+                return Optional.of(t);
+            } else return Optional.empty();
+            default:return Optional.empty();
+        }
+    }
+    else return Optional.empty();
+}
+ */
 }

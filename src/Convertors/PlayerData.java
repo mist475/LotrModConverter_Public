@@ -17,8 +17,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Objects;
 
-//this class fixes the regular player data (the files in the playerdata folder) and the level.dat file (mainly because playerdata is also stored in there)
-
 /**
  * Copies and fixes the regular player data
  */
@@ -73,17 +71,20 @@ public class PlayerData implements Convertor {
                     final CompoundTag newTopLevelTag = new CompoundTag("", newData);
                     //(new File(Paths.get(p +"/"+FileName+"_Converted/playerdata/" + f.getName()).toString())).getAbsolutePath()
                     //final NBTOutputStream output = new NBTOutputStream(new FileOutputStream(f));
-                    final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p + "/" + FileName + "_Converted/playerdata/" + f.getName()).toString())).getAbsolutePath()));
+
+                    String PathToUse = p + "/" + FileName + "_Converted/playerdata/" + f.getName();
+                    //System.out.println(Paths.get(PathToUse));
+                    final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(PathToUse).toString())).getAbsolutePath()));
                     output.writeTag(newTopLevelTag);
                     output.close();
                 }
                 catch(Exception e) {
                     e.printStackTrace();
-                    System.out.println("Something went wrong during playerdata conversion");
+                    stringCache.PrintLine("Something went wrong during playerdata conversion");
                 }
                 stringCache.PrintLine("Converted " + (i - 1) + "/ " + Objects.requireNonNull(currentFolder.listFiles()).length + " player data files", true);
             }
-            System.out.println("converted all the playerdata");
+            stringCache.PrintLine("converted all the playerdata");
         }
 
             /*
