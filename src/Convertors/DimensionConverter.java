@@ -82,11 +82,11 @@ public class DimensionConverter implements Convertor {
                         e.printStackTrace();
                         throw new IOException(this.ExceptionMessage);
                     }
-                    stringCache.PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + this.SingleFileMessage, true);
+                    stringCache.printLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + this.SingleFileMessage, true);
                     //System.out.println("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + this.SingleFileMessage);
                 }
 
-                stringCache.PrintLine(this.DoneMessage, false);
+                stringCache.printLine(this.DoneMessage, false);
             }
         }
     }

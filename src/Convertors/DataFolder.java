@@ -11,8 +11,6 @@ import misterymob475.StringCache;
 import misterymob475.Util;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -56,7 +54,7 @@ public class DataFolder implements Convertor {
                     i++;
                     try {
                         //opens the file as a stream and saves the result as a CompoundTag
-                        final NBTInputStream input = new NBTInputStream(new FileInputStream(mapFile));
+                        final NBTInputStream input = new NBTInputStream(Files.newInputStream(mapFile.toPath()));
                         final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
                         input.close();
                         //DataVersion = 2586
@@ -64,13 +62,13 @@ public class DataFolder implements Convertor {
                         CompoundMap originalData = new CompoundMap(originalTopLevelTag.getValue());
                         CompoundMap data = new CompoundMap(((CompoundTag) originalData.get("data")).getValue());
 
-                        Fixers.MapFixer(data);
+                        Fixers.mapFixer(data);
 
                         originalData.replace("data", new CompoundTag("data", data));
                         final CompoundTag newTopLevelTag = new CompoundTag("", originalData);
                         String PathToUse = p + "/" + FileName + "_Converted/data/" + mapFile.getName();
                         //System.out.println(Paths.get(PathToUse));
-                        final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(PathToUse).toString())).getAbsolutePath()));
+                        final NBTOutputStream output = new NBTOutputStream(Files.newOutputStream(Paths.get((new File(Paths.get(PathToUse).toString())).getAbsolutePath())));
                         output.writeTag(newTopLevelTag);
                         output.close();
                     }
@@ -78,10 +76,10 @@ public class DataFolder implements Convertor {
                     catch (Exception e) {
                         throw new IOException("Error during map conversion fix");
                     }
-                    stringCache.PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + " maps", true);
+                    stringCache.printLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + " maps", true);
                 }
 
-                stringCache.PrintLine("Converted all the maps", false);
+                stringCache.printLine("Converted all the maps", false);
                 try {
                     if (new File(currentFolder + "/idcounts.dat").exists()) {
                         final NBTInputStream input = new NBTInputStream(Files.newInputStream(Paths.get(currentFolder + "/idcounts.dat")), NBTInputStream.NO_COMPRESSION);
@@ -92,13 +90,13 @@ public class DataFolder implements Convertor {
                             Optional<ShortTag> tag = originalTopLevelTag.getValue().get("map").getAsShortTag();
                             Optional<IntTag> newMap = tag.map(shortTag -> new IntTag("map", shortTag.getValue()));
                             if (newMap.isPresent()) {
-                                final CompoundTag newTopLevelTag = new CompoundTag("", Util.CreateCompoundMapWithContents(new CompoundTag("data", Util.CreateCompoundMapWithContents(newMap.get())), new IntTag("DataVersion", 2586)));
+                                final CompoundTag newTopLevelTag = new CompoundTag("", Util.createCompoundMapWithContents(new CompoundTag("data", Util.createCompoundMapWithContents(newMap.get())), new IntTag("DataVersion", 2586)));
                                 String PathToUse = p + "/" + FileName + "_Converted/data/idcounts.dat";
                                 //System.out.println(Paths.get(PathToUse));
-                                final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(PathToUse).toString())).getAbsolutePath()), NBTInputStream.NO_COMPRESSION);
+                                final NBTOutputStream output = new NBTOutputStream(Files.newOutputStream(Paths.get((new File(Paths.get(PathToUse).toString())).getAbsolutePath())), NBTInputStream.NO_COMPRESSION);
                                 output.writeTag(newTopLevelTag);
                                 output.close();
-                                stringCache.PrintLine("converted idcount.dat", false);
+                                stringCache.printLine("converted idcounts.dat", false);
                             }
                         }
                     }

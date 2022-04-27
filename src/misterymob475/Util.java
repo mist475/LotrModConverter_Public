@@ -31,8 +31,8 @@ public class Util {
      *
      * @return {@link Optional<String>} containing the path of the selected renewed world if found
      */
-    public static Optional<String> RenewedWorldSelection() {
-        String[] pathnames;
+    public static Optional<String> renewedWorldSelector() {
+        String[] pathNames;
         File f = new File("../");
         int i = 1;
         String selectOption = "Please select the new world you wan to use as the basis for your converted world:";
@@ -44,11 +44,11 @@ public class Util {
                 return false;
             }
         };
-        pathnames = f.list(filter);
-        if (!(pathnames == null)) {
-            if (pathnames.length == 1) return Optional.of(pathnames[0]);
-            else if (pathnames.length > 1) {
-                for (String pathname : pathnames) {
+        pathNames = f.list(filter);
+        if (!(pathNames == null)) {
+            if (pathNames.length == 1) return Optional.of(pathNames[0]);
+            else if (pathNames.length > 1) {
+                for (String pathname : pathNames) {
                     // Print the names of files and directories
                     System.out.println(i + " " + pathname);
                     i += 1;
@@ -59,10 +59,10 @@ public class Util {
 
                 try {
                     int input = myScanner.nextInt();
-                    return Optional.of(pathnames[input - 1]);
+                    return Optional.of(pathNames[input - 1]);
                 } catch (Exception e) {
                     System.out.println("Invalid selection");
-                    return RenewedWorldSelection();
+                    return renewedWorldSelector();
 
                 }
             } else {
@@ -80,8 +80,8 @@ public class Util {
      *
      * @return {@link Optional<String>} containing the path of the selected old world if found
      */
-    public static Optional<String> LegacyWorldSelection() {
-        String[] pathnames;
+    public static Optional<String> legacyWorldSelector() {
+        String[] pathNames;
 
         File f = new File("../");
 
@@ -96,11 +96,11 @@ public class Util {
             }
         };
 
-        pathnames = f.list(filter);
-        if (!(pathnames == null)) {
-            if (pathnames.length == 1) return Optional.of(pathnames[0]);
-            else if (pathnames.length > 1) {
-                for (String pathname : pathnames) {
+        pathNames = f.list(filter);
+        if (!(pathNames == null)) {
+            if (pathNames.length == 1) return Optional.of(pathNames[0]);
+            else if (pathNames.length > 1) {
+                for (String pathname : pathNames) {
                     // Print the names of files and directories
                     System.out.println(i + " " + pathname);
                     i += 1;
@@ -110,10 +110,10 @@ public class Util {
                 Scanner myScanner = new Scanner(System.in);
                 try {
                     int input = myScanner.nextInt();
-                    return Optional.of(pathnames[input - 1]);
+                    return Optional.of(pathNames[input - 1]);
                 } catch (Exception e) {
                     System.out.println("Invalid selection");
-                    return LegacyWorldSelection();
+                    return legacyWorldSelector();
                 }
 
             } else {
@@ -132,7 +132,7 @@ public class Util {
      * @param Tags {@link Tag}s to be added
      * @return {@link CompoundMap} with the given tags as content
      */
-    public static CompoundMap CreateCompoundMapWithContents(Tag<?>... Tags) {
+    public static CompoundMap createCompoundMapWithContents(Tag<?>... Tags) {
         CompoundMap m = new CompoundMap();
         for (Tag<?> t : Tags) {
             if (t != null) m.put(t);
@@ -146,115 +146,38 @@ public class Util {
      * @param m          {@link CompoundMap}
      * @param conditions {@link String} varargs
      */
-    public static void CMRemoveVarArgs(CompoundMap m, String... conditions) {
+    public static void compoundMapVarArgRemover(CompoundMap m, String... conditions) {
         for (String t : conditions) {
             m.remove(t);
         }
     }
 
     /**
-     * If an entry for key exists as a {@link ByteArrayTag} it will be returned in an {@link Optional}, otherwise it will return an empty {@link Optional}
+     * Gets the section a block is in (only height, not width)
      *
-     * @param map {@link CompoundMap} that might contain key
-     * @param key {@link String} the key to be searched with
-     * @return {@link Optional} of type {@link ByteArrayTag}
+     * @param y y position of a block
+     * @return section of a block
      */
-    public static Optional<ByteArrayTag> GetAsByteArrayTagIfExistsFromCompoundMap(CompoundMap map, String key) {
-        if (map.containsKey(key)) {
-            Tag<?> t = map.get(key);
-            if (t instanceof ByteArrayTag) return Optional.of((ByteArrayTag)t);
-            else return Optional.empty();
-        } else return Optional.empty();
+    public static byte sectionHeight(int y) {
+        return (byte)(y >> 4);
     }
 
     /**
-     * If an entry for key exists as a {@link ByteTag} it will be returned in an {@link Optional}, otherwise it will return an empty {@link Optional}
-     *
-     * @param map {@link CompoundMap} that might contain key
-     * @param key {@link String} the key to be searched with
-     * @return {@link Optional} of type {@link ByteArrayTag}
-     */
-    public static Optional<ByteTag> GetAsByteTagIfExistsFromCompoundMap(CompoundMap map, String key) {
-        if (map.containsKey(key)) {
-            Tag<?> t = map.get(key);
-            if (t instanceof ByteTag) return Optional.of((ByteTag)t);
-            else return Optional.empty();
-        } else return Optional.empty();
-    }
-
-    /**
-     * If an entry for key exists as a {@link de.piegames.nbt.CompoundTag} it will be returned in an {@link Optional}, otherwise it will return an empty {@link Optional}
-     *
-     * @param map {@link CompoundMap} that might contain key
-     * @param key {@link String} the key to be searched with
-     * @return {@link Optional} of type {@link ByteArrayTag}
-     */
-    public static Optional<CompoundTag> GetAsCompoundTagIfExistsFromCompoundMap(CompoundMap map, String key) {
-        if (map.containsKey(key)) {
-            Tag<?> t = map.get(key);
-            if (t instanceof CompoundTag) return Optional.of((CompoundTag) t);
-            else return Optional.empty();
-        } else return Optional.empty();
-    }
-
-/*
-    **
-     * If a value exists as the given type in the given map it will get returned, otherwise an empty {@link Optional} gets returned
-     * @param map {@link CompoundMap} map
+     * Gets a Tag if it Exists, and it's the right Type
+     * @param map {@link CompoundMap} that is checked
      * @param key {@link String} key
-     * @param type int representation of enum
-     * @return {@link Optional} of given tag if exists, empty otherwise
-     *
-public static <T extends Tag> Optional<T> GetAsTagTypeIfExists(CompoundMap map, String key, TagType type, T TagTemp) {
-    if (map.containsKey(key)) {
-        Tag<?> t = map.get(key);
-        switch(type) {
-            case TAG_END : if (t instanceof EndTag) {
-                return (Optional<T>) Optional.of((EndTag)t);
-            } else return Optional.empty();
-            case TAG_BYTE : if (t instanceof ByteTag) {
+     * @param type {@link TagType} denoting the requested type
+     * @return {@link Optional} containing the requested value if it exists, and it's the right type. Otherwise Empty
+     */
+    public static Optional<Tag<?>> GetAsTagIfExists(CompoundMap map, TagType type,String key) {
+        if (map.containsKey(key)) {
+            Tag<?> t = map.get(key);
+            if (t.getType() == type) {
                 return Optional.of(t);
-            } else return Optional.empty();
-            case TAG_SHORT : if (t instanceof ShortTag) {
-                return Optional.of(t);
-            } else return Optional.empty();
-            case TAG_INT : if (t instanceof IntTag) {
-                return Optional.of(t);
-            } else return Optional.empty();
-            case TAG_LONG : if (t instanceof LongTag) {
-                return Optional.of(t);
-            } else return Optional.empty();
-            case TAG_FLOAT : if (t instanceof FloatTag) {
-                return Optional.of(t);
-            } else return Optional.empty();
-            case TAG_DOUBLE : if (t instanceof DoubleTag) {
-                return Optional.of(t);
-            } else return Optional.empty();
-            case TAG_BYTE_ARRAY : if (t instanceof ByteArrayTag) {
-                return Optional.of(t);
-            } else return Optional.empty();
-            case TAG_STRING : if (t instanceof StringTag) {
-                return Optional.of(t);
-            } else return Optional.empty();
-            case TAG_LIST : if (t instanceof ListTag) {
-                return Optional.of(t);
-            } else return Optional.empty();
-            case TAG_COMPOUND : if (t instanceof CompoundTag) {
-                return Optional.of(t);
-            } else return Optional.empty();
-            case TAG_INT_ARRAY : if (t instanceof IntArrayTag) {
-                return Optional.of(t);
-            } else return Optional.empty();
-            case TAG_LONG_ARRAY : if (t instanceof LongArrayTag) {
-                return Optional.of(t);
-            } else return Optional.empty();
-            case TAG_SHORT_ARRAY : if (t instanceof ShortArrayTag) {
-                return Optional.of(t);
-            } else return Optional.empty();
-            default:return Optional.empty();
+            }
+            else return Optional.empty();
         }
+        else return Optional.empty();
     }
-    else return Optional.empty();
-}
- */
+
 }

@@ -1,9 +1,12 @@
 package Convertors;
 
+import de.piegames.nbt.*;
 import misterymob475.Data;
+import misterymob475.Util;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.Optional;
 
 public class Test implements Convertor {
     public Data Data;
@@ -29,7 +32,12 @@ public class Test implements Convertor {
 
     //Creates a test scenario
     public void test1() {
-
+        CompoundMap m = new CompoundMap();
+        m.put(new StringTag("key","value"));
+        m.put(new ByteTag("key2", (byte) 0));
+        Optional<Tag<?>> tag1 = Util.GetAsTagIfExists(m,TagType.TAG_INT,"key");
+        Optional<Tag<?>> tag2 = Util.GetAsTagIfExists(m,TagType.TAG_STRING,"key");
+        Optional<Tag<?>> tag3 = Util.GetAsTagIfExists(m,TagType.TAG_BYTE,"value");
     }
 
 }

@@ -9,8 +9,6 @@ import misterymob475.Fixers;
 import misterymob475.StringCache;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -42,7 +40,7 @@ public class PlayerData implements Convertor {
      */
     @Override
     public void modifier(Path p, String FileName) throws IOException {
-        //Map<Integer,String> LegacyIds = misterymob475.Data.LegacyIds(Paths.get(p + "/" + FileName+ "/level.dat").toAbsolutePath().toString());
+        //Map<Integer,String> legacyIds = misterymob475.Data.legacyIds(Paths.get(p + "/" + FileName+ "/level.dat").toAbsolutePath().toString());
         Files.createDirectory(Paths.get(p + "/" + FileName + "_Converted/playerdata"));
         //level.dat fixer/modifier
         //File renewedWorld = new File(p+"/"+this.pathName+"/level.dat");
@@ -56,7 +54,7 @@ public class PlayerData implements Convertor {
             for (File f : curDirList) {
                 i++;
                 try {
-                    final NBTInputStream input = new NBTInputStream(new FileInputStream(f));
+                    final NBTInputStream input = new NBTInputStream(Files.newInputStream(f.toPath()));
                     final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
                     input.close();
 
@@ -74,17 +72,17 @@ public class PlayerData implements Convertor {
 
                     String PathToUse = p + "/" + FileName + "_Converted/playerdata/" + f.getName();
                     //System.out.println(Paths.get(PathToUse));
-                    final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(PathToUse).toString())).getAbsolutePath()));
+                    final NBTOutputStream output = new NBTOutputStream(Files.newOutputStream(Paths.get((new File(Paths.get(PathToUse).toString())).getAbsolutePath())));
                     output.writeTag(newTopLevelTag);
                     output.close();
                 }
                 catch(Exception e) {
                     e.printStackTrace();
-                    stringCache.PrintLine("Something went wrong during playerdata conversion");
+                    stringCache.printLine("Something went wrong during playerdata conversion");
                 }
-                stringCache.PrintLine("Converted " + (i - 1) + "/ " + Objects.requireNonNull(currentFolder.listFiles()).length + " player data files", true);
+                stringCache.printLine("Converted " + (i - 1) + "/ " + Objects.requireNonNull(currentFolder.listFiles()).length + " player data files", true);
             }
-            stringCache.PrintLine("converted all the playerdata");
+            stringCache.printLine("converted all the playerdata");
         }
 
             /*

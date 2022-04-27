@@ -3,8 +3,9 @@ package misterymob475;
 import de.piegames.nbt.*;
 import de.piegames.nbt.stream.NBTInputStream;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -67,10 +68,10 @@ public class Data {
      * @throws IOException if something fails
      */
     @SuppressWarnings("unchecked")
-    public static HashMap<String, Integer> RenewedIds(String levelDat) throws IOException {
+    public static HashMap<String, Integer> renewedIds(String levelDat) throws IOException {
         HashMap<String, Integer> RenewedIds = new HashMap<>();
         try {
-            final NBTInputStream input = new NBTInputStream(new FileInputStream(levelDat));
+            final NBTInputStream input = new NBTInputStream(Files.newInputStream(Paths.get(levelDat)));
             final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
             input.close();
 
@@ -110,10 +111,10 @@ public class Data {
      * @throws IOException if something fails
      */
     @SuppressWarnings("unchecked")
-    public void LegacyIds(String levelDat) throws IOException {
+    public void legacyIds(String levelDat) throws IOException {
         HashMap<Integer, String> LegacyIds_builder = new HashMap<>();
         try {
-            final NBTInputStream input = new NBTInputStream(new FileInputStream(levelDat));
+            final NBTInputStream input = new NBTInputStream(Files.newInputStream(Paths.get(levelDat)));
             final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
             input.close();
 

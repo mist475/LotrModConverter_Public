@@ -29,7 +29,7 @@ public class StringCache {
      * @param msg      {@link String} the message that might be printed
      * @param extended {@link Boolean}, determines if the message should always be printed or only if it hasn't been printed yet
      */
-    public void PrintLine(String msg, Boolean extended) {
+    public void printLine(String msg, Boolean extended) {
         Thread t = new Thread(() -> {
             if (debugLevel == 2.0) {
                 if (cacheDebug) {
@@ -72,8 +72,8 @@ public class StringCache {
      *
      * @param msg {@link String} to be printed
      */
-    public void PrintLine(String msg) {
-        PrintLine(msg, false);
+    public void printLine(String msg) {
+        printLine(msg, false);
     }
 
     /**

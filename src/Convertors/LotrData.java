@@ -9,8 +9,6 @@ import misterymob475.Fixers;
 import misterymob475.StringCache;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -63,7 +61,7 @@ public class LotrData implements Convertor {
 
             //opens the file as a stream and saves the result as a CompoundTag
             if (new File(Paths.get(p + "/" + FileName + "/LOTR/LOTR.dat").toString()).exists()) {
-                final NBTInputStream input = new NBTInputStream(new FileInputStream(currentFolder + "/LOTR.dat"));
+                final NBTInputStream input = new NBTInputStream(Files.newInputStream(Paths.get(currentFolder + "/LOTR.dat")));
                 final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
                 input.close();
                 //saves the input as a map, this is important for saving the file, for reading it is redundant
@@ -77,10 +75,10 @@ public class LotrData implements Convertor {
                 String PathToUse = p + "/" + FileName + "_Converted/lotr/LOTR.dat";
                 //System.out.println(Paths.get(PathToUse));
                 //creates an output stream, this overwrites the file so deleting it is not necessary
-                final NBTOutputStream output = new NBTOutputStream(new FileOutputStream(Paths.get(PathToUse).toString()));
+                final NBTOutputStream output = new NBTOutputStream(Files.newOutputStream(Paths.get(Paths.get(PathToUse).toString())));
                 output.writeTag(newTopLevelTag);
                 output.close();
-                StringCache.PrintLine("converted LOTR.dat");
+                StringCache.printLine("converted LOTR.dat");
             }
 		/*
 		try {
@@ -141,7 +139,7 @@ public class LotrData implements Convertor {
             i++;
             try {
                 //opens the file as a stream and saves the result as a CompoundTag
-                final NBTInputStream input = new NBTInputStream(new FileInputStream(playerFile));
+                final NBTInputStream input = new NBTInputStream(Files.newInputStream(playerFile.toPath()));
                 final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
                 input.close();
                 //saves the input as a map, this is important for saving the file, for reading it is redundant
@@ -157,7 +155,7 @@ public class LotrData implements Convertor {
                 //final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p +"/"+FileName+"_Converted/lotr/" + playerFile.getName()).toString())).getAbsolutePath()));
                 String PathToUse = p + "/" + FileName + "_Converted/lotr/players/" + playerFile.getName();
                 //System.out.println(Paths.get(PathToUse));
-                final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(PathToUse).toString())).getAbsolutePath()));
+                final NBTOutputStream output = new NBTOutputStream(Files.newOutputStream(Paths.get((new File(Paths.get(PathToUse).toString())).getAbsolutePath())));
                 output.writeTag(newTopLevelTag);
 
                 output.close();
@@ -166,8 +164,8 @@ public class LotrData implements Convertor {
             catch (final ClassCastException | NullPointerException ex) {
                 throw new IOException("Error during playerData conversion fix");
             }
-            StringCache.PrintLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(PlayerDir.listFiles()).length + " Playerfiles", true);
+            StringCache.printLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(PlayerDir.listFiles()).length + " Playerfiles", true);
         }
-        StringCache.PrintLine("Converted all the player files in the /lotr folder");
+        StringCache.printLine("Converted all the player files in the /lotr folder");
     }
 }
