@@ -169,7 +169,7 @@ public class Util {
      * @param type {@link TagType} denoting the requested type
      * @return {@link Optional} containing the requested value if it exists, and it's the right type. Otherwise Empty
      */
-    public static Optional<Tag<?>> GetAsTagIfExists(CompoundMap map, TagType type,String key) {
+    public static Optional<Tag<?>> getAsTagIfExists(CompoundMap map, TagType type, String key) {
         if (map.containsKey(key)) {
             Tag<?> t = map.get(key);
             if (t.getType() == type) {

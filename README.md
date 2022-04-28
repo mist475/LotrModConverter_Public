@@ -6,9 +6,11 @@ Currently working:
 - Player data (inventory, position, alignment, waypoint usages etc.)
 - World Generation Settings (mostly, flat worlds get the default flat generation without custom parameters)
 
-Not working:
+Work in Progress:
 - Blocks
-- Entities (kinda)
+- Entities
+
+Not working:
 - Biomes
 
 Included in the zip-file:
@@ -28,7 +30,7 @@ How To use:
 - Create a new World in the latest version of Renewed
 - Copy the world you want to Convert to the same folder as the world you just created
 - Unzip the Converter and place the created folder in the same folder as these 2 worlds (see Image)
-- Run the converter using the .bat file if you're on windows or via the command line if you're on Linux or macOS(tested on linux)
+- Run the converter using the .bat file if you're on Windows or via the command line if you're on Linux or macOS(tested on linux)
 - The converted world will be in a folder called $worldname_Converted, open this in renewed to see if everything went well
 
 The Folder structure should look like this (only the last 2 folder matter, the rest can be ignored):

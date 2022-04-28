@@ -35,9 +35,9 @@ public class Test implements Convertor {
         CompoundMap m = new CompoundMap();
         m.put(new StringTag("key","value"));
         m.put(new ByteTag("key2", (byte) 0));
-        Optional<Tag<?>> tag1 = Util.GetAsTagIfExists(m,TagType.TAG_INT,"key");
-        Optional<Tag<?>> tag2 = Util.GetAsTagIfExists(m,TagType.TAG_STRING,"key");
-        Optional<Tag<?>> tag3 = Util.GetAsTagIfExists(m,TagType.TAG_BYTE,"value");
+        Optional<Tag<?>> tag1 = Util.getAsTagIfExists(m,TagType.TAG_INT,"key");
+        Optional<Tag<?>> tag2 = Util.getAsTagIfExists(m,TagType.TAG_STRING,"key");
+        Optional<Tag<?>> tag3 = Util.getAsTagIfExists(m,TagType.TAG_BYTE,"value");
     }
 
 }
