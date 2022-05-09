@@ -73,7 +73,7 @@ public class Fixers {
         //With helper method
         Optional<Tag<?>> ODimension = Util.getAsTagIfExists(Entity, TagType.TAG_INT, "Dimension");
         if (ODimension.isPresent()) {
-            int Dimension = (int) ODimension.get().getValue();
+            int Dimension = ((IntTag) ODimension.get()).getValue();
             String newDimension;
             if (Dimension == 0) newDimension = "minecraft:overworld";
             else if (Dimension == 1) newDimension = "Minecraft:the_nether";
@@ -324,7 +324,7 @@ public class Fixers {
 
         Optional<Tag<?>> ODimension = Util.getAsTagIfExists(newData, TagType.TAG_INT, "Dimension");
         if (ODimension.isPresent()) {
-            int Dimension = (int) ODimension.get().getValue();
+            int Dimension = ((IntTag) ODimension.get()).getValue();
             String newDimension;
             if (Dimension == 0) newDimension = "minecraft:overworld";
             else if (Dimension == 1) newDimension = "Minecraft:the_nether";
@@ -604,7 +604,7 @@ public class Fixers {
                                                 filler.replace("ench", new ListTag<>("Enchantments", TagType.TAG_COMPOUND, ench_filler));
                                                 Optional<Tag<?>> ODamage = Util.getAsTagIfExists(itemCompoundMap, TagType.TAG_SHORT, "Damage");
                                                 if (ODamage.isPresent()) {
-                                                    filler.put("Damage", (new IntTag("Damage", (int) (ODamage.get()).getValue())));
+                                                    filler.put("Damage", (new IntTag("Damage", ((ShortTag) ODamage.get()).getValue())));
                                                 } else
                                                     stringCache.printLine("No damage tag found or damage is not a short");
                                             } else {
@@ -647,8 +647,8 @@ public class Fixers {
                                     } else {
                                         Optional<Tag<?>> ODamage = Util.getAsTagIfExists(itemCompoundMap, TagType.TAG_SHORT, "Damage");
                                         if (ODamage.isPresent()) {
-                                            if (((int) ODamage.get().getValue()) != 0) {
-                                                filler.put("Damage", (new IntTag("Damage", (int) ODamage.get().getValue())));
+                                            if (((ShortTag) ODamage.get()).getValue() != 0) {
+                                                filler.put("Damage", (new IntTag("Damage", ((ShortTag) ODamage.get()).getValue())));
                                             }
                                         }
                                     }
@@ -1465,12 +1465,15 @@ public class Fixers {
                     Type = TileEntityFixerReturnType.Cauldron;
                 } else if (Objects.equals(id, "LOTRArmorStand")) {
                     Type = TileEntityFixerReturnType.Armour_Stand;
-                } else if (Objects.equals(id, "FlowerPot")) {
+                } else if (Objects.equals(id, "FlowerPot") || Objects.equals(id, "LOTRFlowerPot")) {
                     Type = TileEntityFixerReturnType.Flower_Pot;
                 } else {
-                    //Things that are no longer Block Entities
-                    //Flower pots, cauldrons, armor stands, note blocks
-                    stringCache.printLine("unknown tile entity found: " + map);
+                    //Unhandled items:
+                    /*
+                    UtumnoPortal
+                     */
+
+                    stringCache.printLine("unknown tile entity found with id: " + id);
                 }
             } else {
                 stringCache.printLine("No block entity id found for old id: " + Oid.get(), false);
@@ -1498,8 +1501,8 @@ public class Fixers {
         } else map.put("BurnTime", new IntTag("BurnTime", 0));
         Optional<Tag<?>> OSmeltTime = Util.getAsTagIfExists(map, TagType.TAG_SHORT, "SmeltTime");
         if (OSmeltTime.isPresent()) {
-            map.replace("SmeltTime", new IntTag("CookTime", (int) OSmeltTime.get().getValue()));
-            map.put(new IntTag("CookTimeTotal", (int) OSmeltTime.get().getValue()));
+            map.replace("SmeltTime", new IntTag("CookTime", ((IntTag) OSmeltTime.get()).getValue()));
+            map.put(new IntTag("CookTimeTotal", ((IntTag) OSmeltTime.get()).getValue()));
         } else {
             map.put(new IntTag("CookTime", 0));
             map.put(new IntTag("CookTimeTotal", 0));
@@ -1725,9 +1728,10 @@ issues:
                     if (OYCoordinate.isPresent()) {
                         byte y = Util.sectionHeight(OYCoordinate.get().getValue());
                         if (Sorter.containsKey(y)) {
-                            Sorter.put(Util.sectionHeight(y), Collections.singletonList(EdgeCase));
+                            //Sorter.put(Util.sectionHeight(y), Collections.singletonList(EdgeCase));
                         } else {
-                            Sorter.get(y).add(EdgeCase);
+                            //TODO: fix
+                            //Sorter.get(y).add(EdgeCase);
                         }
                     }
                 }
