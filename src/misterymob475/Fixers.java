@@ -1501,8 +1501,8 @@ public class Fixers {
         } else map.put("BurnTime", new IntTag("BurnTime", 0));
         Optional<Tag<?>> OSmeltTime = Util.getAsTagIfExists(map, TagType.TAG_SHORT, "SmeltTime");
         if (OSmeltTime.isPresent()) {
-            map.replace("SmeltTime", new IntTag("CookTime", ((IntTag) OSmeltTime.get()).getValue()));
-            map.put(new IntTag("CookTimeTotal", ((IntTag) OSmeltTime.get()).getValue()));
+            map.replace("SmeltTime", new IntTag("CookTime", ((Short) OSmeltTime.get().getValue()).intValue()));
+            map.put(new IntTag("CookTimeTotal", ((Short) OSmeltTime.get().getValue()).intValue()));
         } else {
             map.put(new IntTag("CookTime", 0));
             map.put(new IntTag("CookTimeTotal", 0));
