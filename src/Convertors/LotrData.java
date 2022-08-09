@@ -75,7 +75,8 @@ public class LotrData implements Convertor {
                 String PathToUse = p + "/" + FileName + "_Converted/lotr/LOTR.dat";
                 //System.out.println(Paths.get(PathToUse));
                 //creates an output stream, this overwrites the file so deleting it is not necessary
-                final NBTOutputStream output = new NBTOutputStream(Files.newOutputStream(Paths.get(Paths.get(PathToUse).toString())));
+                final NBTOutputStream output = new NBTOutputStream(Files.newOutputStream(Paths.get(Paths.get(PathToUse)
+                                                                                                           .toString())));
                 output.writeTag(newTopLevelTag);
                 output.close();
                 StringCache.printLine("converted LOTR.dat");
@@ -155,7 +156,8 @@ public class LotrData implements Convertor {
                 //final NBTOutputStream output = new NBTOutputStream(new FileOutputStream((new File(Paths.get(p +"/"+FileName+"_Converted/lotr/" + playerFile.getName()).toString())).getAbsolutePath()));
                 String PathToUse = p + "/" + FileName + "_Converted/lotr/players/" + playerFile.getName();
                 //System.out.println(Paths.get(PathToUse));
-                final NBTOutputStream output = new NBTOutputStream(Files.newOutputStream(Paths.get((new File(Paths.get(PathToUse).toString())).getAbsolutePath())));
+                final NBTOutputStream output = new NBTOutputStream(Files.newOutputStream(Paths.get((new File(Paths.get(PathToUse)
+                                                                                                                     .toString())).getAbsolutePath())));
                 output.writeTag(newTopLevelTag);
 
                 output.close();

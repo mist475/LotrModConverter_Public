@@ -44,14 +44,16 @@ public class LevelDat implements Convertor {
         try {
 
             //new level.dat
-            final NBTInputStream input = new NBTInputStream(Files.newInputStream(Paths.get(Paths.get(p + "/" + this.pathName + "/level.dat").toString())));
+            final NBTInputStream input = new NBTInputStream(Files.newInputStream(Paths.get(Paths.get(p + "/" + this.pathName + "/level.dat")
+                                                                                                   .toString())));
             //final NBTInputStream input = new NBTInputStream(new FileInputStream(Paths.get(p +"/"+FileName+"/level.dat").toString()));
             final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
             input.close();
 
             //old level.dat
             //final NBTInputStream input1 = new NBTInputStream(new FileInputStream(Paths.get(p +"/"+FileName+"/level.dat").toString()));
-            final NBTInputStream input1 = new NBTInputStream(Files.newInputStream(Paths.get(Paths.get(p + "/" + FileName + "/level.dat").toString())));
+            final NBTInputStream input1 = new NBTInputStream(Files.newInputStream(Paths.get(Paths.get(p + "/" + FileName + "/level.dat")
+                                                                                                    .toString())));
             final CompoundTag originalTopLevelTag1 = (CompoundTag) input1.readTag();
             input1.close();
 
@@ -67,7 +69,8 @@ public class LevelDat implements Convertor {
             final CompoundTag newTopLevelTag = new CompoundTag("", newData);
             String PathToUse = p + "/" + FileName + "_Converted/level.dat";
             //System.out.println(Paths.get(PathToUse));
-            final NBTOutputStream output = new NBTOutputStream(Files.newOutputStream(Paths.get(Paths.get(PathToUse).toString())));
+            final NBTOutputStream output = new NBTOutputStream(Files.newOutputStream(Paths.get(Paths.get(PathToUse)
+                                                                                                       .toString())));
             output.writeTag(newTopLevelTag);
             output.close();
             //System.out.println("Converted the level.dat file");

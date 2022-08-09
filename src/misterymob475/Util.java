@@ -1,6 +1,8 @@
 package misterymob475;
 
-import de.piegames.nbt.*;
+import de.piegames.nbt.CompoundMap;
+import de.piegames.nbt.Tag;
+import de.piegames.nbt.TagType;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -159,13 +161,14 @@ public class Util {
      * @return section of a block
      */
     public static byte sectionHeight(int y) {
-        return (byte)(y >> 4);
+        return (byte) (y >> 4);
     }
 
     /**
      * Gets a Tag if it Exists, and it's the right Type
-     * @param map {@link CompoundMap} that is checked
-     * @param key {@link String} key
+     *
+     * @param map  {@link CompoundMap} that is checked
+     * @param key  {@link String} key
      * @param type {@link TagType} denoting the requested type
      * @return {@link Optional} containing the requested value if it exists, and it's the right type. Otherwise Empty
      */
@@ -174,10 +177,8 @@ public class Util {
             Tag<?> t = map.get(key);
             if (t.getType() == type) {
                 return Optional.of(t);
-            }
-            else return Optional.empty();
-        }
-        else return Optional.empty();
+            } else return Optional.empty();
+        } else return Optional.empty();
     }
 
 }

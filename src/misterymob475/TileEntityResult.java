@@ -10,8 +10,9 @@ public class TileEntityResult {
 
     /**
      * The Result of blockEntityFixer, should be a Tuple, but I don't want extra libraries
+     *
      * @param content {@link Optional} of type {@link CompoundMap} of the result
-     * @param type {@link TileEntityFixerReturnType} containing the type, used in chunkFixer for edge cases
+     * @param type    {@link TileEntityFixerReturnType} containing the type, used in chunkFixer for edge cases
      */
     public TileEntityResult(Optional<CompoundMap> content, TileEntityFixerReturnType type) {
         this.content = content;

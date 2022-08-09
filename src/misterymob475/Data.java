@@ -28,9 +28,9 @@ public class Data {
     public Map<String, Map<String, ?>> Potions;
     public List<String> AuthorBlacklist;
     public List<String> TitleBlacklist;
-    public Map<String, Map<String,?>> BlockMappings;
-    public Map<String,String> BlockIdToName;
-    public Map<String,String> BlockEntityMappings;
+    public Map<String, Map<String, ?>> BlockMappings;
+    public Map<String, String> BlockIdToName;
+    public Map<String, String> BlockEntityMappings;
 
     /**
      * Initializes Data
@@ -53,7 +53,7 @@ public class Data {
         this.AuthorBlacklist = (List<String>) conversions.get("AuthorBlacklist");
         this.TitleBlacklist = (List<String>) conversions.get("TitleBlacklist");
         this.BlockMappings = (Map<String, Map<String, ?>>) conversions.get("BlockMappings");
-        this.BlockIdToName = (Map<String,String>) conversions.get("BlockIdToName");
+        this.BlockIdToName = (Map<String, String>) conversions.get("BlockIdToName");
         this.BlockEntityMappings = (Map<String, String>) conversions.get("BlockEntityMappings");
     }
 
@@ -89,7 +89,8 @@ public class Data {
             //showcase List<Tag> ids_List = ids.getValue();
             //showcase List<Tag> ItemDataList = ((ListTag) ((CompoundTag) (originalTopLevelTag.getValue()).get("FML")).getValue().get("ItemData")).getValue();
             for (CompoundTag t : ids_List) {
-                RenewedIds.put(((StringTag) t.getValue().get("K")).getValue(), ((IntTag) t.getValue().get("V")).getValue());
+                RenewedIds.put(((StringTag) t.getValue().get("K")).getValue(), ((IntTag) t.getValue()
+                        .get("V")).getValue());
             }
 
             System.out.println("got renewed id's");
@@ -118,9 +119,11 @@ public class Data {
             final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
             input.close();
 
-            List<CompoundTag> ItemDataList = ((ListTag<CompoundTag>) ((CompoundTag) (originalTopLevelTag.getValue()).get("FML")).getValue().get("ItemData")).getValue();
+            List<CompoundTag> ItemDataList = ((ListTag<CompoundTag>) ((CompoundTag) (originalTopLevelTag.getValue()).get("FML")).getValue()
+                    .get("ItemData")).getValue();
             for (CompoundTag t : ItemDataList) {
-                LegacyIds_builder.put(((IntTag) t.getValue().get("V")).getValue(), ((StringTag) t.getValue().get("K")).getValue().substring(1));
+                LegacyIds_builder.put(((IntTag) t.getValue().get("V")).getValue(), ((StringTag) t.getValue()
+                        .get("K")).getValue().substring(1));
             }
 
             System.out.println("got legacy id's");

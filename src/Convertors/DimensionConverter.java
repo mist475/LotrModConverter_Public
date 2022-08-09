@@ -76,7 +76,7 @@ public class DimensionConverter implements Convertor {
                         RegionFile new_Region = RegionFile.createNew(Paths.get(PathToUse));
 
                         //TODO: Start using multithreading here
-                        HashMap<Integer,Chunk> result = Fixers.regionFixer(chunks, Data, stringCache);
+                        HashMap<Integer, Chunk> result = Fixers.regionFixer(chunks, Data, stringCache);
                         new_Region.writeChunks(result);
                     } catch (Exception e) {
                         e.printStackTrace();

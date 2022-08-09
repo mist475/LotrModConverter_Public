@@ -72,11 +72,11 @@ public class PlayerData implements Convertor {
 
                     String PathToUse = p + "/" + FileName + "_Converted/playerdata/" + f.getName();
                     //System.out.println(Paths.get(PathToUse));
-                    final NBTOutputStream output = new NBTOutputStream(Files.newOutputStream(Paths.get((new File(Paths.get(PathToUse).toString())).getAbsolutePath())));
+                    final NBTOutputStream output = new NBTOutputStream(Files.newOutputStream(Paths.get((new File(Paths.get(PathToUse)
+                                                                                                                         .toString())).getAbsolutePath())));
                     output.writeTag(newTopLevelTag);
                     output.close();
-                }
-                catch(Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                     stringCache.printLine("Something went wrong during playerdata conversion");
                 }

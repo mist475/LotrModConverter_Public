@@ -40,19 +40,16 @@ public class Coordinate {
 
     @Override
     public String toString() {
-        return "Coordinate{" +
-                "x=" + x +
-                ", y=" + y +
-                ", z=" + z +
-                '}';
+        return "Coordinate{" + "x=" + x + ", y=" + y + ", z=" + z + '}';
     }
 
     /**
      * Gets the place within the array of the coordinate
+     *
      * @return place in the "block" array of sections
      */
     public byte asArrayPlace() {
         //(y * 16 + z) * 16 + x)
-        return (byte) ((y * 16 + (z%16)) * 16 + (x%16));
+        return (byte) ((y * 16 + (z % 16)) * 16 + (x % 16));
     }
 }

@@ -68,7 +68,8 @@ public class DataFolder implements Convertor {
                         final CompoundTag newTopLevelTag = new CompoundTag("", originalData);
                         String PathToUse = p + "/" + FileName + "_Converted/data/" + mapFile.getName();
                         //System.out.println(Paths.get(PathToUse));
-                        final NBTOutputStream output = new NBTOutputStream(Files.newOutputStream(Paths.get((new File(Paths.get(PathToUse).toString())).getAbsolutePath())));
+                        final NBTOutputStream output = new NBTOutputStream(Files.newOutputStream(Paths.get((new File(Paths.get(PathToUse)
+                                                                                                                             .toString())).getAbsolutePath())));
                         output.writeTag(newTopLevelTag);
                         output.close();
                     }
@@ -93,7 +94,8 @@ public class DataFolder implements Convertor {
                                 final CompoundTag newTopLevelTag = new CompoundTag("", Util.createCompoundMapWithContents(new CompoundTag("data", Util.createCompoundMapWithContents(newMap.get())), new IntTag("DataVersion", 2586)));
                                 String PathToUse = p + "/" + FileName + "_Converted/data/idcounts.dat";
                                 //System.out.println(Paths.get(PathToUse));
-                                final NBTOutputStream output = new NBTOutputStream(Files.newOutputStream(Paths.get((new File(Paths.get(PathToUse).toString())).getAbsolutePath())), NBTInputStream.NO_COMPRESSION);
+                                final NBTOutputStream output = new NBTOutputStream(Files.newOutputStream(Paths.get((new File(Paths.get(PathToUse)
+                                                                                                                                     .toString())).getAbsolutePath())), NBTInputStream.NO_COMPRESSION);
                                 output.writeTag(newTopLevelTag);
                                 output.close();
                                 stringCache.printLine("converted idcounts.dat", false);
