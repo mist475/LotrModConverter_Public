@@ -57,10 +57,41 @@
   "BlockIdToName": {
     "0": "minecraft:air",
     "1": "minecraft:stone",
+    "2": "minecraft:grass",
+    "3": "minecraft:dirt",
+    "4": "minecraft:cobblestone",
+    "5": "minecraft:planks",
+    "6": "minecraft:oak_sapling",
+    "7": "minecraft:bed_rock",
+    "8": "minecraft:flowing_water",
+    "9": "minecraft:water",
+    "12": "minecraft:sand",
+    "13": "minecraft:gravel",
+    "14": "minecraft:gold_ore",
+    "15": "minecraft:iron_ore",
+    "16": "minecraft:coal_ore",
+    "17": "minecraft:oak_log",
+    "35": "minecraft:wool",
+    "37": "minecraft:dandelion",
+    "38": "minecraft:poppy",
+    "39": "minecraft:brown_mushroom",
+    "40": "minecraft:red_mushroom",
+    "45": "minecraft:bricks",
+    "50": "minecraft:torch",
+    "53": "minecraft:oak_stairs",
+    "54": "minecraft:chest",
+    "58": "minecraft:crafting_table",
+    "59": "minecraft:wheat",
+    "60": "minecraft:farmland",
+    "61": "minecraft:furnace",
+    "62": "minecraft:furnace",
+    "67": "minecraft:cobblestone_stairs",
+    "85": "minecraft:oak_fence",
     "-70": "lotr:tile.brick",
     "-97": "minecraft:stained_hardened_clay",
     "-84": "minecraft:hardened_clay",
-    "82": "minecraft:clay"
+    "82": "minecraft:clay",
+    "102": "minecraft:glass_pane"
   },
   "BlockMappings": {
     "minecraft:oak_button": {
@@ -142,14 +173,121 @@
         "name": ""
       }
     },
+    "minecraft:farmland": {
+      "0": {
+        "name": "minecraft:farmland",
+        "properties": {
+          "moisture": "0"
+        }
+      },
+      "1": {
+        "name": "minecraft:farmland",
+        "properties": {
+          "moisture": "1"
+        }
+      },
+      "2": {
+        "name": "minecraft:farmland",
+        "properties": {
+          "moisture": "2"
+        }
+      },
+      "3": {
+        "name": "minecraft:farmland",
+        "properties": {
+          "moisture": "3"
+        }
+      },
+      "4": {
+        "name": "minecraft:farmland",
+        "properties": {
+          "moisture": "4"
+        }
+      },
+      "5": {
+        "name": "minecraft:farmland",
+        "properties": {
+          "moisture": "5"
+        }
+      },
+      "6": {
+        "name": "minecraft:farmland",
+        "properties": {
+          "moisture": "6"
+        }
+      },
+      "7": {
+        "name": "minecraft:farmland",
+        "properties": {
+          "moisture": "7"
+        }
+      }
+    },
+    "minecraft:cobblestone": {
+      "0": {
+        "name": "minecraft:cobblestone"
+      }
+    },
+    "minecraft:gravel": {
+      "0": {
+        "name": "minecraft:gravel"
+      }
+    },
+    "minecraft:sand": {
+      "0": {
+        "name": "minecraft:sand"
+      }
+    },
+    "minecraft:bricks": {
+      "0": {
+        "name": "minecraft:bricks"
+      }
+    },
     "minecraft:deadbush": {
       "0": {
-        "name": "minecraft:deadbush"
+        "name": "minecraft:dead_bush"
       }
     },
     "lotr:tile.oreSalt": {
       "0": {
         "name": "lotr:salt_ore"
+      }
+    },
+    "minecraft:furnace": {
+      "0": {
+        "name": "minecraft:furnace",
+        "properties": {
+          "facing": "north",
+          "lit": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:furnace",
+        "properties": {
+          "facing": "south",
+          "lit": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:furnace",
+        "properties": {
+          "facing": "east",
+          "lit": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:furnace",
+        "properties": {
+          "facing": "west",
+          "lit": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:furnace",
+        "properties": {
+          "facing": "west",
+          "lit": "false"
+        }
       }
     },
     "lotr:tile.stairsGondorRock": {
@@ -309,6 +447,26 @@
           "waterlogged": "false",
           "west": "false"
         }
+      }
+    },
+    "minecraft:planks": {
+      "0": {
+        "name": "minecraft:oak_planks"
+      },
+      "1": {
+        "name": "minecraft:spruce_planks"
+      },
+      "2": {
+        "name": "minecraft:birch_planks"
+      },
+      "3": {
+        "name": "minecraft:jungle_planks"
+      },
+      "4": {
+        "name": "minecraft:acacia_planks"
+      },
+      "5": {
+        "name": "minecraft:dark_oak_planks"
       }
     },
     "lotr:tile.stairsClayTileDyedMagenta": {
@@ -1179,7 +1337,7 @@
     "minecraft:apple": [
       "minecraft:apple"
     ],
-    "minecraft:deadbush": [
+    "minecraft:dead_bush": [
       "minecraft:deadbush"
     ],
     "lotr:tile.oreSalt": [
