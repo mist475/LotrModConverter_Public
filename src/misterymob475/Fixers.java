@@ -93,7 +93,7 @@ public class Fixers {
         if (inUtumno) {
             //sets the player coordinates at the coordinates of the pit if they're currently in Utumno (roughly, they'll be moved in renewed I've heard)
             //ListTag Pos1 = (ListTag) newData.get("Pos");
-            ArrayList<DoubleTag> Pos = new ArrayList<DoubleTag>(1) {
+            ArrayList<DoubleTag> Pos = new ArrayList<DoubleTag>(3) {
             };
             Pos.add(new DoubleTag("", 46158.0));
             Pos.add(new DoubleTag("", 80.0));
@@ -554,7 +554,7 @@ public class Fixers {
                                 itemCompoundMap.remove("Damage");
                                 itemCompoundMap.replace("tag", new CompoundTag("tag", filler));
                                 return Optional.of(itemCompoundMap);
-                            } else if (item.size() <= 1) {
+                            } else if (item.size() == 1) {
 
                                 //code for single idTag values (mostly items, stairs) here
                                 //simply carries over all the tags, except the idTag, which gets modified to the new one. moves the damage tag to its new location and changes it to an IntTag(was ShortTag before)
@@ -1777,6 +1777,7 @@ issues:
         /*
         Splits up the EdgeCases into a HashMap, so I won't have to loop through them all for every section
          */
+        /*
         HashMap<Byte, List<TileEntityResult>> Sorter = new HashMap<>();
         for (TileEntityResult EdgeCase : EdgeCases) {
             if (EdgeCase.getContent().isPresent()) {
@@ -1795,6 +1796,8 @@ issues:
                 }
             }
         }
+
+         */
         for (int i = 0; i < Sections.size(); i++) {
             CompoundMap SectionCompoundMap = Sections.get(i).getValue();
             List<CompoundTag> PaletteBuilderList = new ArrayList<>();
@@ -1826,10 +1829,13 @@ issues:
                         //this should never fail as far as I know, purely redundancy
                         if (BlocksByteArray.length == 4096 && DataByteArray.length == 2048) {
                             //to loop through both lists at once.
+                            /*
+
                             Optional<List<TileEntityResult>> OPerSectionEdgeCases;
                             if (Sorter.containsKey(OY.get().getValue())) {
                                 OPerSectionEdgeCases = Optional.ofNullable(Sorter.get(OY.get().getValue()));
                             } else OPerSectionEdgeCases = Optional.empty();
+                             */
                             //if (OAddArray.isPresent()) {
                     /*
                         byte[] AddArray = OAddArray.get().getValue();
@@ -1862,10 +1868,13 @@ issues:
                                     //Only print for debugging purposes, this is extremely slow (1 region file with this on takes 15 min, with this off it takes 15 seconds)
                                     //stringCache.printLine(LegacyId, false);
                                     //TODO: Put in the extra information of the Edge cases
+
+                                    /*
+
                                     if (OPerSectionEdgeCases.isPresent()) {
-                                        /*
-                                        Coordinate should simply be coordinates % 16, then apply (y * 16 + z) * 16 + x) for the position in the array
-                                         */
+
+                                        //Coordinate should simply be coordinates % 16, then apply (y * 16 + z) * 16 + x) for the position in the array
+
                                         List<TileEntityResult> perSectionEdgeCases = OPerSectionEdgeCases.get();
                                         byte[] positions = new byte[perSectionEdgeCases.size()];
                                         TileEntityFixerReturnType[] types = new TileEntityFixerReturnType[perSectionEdgeCases.size()];
@@ -1887,6 +1896,7 @@ issues:
                                         }
 
                                     }
+                                     */
                                     if (Data.BlockMappings.containsKey(LegacyId)) {
                                         BlockPaletteReferences[DataCounter] = addPaletteEntryIfNecessary(Data.BlockMappings.get(LegacyId), DataByteArray[dataValue], SecondEntry, PaletteCheckerList, PaletteBuilderList);
                                     }

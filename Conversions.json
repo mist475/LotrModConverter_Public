@@ -84,7 +84,7 @@
     "59": "minecraft:wheat",
     "60": "minecraft:farmland",
     "61": "minecraft:furnace",
-    "62": "minecraft:furnace",
+    "62": "minecraft:lit_furnace",
     "67": "minecraft:cobblestone_stairs",
     "85": "minecraft:oak_fence",
     "-70": "lotr:tile.brick",
@@ -254,24 +254,17 @@
       }
     },
     "minecraft:furnace": {
-      "0": {
+      "2": {
         "name": "minecraft:furnace",
         "properties": {
           "facing": "north",
           "lit": "false"
         }
       },
-      "2": {
-        "name": "minecraft:furnace",
-        "properties": {
-          "facing": "south",
-          "lit": "false"
-        }
-      },
       "3": {
         "name": "minecraft:furnace",
         "properties": {
-          "facing": "east",
+          "facing": "south",
           "lit": "false"
         }
       },
@@ -285,7 +278,7 @@
       "5": {
         "name": "minecraft:furnace",
         "properties": {
-          "facing": "west",
+          "facing": "east",
           "lit": "false"
         }
       }
