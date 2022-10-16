@@ -176,5 +176,10 @@ public class Conversions {
             }
             return Collections.emptyMap();
         }
+
+        @Override
+        public String toString() {
+            return "BlockMapping{" + "name='" + name + '\'' + ", properties=" + properties + '}';
+        }
     }
 }

@@ -1804,7 +1804,7 @@ issues:
             PaletteBuilderList.add(new CompoundTag("", Util.createCompoundMapWithContents(new StringTag("Name", "minecraft:air"))));
 
             //used for making sure no identical palette entries exist
-            List<String> PaletteCheckerList = new ArrayList<>(Collections.singleton("{name=minecraft:air}"));
+            List<String> PaletteCheckerList = new ArrayList<>(Collections.singleton("BlockMapping{name='minecraft:air', properties=null}"));
 
             Optional<ByteArrayTag> OBlocksByteArray = SectionCompoundMap.get("Blocks").getAsByteArrayTag();
             Optional<ByteArrayTag> ODataByteArray = SectionCompoundMap.get("Data").getAsByteArrayTag();
@@ -2009,7 +2009,9 @@ issues:
                     else if (property.getValue() instanceof Boolean)
                         innerCompoundBuilder.put(new ByteTag(property.getKey(), (Boolean) property.getValue()));
                 }
-                map.put(new CompoundTag("Properties", innerCompoundBuilder));
+                if (! innerCompoundBuilder.isEmpty()) {
+                    map.put(new CompoundTag("Properties", innerCompoundBuilder));
+                }
                 PaletteBuilderList.add(new CompoundTag("Palette", map));
             }
             returner = PaletteCheckerList.indexOf(mapping.toString());
