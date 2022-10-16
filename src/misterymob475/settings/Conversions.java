@@ -2,6 +2,7 @@ package misterymob475.settings;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -139,11 +140,11 @@ public class Conversions {
         return settings;
     }
 
-    private class Potion {
+    public static class Potion {
         @SerializedName("Name")
-        public String name;
+        private String name;
         @SerializedName("Splash")
-        public boolean splash;
+        private boolean splash;
 
         public String getName() {
             return name;
@@ -151,6 +152,29 @@ public class Conversions {
 
         public boolean isSplash() {
             return splash;
+        }
+    }
+
+    public static class BlockMapping {
+        @SerializedName("name")
+        private final String name;
+        @SerializedName("properties")
+        private final Map<String,Object> properties;
+
+        public BlockMapping(String name, Map<String, Object> properties) {
+            this.name = name;
+            this.properties = properties;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public Map<String, Object> getProperties() {
+            if (properties != null) {
+                return properties;
+            }
+            return Collections.emptyMap();
         }
     }
 }

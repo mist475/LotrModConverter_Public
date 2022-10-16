@@ -2,6 +2,7 @@ package misterymob475;
 
 import de.piegames.nbt.*;
 import de.piegames.nbt.stream.NBTInputStream;
+import misterymob475.settings.Conversions;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,47 +15,53 @@ import java.util.Map;
  * Manages the mappings
  */
 public class Data {
-    public Map<String, String> Waypoints;
-    public Map<Integer, String> LegacyIds;
-    public Map<String, String> Colours;
-    public Map<String, ?> Settings;
-    public Map<String, String> FacNames;
-    public Map<String, String> Mod_mob_ids;
-    public Map<String, String> Vanilla_mob_ids;
-    public Map<String, String> Entities;
-    public Map<String, String> Regions;
-    public Map<String, List<String>> ItemNames;
-    public Map<String, String> Enchantments;
-    public Map<String, Map<String, ?>> Potions;
-    public List<String> AuthorBlacklist;
-    public List<String> TitleBlacklist;
-    public Map<String, Map<String, ?>> BlockMappings;
-    public Map<String, String> BlockIdToName;
-    public Map<String, String> BlockEntityMappings;
+    public Map<String, String> waypoints;
+    public Map<Integer, String> legacyIds;
+    public Map<String, String> colours;
+    public Map<String, String> facNames;
+    public Map<String, String> modMobIds;
+    public Map<String, String> vanillaMobIds;
+    public Map<String, String> entities;
+    public Map<String, String> regions;
+    public Map<String, List<String>> itemNames;
+    public Map<String, String> enchantments;
+    public List<String> authorBlacklist;
+    public List<String> titleBlacklist;
+    public Map<String, String> blockIdToName;
+    public Map<String, String> blockEntityMappings;
+    public Map<String, Conversions.Potion> potions;
+    public misterymob475.settings.Settings settings;
+
+    public Map<String, Map<String, Conversions.BlockMapping>> blockMappings;
+
+    private static Data INSTANCE;
 
     /**
      * Initializes Data
      *
      * @param conversions JSON loaded LinkedTreeMap containing the mappings
      */
-    @SuppressWarnings("unchecked")
-    public Data(Map<?, ?> conversions) {
-        this.Waypoints = (Map<String, String>) conversions.get("Waypoints");
-        this.Colours = (Map<String, String>) conversions.get("Colours");
-        this.Settings = (Map<String, ?>) conversions.get("Settings");
-        this.FacNames = (Map<String, String>) conversions.get("Factions");
-        this.Vanilla_mob_ids = (Map<String, String>) conversions.get("Vanilla_mob_ids");
-        this.Mod_mob_ids = (Map<String, String>) conversions.get("Mod_mob_ids");
-        this.Entities = (Map<String, String>) conversions.get("Entities");
-        this.Regions = (Map<String, String>) conversions.get("Regions");
-        this.ItemNames = (Map<String, List<String>>) conversions.get("Items");
-        this.Enchantments = (Map<String, String>) conversions.get("Enchantments");
-        this.Potions = (Map<String, Map<String, ?>>) conversions.get("Potions");
-        this.AuthorBlacklist = (List<String>) conversions.get("AuthorBlacklist");
-        this.TitleBlacklist = (List<String>) conversions.get("TitleBlacklist");
-        this.BlockMappings = (Map<String, Map<String, ?>>) conversions.get("BlockMappings");
-        this.BlockIdToName = (Map<String, String>) conversions.get("BlockIdToName");
-        this.BlockEntityMappings = (Map<String, String>) conversions.get("BlockEntityMappings");
+    public void setData(Conversions conversions) {
+        this.waypoints = conversions.getWaypoints();
+        this.colours = conversions.getColours();
+        this.settings = conversions.getSettings();
+        this.facNames = conversions.getFactions();
+        this.vanillaMobIds = conversions.getVanillaMobIds();
+        this.modMobIds = conversions.getLotrModMobIds();
+        this.entities = conversions.getEntities();
+        this.regions = conversions.getRegions();
+        this.itemNames = conversions.getItems();
+        this.enchantments = conversions.getEnchantmentIds();
+        this.potions = conversions.getPotions();
+        this.authorBlacklist = conversions.getAuthorBlackList();
+        this.titleBlacklist = conversions.getTitleBlacklist();
+        this.blockMappings = conversions.getBlockMappings();
+        this.blockIdToName = conversions.getBlockIdToName();
+        this.blockEntityMappings = conversions.getBlockEntityMappings();
+    }
+
+    private Data() {
+
     }
 
 
@@ -132,22 +139,14 @@ public class Data {
         catch (final ClassCastException | NullPointerException ex) {
             throw new IOException("Error during legacy id gathering");
         }
-        this.LegacyIds = LegacyIds_builder;
+        this.legacyIds = LegacyIds_builder;
     }
-    /*
-    A note on blocks:
-    Block storage isn't as easy as it used to be, it is however probably more efficient which is why it was changed over versions.
-    To grasp the current system this wiki page was extremely helpful:
-    https://wiki.vg/Chunk_Format#Compacted_data_array
-    transformation will require looping through blockData and blocks at the same time
-     */
 
-
-    //instructions for calling:
-    //make 1 per page instead of loading it everytime
-    //make this null after the last usage
-    //error handling, use ifExists() on the HashMap itself, check if list items != ""
-
-
+    public static Data getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new Data();
+        }
+        return INSTANCE;
+    }
 }
 

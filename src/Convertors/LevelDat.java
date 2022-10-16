@@ -4,7 +4,6 @@ import de.piegames.nbt.CompoundMap;
 import de.piegames.nbt.CompoundTag;
 import de.piegames.nbt.stream.NBTInputStream;
 import de.piegames.nbt.stream.NBTOutputStream;
-import misterymob475.Data;
 import misterymob475.Fixers;
 import misterymob475.StringCache;
 
@@ -18,18 +17,15 @@ import java.nio.file.Paths;
  */
 public class LevelDat implements Convertor {
     final private String pathName;
-    final private Data Data;
     private final StringCache stringCache;
 
     /**
      * Creates an instance of LevelDat using the provided parameters
      *
-     * @param data        Instance of {@link Data}
      * @param pathname    String of the pathname, see {@link Convertor}
      * @param stringCache instance of {@link StringCache}
      */
-    public LevelDat(Data data, String pathname, StringCache stringCache) {
-        this.Data = data;
+    public LevelDat(String pathname, StringCache stringCache) {
         pathName = pathname;
         this.stringCache = stringCache;
     }
@@ -63,7 +59,7 @@ public class LevelDat implements Convertor {
             //this way I can modify the map directly, instead of regenerating it every time
             CompoundMap newData = new CompoundMap(originalData);
 
-            Fixers.levelDatFixer(newData, Data, stringCache, originalTopLevelTag1);
+            Fixers.levelDatFixer(newData, stringCache, originalTopLevelTag1);
 
 
             final CompoundTag newTopLevelTag = new CompoundTag("", newData);

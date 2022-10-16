@@ -4,7 +4,6 @@ import de.piegames.nbt.CompoundMap;
 import de.piegames.nbt.CompoundTag;
 import de.piegames.nbt.stream.NBTInputStream;
 import de.piegames.nbt.stream.NBTOutputStream;
-import misterymob475.Data;
 import misterymob475.Fixers;
 import misterymob475.StringCache;
 
@@ -19,17 +18,14 @@ import java.util.Objects;
  * Copies and fixes the regular player data
  */
 public class PlayerData implements Convertor {
-    private final Data Data;
     private final StringCache stringCache;
 
     /**
      * Creates an instance of PlayerData
      *
-     * @param data        instance of {@link Data}
      * @param stringCache instance of {@link StringCache}
      */
-    public PlayerData(Data data, StringCache stringCache) {
-        this.Data = data;
+    public PlayerData(StringCache stringCache) {
         this.stringCache = stringCache;
     }
 
@@ -63,7 +59,7 @@ public class PlayerData implements Convertor {
                     //this way I can modify the map directly, instead of regenerating it every time
                     CompoundMap newData = new CompoundMap(originalData);
 //
-                    Fixers.playerFixer(newData, stringCache, Data);
+                    Fixers.playerFixer(newData, stringCache);
 //
 
                     final CompoundTag newTopLevelTag = new CompoundTag("", newData);

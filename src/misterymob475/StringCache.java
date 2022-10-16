@@ -14,12 +14,12 @@ public class StringCache {
     /**
      * Creates an instance
      *
-     * @param data instance of {@link Data}
      */
-    public StringCache(Data data) throws UnsupportedEncodingException {
+    public StringCache() throws UnsupportedEncodingException {
         this.stringCache = new ArrayList<>();
-        this.debugLevel = (Double) data.Settings.get("Debug Messages");
-        this.cacheDebug = (Boolean) data.Settings.get("Cache debug messages");
+        misterymob475.Data data = misterymob475.Data.getInstance();
+        this.debugLevel = data.settings.getDebugMessages();
+        this.cacheDebug = data.settings.isCacheDebugMessages();
         this.fasterPrint = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(java.io.FileDescriptor.out), StandardCharsets.US_ASCII), 512);
     }
 

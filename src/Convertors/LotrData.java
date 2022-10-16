@@ -4,7 +4,6 @@ import de.piegames.nbt.CompoundMap;
 import de.piegames.nbt.CompoundTag;
 import de.piegames.nbt.stream.NBTInputStream;
 import de.piegames.nbt.stream.NBTOutputStream;
-import misterymob475.Data;
 import misterymob475.Fixers;
 import misterymob475.StringCache;
 
@@ -21,15 +20,12 @@ import java.util.Objects;
  * Copies and fixes the contents of the lotr/ folder
  */
 public class LotrData implements Convertor {
-    private final Data Data;
     private final StringCache StringCache;
 
     /**
-     * @param data instance of {@link Data}
      */
 
-    public LotrData(Data data, StringCache stringCache) {
-        this.Data = data;
+    public LotrData(StringCache stringCache) {
         this.StringCache = stringCache;
     }
 
@@ -145,7 +141,7 @@ public class LotrData implements Convertor {
                 input.close();
                 //saves the input as a map, this is important for saving the file, for reading it is redundant
                 CompoundMap originalData = new CompoundMap(originalTopLevelTag.getValue());
-                Fixers.LOTRPlayerDataFixer(originalData, Data);
+                Fixers.LOTRPlayerDataFixer(originalData);
 
 
                 //creates the new top level tag, otherwise it won't work

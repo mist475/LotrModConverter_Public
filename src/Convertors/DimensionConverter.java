@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.Objects;
 
 public class DimensionConverter implements Convertor {
-    private final misterymob475.Data Data;
     private final StringCache stringCache;
     private final String CurrentFolder;
     private final String[] CDStrings;
@@ -27,7 +26,6 @@ public class DimensionConverter implements Convertor {
     /**
      * Constructor, implemented with parameters for standard conversion
      *
-     * @param data              instance of {@link misterymob475.Data}
      * @param stringCache       instance of {@link StringCache}
      * @param currentFolder     {@link String} name or path of the current folder
      * @param cdStrings         {@link String}[] with pathnames for which a new directory must be created
@@ -35,8 +33,7 @@ public class DimensionConverter implements Convertor {
      * @param singleFileMessage {@link String} containing what should be printed per file
      * @param doneMessage       {@link String} what should be printed when done
      */
-    public DimensionConverter(misterymob475.Data data, StringCache stringCache, String currentFolder, String[] cdStrings, String exceptionMessage, String singleFileMessage, String doneMessage) {
-        this.Data = data;
+    public DimensionConverter(StringCache stringCache, String currentFolder, String[] cdStrings, String exceptionMessage, String singleFileMessage, String doneMessage) {
         this.stringCache = stringCache;
         this.CurrentFolder = currentFolder;
         this.CDStrings = cdStrings;
@@ -76,7 +73,7 @@ public class DimensionConverter implements Convertor {
                         RegionFile new_Region = RegionFile.createNew(Paths.get(PathToUse));
 
                         //TODO: Start using multithreading here
-                        HashMap<Integer, Chunk> result = Fixers.regionFixer(chunks, Data, stringCache);
+                        HashMap<Integer, Chunk> result = Fixers.regionFixer(chunks, stringCache);
                         new_Region.writeChunks(result);
                     } catch (Exception e) {
                         e.printStackTrace();

@@ -1,8 +1,9 @@
 package misterymob475;
 
-import com.google.gson.internal.LinkedTreeMap;
 import de.piegames.nbt.*;
 import de.piegames.nbt.regionfile.Chunk;
+import misterymob475.settings.Conversions.BlockMapping;
+import misterymob475.settings.Conversions;
 
 import java.io.IOException;
 import java.util.*;
@@ -12,7 +13,6 @@ import java.util.*;
  * <p>
  * * (Except for fixing idcount as that requires file interaction which is explicitly not handled in this class)
  */
-@SuppressWarnings("unchecked")
 public class Fixers {
     /**
      * Fixes entities
@@ -22,16 +22,17 @@ public class Fixers {
      * @param Important Bool stating if mob should be removed if in Utumno
      * @return Fixed Map
      */
+    @SuppressWarnings("unchecked")
     public static Optional<CompoundMap> EntityFixer(CompoundMap Entity, Data Data, StringCache stringCache, Boolean Important) throws IOException {
         //return Optional.empty();
         //Temporary measure to prevent crashes as this is still unfinished atm
 
         //Determines the actual mob
         if (Entity.containsKey("id")) {
-            if (Data.Entities.containsKey((String) (Entity.get("id").getValue()))) {
-                if (!Data.Entities.get((String) (Entity.get("id").getValue())).equals("")) {
+            if (Data.entities.containsKey((String) (Entity.get("id").getValue()))) {
+                if (!Data.entities.get((String) (Entity.get("id").getValue())).equals("")) {
                     //code for split types here (horses mainly, I'm not gonna bother with zombie villagers)
-                    if (Data.Entities.get((String) (Entity.get("id").getValue())).equals("minecraft:horse")) {
+                    if (Data.entities.get((String) (Entity.get("id").getValue())).equals("minecraft:horse")) {
                         if (Entity.get("Type").getValue().equals((byte) 1)) {
                             Entity.replace("id", new StringTag("id", "minecraft:donkey"));
                             Entity.remove("Variant");
@@ -57,7 +58,7 @@ public class Fixers {
                         Entity.remove("Type");
                         Entity.replace("id", new StringTag("id", "minecraft:donkey"));
                     } else {
-                        Entity.replace("id", new StringTag("id", Data.Entities.get((String) (Entity.get("id")
+                        Entity.replace("id", new StringTag("id", Data.entities.get((String) (Entity.get("id")
                                 .getValue()))));
                     }
                     Entity.remove("Type");
@@ -185,11 +186,11 @@ public class Fixers {
 
 
         if (Entity.containsKey("Equipment")) {
-            Entity.replace("Equipment", new ListTag<>("Equipment", TagType.TAG_COMPOUND, recurItemFixerList((((ListTag<CompoundTag>) Entity.get("Equipment")).getValue()), 0, "Exception during Entity Equipment Fix", stringCache, Data)));
+            Entity.replace("Equipment", new ListTag<>("Equipment", TagType.TAG_COMPOUND, recurItemFixerList((((ListTag<CompoundTag>) Entity.get("Equipment")).getValue()), 0, "Exception during Entity Equipment Fix", stringCache)));
         }
         //The sole reason I implemented this before I started working on fixing the world
         if (Entity.containsKey("Items")) {
-            Entity.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, recurItemFixerList((((ListTag<CompoundTag>) Entity.get("Items")).getValue()), 0, "Exception during Entity Inventory Fix", stringCache, Data)));
+            Entity.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, recurItemFixerList((((ListTag<CompoundTag>) Entity.get("Items")).getValue()), 0, "Exception during Entity Inventory Fix", stringCache)));
         }
 
         Entity.put("LeftHanded", new ByteTag("LeftHanded", (byte) 0));
@@ -243,11 +244,11 @@ public class Fixers {
      *
      * @param Entity      {@link CompoundMap} containing entity data
      * @param stringCache instance of {@link StringCache}
-     * @param Data        instance of {@link Data}
      * @return fixed {@link CompoundMap} of entity content
      * @throws IOException if something fails
      */
-    public static Optional<CompoundMap> riderEntityFixer(CompoundMap Entity, StringCache stringCache, Data Data) throws IOException {
+    public static Optional<CompoundMap> riderEntityFixer(CompoundMap Entity, StringCache stringCache) throws IOException {
+        misterymob475.Data Data = misterymob475.Data.getInstance();
         CompoundMap RootVehicle = new CompoundMap();
         if (Entity.containsKey("UUIDLeast") && Entity.containsKey("UUIDMost")) {
             Optional<LongTag> OUUIDMost = Entity.get("UUIDMost").getAsLongTag();
@@ -295,7 +296,8 @@ public class Fixers {
      * @throws IOException if something fails
      */
     @SuppressWarnings("unchecked")
-    public static void playerFixer(CompoundMap newData, StringCache stringCache, Data Data) throws IOException {
+    public static void playerFixer(CompoundMap newData, StringCache stringCache) throws IOException {
+        misterymob475.Data Data = misterymob475.Data.getInstance();
         boolean inUtumno = false;
         //not needed in renewed
         newData.remove("ForgeData");
@@ -305,25 +307,22 @@ public class Fixers {
         Optional<Tag<?>> ORiding = Util.getAsTagIfExists(newData, TagType.TAG_COMPOUND, "Riding");
         if (ORiding.isPresent()) {
             //call to entity fixer, this means the player is riding on a mount (fixer will temporarily replace said mount with a donkey)
-            Optional<CompoundMap> Riding = Fixers.riderEntityFixer((CompoundMap) ORiding.get()
-                    .getValue(), stringCache, Data);
+            Optional<CompoundMap> Riding = Fixers.riderEntityFixer((CompoundMap) ORiding.get().getValue(), stringCache);
             if (Riding.isPresent()) {
                 CompoundTag RootVehicle = new CompoundTag("RootVehicle", Riding.get());
                 newData.replace("Riding", RootVehicle);
             } else newData.remove("Riding");
         }
 
-        if (Data.Settings.containsKey("Creative Mode spawn")) {
-            if ((Boolean) Data.Settings.get("Creative Mode spawn")) {
-                newData.replace("playerGameType", new IntTag("playerGameType", 1));
-            }
+        if (Data.settings.isCreativeSpawn()) {
+            newData.replace("playerGameType", new IntTag("playerGameType", 1));
         }
 
         if (newData.containsKey("EnderItems")) {
-            newData.replace("EnderItems", new ListTag<>("EnderItems", TagType.TAG_COMPOUND, recurItemFixerList((((ListTag<CompoundTag>) newData.get("EnderItems")).getValue()), 0, "Exception during Ender chest conversion", stringCache, Data)));
+            newData.replace("EnderItems", new ListTag<>("EnderItems", TagType.TAG_COMPOUND, recurItemFixerList((((ListTag<CompoundTag>) newData.get("EnderItems")).getValue()), 0, "Exception during Ender chest conversion", stringCache)));
         }
         if (newData.containsKey("Inventory")) {
-            newData.replace("Inventory", new ListTag<>("Inventory", TagType.TAG_COMPOUND, recurItemFixerList((((ListTag<CompoundTag>) newData.get("Inventory")).getValue()), 0, "Exception during inventory conversion", stringCache, Data)));
+            newData.replace("Inventory", new ListTag<>("Inventory", TagType.TAG_COMPOUND, recurItemFixerList((((ListTag<CompoundTag>) newData.get("Inventory")).getValue()), 0, "Exception during inventory conversion", stringCache)));
         }
 
         newData.remove("Attack Time");
@@ -376,16 +375,17 @@ public class Fixers {
      * @param display the display {@link CompoundTag} used for items
      * @return the display {@link CompoundTag}, but with fixed formatting to prevent custom names getting cut off
      */
-    public static CompoundTag nameFixer(CompoundTag display, Data Data) {
+    public static CompoundTag nameFixer(CompoundTag display) {
         //TODO: full support, table already in Conversion but not yet hooked up
+        misterymob475.Data Data = misterymob475.Data.getInstance();
         CompoundMap display_map = new CompoundMap(display.getValue());
         if (display_map.containsKey("Name")) {
             String name = (String) display_map.get("Name").getValue();
             String colour = "";
             if (name.contains("§")) {
                 //Fixes coloured items, might have to fix 'Lore' items too. Not sure how those are saved yet
-                if (Data.Colours.containsKey(name.substring(0, 2))) {
-                    colour = "," + '"' + "color" + '"' + ':' + '"' + Data.Colours.get(name.substring(0, 2)) + '"';
+                if (Data.colours.containsKey(name.substring(0, 2))) {
+                    colour = "," + '"' + "color" + '"' + ':' + '"' + Data.colours.get(name.substring(0, 2)) + '"';
                 }
                 name = name.substring(2);
             }
@@ -405,12 +405,13 @@ public class Fixers {
      * @return {@link List} of type {@link CompoundTag} of the modified inventory
      * @throws IOException if something fails
      */
-    public static List<CompoundTag> recurItemFixerList(List<CompoundTag> itemList, double depth, String exceptionMessage, StringCache stringCache, Data Data) throws IOException {
+    public static List<CompoundTag> recurItemFixerList(List<CompoundTag> itemList, double depth, String exceptionMessage, StringCache stringCache) throws IOException {
+        misterymob475.Data Data = misterymob475.Data.getInstance();
         try {
             List<CompoundTag> itemListBuilder = new ArrayList<>();
-            if (depth++ < (Double) Data.Settings.get("Recursion Depth")) {
+            if (depth++ < Data.settings.getItemRecursionDepth()) {
                 for (CompoundTag itemCompoundTag : itemList) {
-                    (recurItemFixer(itemCompoundTag, depth, exceptionMessage, stringCache, Data)).ifPresent(tags -> itemListBuilder.add(new CompoundTag("", tags)));
+                    (recurItemFixer(itemCompoundTag, depth, exceptionMessage, stringCache)).ifPresent(tags -> itemListBuilder.add(new CompoundTag("", tags)));
                 }
             } else {
                 //if this actually gets triggered someone has been annoying on purpose, and you're dealing with an old worlds as triggering this is only possible in older versions of the lotr mod
@@ -431,9 +432,10 @@ public class Fixers {
      * @return {@link List} of type {@link CompoundTag} of the modified inventory
      */
     @SuppressWarnings("unchecked")
-    public static Optional<CompoundMap> recurItemFixer(CompoundTag itemCompoundTag, double depth, String exceptionMessage, StringCache stringCache, Data Data) {
+    public static Optional<CompoundMap> recurItemFixer(CompoundTag itemCompoundTag, double depth, String exceptionMessage, StringCache stringCache) {
+        misterymob475.Data Data = misterymob475.Data.getInstance();
         try {
-            if (depth++ < (Double) Data.Settings.get("Recursion Depth")) {
+            if (depth++ < Data.settings.getItemRecursionDepth()) {
                 CompoundMap itemCompoundMap = itemCompoundTag.getValue();
                 if (!(itemCompoundMap).isEmpty()) {
                     Optional<ShortTag> OShortIDTag = itemCompoundMap.get("id").getAsShortTag();
@@ -441,8 +443,8 @@ public class Fixers {
                     Optional<String> OStringID = Optional.empty();
                     if (OShortIDTag.isPresent()) {
                         int idValue = OShortIDTag.get().getValue();
-                        if (Data.LegacyIds.containsKey(idValue)) {
-                            OStringID = Optional.of(Data.LegacyIds.get(idValue));
+                        if (Data.legacyIds.containsKey(idValue)) {
+                            OStringID = Optional.of(Data.legacyIds.get(idValue));
                         } else {
                             //this should never happen as I gather these ids dynamically
                             stringCache.printLine("No string id found for id: " + idValue);
@@ -456,13 +458,13 @@ public class Fixers {
                         String StringID = OStringID.get();
                         boolean save = true;
 
-                        if (Data.ItemNames.containsKey(StringID)) {
-                            List<String> item = Data.ItemNames.get(StringID);
+                        if (Data.itemNames.containsKey(StringID)) {
+                            List<String> item = Data.itemNames.get(StringID);
                             //recursive call 1 (Pouches)
                             if (item.get(0).equals("lotr:small_pouch")) {
                                 Optional<Tag<?>> OTag = Util.getAsTagIfExists(itemCompoundMap, TagType.TAG_COMPOUND, "tag");
                                 if (OTag.isPresent()) {
-                                    CompoundMap filler = baseTagItemFixer((CompoundMap) OTag.get().getValue(), Data);
+                                    CompoundMap filler = baseTagItemFixer((CompoundMap) OTag.get().getValue());
 
                                     Optional<IntTag> OPouchColor;
                                     if (filler.containsKey("PouchColor")) {
@@ -486,7 +488,7 @@ public class Fixers {
                                         }
 
                                         if (LOTRPouchData.containsKey("Items")) {
-                                            LOTRPouchData.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, recurItemFixerList(((ListTag<CompoundTag>) LOTRPouchData.get("Items")).getValue(), depth, exceptionMessage, stringCache, Data)));
+                                            LOTRPouchData.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, recurItemFixerList(((ListTag<CompoundTag>) LOTRPouchData.get("Items")).getValue(), depth, exceptionMessage, stringCache)));
                                         }
 
                                         OPouchColor.ifPresent(LOTRPouchData::put);
@@ -505,7 +507,7 @@ public class Fixers {
                                 CompoundMap filler = new CompoundMap();
                                 Optional<Tag<?>> OFiller = Util.getAsTagIfExists(itemCompoundMap, TagType.TAG_COMPOUND, "tag");
                                 if (OFiller.isPresent()) {
-                                    filler = baseTagItemFixer((CompoundMap) OFiller.get().getValue(), Data);
+                                    filler = baseTagItemFixer((CompoundMap) OFiller.get().getValue());
                                     Optional<Tag<?>> OLOTRBarrelData = Util.getAsTagIfExists(filler, TagType.TAG_COMPOUND, "LOTRBarrelData");
                                     if (OLOTRBarrelData.isPresent()) {
                                         CompoundMap LOTRBarrelData = (CompoundMap) OLOTRBarrelData.get().getValue();
@@ -513,7 +515,7 @@ public class Fixers {
                                         if (OItems.isPresent()) {
                                             //
                                             List<CompoundTag> Items = ((ListTag<CompoundTag>) OItems.get()).getValue();
-                                            Items = recurItemFixerList(Items, depth, exceptionMessage, stringCache, Data);
+                                            Items = recurItemFixerList(Items, depth, exceptionMessage, stringCache);
                                             //
                                             LOTRBarrelData.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, Items));
 
@@ -542,7 +544,7 @@ public class Fixers {
                                 CompoundMap filler = new CompoundMap();
                                 Optional<Tag<?>> OFiller = Util.getAsTagIfExists(itemCompoundMap, TagType.TAG_COMPOUND, "tag");
                                 if (OFiller.isPresent()) {
-                                    filler = baseTagItemFixer((CompoundMap) OFiller.get().getValue(), Data);
+                                    filler = baseTagItemFixer((CompoundMap) OFiller.get().getValue());
                                     if (filler.containsKey("SkullOwner")) {
                                         filler.replace("SkullOwner", new CompoundTag("SkullOwner", Util.createCompoundMapWithContents(new StringTag("Id", ((String) filler.get("SkullOwner")
                                                 .getValue())))));
@@ -566,7 +568,7 @@ public class Fixers {
                                     Optional<Tag<?>> OFiller = Util.getAsTagIfExists(itemCompoundMap, TagType.TAG_COMPOUND, "tag");
                                     filler = new CompoundMap();
                                     if (OFiller.isPresent()) {
-                                        filler = baseTagItemFixer((CompoundMap) OFiller.get().getValue(), Data);
+                                        filler = baseTagItemFixer((CompoundMap) OFiller.get().getValue());
                                         //pipe fixer
                                         if (filler.containsKey("SmokeColour")) {
                                             String color = (new ArrayList<>(Arrays.asList("white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black", "magic"))).get((Integer) filler.get("SmokeColour")
@@ -580,13 +582,13 @@ public class Fixers {
                                         else if (filler.containsKey("pages")) {
                                             if (filler.containsKey("author") || filler.containsKey("title")) {
                                                 if (filler.containsKey("author")) {
-                                                    if (Data.AuthorBlacklist.contains((String) filler.get("author")
+                                                    if (Data.authorBlacklist.contains((String) filler.get("author")
                                                             .getValue())) {
                                                         save = false;
                                                     }
                                                 }
                                                 if (filler.containsKey("title")) {
-                                                    if (Data.TitleBlacklist.contains((String) filler.get("title")
+                                                    if (Data.titleBlacklist.contains((String) filler.get("title")
                                                             .getValue())) {
                                                         save = false;
                                                     }
@@ -616,7 +618,7 @@ public class Fixers {
                                                     CompoundMap ench = enchT.getValue();
                                                     Optional<Tag<?>> OID = Util.getAsTagIfExists(ench, TagType.TAG_SHORT, "id");
                                                     if (OID.isPresent()) {
-                                                        ench.replace("id", new StringTag("id", Data.Enchantments.get(OID.get()
+                                                        ench.replace("id", new StringTag("id", Data.enchantments.get(OID.get()
                                                                                                                              .getValue()
                                                                                                                              .toString())));
                                                         ench_filler.add(new CompoundTag("", ench));
@@ -634,7 +636,7 @@ public class Fixers {
                                                     CompoundMap ench = new CompoundMap((ench_t.getValue()));
                                                     Optional<Tag<?>> OID = Util.getAsTagIfExists(ench, TagType.TAG_SHORT, "id");
                                                     if (OID.isPresent()) {
-                                                        ench.replace("id", new StringTag("id", Data.Enchantments.get(OID.get()
+                                                        ench.replace("id", new StringTag("id", Data.enchantments.get(OID.get()
                                                                                                                              .getValue()
                                                                                                                              .toString())));
                                                         ench_filler.add(new CompoundTag("", ench));
@@ -655,14 +657,13 @@ public class Fixers {
                                     }
                                     //potion fixer
                                     else if (item.get(0).equals("minecraft:potion")) {
-                                        if (Data.Potions.containsKey(itemCompoundMap.get("Damage").getValue()
+                                        if (Data.potions.containsKey(itemCompoundMap.get("Damage").getValue()
                                                                              .toString())) {
-                                            filler.put("Potion", new StringTag("Potion", (String) (Data.Potions.get(itemCompoundMap.get("Damage")
-                                                                                                                            .getValue()
-                                                                                                                            .toString())).get("Name")));
-                                            //Boolean Splash = (boolean) (Data.Potions().get(tMap.get("Damage").getValue().toString())).get("Splash");
-                                            if ((Boolean) (Data.Potions.get(itemCompoundMap.get("Damage").getValue()
-                                                                                    .toString())).get("Splash"))
+                                            Conversions.Potion potion = Data.potions.get(itemCompoundMap.get("Damage")
+                                                                                                 .getValue()
+                                                                                                 .toString());
+                                            filler.put("Potion", new StringTag("Potion", potion.getName()));
+                                            if (potion.isSplash())
                                                 itemCompoundMap.replace("id", new StringTag("id", "minecraft:splash_potion"));
                                             else itemCompoundMap.replace("id", new StringTag("id", "minecraft:potion"));
                                         } else itemCompoundMap.replace("id", new StringTag("id", "minecraft:potion"));
@@ -699,11 +700,11 @@ public class Fixers {
                                     //itemFixer
                                     if (itemCompoundMap.containsKey("tag")) {
                                         (itemCompoundMap.get("tag")
-                                                .getAsCompoundTag()).ifPresent(compoundTag -> itemCompoundMap.replace("tag", new CompoundTag("tag", baseTagItemFixer((compoundTag.getValue()), Data))));
+                                                .getAsCompoundTag()).ifPresent(compoundTag -> itemCompoundMap.replace("tag", new CompoundTag("tag", baseTagItemFixer((compoundTag.getValue())))));
                                     }
-                                    if (Data.Vanilla_mob_ids.containsKey(((Short) itemCompoundMap.get("Damage")
+                                    if (Data.vanillaMobIds.containsKey(((Short) itemCompoundMap.get("Damage")
                                             .getValue()).toString())) {
-                                        itemCompoundMap.replace("id", new StringTag("id", Data.Vanilla_mob_ids.get(((Short) itemCompoundMap.get("Damage")
+                                        itemCompoundMap.replace("id", new StringTag("id", Data.vanillaMobIds.get(((Short) itemCompoundMap.get("Damage")
                                                 .getValue()).toString())));
                                         itemCompoundMap.remove("Damage");
                                         return Optional.of(itemCompoundMap);
@@ -716,11 +717,11 @@ public class Fixers {
                                     //itemFixer
                                     if (itemCompoundMap.containsKey("tag")) {
                                         (itemCompoundMap.get("tag")
-                                                .getAsCompoundTag()).ifPresent(compoundTag -> itemCompoundMap.replace("tag", new CompoundTag("tag", baseTagItemFixer((compoundTag.getValue()), Data))));
+                                                .getAsCompoundTag()).ifPresent(compoundTag -> itemCompoundMap.replace("tag", new CompoundTag("tag", baseTagItemFixer((compoundTag.getValue())))));
                                     }
-                                    if (Data.Mod_mob_ids.containsKey(((Short) itemCompoundMap.get("Damage")
+                                    if (Data.modMobIds.containsKey(((Short) itemCompoundMap.get("Damage")
                                             .getValue()).toString())) {
-                                        itemCompoundMap.replace("id", new StringTag("id", Data.Mod_mob_ids.get(((Short) itemCompoundMap.get("Damage")
+                                        itemCompoundMap.replace("id", new StringTag("id", Data.modMobIds.get(((Short) itemCompoundMap.get("Damage")
                                                 .getValue()).toString())));
                                         itemCompoundMap.remove("Damage");
                                         return Optional.of(itemCompoundMap);
@@ -736,10 +737,10 @@ public class Fixers {
                                     //code for blocks/some items here
                                     Short Damage = (Short) ODamage.get().getValue();
                                     //Check if block is actually in the list and not just a placeholder
-                                    if (!Data.ItemNames.get(StringID).get(Damage).equals("")) {
+                                    if (!Data.itemNames.get(StringID).get(Damage).equals("")) {
                                         if (itemCompoundMap.containsKey("tag")) {
                                             (itemCompoundMap.get("tag")
-                                                    .getAsCompoundTag()).ifPresent(compoundTag -> itemCompoundMap.replace("tag", new CompoundTag("tag", baseTagItemFixer((compoundTag.getValue()), Data))));
+                                                    .getAsCompoundTag()).ifPresent(compoundTag -> itemCompoundMap.replace("tag", new CompoundTag("tag", baseTagItemFixer((compoundTag.getValue())))));
                                         }
                                         itemCompoundMap.remove("Damage");
                                         itemCompoundMap.replace("id", new StringTag("id", item.get(Damage)));
@@ -809,14 +810,13 @@ public class Fixers {
      * Fixes the "tag" section of an Item
      *
      * @param filler {@link CompoundMap} to be fixed
-     * @param Data   instance of {@link Data}
      * @return fixed version of filler
      */
     @SuppressWarnings("unchecked")
-    public static CompoundMap baseTagItemFixer(CompoundMap filler, Data Data) {
+    public static CompoundMap baseTagItemFixer(CompoundMap filler) {
         if (filler.containsKey("display")) {
             (filler.get("display")
-                    .getAsCompoundTag()).ifPresent(compoundTag -> filler.replace("display", nameFixer(compoundTag, Data)));
+                    .getAsCompoundTag()).ifPresent(compoundTag -> filler.replace("display", nameFixer(compoundTag)));
         }
 
         //Optional<ListTag<?>> test = Util.GetAsTagTypeIfExists(filler,"LOTRPrevOwnerList",TagType.TAG_LIST);
@@ -889,11 +889,10 @@ public class Fixers {
      * Fixes the level.dat compoundMap using the existing map and a map from a renewed world
      *
      * @param newData              {@link CompoundMap} of the level.dat file
-     * @param data                 {@link Data} instance of Data
      * @param originalTopLevelTag1 {@link CompoundTag} of a renewed level.dat file
      * @throws IOException when something goes wrong
      */
-    public static void levelDatFixer(CompoundMap newData, Data data, StringCache stringCache, CompoundTag originalTopLevelTag1) throws IOException {
+    public static void levelDatFixer(CompoundMap newData, StringCache stringCache, CompoundTag originalTopLevelTag1) throws IOException {
         Optional<Tag<?>> OData = Util.getAsTagIfExists(newData, TagType.TAG_COMPOUND, "Data");
         Optional<Tag<?>> OData1 = Util.getAsTagIfExists(originalTopLevelTag1.getValue(), TagType.TAG_COMPOUND, "Data");
 
@@ -1094,7 +1093,7 @@ public class Fixers {
                 Optional<CompoundTag> OPlayer = Data1.get("Player").getAsCompoundTag();
                 if (OPlayer.isPresent()) {
                     CompoundMap Player = OPlayer.get().getValue();
-                    Fixers.playerFixer(Player, stringCache, data);
+                    Fixers.playerFixer(Player, stringCache);
                     Data.replace("Player", new CompoundTag("Player", Player));
                 }
             }
@@ -1138,10 +1137,10 @@ public class Fixers {
      * Fixes the lotr playerData files
      *
      * @param originalData {@link CompoundMap} of lotr player data
-     * @param Data         instance of {@link Data}
      */
     @SuppressWarnings("unchecked")
-    public static void LOTRPlayerDataFixer(CompoundMap originalData, Data Data) {
+    public static void LOTRPlayerDataFixer(CompoundMap originalData) {
+        Data Data = misterymob475.Data.getInstance();
         //gets the values we want, note, = I'm doing the easy ones first (lists last)
         //originalData.get("something").
         Optional<Tag<?>> OAlignmentMap = Util.getAsTagIfExists(originalData, TagType.TAG_LIST, "AlignmentMap");
@@ -1154,8 +1153,8 @@ public class Fixers {
                 Optional<Tag<?>> OFaction = Util.getAsTagIfExists(map, TagType.TAG_STRING, "Faction");
                 if (OFaction.isPresent()) {
                     String Faction = (String) (OFaction.get()).getValue();
-                    if (Data.FacNames.containsKey(Faction)) {
-                        AlignmentMap_builder.add(new CompoundTag("", Util.createCompoundMapWithContents(map.get("AlignF"), new StringTag("Faction", Data.FacNames.get(Faction)))));
+                    if (Data.facNames.containsKey(Faction)) {
+                        AlignmentMap_builder.add(new CompoundTag("", Util.createCompoundMapWithContents(map.get("AlignF"), new StringTag("Faction", Data.facNames.get(Faction)))));
                     }
                 }
             }
@@ -1171,8 +1170,8 @@ public class Fixers {
             Optional<Tag<?>> OFaction = Util.getAsTagIfExists(map, TagType.TAG_STRING, "Faction");
             if (OFaction.isPresent()) {
                 String Faction_AL = (String) (OFaction.get()).getValue();
-                if (Data.FacNames.containsKey(Faction_AL)) {
-                    final CompoundMap newData_AL = Util.createCompoundMapWithContents(map.get("ConquestHorn"), map.get("EnemyKill"), new StringTag("Faction", Data.FacNames.get(Faction_AL)), map.get("Hired"), map.get("MiniQuests"), map.get("Trades"));
+                if (Data.facNames.containsKey(Faction_AL)) {
+                    final CompoundMap newData_AL = Util.createCompoundMapWithContents(map.get("ConquestHorn"), map.get("EnemyKill"), new StringTag("Faction", Data.facNames.get(Faction_AL)), map.get("Hired"), map.get("MiniQuests"), map.get("Trades"));
 
                     //Couldn't think of a way to do renaming implicitly
                     newData_AL.put("MemberKill", map.get("NPCKill"));
@@ -1193,8 +1192,8 @@ public class Fixers {
             if (ORegion.isPresent() && OFaction.isPresent()) {
                 String Region_PRF = (String) ORegion.get().getValue();
                 String Faction_PRF = (String) OFaction.get().getValue();
-                if (Data.FacNames.containsKey(Faction_PRF)) {
-                    final CompoundMap newData_PRF = Util.createCompoundMapWithContents(new StringTag("Faction", Data.FacNames.get(Faction_PRF)));
+                if (Data.facNames.containsKey(Faction_PRF)) {
+                    final CompoundMap newData_PRF = Util.createCompoundMapWithContents(new StringTag("Faction", Data.facNames.get(Faction_PRF)));
                     switch (Region_PRF) {
                         case "west":
                             newData_PRF.put("Region", new StringTag("Region", "lotr:westlands"));
@@ -1222,8 +1221,8 @@ public class Fixers {
                 Optional<Tag<?>> ORegionName = Util.getAsTagIfExists(map, TagType.TAG_STRING, "Name");
                 if (ORegionName.isPresent()) {
                     String RegionName = (String) ORegionName.get().getValue();
-                    if (Data.Regions.containsKey(RegionName)) {
-                        String NameValue = Data.Regions.get(RegionName);
+                    if (Data.regions.containsKey(RegionName)) {
+                        String NameValue = Data.regions.get(RegionName);
                         if (!Objects.equals(NameValue, "")) {
                             StringTag Name = new StringTag("", NameValue);
                             UnlockedFTRegions_Builder.add(Name);
@@ -1261,12 +1260,12 @@ public class Fixers {
                 CompoundMap map = tag.getValue();
                 Optional<Tag<?>> OWPName = Util.getAsTagIfExists(map, TagType.TAG_STRING, "WPName");
                 if (OWPName.isPresent()) {
-                    if (Data.Waypoints.containsKey(((StringTag) OWPName.get()).getValue())) {
+                    if (Data.waypoints.containsKey(((StringTag) OWPName.get()).getValue())) {
                         //add the CompoundTag to the List
                         //CompoundMap Info:
                         //Var1: the amount of waypoint usage (cooldown depends on it)
                         //Var2: the new name
-                        WPUses_builder.add(new CompoundTag("", Util.createCompoundMapWithContents(map.get("Count"), new StringTag("WPName", Data.Waypoints.get(((StringTag) OWPName.get()).getValue())))));
+                        WPUses_builder.add(new CompoundTag("", Util.createCompoundMapWithContents(map.get("Count"), new StringTag("WPName", Data.waypoints.get(((StringTag) OWPName.get()).getValue())))));
                     }
                 }
             }
@@ -1292,7 +1291,7 @@ public class Fixers {
         originalData.replace("PrevRegionFactions", new ListTag<>("PrevRegionFactions", TagType.TAG_COMPOUND, PrevRegionFactions_builder));
         originalData.replace("UnlockedFTRegions", new ListTag<>("UnlockedFTRegions", TagType.TAG_COMPOUND, UnlockedFTRegions_Builder));
         originalData.replace("WPUses", new ListTag<>("WPUses", TagType.TAG_COMPOUND, WPUses_builder));
-        originalData.replace("CurrentFaction", new StringTag("CurrentFaction", Data.FacNames.getOrDefault(originalData.get("CurrentFaction")
+        originalData.replace("CurrentFaction", new StringTag("CurrentFaction", Data.facNames.getOrDefault(originalData.get("CurrentFaction")
                                                                                                                   .getValue()
                                                                                                                   .toString(), "lotr:hobbit")));
 
@@ -1325,12 +1324,12 @@ public class Fixers {
      * Fixes tile/block entities
      *
      * @param map         {@link CompoundMap} containing the old TileEntity tag data
-     * @param Data        instance of {@link Data}
      * @param stringCache instance of {@link StringCache}
      * @return {@link Optional} of type {@link CompoundMap} with fixed data if present, empty otherwise
      */
     @SuppressWarnings("unchecked")
-    public static TileEntityResult blockEntityFixer(CompoundMap map, Data Data, StringCache stringCache) throws IOException {
+    public static TileEntityResult blockEntityFixer(CompoundMap map, StringCache stringCache) throws IOException {
+        misterymob475.Data Data = misterymob475.Data.getInstance();
         //This will come in handy, it might be outdated though so testing will bre required:
         //https://lotrminecraftmod.fandom.com/wiki/NBT-data/Blocks_and_TileEntities
         //https://lotr-minecraft-mod-exiles.fandom.com/wiki/Block_entity_NBT_format
@@ -1348,8 +1347,8 @@ public class Fixers {
         Optional<Tag<?>> Oid = Util.getAsTagIfExists(map, TagType.TAG_STRING, "id");
         if (Oid.isPresent()) {
             String id = (String) Oid.get().getValue();
-            if (Data.BlockEntityMappings.containsKey(id)) {
-                String value = Data.BlockEntityMappings.get(id);
+            if (Data.blockEntityMappings.containsKey(id)) {
+                String value = Data.blockEntityMappings.get(id);
                 if (!Objects.equals(value, "")) {
                     map.replace("id", new StringTag("id", value));
                     //case switch for ids here
@@ -1357,28 +1356,28 @@ public class Fixers {
                         case "minecraft:hopper": {
                             Optional<Tag<?>> OItemList = Util.getAsTagIfExists(map, TagType.TAG_LIST, "Items");
                             if (OItemList.isPresent()) {
-                                map.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, recurItemFixerList(((ListTag<CompoundTag>) OItemList.get()).getValue(), 0, "Exception during hopper item content fix", stringCache, Data)));
+                                map.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, recurItemFixerList(((ListTag<CompoundTag>) OItemList.get()).getValue(), 0, "Exception during hopper item content fix", stringCache)));
                             }
                             break;
                         }
                         case "minecraft:dispenser": {
                             Optional<Tag<?>> OItemList = Util.getAsTagIfExists(map, TagType.TAG_LIST, "Items");
                             if (OItemList.isPresent()) {
-                                map.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, recurItemFixerList(((ListTag<CompoundTag>) OItemList.get()).getValue(), 0, "Exception during dispenser item content fix", stringCache, Data)));
+                                map.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, recurItemFixerList(((ListTag<CompoundTag>) OItemList.get()).getValue(), 0, "Exception during dispenser item content fix", stringCache)));
                             }
                             break;
                         }
                         case "minecraft:dropper": {
                             Optional<Tag<?>> OItemList = Util.getAsTagIfExists(map, TagType.TAG_LIST, "Items");
                             if (OItemList.isPresent()) {
-                                map.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, recurItemFixerList(((ListTag<CompoundTag>) OItemList.get()).getValue(), 0, "Exception during dropper item content fix", stringCache, Data)));
+                                map.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, recurItemFixerList(((ListTag<CompoundTag>) OItemList.get()).getValue(), 0, "Exception during dropper item content fix", stringCache)));
                             }
                             break;
                         }
                         case "minecraft:chest": {
                             Optional<Tag<?>> OItemList = Util.getAsTagIfExists(map, TagType.TAG_LIST, "Items");
                             if (OItemList.isPresent()) {
-                                map.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, recurItemFixerList(((ListTag<CompoundTag>) OItemList.get()).getValue(), 0, "Exception during chest/trapped chest item content fix", stringCache, Data)));
+                                map.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, recurItemFixerList(((ListTag<CompoundTag>) OItemList.get()).getValue(), 0, "Exception during chest/trapped chest item content fix", stringCache)));
                             }
                             Type = TileEntityFixerReturnType.ChestOrTrappedChest;
                             break;
@@ -1396,7 +1395,7 @@ public class Fixers {
                             }
                             Optional<Tag<?>> OItemList = Util.getAsTagIfExists(map, TagType.TAG_LIST, "Items");
                             if (OItemList.isPresent()) {
-                                map.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, recurItemFixerList(((ListTag<CompoundTag>) OItemList.get()).getValue(), 0, "Exception during chest/trapped chest item content fix", stringCache, Data)));
+                                map.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, recurItemFixerList(((ListTag<CompoundTag>) OItemList.get()).getValue(), 0, "Exception during chest/trapped chest item content fix", stringCache)));
                             }
                             break;
                         }
@@ -1410,14 +1409,14 @@ public class Fixers {
                         case "lotr:plate": {
                             if (map.containsKey("FoodItem")) {
                                 (map.get("FoodItem")
-                                        .getAsCompoundTag()).flatMap(compoundTag -> (recurItemFixer(compoundTag, 0, "Exception during plate item fix", stringCache, Data)))
+                                        .getAsCompoundTag()).flatMap(compoundTag -> (recurItemFixer(compoundTag, 0, "Exception during plate item fix", stringCache)))
                                         .ifPresent(tags -> map.replace("FoodItem", new CompoundTag("FoodItem", tags)));
                             } else map.put(new CompoundTag("FoodItem", new CompoundMap()));
                             map.remove("PlateEmpty");
                             break;
                         }
                         case "minecraft:furnace": {
-                            alloyFixer(map, stringCache, Data);
+                            alloyFixer(map, stringCache);
                             map.put(new CompoundTag("RecipesUsed", new CompoundMap()));
                             break;
                         }
@@ -1426,7 +1425,7 @@ public class Fixers {
                         case "lotr:elven_forge":
                         case "lotr:alloy_forge":
                         case "lotr:orc_forge": {
-                            alloyFixer(map, stringCache, Data);
+                            alloyFixer(map, stringCache);
                             break;
                         }
                         case "lotr:ent_jar": {
@@ -1464,7 +1463,7 @@ public class Fixers {
                         case "lotr:vessel_drink": {
                             if (map.containsKey("MugItem")) {
                                 (map.get("MugItem")
-                                        .getAsCompoundTag()).flatMap(compoundTag -> (recurItemFixer(compoundTag, 0, "Exception during mug item fix", stringCache, Data)))
+                                        .getAsCompoundTag()).flatMap(compoundTag -> (recurItemFixer(compoundTag, 0, "Exception during mug item fix", stringCache)))
                                         .ifPresent(tags -> map.replace("MugItem", new CompoundTag("DrinkItem", tags)));
 
                             } else map.put(new CompoundTag("DrinkItem", new CompoundMap()));
@@ -1544,14 +1543,13 @@ public class Fixers {
      *
      * @param map         {@link CompoundMap} to be fixed
      * @param stringCache instance of {@link StringCache}
-     * @param Data        instance of {@link Data}
      * @throws IOException when something fails
      */
     @SuppressWarnings("unchecked")
-    public static void alloyFixer(CompoundMap map, StringCache stringCache, Data Data) throws IOException {
+    public static void alloyFixer(CompoundMap map, StringCache stringCache) throws IOException {
         Optional<Tag<?>> OItemList = Util.getAsTagIfExists(map, TagType.TAG_LIST, "Items");
         if (OItemList.isPresent()) {
-            map.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, recurItemFixerList(((ListTag<CompoundTag>) OItemList.get()).getValue(), 0, "Exception during furnace/forge fixing", stringCache, Data)));
+            map.replace("Items", new ListTag<>("Items", TagType.TAG_COMPOUND, recurItemFixerList(((ListTag<CompoundTag>) OItemList.get()).getValue(), 0, "Exception during furnace/forge fixing", stringCache)));
         }
         if (map.containsKey("BurnTime")) {
             (map.get("BurnTime")
@@ -1583,10 +1581,10 @@ public class Fixers {
      * Fixes the "Sections" of a chunk by calling the appropriate functions
      *
      * @param Sections    {@link List} of type {@link CompoundTag} containing the sections
-     * @param Data        instance of {@link Data}
      * @param stringCache instance of {@link StringCache}
      */
-    public static void sectionMapFixer(List<CompoundTag> Sections, List<TileEntityResult> EdgeCases, Data Data, StringCache stringCache) {
+    public static void sectionMapFixer(List<CompoundTag> Sections, List<TileEntityResult> EdgeCases, StringCache stringCache) {
+        misterymob475.Data Data = misterymob475.Data.getInstance();
         /*
 I created a flat-world with the 'the void' preset.
 In this world chunk 0,0 had a small stone platform with one block of cobblestone, except for that the chunk is empty
@@ -1849,7 +1847,7 @@ issues:
                                 //Only print for debugging purposes, this is extremely slow (1 region file with this on takes 15 min, with this off it takes 15 seconds)
                                 //stringCache.printLine(LegacyId, false);
 
-                                if (Data.BlockMappings.containsKey(LegacyId)) {
+                                if (Data.blockMappings.containsKey(LegacyId)) {
                                     BlockPaletteReferences[DataCounter] = addPaletteEntryIfNecessary(Data.BlockMappings.get(LegacyId), DataByteArray[dataValue], AddArray[dataValue], SecondEntry, PaletteCheckerList, PaletteBuilderList);
                                 }
                             }
@@ -1862,8 +1860,8 @@ issues:
                                 int dataValue = Math.floorDiv(DataCounter, 2);
                                 //I might've reversed this one accidentally, time will tell...
                                 boolean SecondEntry = DataCounter % 2 == 1;
-                                if (Data.BlockIdToName.containsKey(String.valueOf(BlocksByteArray[DataCounter]))) {
-                                    String LegacyId = Data.BlockIdToName.get(String.valueOf(BlocksByteArray[DataCounter]));
+                                if (Data.blockIdToName.containsKey(String.valueOf(BlocksByteArray[DataCounter]))) {
+                                    String LegacyId = Data.blockIdToName.get(String.valueOf(BlocksByteArray[DataCounter]));
 
                                     //Only print for debugging purposes, this is extremely slow (1 region file with this on takes 15 min, with this off it takes 15 seconds)
                                     //stringCache.printLine(LegacyId, false);
@@ -1897,8 +1895,8 @@ issues:
 
                                     }
                                      */
-                                    if (Data.BlockMappings.containsKey(LegacyId)) {
-                                        BlockPaletteReferences[DataCounter] = addPaletteEntryIfNecessary(Data.BlockMappings.get(LegacyId), DataByteArray[dataValue], SecondEntry, PaletteCheckerList, PaletteBuilderList);
+                                    if (Data.blockMappings.containsKey(LegacyId)) {
+                                        BlockPaletteReferences[DataCounter] = addPaletteEntryIfNecessary(Data.blockMappings.get(LegacyId), DataByteArray[dataValue], SecondEntry, PaletteCheckerList, PaletteBuilderList);
                                     }
                                 }
                             }
@@ -1994,32 +1992,27 @@ issues:
      * @param PaletteCheckerList {@link List<String>} containing String versions of the Palette entries, used for faster searching
      * @param PaletteBuilderList {@link List<CompoundTag>} containing the Palette entries
      */
-    @SuppressWarnings("unchecked")
-    public static int addPaletteEntryIfNecessary(Map<String, ?> BlockMapping, byte DataEntry, boolean SecondEntry, List<String> PaletteCheckerList, List<CompoundTag> PaletteBuilderList) {
+    public static int addPaletteEntryIfNecessary(Map<String, BlockMapping> BlockMapping, byte DataEntry, boolean SecondEntry, List<String> PaletteCheckerList, List<CompoundTag> PaletteBuilderList) {
         int returner = 0;
         if (entryExists(BlockMapping, DataEntry, SecondEntry)) {
-            LinkedTreeMap<?, ?> Entry = (LinkedTreeMap<?, ?>) BlockMapping.get(String.valueOf((blockDataSelector(DataEntry, SecondEntry))));
-            if (!PaletteCheckerList.contains(Entry.toString())) {
-                PaletteCheckerList.add(Entry.toString());
+            BlockMapping mapping = BlockMapping.get(String.valueOf((blockDataSelector(DataEntry, SecondEntry))));
+            if (!PaletteCheckerList.contains(mapping.toString())) {
+                PaletteCheckerList.add(mapping.toString());
                 CompoundMap map = new CompoundMap();
-                if (Entry.containsKey("name")) {
-                    map.put(new StringTag("Name", (String) Entry.get("name")));
-                    if (Entry.containsKey("properties")) {
-                        CompoundMap innerCompoundBuilder = new CompoundMap();
-                        Map<String, ?> properties = (Map<String, ?>) Entry.get("properties");
-                        for (Map.Entry<String, ?> property : properties.entrySet()) {
-                            //probably always a string if I read the wiki correctly, just in case I put in the case of a Boolean
-                            if (property.getValue() instanceof String)
-                                innerCompoundBuilder.put(new StringTag(property.getKey(), (String) property.getValue()));
-                            else if (property.getValue() instanceof Boolean)
-                                innerCompoundBuilder.put(new ByteTag(property.getKey(), (Boolean) property.getValue()));
-                        }
-                        map.put(new CompoundTag("Properties", innerCompoundBuilder));
-                    }
-                    PaletteBuilderList.add(new CompoundTag("Palette", map));
+                map.put(new StringTag("Name", mapping.getName()));
+                CompoundMap innerCompoundBuilder = new CompoundMap();
+                Map<String, ?> properties = mapping.getProperties();
+                for (Map.Entry<String, ?> property : properties.entrySet()) {
+                    //probably always a string if I read the wiki correctly, just in case I put in the case of a Boolean
+                    if (property.getValue() instanceof String)
+                        innerCompoundBuilder.put(new StringTag(property.getKey(), (String) property.getValue()));
+                    else if (property.getValue() instanceof Boolean)
+                        innerCompoundBuilder.put(new ByteTag(property.getKey(), (Boolean) property.getValue()));
                 }
+                map.put(new CompoundTag("Properties", innerCompoundBuilder));
+                PaletteBuilderList.add(new CompoundTag("Palette", map));
             }
-            returner = PaletteCheckerList.indexOf(Entry.toString());
+            returner = PaletteCheckerList.indexOf(mapping.toString());
         }
         return returner;
     }
@@ -2067,7 +2060,7 @@ issues:
      * @param SecondEntry determines whether the first or last 4 bits of DataValue should be used
      * @return boolean confirming or denying existence of an entry.
      */
-    public static boolean entryExists(Map<String, ?> Mapping, byte DataValue, boolean SecondEntry) {
+    public static boolean entryExists(Map<String, BlockMapping> Mapping, byte DataValue, boolean SecondEntry) {
         return (Mapping.containsKey(String.valueOf((blockDataSelector(DataValue, SecondEntry)))));
     }
 
@@ -2091,10 +2084,9 @@ issues:
      * Fixes Chunk {@link CompoundMap}
      *
      * @param Chunk {@link CompoundMap} of a chunk
-     * @param Data  instance of {@link Data}
      */
     @SuppressWarnings("unchecked")
-    public static void chunkFixer(CompoundMap Chunk, Data Data, StringCache stringCache) throws IOException {
+    public static void chunkFixer(CompoundMap Chunk, StringCache stringCache) throws IOException {
         Optional<Tag<?>> OLevel = Util.getAsTagIfExists(Chunk, TagType.TAG_COMPOUND, "Level");
         if (OLevel.isPresent()) {
             CompoundMap level = (CompoundMap) OLevel.get().getValue();
@@ -2128,7 +2120,7 @@ issues:
                 List<CompoundTag> TileEntityBuilder = new ArrayList<>();
 
                 for (CompoundTag t : TileEntities.getValue()) {
-                    TileEntityResult result = blockEntityFixer(t.getValue(), Data, stringCache);
+                    TileEntityResult result = blockEntityFixer(t.getValue(), stringCache);
                     if (result.getContent().isPresent()) {
                         switch (result.getType()) {
                             case Regular: {
@@ -2164,7 +2156,7 @@ issues:
             if (OSections.isPresent()) {
                 ListTag<CompoundTag> SectionsTag = (ListTag<CompoundTag>) OSections.get();
                 List<CompoundTag> Sections = SectionsTag.getValue();
-                sectionMapFixer(Sections, EdgeCases, Data, stringCache);
+                sectionMapFixer(Sections, EdgeCases, stringCache);
                 level.replace("Sections", new ListTag<>("Sections", TagType.TAG_COMPOUND, Sections));
             }
                 /*
@@ -2197,15 +2189,14 @@ issues:
      * Fixes Regions
      *
      * @param Chunks {@link HashMap} with key Position and Value Chunk
-     * @param Data   Instance of {@link Data}
      * @return {@link HashMap} with the fixed chunks
      */
-    public static HashMap<Integer, Chunk> regionFixer(HashMap<Integer, Chunk> Chunks, Data Data, StringCache stringCache) throws IOException {
+    public static HashMap<Integer, Chunk> regionFixer(HashMap<Integer, Chunk> Chunks, StringCache stringCache) throws IOException {
         for (Map.Entry<Integer, Chunk> entry : Chunks.entrySet()) {
             Chunk chunk = entry.getValue();
             CompoundTag tag = chunk.readTag();
             CompoundMap map = tag.getValue();
-            chunkFixer(map, Data, stringCache);
+            chunkFixer(map, stringCache);
             tag.setValue(map);
             chunk = new Chunk(chunk.x, chunk.z, chunk.timestamp, tag, chunk.getCompression());
             entry.setValue(chunk);
