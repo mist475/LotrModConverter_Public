@@ -1,4 +1,4 @@
-package Convertors;
+package convertors;
 
 import de.piegames.nbt.CompoundMap;
 import de.piegames.nbt.CompoundTag;
@@ -58,7 +58,8 @@ public class LevelDat implements Convertor {
             //this way I can modify the map directly, instead of regenerating it every time
             CompoundMap newData = new CompoundMap(originalData);
 
-            Fixers.levelDatFixer(newData, originalTopLevelTag1);
+            Fixers fixers = new Fixers();
+            fixers.levelDatFixer(newData, originalTopLevelTag1);
 
 
             final CompoundTag newTopLevelTag = new CompoundTag("", newData);

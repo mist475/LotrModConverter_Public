@@ -1,4 +1,4 @@
-package Convertors;
+package convertors;
 
 public class MiddleEarth extends DimensionConverter {
 

@@ -1,6 +1,6 @@
 package misterymob475;
 
-import Convertors.*;
+import convertors.*;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 import misterymob475.data.Data;
@@ -22,7 +22,8 @@ public class Main {
     public static void main(String[] args) {
 
         ArrayList<Thread> arrThreads = new ArrayList<>();
-        System.out.println("Welcome to the Legacy to Renewed world convertor for Mevans's LOTR mod by Misterymob475\nHow to use: unzip the zip file and place the created folder in your saves folder (or a different folder where you put your world).\nCreate a new world in the most recent version of renewed (1.16.5 as of now),\nCopy this world to the same folder as the world you want to upgrade.\nRun the .bat(windows) file or run via the command line.\nOpen the generated output in the same version of renewed as the new world you just created\nIf something doesn't work as planned please check if said feature is actually supported.\nOtherwise mention it on the #issues channel on my discord:rppMgSHaTe");
+        System.out.println(
+                "Welcome to the Legacy to Renewed world convertor for Mevans's LOTR mod by Misterymob475\nHow to use: unzip the zip file and place the created folder in your saves folder (or a different folder where you put your world).\nCreate a new world in the most recent version of renewed (1.16.5 as of now),\nCopy this world to the same folder as the world you want to upgrade.\nRun the .bat(windows) file or run via the command line.\nOpen the generated output in the same version of renewed as the new world you just created\nIf something doesn't work as planned please check if said feature is actually supported.\nOtherwise mention it on the #issues channel on my discord:rppMgSHaTe");
         //used for copying data over
         Optional<String> legacyWorld = legacyWorldSelector();
         //basis for the new level.dat (modifying data is easier in this case then generating from scratch)

@@ -1,4 +1,4 @@
-package Convertors;
+package convertors;
 
 import de.piegames.nbt.CompoundMap;
 import de.piegames.nbt.CompoundTag;
@@ -47,6 +47,7 @@ public class DataFolder implements Convertor {
             File[] curDirList = currentFolder.listFiles((dir, name) -> name.toLowerCase().startsWith("map_"));
             if (curDirList != null && curDirList.length > 0) {
                 int i = 1;
+                Fixers fixers = new Fixers();
                 for (File mapFile : curDirList) {
 
                     i++;
@@ -60,7 +61,7 @@ public class DataFolder implements Convertor {
                         CompoundMap originalData = new CompoundMap(originalTopLevelTag.getValue());
                         CompoundMap data = new CompoundMap(((CompoundTag) originalData.get("data")).getValue());
 
-                        Fixers.mapFixer(data);
+                        fixers.mapFixer(data);
 
                         originalData.replace("data", new CompoundTag("data", data));
                         final CompoundTag newTopLevelTag = new CompoundTag("", originalData);

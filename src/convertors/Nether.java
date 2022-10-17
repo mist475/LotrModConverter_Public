@@ -1,4 +1,4 @@
-package Convertors;
+package convertors;
 
 public class Nether extends DimensionConverter {
 

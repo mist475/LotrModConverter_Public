@@ -1,4 +1,4 @@
-package Convertors;
+package convertors;
 
 import de.piegames.nbt.CompoundMap;
 import de.piegames.nbt.CompoundTag;
@@ -49,6 +49,7 @@ public class LotrData implements Convertor {
          */
 
 
+        Fixers fixers = new Fixers();
         try {
             //LOTR.dat fix
 
@@ -60,7 +61,7 @@ public class LotrData implements Convertor {
                 //saves the input as a map, this is important for saving the file, for reading it is redundant
                 CompoundMap originalData = new CompoundMap(originalTopLevelTag.getValue());
 
-                Fixers.LOTRDatFixer(originalData);
+                fixers.LOTRDatFixer(originalData);
 
                 //creates the new top level tag, otherwise it won't work
                 final CompoundTag newTopLevelTag = new CompoundTag("", originalData);
@@ -138,7 +139,7 @@ public class LotrData implements Convertor {
                 input.close();
                 //saves the input as a map, this is important for saving the file, for reading it is redundant
                 CompoundMap originalData = new CompoundMap(originalTopLevelTag.getValue());
-                Fixers.LOTRPlayerDataFixer(originalData);
+                fixers.LOTRPlayerDataFixer(originalData);
 
 
                 //creates the new top level tag, otherwise it won't work

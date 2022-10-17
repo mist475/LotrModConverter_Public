@@ -1,4 +1,4 @@
-package Convertors;
+package convertors;
 
 import de.piegames.nbt.*;
 import misterymob475.data.Data;

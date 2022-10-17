@@ -1,4 +1,4 @@
-package Convertors;
+package convertors;
 
 import de.piegames.nbt.regionfile.Chunk;
 import de.piegames.nbt.regionfile.RegionFile;
@@ -55,6 +55,7 @@ public class DimensionConverter implements Convertor {
         }
         if (currentFolder.exists()) {
             File[] curDirList = currentFolder.listFiles();
+            Fixers fixers = new Fixers();
             if (curDirList != null) {
                 int i = 1;
                 for (File mapFile : curDirList) {
@@ -72,7 +73,7 @@ public class DimensionConverter implements Convertor {
                         RegionFile new_Region = RegionFile.createNew(Paths.get(PathToUse));
 
                         //TODO: Start using multithreading here
-                        HashMap<Integer, Chunk> result = Fixers.regionFixer(chunks);
+                        HashMap<Integer, Chunk> result = fixers.regionFixer(chunks);
                         new_Region.writeChunks(result);
                     } catch (Exception e) {
                         e.printStackTrace();

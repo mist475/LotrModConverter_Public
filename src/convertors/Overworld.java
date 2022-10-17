@@ -1,4 +1,4 @@
-package Convertors;
+package convertors;
 
 
 public class Overworld extends DimensionConverter {

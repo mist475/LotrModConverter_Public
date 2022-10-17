@@ -1,4 +1,4 @@
-package Convertors;
+package convertors;
 
 import java.io.IOException;
 import java.nio.file.Path;
