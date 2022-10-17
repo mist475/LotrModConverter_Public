@@ -23,11 +23,9 @@ public class DataFolder implements Convertor {
 
     /**
      * Creates an instance of HandMapData
-     *
-     * @param stringCache instance of {@link StringCache}
      */
-    public DataFolder(StringCache stringCache) {
-        this.stringCache = stringCache;
+    public DataFolder() {
+        this.stringCache = StringCache.getInstance();
     }
 
 

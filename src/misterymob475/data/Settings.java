@@ -1,4 +1,4 @@
-package misterymob475.settings;
+package misterymob475.data;
 
 import com.google.gson.annotations.SerializedName;
 

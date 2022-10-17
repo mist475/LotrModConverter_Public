@@ -1,26 +1,36 @@
 package misterymob475;
 
-import java.io.*;
+import misterymob475.data.Data;
+
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
 public class StringCache {
+    private static StringCache INSTANCE;
     private final List<String> stringCache;
     private final double debugLevel;
     private final Boolean cacheDebug;
     private final BufferedWriter fasterPrint;
 
-    /**
-     * Creates an instance
-     *
-     */
-    public StringCache() throws UnsupportedEncodingException {
+
+    private StringCache() {
         this.stringCache = new ArrayList<>();
-        misterymob475.Data data = misterymob475.Data.getInstance();
+        Data data = Data.getInstance();
         this.debugLevel = data.settings.getDebugMessages();
         this.cacheDebug = data.settings.isCacheDebugMessages();
         this.fasterPrint = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(java.io.FileDescriptor.out), StandardCharsets.US_ASCII), 512);
+    }
+
+    public static synchronized StringCache getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new StringCache();
+        }
+        return INSTANCE;
     }
 
     /**

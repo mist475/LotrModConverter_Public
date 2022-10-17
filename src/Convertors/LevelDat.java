@@ -22,12 +22,11 @@ public class LevelDat implements Convertor {
     /**
      * Creates an instance of LevelDat using the provided parameters
      *
-     * @param pathname    String of the pathname, see {@link Convertor}
-     * @param stringCache instance of {@link StringCache}
+     * @param pathname String of the pathname, see {@link Convertor}
      */
-    public LevelDat(String pathname, StringCache stringCache) {
+    public LevelDat(String pathname) {
         pathName = pathname;
-        this.stringCache = stringCache;
+        this.stringCache = misterymob475.StringCache.getInstance();
     }
 
     /**
@@ -59,7 +58,7 @@ public class LevelDat implements Convertor {
             //this way I can modify the map directly, instead of regenerating it every time
             CompoundMap newData = new CompoundMap(originalData);
 
-            Fixers.levelDatFixer(newData, stringCache, originalTopLevelTag1);
+            Fixers.levelDatFixer(newData, originalTopLevelTag1);
 
 
             final CompoundTag newTopLevelTag = new CompoundTag("", newData);

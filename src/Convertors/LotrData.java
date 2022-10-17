@@ -20,13 +20,10 @@ import java.util.Objects;
  * Copies and fixes the contents of the lotr/ folder
  */
 public class LotrData implements Convertor {
-    private final StringCache StringCache;
+    private final StringCache stringCache;
 
-    /**
-     */
-
-    public LotrData(StringCache stringCache) {
-        this.StringCache = stringCache;
+    public LotrData() {
+        this.stringCache = misterymob475.StringCache.getInstance();
     }
 
     /**
@@ -75,7 +72,7 @@ public class LotrData implements Convertor {
                                                                                                            .toString())));
                 output.writeTag(newTopLevelTag);
                 output.close();
-                StringCache.printLine("converted LOTR.dat");
+                stringCache.printLine("converted LOTR.dat");
             }
 		/*
 		try {
@@ -162,8 +159,8 @@ public class LotrData implements Convertor {
             catch (final ClassCastException | NullPointerException ex) {
                 throw new IOException("Error during playerData conversion fix");
             }
-            StringCache.printLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(PlayerDir.listFiles()).length + " Playerfiles", true);
+            stringCache.printLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(PlayerDir.listFiles()).length + " Playerfiles", true);
         }
-        StringCache.printLine("Converted all the player files in the /lotr folder");
+        stringCache.printLine("Converted all the player files in the /lotr folder");
     }
 }

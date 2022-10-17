@@ -22,11 +22,9 @@ public class PlayerData implements Convertor {
 
     /**
      * Creates an instance of PlayerData
-     *
-     * @param stringCache instance of {@link StringCache}
      */
-    public PlayerData(StringCache stringCache) {
-        this.stringCache = stringCache;
+    public PlayerData() {
+        this.stringCache = misterymob475.StringCache.getInstance();
     }
 
     /**
@@ -36,7 +34,7 @@ public class PlayerData implements Convertor {
      */
     @Override
     public void modifier(Path p, String FileName) throws IOException {
-        //Map<Integer,String> legacyIds = misterymob475.Data.legacyIds(Paths.get(p + "/" + FileName+ "/level.dat").toAbsolutePath().toString());
+        //Map<Integer,String> legacyIds = misterymob475.data.Data.legacyIds(Paths.get(p + "/" + FileName+ "/level.dat").toAbsolutePath().toString());
         Files.createDirectory(Paths.get(p + "/" + FileName + "_Converted/playerdata"));
         //level.dat fixer/modifier
         //File renewedWorld = new File(p+"/"+this.pathName+"/level.dat");
@@ -59,7 +57,7 @@ public class PlayerData implements Convertor {
                     //this way I can modify the map directly, instead of regenerating it every time
                     CompoundMap newData = new CompoundMap(originalData);
 //
-                    Fixers.playerFixer(newData, stringCache);
+                    Fixers.playerFixer(newData);
 //
 
                     final CompoundTag newTopLevelTag = new CompoundTag("", newData);

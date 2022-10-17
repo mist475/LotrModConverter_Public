@@ -1,11 +1,13 @@
-package misterymob475;
+package misterymob475.data;
 
+import com.google.gson.Gson;
 import de.piegames.nbt.*;
 import de.piegames.nbt.stream.NBTInputStream;
-import misterymob475.settings.Conversions;
 
 import java.io.IOException;
+import java.io.Reader;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
@@ -15,6 +17,7 @@ import java.util.Map;
  * Manages the mappings
  */
 public class Data {
+    private static Data INSTANCE;
     public Map<String, String> waypoints;
     public Map<Integer, String> legacyIds;
     public Map<String, String> colours;
@@ -30,42 +33,43 @@ public class Data {
     public Map<String, String> blockIdToName;
     public Map<String, String> blockEntityMappings;
     public Map<String, Conversions.Potion> potions;
-    public misterymob475.settings.Settings settings;
-
+    public misterymob475.data.Settings settings;
     public Map<String, Map<String, Conversions.BlockMapping>> blockMappings;
 
-    private static Data INSTANCE;
-
-    /**
-     * Initializes Data
-     *
-     * @param conversions JSON loaded LinkedTreeMap containing the mappings
-     */
-    public void setData(Conversions conversions) {
-        this.waypoints = conversions.getWaypoints();
-        this.colours = conversions.getColours();
-        this.settings = conversions.getSettings();
-        this.facNames = conversions.getFactions();
-        this.vanillaMobIds = conversions.getVanillaMobIds();
-        this.modMobIds = conversions.getLotrModMobIds();
-        this.entities = conversions.getEntities();
-        this.regions = conversions.getRegions();
-        this.itemNames = conversions.getItems();
-        this.enchantments = conversions.getEnchantmentIds();
-        this.potions = conversions.getPotions();
-        this.authorBlacklist = conversions.getAuthorBlackList();
-        this.titleBlacklist = conversions.getTitleBlacklist();
-        this.blockMappings = conversions.getBlockMappings();
-        this.blockIdToName = conversions.getBlockIdToName();
-        this.blockEntityMappings = conversions.getBlockEntityMappings();
-    }
-
     private Data() {
-
+        Path path = Paths.get("Conversions.json");
+        try {
+            Reader reader = Files.newBufferedReader(path);
+            Gson gson = new Gson();
+            Conversions conversions = gson.fromJson(reader, Conversions.class);
+            this.waypoints = conversions.getWaypoints();
+            this.colours = conversions.getColours();
+            this.settings = conversions.getSettings();
+            this.facNames = conversions.getFactions();
+            this.vanillaMobIds = conversions.getVanillaMobIds();
+            this.modMobIds = conversions.getLotrModMobIds();
+            this.entities = conversions.getEntities();
+            this.regions = conversions.getRegions();
+            this.itemNames = conversions.getItems();
+            this.enchantments = conversions.getEnchantmentIds();
+            this.potions = conversions.getPotions();
+            this.authorBlacklist = conversions.getAuthorBlackList();
+            this.titleBlacklist = conversions.getTitleBlacklist();
+            this.blockMappings = conversions.getBlockMappings();
+            this.blockIdToName = conversions.getBlockIdToName();
+            this.blockEntityMappings = conversions.getBlockEntityMappings();
+            reader.close();
+        } catch (IOException e) {
+            throw new RuntimeException("Error initializing json file, closing program");
+        }
     }
 
-
-    //legacy id HashMap generator, ids can vary, hence the dynamic generation
+    public static Data getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new Data();
+        }
+        return INSTANCE;
+    }
 
     /**
      * Dynamically creates and returns a map containing the new string ids and the new int ids
@@ -109,9 +113,6 @@ public class Data {
         return RenewedIds;
     }
 
-    //renewed id HashMap generator, ids can vary, hence the dynamic generation
-    //will not be used though as apparently I forgot to actually check how the stuff is saved (as strings, not as int, though the ints are also saved)
-
     /**
      * Dynamically creates and returns a Map containing the int ids and the old string ids
      *
@@ -140,13 +141,6 @@ public class Data {
             throw new IOException("Error during legacy id gathering");
         }
         this.legacyIds = LegacyIds_builder;
-    }
-
-    public static Data getInstance() {
-        if (INSTANCE == null) {
-            INSTANCE = new Data();
-        }
-        return INSTANCE;
     }
 }
 
