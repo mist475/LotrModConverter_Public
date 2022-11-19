@@ -13,8 +13,6 @@ public class Conversions {
     private final List<String> authorBlackList;
     @SerializedName("BlockEntityMappings")
     private final Map<String,String> blockEntityMappings;
-    @SerializedName("BlockIdToName")
-    private final Map<String,String> blockIdToName;
 
     @SerializedName("BlockMappings")
     private final Map<String,Map<String,BlockMapping>> blockMappings;
@@ -47,11 +45,10 @@ public class Conversions {
     @SerializedName("Waypoints")
     private final Map<String,String> waypoints;
 
-    public Conversions(String comments, List<String> authorBlackList, Map<String, String> blockEntityMappings, Map<String, String> blockIdToName, Map<String, Map<String, BlockMapping>> blockMappings, Map<String, String> colours, Map<String, String> enchantmentIds, Map<String, String> entities, Map<String, String> factions, Map<String, List<String>> items, Map<String, String> lotrModMobIds, Map<String, Potion> potions, Map<String, String> regions, Settings settings, Map<String, Object> textFormatting, List<String> titleBlacklist, Map<String, String> vanillaMobIds, Map<String, String> waypoints) {
+    public Conversions(String comments, List<String> authorBlackList, Map<String, String> blockEntityMappings, Map<String, Map<String, BlockMapping>> blockMappings, Map<String, String> colours, Map<String, String> enchantmentIds, Map<String, String> entities, Map<String, String> factions, Map<String, List<String>> items, Map<String, String> lotrModMobIds, Map<String, Potion> potions, Map<String, String> regions, Settings settings, Map<String, Object> textFormatting, List<String> titleBlacklist, Map<String, String> vanillaMobIds, Map<String, String> waypoints) {
         this.comments = comments;
         this.authorBlackList = authorBlackList;
         this.blockEntityMappings = blockEntityMappings;
-        this.blockIdToName = blockIdToName;
         this.blockMappings = blockMappings;
         this.colours = colours;
         this.enchantmentIds = enchantmentIds;
@@ -98,10 +95,6 @@ public class Conversions {
 
     public Map<String, String> getBlockEntityMappings() {
         return blockEntityMappings;
-    }
-
-    public Map<String, String> getBlockIdToName() {
-        return blockIdToName;
     }
 
     public Map<String, String> getColours() {

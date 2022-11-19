@@ -1,7 +1,6 @@
 package convertors;
 
 import de.piegames.nbt.*;
-import misterymob475.data.Data;
 import misterymob475.Util;
 
 import java.io.IOException;
@@ -9,10 +8,8 @@ import java.nio.file.Path;
 import java.util.Optional;
 
 public class Test implements Convertor {
-    public Data Data;
 
-    public Test(Data Data) {
-        this.Data = Data;
+    public Test() {
     }
 
 

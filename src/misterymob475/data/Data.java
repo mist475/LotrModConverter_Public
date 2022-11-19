@@ -30,7 +30,6 @@ public class Data {
     public Map<String, String> enchantments;
     public List<String> authorBlacklist;
     public List<String> titleBlacklist;
-    public Map<String, String> blockIdToName;
     public Map<String, String> blockEntityMappings;
     public Map<String, Conversions.Potion> potions;
     public misterymob475.data.Settings settings;
@@ -56,7 +55,6 @@ public class Data {
             this.authorBlacklist = conversions.getAuthorBlackList();
             this.titleBlacklist = conversions.getTitleBlacklist();
             this.blockMappings = conversions.getBlockMappings();
-            this.blockIdToName = conversions.getBlockIdToName();
             this.blockEntityMappings = conversions.getBlockEntityMappings();
             reader.close();
         } catch (IOException e) {

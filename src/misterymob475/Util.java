@@ -177,8 +177,21 @@ public class Util {
             Tag<?> t = map.get(key);
             if (t.getType() == type) {
                 return Optional.of(t);
-            } else return Optional.empty();
-        } else return Optional.empty();
+            }
+        }
+        return Optional.empty();
     }
 
+    /**
+     * Get the blockId of a block
+     * A blockId uses 12 bits. 8 Being in the first id and 4 in the second
+     */
+    public static int combine(byte blockID_a, byte blockId_b) {
+        return blockID_a + (blockId_b << 8);
+    }
+
+    /**
+     * Gets the first or last 4 bytes from the provided byte array
+     */
+    public static byte nibble4(byte[] arr, int index){ return (byte) (index%2 == 0 ? arr[index/2]&0x0F : (arr[index/2]>>4)&0x0F); }
 }

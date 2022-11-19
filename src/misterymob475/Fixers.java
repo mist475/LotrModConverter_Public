@@ -1799,13 +1799,14 @@ issues:
 
             Optional<ByteArrayTag> OBlocksByteArray = SectionCompoundMap.get("Blocks").getAsByteArrayTag();
             Optional<ByteArrayTag> ODataByteArray = SectionCompoundMap.get("Data").getAsByteArrayTag();
-
-            /*
-            Optional<ByteArrayTag> OAddArray;
+            Optional<ByteArrayTag> OAddByteArray;
             if (SectionCompoundMap.containsKey("Add")) {
-                OAddArray = SectionCompoundMap.get("Add").getAsByteArrayTag();
-            } else OAddArray = Optional.empty();
-             */
+                OAddByteArray =SectionCompoundMap.get("Add").getAsByteArrayTag();
+            }
+            else {
+                OAddByteArray = Optional.empty();
+            }
+
             if (SectionCompoundMap.containsKey("Y")) {
                 Optional<ByteTag> OY = SectionCompoundMap.get("Y").getAsByteTag();
                 if (OY.isPresent()) {
@@ -1813,6 +1814,8 @@ issues:
                     if (OBlocksByteArray.isPresent() && ODataByteArray.isPresent()) {
                         byte[] BlocksByteArray = OBlocksByteArray.get().getValue();
                         byte[] DataByteArray = ODataByteArray.get().getValue();
+                        byte[] AddByteArray = OAddByteArray.isPresent() ? OAddByteArray.get()
+                                .getValue() : new byte[2048];
                         //initializes with 0 as default value, as air is always the first entry, nothing needs to happen with air
                         int[] BlockPaletteReferences = new int[4096];
                         //this should never fail as far as I know, purely redundancy
@@ -1825,37 +1828,12 @@ issues:
                                 OPerSectionEdgeCases = Optional.ofNullable(Sorter.get(OY.get().getValue()));
                             } else OPerSectionEdgeCases = Optional.empty();
                              */
-                            //if (OAddArray.isPresent()) {
-                    /*
-                        byte[] AddArray = OAddArray.get().getValue();
-                        for (int DataCounter = 0; DataCounter < 4096; DataCounter++) {
-                            int dataValue = Math.floorDiv(DataCounter, 2);
-                            //I might've reversed this one accidentally, time will tell...
-                            boolean SecondEntry = DataCounter % 2 == 1;
-                            if (DATA.BlockIdToName.containsKey(String.valueOf(BlocksByteArray[DataCounter]))) {
-                                String LegacyId = DATA.BlockIdToName.get(String.valueOf(BlocksByteArray[DataCounter]));
-
-                                //Only print for debugging purposes, this is extremely slow (1 region file with this on takes 15 min, with this off it takes 15 seconds)
-                                //STRING CACHE.printLine(LegacyId, false);
-
-                                if (DATA.blockMappings.containsKey(LegacyId)) {
-                                    BlockPaletteReferences[DataCounter] = addPaletteEntryIfNecessary(DATA.BlockMappings.get(LegacyId), DataByteArray[dataValue], AddArray[dataValue], SecondEntry, PaletteCheckerList, PaletteBuilderList);
-                                }
-                            }
-                            DataCounter++;
-                        }
-                     */
-
-                            //} else {
                             for (int DataCounter = 0; DataCounter < 4096; DataCounter++) {
-                                int dataValue = Math.floorDiv(DataCounter, 2);
-                                //I might've reversed this one accidentally, time will tell...
-                                boolean SecondEntry = DataCounter % 2 == 1;
-                                if (DATA.blockIdToName.containsKey(String.valueOf(BlocksByteArray[DataCounter]))) {
-                                    String LegacyId = DATA.blockIdToName.get(String.valueOf(BlocksByteArray[DataCounter]));
 
-                                    //Only print for debugging purposes, this is extremely slow (1 region file with this on takes 15 min, with this off it takes 15 seconds)
-                                    //STRING CACHE.printLine(LegacyId, false);
+                                int blockId = Util.combine(BlocksByteArray[DataCounter], Util.nibble4(AddByteArray,DataCounter));
+
+                                if (DATA.legacyIds.containsKey(blockId)) {
+                                    String legacyId = DATA.legacyIds.get(blockId);
                                     //TODO: Put in the extra information of the Edge cases
 
                                     /*
@@ -1886,8 +1864,9 @@ issues:
 
                                     }
                                      */
-                                    if (DATA.blockMappings.containsKey(LegacyId)) {
-                                        BlockPaletteReferences[DataCounter] = addPaletteEntryIfNecessary(DATA.blockMappings.get(LegacyId), DataByteArray[dataValue], SecondEntry, PaletteCheckerList, PaletteBuilderList);
+                                    if (DATA.blockMappings.containsKey(legacyId)) {
+                                        byte neededValue = Util.nibble4(DataByteArray,DataCounter);
+                                        BlockPaletteReferences[DataCounter] = addPaletteEntryIfNecessary(DATA.blockMappings.get(legacyId), PaletteCheckerList, PaletteBuilderList, neededValue);
                                     }
                                 }
                             }
@@ -1897,7 +1876,6 @@ issues:
 
                             SectionCompoundMap.remove("Blocks");
                             SectionCompoundMap.remove("Data");
-                            //TODO: use add combined with DATA as otherwise there will be bugs
                             SectionCompoundMap.remove("Add");
                             SectionCompoundMap.put(Palette);
                             SectionCompoundMap.put(new LongArrayTag("BlockStates", blockStateGenerator(PaletteCheckerList, BlockPaletteReferences)));
@@ -1978,15 +1956,13 @@ issues:
      * Adds an entry to the Palette if it's necessary (it doesn't exist yet)
      *
      * @param BlockMapping       {@link Map<String>} Mapping of the main id
-     * @param DataEntry          byte second id of the block
-     * @param SecondEntry        werther the first or second id of DataEntry should be used
      * @param PaletteCheckerList {@link List<String>} containing String versions of the Palette entries, used for faster searching
      * @param PaletteBuilderList {@link List<CompoundTag>} containing the Palette entries
      */
-    public int addPaletteEntryIfNecessary(Map<String, BlockMapping> BlockMapping, byte DataEntry, boolean SecondEntry, List<String> PaletteCheckerList, List<CompoundTag> PaletteBuilderList) {
+    public int addPaletteEntryIfNecessary(Map<String, BlockMapping> BlockMapping, List<String> PaletteCheckerList, List<CompoundTag> PaletteBuilderList, byte neededValue) {
         int returner = 0;
-        if (entryExists(BlockMapping, DataEntry, SecondEntry)) {
-            BlockMapping mapping = BlockMapping.get(String.valueOf((blockDataSelector(DataEntry, SecondEntry))));
+        if (entryExists(BlockMapping, neededValue)) {
+            BlockMapping mapping = BlockMapping.get(String.valueOf((neededValue)));
             if (!PaletteCheckerList.contains(mapping.toString())) {
                 PaletteCheckerList.add(mapping.toString());
                 CompoundMap map = new CompoundMap();
@@ -2000,7 +1976,7 @@ issues:
                     else if (property.getValue() instanceof Boolean)
                         innerCompoundBuilder.put(new ByteTag(property.getKey(), (Boolean) property.getValue()));
                 }
-                if (! innerCompoundBuilder.isEmpty()) {
+                if (!innerCompoundBuilder.isEmpty()) {
                     map.put(new CompoundTag("Properties", innerCompoundBuilder));
                 }
                 PaletteBuilderList.add(new CompoundTag("Palette", map));
@@ -2010,66 +1986,8 @@ issues:
         return returner;
     }
 
-/*
-    @SuppressWarnings("unchecked")
-    public static int addPaletteEntryIfNecessary(Map<String, ?> BlockMapping, byte DataEntry, byte AddEntry, boolean SecondEntry, List<String> PaletteCheckerList, List<CompoundTag> PaletteBuilderList) {
-        int returner = 0;
-        //blockId = ((add << 8) + baseId)
-        //((AddEntry << 8) + DataEntry)
-        if (entryExists(BlockMapping, ((AddEntry << 8) + DataEntry), SecondEntry)) {
-            LinkedTreeMap<?, ?> Entry = (LinkedTreeMap<?, ?>) BlockMapping.get(String.valueOf((blockDataSelector(((AddEntry << 8) + DataEntry), SecondEntry))));
-            if (!PaletteCheckerList.contains(Entry.toString())) {
-                PaletteCheckerList.add(Entry.toString());
-                CompoundMap map = new CompoundMap();
-                if (Entry.containsKey("name")) {
-                    map.put(new StringTag("Name", (String) Entry.get("name")));
-                    if (Entry.containsKey("properties")) {
-                        CompoundMap innerCompoundBuilder = new CompoundMap();
-                        Map<String, ?> properties = (Map<String, ?>) Entry.get("properties");
-                        for (Map.Entry<String, ?> property : properties.entrySet()) {
-                            //probably always a string if I read the wiki correctly, just in case I put in the case of a Boolean
-                            if (property.getValue() instanceof String)
-                                innerCompoundBuilder.put(new StringTag(property.getKey(), (String) property.getValue()));
-                            else if (property.getValue() instanceof Boolean)
-                                innerCompoundBuilder.put(new ByteTag(property.getKey(), (Boolean) property.getValue()));
-                        }
-                        map.put(new CompoundTag("Properties", innerCompoundBuilder));
-                    }
-                    PaletteBuilderList.add(new CompoundTag("Palette", map));
-                }
-            }
-            returner = PaletteCheckerList.indexOf(Entry.toString());
-        }
-        return returner;
-    }
- */
-
-
-    /**
-     * Returns if the corresponding value exists
-     *
-     * @param Mapping     Entry
-     * @param DataValue   byte containing the sub value
-     * @param SecondEntry determines whether the first or last 4 bits of DataValue should be used
-     * @return boolean confirming or denying existence of an entry.
-     */
-    public boolean entryExists(Map<String, BlockMapping> Mapping, byte DataValue, boolean SecondEntry) {
-        return (Mapping.containsKey(String.valueOf((blockDataSelector(DataValue, SecondEntry)))));
-    }
-
-    /**
-     * Returns the bits that should be used
-     *
-     * @param DataValue   original byte
-     * @param SecondEntry determines if the first or the last 4 bits will be picked
-     * @return the selected bits from DataValue
-     */
-    public byte blockDataSelector(byte DataValue, boolean SecondEntry) {
-        byte Result = (SecondEntry ? (byte) (DataValue >> 4) : (byte) (DataValue & 15));
-        if (Result < 0) {
-            return (byte) (Result + 16);
-        } else return Result;
-        //return (SecondEntry ? (byte) (DataValue >> 4) : (byte) (DataValue & 15));
+    public boolean entryExists(Map<String, BlockMapping> Mapping, byte neededValue) {
+        return (Mapping.containsKey(String.valueOf(neededValue)));
     }
 
 

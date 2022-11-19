@@ -54,45 +54,6 @@
     "Trap": "minecraft:dispenser",
     "orc_bomb,crafting_tables,orc_bomb,khamul_fire,hearth,vegetables": ""
   },
-  "BlockIdToName": {
-    "0": "minecraft:air",
-    "1": "minecraft:stone",
-    "2": "minecraft:grass",
-    "3": "minecraft:dirt",
-    "4": "minecraft:cobblestone",
-    "5": "minecraft:planks",
-    "6": "minecraft:oak_sapling",
-    "7": "minecraft:bed_rock",
-    "8": "minecraft:flowing_water",
-    "9": "minecraft:water",
-    "12": "minecraft:sand",
-    "13": "minecraft:gravel",
-    "14": "minecraft:gold_ore",
-    "15": "minecraft:iron_ore",
-    "16": "minecraft:coal_ore",
-    "17": "minecraft:oak_log",
-    "35": "minecraft:wool",
-    "37": "minecraft:dandelion",
-    "38": "minecraft:poppy",
-    "39": "minecraft:brown_mushroom",
-    "40": "minecraft:red_mushroom",
-    "45": "minecraft:bricks",
-    "50": "minecraft:torch",
-    "53": "minecraft:oak_stairs",
-    "54": "minecraft:chest",
-    "58": "minecraft:crafting_table",
-    "59": "minecraft:wheat",
-    "60": "minecraft:farmland",
-    "61": "minecraft:furnace",
-    "62": "minecraft:lit_furnace",
-    "67": "minecraft:cobblestone_stairs",
-    "85": "minecraft:oak_fence",
-    "-70": "lotr:tile.brick",
-    "-97": "minecraft:stained_hardened_clay",
-    "-84": "minecraft:hardened_clay",
-    "82": "minecraft:clay",
-    "102": "minecraft:glass_pane"
-  },
   "BlockMappings": {
     "minecraft:oak_button": {
       "1": {
@@ -166,11 +127,6 @@
           "facing": "south",
           "powered": "true"
         }
-      }
-    },
-    "": {
-      "0": {
-        "name": ""
       }
     },
     "minecraft:farmland": {
