@@ -42,7 +42,8 @@ public class Util {
         FilenameFilter filter = (f1, name) -> {
             if (new File(f1, name).isDirectory()) {
                 return new File(f1, name + "/datapacks").exists();
-            } else {
+            }
+            else {
                 return false;
             }
         };
@@ -65,16 +66,11 @@ public class Util {
                 } catch (Exception e) {
                     System.out.println("Invalid selection");
                     return renewedWorldSelector();
-
                 }
-            } else {
-                System.out.println("no legacy worlds found, are you sure you placed this file in the right directory?");
-                return Optional.empty();
             }
-        } else {
-            System.out.println("no legacy worlds found, are you sure you placed this file in the right directory?");
-            return Optional.empty();
         }
+        System.out.println("no legacy worlds found, are you sure you placed this file in the right directory?");
+        return Optional.empty();
     }
 
     /**
@@ -93,7 +89,8 @@ public class Util {
         FilenameFilter filter = (f1, name) -> {
             if (new File(f1, name).isDirectory()) {
                 return new File(f1, name + "/MiddleEarth").exists();
-            } else {
+            }
+            else {
                 return false;
             }
         };
@@ -118,11 +115,13 @@ public class Util {
                     return legacyWorldSelector();
                 }
 
-            } else {
+            }
+            else {
                 System.out.println("no renewed worlds found, are you sure you placed this file in the right directory?");
                 return Optional.empty();
             }
-        } else {
+        }
+        else {
             System.out.println("no renewed worlds found, are you sure you placed this file in the right directory?");
             return Optional.empty();
         }
@@ -131,12 +130,12 @@ public class Util {
     /**
      * Creates a CompoundMap with contents pre-added
      *
-     * @param Tags {@link Tag}s to be added
+     * @param tags {@link Tag}s to be added
      * @return {@link CompoundMap} with the given tags as content
      */
-    public static CompoundMap createCompoundMapWithContents(Tag<?>... Tags) {
+    public static CompoundMap createCompoundMapWithContents(Tag<?>... tags) {
         CompoundMap m = new CompoundMap();
-        for (Tag<?> t : Tags) {
+        for (Tag<?> t : tags) {
             if (t != null) m.put(t);
         }
         return m;
@@ -145,12 +144,12 @@ public class Util {
     /**
      * Removes entries from a given {@link CompoundMap}
      *
-     * @param m          {@link CompoundMap}
+     * @param map        {@link CompoundMap}
      * @param conditions {@link String} varargs
      */
-    public static void compoundMapVarArgRemover(CompoundMap m, String... conditions) {
+    public static void compoundMapVarArgRemover(CompoundMap map, String... conditions) {
         for (String t : conditions) {
-            m.remove(t);
+            map.remove(t);
         }
     }
 
@@ -193,5 +192,7 @@ public class Util {
     /**
      * Gets the first or last 4 bytes from the provided byte array
      */
-    public static byte nibble4(byte[] arr, int index){ return (byte) (index%2 == 0 ? arr[index/2]&0x0F : (arr[index/2]>>4)&0x0F); }
+    public static byte nibble4(byte[] arr, int index) {
+        return (byte) (index % 2 == 0 ? arr[index / 2] & 0x0F : (arr[index / 2] >> 4) & 0x0F);
+    }
 }

@@ -29,19 +29,15 @@ public class PlayerData implements Convertor {
 
     /**
      * @param p        path of the folder where files are copied
-     * @param FileName name of the to be modified files
+     * @param fileName name of the to be modified files
      * @throws IOException if something fails
      */
     @Override
-    public void modifier(Path p, String FileName) throws IOException {
-        //Map<Integer,String> legacyIds = misterymob475.data.Data.legacyIds(Paths.get(p + "/" + FileName+ "/level.dat").toAbsolutePath().toString());
-        Files.createDirectory(Paths.get(p + "/" + FileName + "_Converted/playerdata"));
+    public void modifier(Path p, String fileName) throws IOException {
+        Files.createDirectory(Paths.get(p + "/" + fileName + "_Converted/playerdata"));
         //level.dat fixer/modifier
-        //File renewedWorld = new File(p+"/"+this.pathName+"/level.dat");
 
-        //try {
-        //heavier filter on here to only use the current .dat's and not the old ones
-        File currentFolder = new File(Paths.get(p + "/" + FileName + "/playerdata").toString());
+        File currentFolder = new File(Paths.get(p + "/" + fileName + "/playerdata").toString());
         File[] curDirList = currentFolder.listFiles((dir, name) -> name.toLowerCase().endsWith(".dat"));
         int i = 1;
         if (curDirList != null) {
@@ -52,24 +48,16 @@ public class PlayerData implements Convertor {
                     final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
                     input.close();
 
-                    //because of the way playerdata is stored in the level.dat I have moved the fixer to a slightly different function lmao
-                    CompoundMap originalData = originalTopLevelTag.getValue();
-                    //this way I can modify the map directly, instead of regenerating it every time
-                    CompoundMap newData = new CompoundMap(originalData);
-//
                     Fixers fixers = new Fixers();
-                    fixers.playerFixer(newData);
-//
+                    CompoundMap map = new CompoundMap(originalTopLevelTag.getValue());
+                    fixers.playerFixer(map);
 
-                    final CompoundTag newTopLevelTag = new CompoundTag("", newData);
-                    //(new File(Paths.get(p +"/"+FileName+"_Converted/playerdata/" + f.getName()).toString())).getAbsolutePath()
-                    //final NBTOutputStream output = new NBTOutputStream(new FileOutputStream(f));
+                    final CompoundTag topLevelTag = new CompoundTag("", map);
 
-                    String PathToUse = p + "/" + FileName + "_Converted/playerdata/" + f.getName();
-                    //System.out.println(Paths.get(PathToUse));
-                    final NBTOutputStream output = new NBTOutputStream(Files.newOutputStream(Paths.get((new File(Paths.get(PathToUse)
+                    String path = p + "/" + fileName + "_Converted/playerdata/" + f.getName();
+                    final NBTOutputStream output = new NBTOutputStream(Files.newOutputStream(Paths.get((new File(Paths.get(path)
                                                                                                                          .toString())).getAbsolutePath())));
-                    output.writeTag(newTopLevelTag);
+                    output.writeTag(topLevelTag);
                     output.close();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -79,23 +67,5 @@ public class PlayerData implements Convertor {
             }
             stringCache.printLine("converted all the playerdata");
         }
-
-            /*
-
-
-        }
-        //took this out of an example I found, changed it as my ide wanted me to
-        catch (final ClassCastException | NullPointerException ex) {
-            throw new IOException("Error during playerdata fixing");
-        }
-             */
-        //planning for playerdata:
-        //note: for blocks the "Damage" ShortTag is actually the second id: regular dwarven brick = (Usually) 186 with 'Damage' 6, 'Damage' is always the same, id is not though
-        //items are present in "EnderItems" & "Inventory" (+ tile entities and such ofc, but those will only get looked at once regular blocks have been converted which will take a very long time)
-
-        // 'fixer' will have to be called recursively due to pouches/ cracker with a max conversion depth (probably 7 or something like that), might put in a pieced of paper saying max depth reached or something similar
-        // will have to look up 'special tags', so I have to modify the existing stream (i.e. make a map of it and replace it)
     }
-
-
 }

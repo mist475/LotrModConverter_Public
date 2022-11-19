@@ -2,8 +2,8 @@ package misterymob475;
 
 import de.piegames.nbt.*;
 import de.piegames.nbt.regionfile.Chunk;
-import misterymob475.data.Conversions.BlockMapping;
 import misterymob475.data.Conversions;
+import misterymob475.data.Conversions.BlockMapping;
 import misterymob475.data.Data;
 
 import java.io.IOException;
@@ -18,7 +18,8 @@ public class Fixers {
     private static final Data DATA = Data.getInstance();
     private static final StringCache STRINGCACHE = StringCache.getInstance();
 
-    public Fixers() {}
+    public Fixers() {
+    }
 
     /**
      * Fixes entities
@@ -29,7 +30,6 @@ public class Fixers {
      */
     @SuppressWarnings("unchecked")
     public Optional<CompoundMap> EntityFixer(CompoundMap Entity, Boolean Important) throws IOException {
-        //return Optional.empty();
         //Temporary measure to prevent crashes as this is still unfinished atm
         //Determines the actual mob
         if (Entity.containsKey("id")) {
@@ -40,39 +40,47 @@ public class Fixers {
                         if (Entity.get("Type").getValue().equals((byte) 1)) {
                             Entity.replace("id", new StringTag("id", "minecraft:donkey"));
                             Entity.remove("Variant");
-                        } else if (Entity.get("Type").getValue().equals((byte) 2)) {
+                        }
+                        else if (Entity.get("Type").getValue().equals((byte) 2)) {
                             Entity.replace("id", new StringTag("id", "minecraft:mule"));
                             Entity.remove("Variant");
-                        } else if (Entity.get("Type").getValue().equals((byte) 3)) {
+                        }
+                        else if (Entity.get("Type").getValue().equals((byte) 3)) {
                             Entity.replace("id", new StringTag("id", "minecraft:zombie_horse"));
                             Entity.remove("Variant");
-                        } else if (Entity.get("Type").getValue().equals((byte) 1)) {
+                        }
+                        else if (Entity.get("Type").getValue().equals((byte) 1)) {
                             Entity.replace("id", new StringTag("id", "minecraft:skeleton_horse"));
                             Entity.remove("Variant");
-                        } else Entity.replace("id", new StringTag("id", "minecraft:horse"));
+                        }
+                        else Entity.replace("id", new StringTag("id", "minecraft:horse"));
                     }
 
-                    //I think these are actually bypassed but oh well
                     //code for turning camels into donkeys (to keep the storage)
                     else if (Entity.get("id").getValue().equals("lotr.Camel")) {
                         Entity.remove("Type");
                         Entity.replace("id", new StringTag("id", "minecraft:donkey"));
-                    } else if (Entity.get("id").getValue().equals("lotr.Horse")) {
+                    }
+                    else if (Entity.get("id").getValue().equals("lotr.Horse")) {
                         //this is temporary, when blocks work I'm gonna finish this function, there's still lotr-related stuff missing
                         Entity.remove("Type");
                         Entity.replace("id", new StringTag("id", "minecraft:donkey"));
-                    } else {
+                    }
+                    else {
                         Entity.replace("id", new StringTag("id", DATA.entities.get((String) (Entity.get("id")
                                 .getValue()))));
                     }
                     Entity.remove("Type");
-                } else STRINGCACHE.printLine("No mapping found for Entity: " + Entity.get("id")
+                }
+                else STRINGCACHE.printLine("No mapping found for Entity: " + Entity.get("id")
                         .getValue() + " - It probably hasn't been ported yet", false);
-            } else {
+            }
+            else {
                 STRINGCACHE.printLine("No mapping found for Entity: " + Entity.get("id").getValue(), false);
                 return Optional.empty();
             }
-        } else return Optional.empty();
+        }
+        else return Optional.empty();
         //if Important, entity will always be saved, otherwise entity will only be saved if it maxes sense (Utumno mobs will get deleted)
         boolean inUtumno = false;
 
@@ -90,8 +98,10 @@ public class Fixers {
                 if (Important) {
                     newDimension = "lotr:middle_earth"; //utumno doesn't exist yet
                     inUtumno = true;
-                } else return Optional.empty();
-            } else newDimension = "minecraft:overworld";
+                }
+                else return Optional.empty();
+            }
+            else newDimension = "minecraft:overworld";
             Entity.replace("Dimension", new StringTag("Dimension", newDimension));
         }
 
@@ -111,8 +121,9 @@ public class Fixers {
             Entity.replace("SaddleItem", new CompoundTag("SaddleItem", Util.createCompoundMapWithContents(new ByteTag("Count", (byte) 1), new StringTag("id", "minecraft:saddle"))));
         }
 
-        // I've had enough of this for know
         /*
+        I've had enough of this for know
+
         Attributes fixer, I can leave unknown tags here as they will get deleted otherwise (new in 1.16)
         Zombie reinforcement caller charge
         Random zombie-spawn bonus
@@ -203,17 +214,6 @@ public class Fixers {
                     .getAsStringTag()).ifPresent(stringTag -> Entity.put("Owner", uuidFixer(stringTag, "Owner")));
         }
 
-
-/*
-        Not needed anymore, I added these to debug inventories nog getting saved properly.
-        However, that was because I called recurItemFixer the wrong way again
-        Entity.put("CanUpdate",new ByteTag("CanUpdate",(byte)1));
-        Entity.put("FallFlying",new ByteTag("FallFlying",(byte)0));
-        Entity.put("ForcedAge",new IntTag("ForcedAge",0));
-        Entity.put("HurtByTimestamp",new IntTag("HurtByTimestamp",0));
- */
-
-
         /*
         ForgeData has to do with the lotr mod, it's not present in renewed, so I simply removed it for now
         DropChances will regenerate, removed as I'm not sure if there's a format change or not
@@ -246,7 +246,7 @@ public class Fixers {
     /**
      * Fixes entities mounted by players or other entities
      *
-     * @param Entity      {@link CompoundMap} containing entity data
+     * @param Entity {@link CompoundMap} containing entity data
      * @return fixed {@link CompoundMap} of entity content
      * @throws IOException if something fails
      */
@@ -264,7 +264,8 @@ public class Fixers {
         if (OEntity_map.isPresent()) {
             RootVehicle.put("Entity", new CompoundTag("Entity", OEntity_map.get()));
             return Optional.of(RootVehicle);
-        } else return Optional.empty();
+        }
+        else return Optional.empty();
     }
 
     /**
@@ -312,7 +313,8 @@ public class Fixers {
             if (Riding.isPresent()) {
                 CompoundTag RootVehicle = new CompoundTag("RootVehicle", Riding.get());
                 newData.replace("Riding", RootVehicle);
-            } else newData.remove("Riding");
+            }
+            else newData.remove("Riding");
         }
 
         if (DATA.settings.isCreativeSpawn()) {
@@ -342,7 +344,8 @@ public class Fixers {
             else if (Dimension == 101) {
                 newDimension = "lotr:middle_earth"; //utumno doesn't exist yet
                 inUtumno = true;
-            } else newDimension = "minecraft:overworld";
+            }
+            else newDimension = "minecraft:overworld";
             newData.replace("Dimension", new StringTag("Dimension", newDimension));
         }
 
@@ -412,7 +415,8 @@ public class Fixers {
                 for (CompoundTag itemCompoundTag : itemList) {
                     (recurItemFixer(itemCompoundTag, depth, exceptionMessage)).ifPresent(tags -> itemListBuilder.add(new CompoundTag("", tags)));
                 }
-            } else {
+            }
+            else {
                 //if this actually gets triggered someone has been annoying on purpose, and you're dealing with an old worlds as triggering this is only possible in older versions of the lotr mod
                 STRINGCACHE.printLine("Maximum set recursion depth reached (default = 7, defined in JSON)", false);
             }
@@ -443,11 +447,13 @@ public class Fixers {
                         int idValue = OShortIDTag.get().getValue();
                         if (DATA.legacyIds.containsKey(idValue)) {
                             OStringID = Optional.of(DATA.legacyIds.get(idValue));
-                        } else {
+                        }
+                        else {
                             //this should never happen as I gather these ids dynamically
                             STRINGCACHE.printLine("No string id found for id: " + idValue);
                         }
-                    } else if (OStringIDTag.isPresent()) {
+                    }
+                    else if (OStringIDTag.isPresent()) {
                         //String id found instead of short id (apparently possible as I found my old world had this)
                         OStringID = Optional.of(OStringIDTag.get().getValue());
                     }
@@ -469,7 +475,8 @@ public class Fixers {
                                         Optional<IntTag> CastPrevention = filler.get("PouchColor").getAsIntTag();
                                         OPouchColor = CastPrevention.map(intTag -> new IntTag("Color", intTag.getValue()));
                                         filler.remove("PouchColor");
-                                    } else {
+                                    }
+                                    else {
                                         OPouchColor = Optional.empty();
                                     }
 
@@ -480,8 +487,10 @@ public class Fixers {
                                                     .getAsCompoundTag();
                                             if (OLOTRPouchData.isPresent()) {
                                                 LOTRPouchData = OLOTRPouchData.get().getValue();
-                                            } else LOTRPouchData = new CompoundMap();
-                                        } else {
+                                            }
+                                            else LOTRPouchData = new CompoundMap();
+                                        }
+                                        else {
                                             LOTRPouchData = new CompoundMap();
                                         }
 
@@ -554,7 +563,8 @@ public class Fixers {
                                 itemCompoundMap.remove("Damage");
                                 itemCompoundMap.replace("tag", new CompoundTag("tag", filler));
                                 return Optional.of(itemCompoundMap);
-                            } else if (item.size() == 1) {
+                            }
+                            else if (item.size() == 1) {
 
                                 //code for single idTag values (mostly items, stairs) here
                                 //simply carries over all the tags, except the idTag, which gets modified to the new one. moves the damage tag to its new location and changes it to an IntTag(was ShortTag before)
@@ -626,9 +636,11 @@ public class Fixers {
                                                 Optional<Tag<?>> ODamage = Util.getAsTagIfExists(itemCompoundMap, TagType.TAG_SHORT, "Damage");
                                                 if (ODamage.isPresent()) {
                                                     filler.put("Damage", (new IntTag("Damage", ((ShortTag) ODamage.get()).getValue())));
-                                                } else
+                                                }
+                                                else
                                                     STRINGCACHE.printLine("No damage tag found or damage is not a short");
-                                            } else {
+                                            }
+                                            else {
                                                 //enchanted books
                                                 for (CompoundTag ench_t : ((ListTag<CompoundTag>) filler.get("StoredEnchantments")).getValue()) {
                                                     CompoundMap ench = new CompoundMap((ench_t.getValue()));
@@ -664,7 +676,8 @@ public class Fixers {
                                             if (potion.isSplash())
                                                 itemCompoundMap.replace("id", new StringTag("id", "minecraft:splash_potion"));
                                             else itemCompoundMap.replace("id", new StringTag("id", "minecraft:potion"));
-                                        } else itemCompoundMap.replace("id", new StringTag("id", "minecraft:potion"));
+                                        }
+                                        else itemCompoundMap.replace("id", new StringTag("id", "minecraft:potion"));
                                     }
                                     //map fixer (very simple thankfully)
                                     else if (item.get(0).equals("minecraft:filled_map")) {
@@ -672,7 +685,8 @@ public class Fixers {
                                             filler.put("map", new IntTag("map", (int) ((Short) itemCompoundMap.get("Damage")
                                                     .getValue())));
                                         }
-                                    } else {
+                                    }
+                                    else {
                                         Optional<Tag<?>> ODamage = Util.getAsTagIfExists(itemCompoundMap, TagType.TAG_SHORT, "Damage");
                                         if (ODamage.isPresent()) {
                                             if (((ShortTag) ODamage.get()).getValue() != 0) {
@@ -706,7 +720,8 @@ public class Fixers {
                                                 .getValue()).toString())));
                                         itemCompoundMap.remove("Damage");
                                         return Optional.of(itemCompoundMap);
-                                    } else
+                                    }
+                                    else
                                         STRINGCACHE.printLine("No vanilla spawn Egg found for Damage value : " + itemCompoundMap.get("Damage")
                                                 .getValue(), false);
                                 }
@@ -723,13 +738,16 @@ public class Fixers {
                                                 .getValue()).toString())));
                                         itemCompoundMap.remove("Damage");
                                         return Optional.of(itemCompoundMap);
-                                    } else
+                                    }
+                                    else
                                         STRINGCACHE.printLine("No lotr mod spawn Egg found for Damage value : " + itemCompoundMap.get("Damage")
                                                 .getValue(), false);
-                                } else {
+                                }
+                                else {
                                     STRINGCACHE.printLine("No mapping found for legacy id: " + StringID, false);
                                 }
-                            } else {
+                            }
+                            else {
                                 Optional<Tag<?>> ODamage = Util.getAsTagIfExists(itemCompoundMap, TagType.TAG_SHORT, "Damage");
                                 if (ODamage.isPresent()) {
                                     //code for blocks/some items here
@@ -743,16 +761,19 @@ public class Fixers {
                                         itemCompoundMap.remove("Damage");
                                         itemCompoundMap.replace("id", new StringTag("id", item.get(Damage)));
                                         return Optional.of(itemCompoundMap);
-                                    } else
+                                    }
+                                    else
                                         STRINGCACHE.printLine("No mapping found for " + StringID + ":" + Damage, false);
                                 }
                             }
-                        } else {
+                        }
+                        else {
                             STRINGCACHE.printLine("No mapping found for id: " + StringID, false);
                         }
                     }
 
-                } else {
+                }
+                else {
                     STRINGCACHE.printLine("Empty tag found, skipping", false);
                 }
             }
@@ -799,7 +820,8 @@ public class Fixers {
         if (!UUID_t.getValue().equals("")) {
             UUID uuid = UUID.fromString(UUID_t.getValue());
             return uuidFixer(new LongTag("", uuid.getMostSignificantBits()), new LongTag("", uuid.getLeastSignificantBits()), name);
-        } else
+        }
+        else
             return new IntArrayTag(name, new int[]{0, 0, 0, 0}); //Not sure if game reads this correctly, otherwise the entire tag might have to be removed instead, this is purely to prevent a crash when the uuid is non-existent
     }
 
@@ -971,7 +993,8 @@ public class Fixers {
                         if (Data1.get("generatorName").getValue().equals("meClassic"))
                             biome_source1.replace("classic_biomes", new ByteTag("classic_biomes", (byte) 1));
                         else biome_source1.replace("classic_biomes", new ByteTag("classic_biomes", (byte) 0));
-                    } else generatorMap1.replace("instant_middle_earth", new ByteTag("instant_middle_earth", (byte) 0));
+                    }
+                    else generatorMap1.replace("instant_middle_earth", new ByteTag("instant_middle_earth", (byte) 0));
 
                     generatorMap1.replace("biome_source", new CompoundTag("biome_source", biome_source1));
                     meDimension.replace("generator", new CompoundTag("generator", generatorMap1));
@@ -1007,7 +1030,8 @@ public class Fixers {
                         settings_map.put("layers", new ListTag<>("layers", TagType.TAG_COMPOUND, layers_list));
 
                         generatorMap2.put("settings", new CompoundTag("settings", settings_map));
-                    } else {
+                    }
+                    else {
                         generatorMap2.replace("seed", new LongTag("seed", (Long) Data1.get("RandomSeed").getValue()));
                         CompoundMap biome_source2;
                         Optional<Tag<?>> OBiome_source2 = Util.getAsTagIfExists(generatorMap2, TagType.TAG_COMPOUND, "biome_source");
@@ -1293,7 +1317,8 @@ public class Fixers {
 
         if (Objects.equals(originalData.get("TeleportedME").getValue(), (byte) 1)) {
             originalData.replace("TeleportedME", (new ByteTag("InitialSpawnedIntoME", (byte) 0)));
-        } else {
+        }
+        else {
             originalData.replace("TeleportedME", (new ByteTag("InitialSpawnedIntoME", (byte) 1)));
         }
 
@@ -1301,7 +1326,8 @@ public class Fixers {
         if (Objects.equals(originalData.get("FemRankOverride").getValue(), (byte) 0)) {
             originalData.put("RankGender", (new StringTag("RankGender", "M")));
 
-        } else {
+        }
+        else {
             originalData.put("RankGender", (new StringTag("RankGender", "F")));
             // "FLOPPA_CAT" Mevans, really?
         }
@@ -1310,7 +1336,8 @@ public class Fixers {
         if (originalData.containsKey("HideOnMap")) {
             if (Objects.equals(originalData.get("HideOnMap").getValue(), (byte) 1)) {
                 originalData.replace("HideOnMap", new ByteTag("ShowMapLocation", (byte) 0));
-            } else {
+            }
+            else {
                 originalData.replace("HideOnMap", new ByteTag("ShowMapLocation", (byte) 1));
             }
         }
@@ -1319,7 +1346,7 @@ public class Fixers {
     /**
      * Fixes tile/block entities
      *
-     * @param map         {@link CompoundMap} containing the old TileEntity tag data
+     * @param map {@link CompoundMap} containing the old TileEntity tag data
      * @return {@link Optional} of type {@link CompoundMap} with fixed data if present, empty otherwise
      */
     @SuppressWarnings("unchecked")
@@ -1397,7 +1424,8 @@ public class Fixers {
                             if (map.containsKey("IsLit")) {
                                 (map.get("IsLit")
                                         .getAsByteTag()).ifPresent(byteTag -> map.put(new ByteTag("IsBurning", (byteTag).getValue())));
-                            } else map.put(new ByteTag("IsBurning", (byte) 0));
+                            }
+                            else map.put(new ByteTag("IsBurning", (byte) 0));
                             break;
                         }
                         case "lotr:plate": {
@@ -1405,7 +1433,8 @@ public class Fixers {
                                 (map.get("FoodItem")
                                         .getAsCompoundTag()).flatMap(compoundTag -> (recurItemFixer(compoundTag, 0, "Exception during plate item fix")))
                                         .ifPresent(tags -> map.replace("FoodItem", new CompoundTag("FoodItem", tags)));
-                            } else map.put(new CompoundTag("FoodItem", new CompoundMap()));
+                            }
+                            else map.put(new CompoundTag("FoodItem", new CompoundMap()));
                             map.remove("PlateEmpty");
                             break;
                         }
@@ -1460,7 +1489,8 @@ public class Fixers {
                                         .getAsCompoundTag()).flatMap(compoundTag -> (recurItemFixer(compoundTag, 0, "Exception during mug item fix")))
                                         .ifPresent(tags -> map.replace("MugItem", new CompoundTag("DrinkItem", tags)));
 
-                            } else map.put(new CompoundTag("DrinkItem", new CompoundMap()));
+                            }
+                            else map.put(new CompoundTag("DrinkItem", new CompoundMap()));
                             map.remove("HasMugItem");
                             Optional<Tag<?>> OVessel = Util.getAsTagIfExists(map, TagType.TAG_BYTE, "Vessel");
                             if (OVessel.isPresent()) {
@@ -1502,22 +1532,28 @@ public class Fixers {
                                         map.replace("Vessel", new StringTag("Vessel", "golden_ale_horn"));
                                     }
                                 }
-                            } else map.put(new StringTag("Vessel", "wooden_mug"));
+                            }
+                            else map.put(new StringTag("Vessel", "wooden_mug"));
                             break;
                         }
                     }
                     //Needed for validation apparently
                     map.put(new ByteTag("keepPacked", (byte) 0));
                     RegularResult = Optional.of(map);
-                } else if (Objects.equals(id, "Music")) {
+                }
+                else if (Objects.equals(id, "Music")) {
                     Type = TileEntityFixerReturnType.Note_Block;
-                } else if (Objects.equals(id, "Cauldron")) {
+                }
+                else if (Objects.equals(id, "Cauldron")) {
                     Type = TileEntityFixerReturnType.Cauldron;
-                } else if (Objects.equals(id, "LOTRArmorStand")) {
+                }
+                else if (Objects.equals(id, "LOTRArmorStand")) {
                     Type = TileEntityFixerReturnType.Armour_Stand;
-                } else if (Objects.equals(id, "FlowerPot") || Objects.equals(id, "LOTRFlowerPot")) {
+                }
+                else if (Objects.equals(id, "FlowerPot") || Objects.equals(id, "LOTRFlowerPot")) {
                     Type = TileEntityFixerReturnType.Flower_Pot;
-                } else {
+                }
+                else {
                     //Unhandled items:
                     /*
                     UtumnoPortal
@@ -1525,7 +1561,8 @@ public class Fixers {
 
                     STRINGCACHE.printLine("unknown tile entity found with id: " + id);
                 }
-            } else {
+            }
+            else {
                 STRINGCACHE.printLine("No block entity id found for old id: " + Oid.get(), false);
             }
         }
@@ -1535,7 +1572,7 @@ public class Fixers {
     /**
      * Fixes the Block/Tile entity of Lotr mod forges and the vanilla furnace (partially)
      *
-     * @param map         {@link CompoundMap} to be fixed
+     * @param map {@link CompoundMap} to be fixed
      * @throws IOException when something fails
      */
     @SuppressWarnings("unchecked")
@@ -1547,12 +1584,14 @@ public class Fixers {
         if (map.containsKey("BurnTime")) {
             (map.get("BurnTime")
                     .getAsShortTag()).ifPresent(shortTag -> map.replace("BurnTime", new IntTag("BurnTime", shortTag.getValue())));
-        } else map.put("BurnTime", new IntTag("BurnTime", 0));
+        }
+        else map.put("BurnTime", new IntTag("BurnTime", 0));
         Optional<Tag<?>> OSmeltTime = Util.getAsTagIfExists(map, TagType.TAG_SHORT, "SmeltTime");
         if (OSmeltTime.isPresent()) {
             map.replace("SmeltTime", new IntTag("CookTime", ((Short) OSmeltTime.get().getValue()).intValue()));
             map.put(new IntTag("CookTimeTotal", ((Short) OSmeltTime.get().getValue()).intValue()));
-        } else {
+        }
+        else {
             map.put(new IntTag("CookTime", 0));
             map.put(new IntTag("CookTimeTotal", 0));
         }
@@ -1573,220 +1612,9 @@ public class Fixers {
     /**
      * Fixes the "Sections" of a chunk by calling the appropriate functions
      *
-     * @param Sections    {@link List} of type {@link CompoundTag} containing the sections
+     * @param Sections {@link List} of type {@link CompoundTag} containing the sections
      */
     public void sectionMapFixer(List<CompoundTag> Sections, List<TileEntityResult> EdgeCases) {
-        /*
-I created a flat-world with the 'the void' preset.
-In this world chunk 0,0 had a small stone platform with one block of cobblestone, except for that the chunk is empty
-The BlockStates Array has the following contents:
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-1229782938247303441  1229782938247303441
-1229782938247303441  1229782938247303441
-1229782938247303441  1229782938247303441
-1229782938247303441  1229782938247303441
-1229782942542270737  1229782938247303441
-1229782938247303441  1229782938247303441
-1229782938247303441  1229782938247303441
-1229782938247303441  1229782938247303441
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-0  0
-
-This doesn't tell much on it's own though, here is the palette:
-"minecraft:air"
-"minecraft:stone"
-"minecraft:cobblestone"
-
-what we expect are a lot of zeros (we can see that, a few longs with only references to 1 (stone) and 1 with a reference to 2 (cobblestone))
-
-disregarding the zeros, these longs count for this test:
-
-1229782938247303441  1229782938247303441
-1229782938247303441  1229782938247303441
-1229782938247303441  1229782938247303441
-1229782938247303441  1229782938247303441
-1229782942542270737  1229782938247303441
-1229782938247303441  1229782938247303441
-1229782938247303441  1229782938247303441
-1229782938247303441  1229782938247303441
-
-as you can see, of them is different from the others.
-Now lets view these in binary form:
-1229782938247303441 -> 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001
-1229782942542270737 -> 0001 0001 0001 0001 0001 0001 0001 0010 0001 0001 0001 0001 0001 0001 0001 0001
-
-as you can see, with 4 bits per block all of these belong to stone except for one
-
-because of this, constructing the longs shouldn't be too difficult
-
-except it's still difficult, as 4 bits per index only allows for 16 BlockStates per section, whereas you can have a lot more than that.
-The format changes depending on the size of the palette, though more than 6 bits per index is pretty rare
-
-as you always have 4096 blocks in a section (counting air obviously) you can have the following bits per index technically (minimum is 4)
-* 1 (palette of up to 2)
-* 2 (palette of up to 4)
-* 3 (palette of up to 8)
-* 4 (palette of up to 16, games minimum)
-* 5 (palette of up to 32)
-* 6 (palette of up to 64)
-* 7 (palette of up to 128)
-* 8 (palette of up to 256)
-* 9 (palette of up to 512)
-* 10 (palette of up to 1024)
-* 11 (palette of up to 2048)
-* 12 (palette of up to 4096)
-
-
-
-
-
-
-
-issues:
-1229782938247303441 -> 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001 0001
-        */
-
-        /*
-        Splits up the EdgeCases into a HashMap, so I won't have to loop through them all for every section
-         */
-        /*
-        HashMap<Byte, List<TileEntityResult>> Sorter = new HashMap<>();
-        for (TileEntityResult EdgeCase : EdgeCases) {
-            if (EdgeCase.getContent().isPresent()) {
-                CompoundMap EdgeCaseContent = EdgeCase.getContent().get();
-                if (EdgeCaseContent.containsKey("y")) {
-                    Optional<IntTag> OYCoordinate = EdgeCaseContent.get("y").getAsIntTag();
-                    if (OYCoordinate.isPresent()) {
-                        byte y = Util.sectionHeight(OYCoordinate.get().getValue());
-                        if (Sorter.containsKey(y)) {
-                            //Sorter.put(Util.sectionHeight(y), Collections.singletonList(EdgeCase));
-                        } else {
-                            //TODO: fix
-                            //Sorter.get(y).add(EdgeCase);
-                        }
-                    }
-                }
-            }
-        }
-
-         */
         for (int i = 0; i < Sections.size(); i++) {
             CompoundMap SectionCompoundMap = Sections.get(i).getValue();
             List<CompoundTag> PaletteBuilderList = new ArrayList<>();
@@ -1801,7 +1629,7 @@ issues:
             Optional<ByteArrayTag> ODataByteArray = SectionCompoundMap.get("Data").getAsByteArrayTag();
             Optional<ByteArrayTag> OAddByteArray;
             if (SectionCompoundMap.containsKey("Add")) {
-                OAddByteArray =SectionCompoundMap.get("Add").getAsByteArrayTag();
+                OAddByteArray = SectionCompoundMap.get("Add").getAsByteArrayTag();
             }
             else {
                 OAddByteArray = Optional.empty();
@@ -1830,7 +1658,7 @@ issues:
                              */
                             for (int DataCounter = 0; DataCounter < 4096; DataCounter++) {
 
-                                int blockId = Util.combine(BlocksByteArray[DataCounter], Util.nibble4(AddByteArray,DataCounter));
+                                int blockId = Util.combine(BlocksByteArray[DataCounter], Util.nibble4(AddByteArray, DataCounter));
 
                                 if (DATA.legacyIds.containsKey(blockId)) {
                                     String legacyId = DATA.legacyIds.get(blockId);
@@ -1865,7 +1693,7 @@ issues:
                                     }
                                      */
                                     if (DATA.blockMappings.containsKey(legacyId)) {
-                                        byte neededValue = Util.nibble4(DataByteArray,DataCounter);
+                                        byte neededValue = Util.nibble4(DataByteArray, DataCounter);
                                         BlockPaletteReferences[DataCounter] = addPaletteEntryIfNecessary(DATA.blockMappings.get(legacyId), PaletteCheckerList, PaletteBuilderList, neededValue);
                                     }
                                 }
@@ -1881,7 +1709,8 @@ issues:
                             SectionCompoundMap.put(new LongArrayTag("BlockStates", blockStateGenerator(PaletteCheckerList, BlockPaletteReferences)));
                             Sections.set(i, new CompoundTag("", SectionCompoundMap));
 
-                        } else {
+                        }
+                        else {
                             STRINGCACHE.printLine("Invalid section format!", false);
                         }
                     }
@@ -1922,7 +1751,8 @@ issues:
                 BlockStates[ExternalLongPosition] = blockStateLongUpdater(BlockStates[ExternalLongPosition], PaletteReferences[i], bitsPerIndex, InternalLongPosition);
             }
 
-        } else BlockStates = new long[256]; //returns an empty section with bpi of 4
+        }
+        else BlockStates = new long[256]; //returns an empty section with bpi of 4
         return BlockStates;
     }
 
@@ -1987,20 +1817,20 @@ issues:
     }
 
     public boolean entryExists(Map<String, BlockMapping> Mapping, byte neededValue) {
-        return (Mapping.containsKey(String.valueOf(neededValue)));
+        return Mapping.containsKey(String.valueOf(neededValue));
     }
 
 
     /**
-     * Fixes Chunk {@link CompoundMap}
+     * Fixes chunk {@link CompoundMap}
      *
-     * @param Chunk {@link CompoundMap} of a chunk
+     * @param chunk {@link CompoundMap} of a chunk
      */
     @SuppressWarnings("unchecked")
-    public void chunkFixer(CompoundMap Chunk) throws IOException {
-        Optional<Tag<?>> OLevel = Util.getAsTagIfExists(Chunk, TagType.TAG_COMPOUND, "Level");
-        if (OLevel.isPresent()) {
-            CompoundMap level = (CompoundMap) OLevel.get().getValue();
+    public void chunkFixer(CompoundMap chunk) throws IOException {
+        Optional<Tag<?>> oLevel = Util.getAsTagIfExists(chunk, TagType.TAG_COMPOUND, "Level");
+        if (oLevel.isPresent()) {
+            CompoundMap level = (CompoundMap) oLevel.get().getValue();
             //Will regenerate the biomes automatically, might cause some weird things with older worlds, but it isn't a priority right now
             level.remove("Biomes");
             //I don't know what this does, it isn't present in newer versions I know that for sure
@@ -2013,7 +1843,7 @@ issues:
             level.remove("Heightmap");
 
             //Used for retaining data that changed format e.i. lotr armour stands (tile-entities) to vanilla armour stands (regular entities) but also flower pots and cauldrons (no longer tile entities, instead stored data in palette)
-            List<TileEntityResult> EdgeCases = new ArrayList<>();
+            List<TileEntityResult> edgeCases = new ArrayList<>();
         /*
         In time this will also have to communicate with EntityFixer and sectionMapFixer as some things changed namely:
         - Flower pots are no longer block entities, instead everything that can be put into a flower pot has the placed id ...:potted_...
@@ -2027,15 +1857,15 @@ issues:
          */
             Optional<Tag<?>> OBlockEntities = Util.getAsTagIfExists(level, TagType.TAG_LIST, "TileEntities");
             if (OBlockEntities.isPresent()) {
-                ListTag<CompoundTag> TileEntities = (ListTag<CompoundTag>) OBlockEntities.get();
-                List<CompoundTag> TileEntityBuilder = new ArrayList<>();
+                ListTag<CompoundTag> tileEntities = (ListTag<CompoundTag>) OBlockEntities.get();
+                List<CompoundTag> tileEntityBuilder = new ArrayList<>();
 
-                for (CompoundTag t : TileEntities.getValue()) {
+                for (CompoundTag t : tileEntities.getValue()) {
                     TileEntityResult result = blockEntityFixer(t.getValue());
                     if (result.getContent().isPresent()) {
                         switch (result.getType()) {
                             case Regular: {
-                                TileEntityBuilder.add(new CompoundTag("", result.getContent().get()));
+                                tileEntityBuilder.add(new CompoundTag("", result.getContent().get()));
                                 break;
                             }
                             case Armour_Stand:
@@ -2043,15 +1873,15 @@ issues:
                             case Ent_Jar:
                             case Flower_Pot:
                             case Note_Block: {
-                                EdgeCases.add(result);
+                                edgeCases.add(result);
                                 break;
                             }
                             case ChestOrTrappedChest: {
-                                TileEntityBuilder.add(new CompoundTag("", result.getContent().get()));
+                                tileEntityBuilder.add(new CompoundTag("", result.getContent().get()));
                                 CompoundMap ChestOrTrappedChest = result.getContent().get();
                                 //Computationally less heavy to do this than to pass the items (I hope)
                                 ChestOrTrappedChest.remove("Items");
-                                EdgeCases.add(new TileEntityResult(Optional.of(ChestOrTrappedChest), TileEntityFixerReturnType.ChestOrTrappedChest));
+                                edgeCases.add(new TileEntityResult(Optional.of(ChestOrTrappedChest), TileEntityFixerReturnType.ChestOrTrappedChest));
                                 break;
                             }
                             case Null: {
@@ -2061,14 +1891,14 @@ issues:
                         }
                     }
                 }
-                level.replace("TileEntities", new ListTag<>("TileEntities", TagType.TAG_COMPOUND, TileEntityBuilder));
+                level.replace("TileEntities", new ListTag<>("TileEntities", TagType.TAG_COMPOUND, tileEntityBuilder));
             }
-            Optional<Tag<?>> OSections = Util.getAsTagIfExists(level, TagType.TAG_LIST, "Sections");
-            if (OSections.isPresent()) {
-                ListTag<CompoundTag> SectionsTag = (ListTag<CompoundTag>) OSections.get();
-                List<CompoundTag> Sections = SectionsTag.getValue();
-                sectionMapFixer(Sections, EdgeCases);
-                level.replace("Sections", new ListTag<>("Sections", TagType.TAG_COMPOUND, Sections));
+            Optional<Tag<?>> oSections = Util.getAsTagIfExists(level, TagType.TAG_LIST, "Sections");
+            if (oSections.isPresent()) {
+                ListTag<CompoundTag> sectionsTag = (ListTag<CompoundTag>) oSections.get();
+                List<CompoundTag> sections = sectionsTag.getValue();
+                sectionMapFixer(sections, edgeCases);
+                level.replace("Sections", new ListTag<>("Sections", TagType.TAG_COMPOUND, sections));
             }
                 /*
                 if (Level.containsKey("Entities")) {
@@ -2090,20 +1920,20 @@ issues:
             level.remove("Entities");
             //Needed for the game to try to use the changed data, otherwise it'll regenerate the chunks
             level.put(new StringTag("Status", "full"));
-            Chunk.replace("Level", new CompoundTag("Level", level));
+            chunk.replace("Level", new CompoundTag("Level", level));
             //This value triggers Mojang's own DataFixers so use with caution
-            Chunk.put(new IntTag("DataVersion", 2586));
+            chunk.put(new IntTag("DataVersion", 2586));
         }
     }
 
     /**
      * Fixes Regions
      *
-     * @param Chunks {@link HashMap} with key Position and Value Chunk
+     * @param chunks {@link HashMap} with key Position and Value Chunk
      * @return {@link HashMap} with the fixed chunks
      */
-    public HashMap<Integer, Chunk> regionFixer(HashMap<Integer, Chunk> Chunks) throws IOException {
-        for (Map.Entry<Integer, Chunk> entry : Chunks.entrySet()) {
+    public HashMap<Integer, Chunk> regionFixer(HashMap<Integer, Chunk> chunks) throws IOException {
+        for (Map.Entry<Integer, Chunk> entry : chunks.entrySet()) {
             Chunk chunk = entry.getValue();
             CompoundTag tag = chunk.readTag();
             CompoundMap map = tag.getValue();
@@ -2112,6 +1942,6 @@ issues:
             chunk = new Chunk(chunk.x, chunk.z, chunk.timestamp, tag, chunk.getCompression());
             entry.setValue(chunk);
         }
-        return Chunks;
+        return chunks;
     }
 }

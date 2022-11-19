@@ -33,17 +33,13 @@ public class DataFolder implements Convertor {
      * Modifies the files to work in Renewed
      *
      * @param p        path of the folder where files are copied
-     * @param FileName name of the to be modified files
+     * @param fileName name of the to be modified files
      */
     @Override
-    public void modifier(Path p, String FileName) throws IOException {
-        //in this file: fixers for idcounts.dat and map_%.dat files
-        //TODO: Rewrite using the proper way (previously impossible due to library restrictions)
-        File currentFolder = new File(Paths.get(p + "/" + FileName + "/data").toString());
-        Files.createDirectory(Paths.get(p + "/" + FileName + "_Converted/data"));
+    public void modifier(Path p, String fileName) throws IOException {
+        File currentFolder = new File(Paths.get(p + "/" + fileName + "/data").toString());
+        Files.createDirectory(Paths.get(p + "/" + fileName + "_Converted/data"));
         if (currentFolder.exists()) {
-            //idcounts fixer
-            //map fixer (should be a quickie)
             File[] curDirList = currentFolder.listFiles((dir, name) -> name.toLowerCase().startsWith("map_"));
             if (curDirList != null && curDirList.length > 0) {
                 int i = 1;
@@ -65,9 +61,9 @@ public class DataFolder implements Convertor {
 
                         originalData.replace("data", new CompoundTag("data", data));
                         final CompoundTag newTopLevelTag = new CompoundTag("", originalData);
-                        String PathToUse = p + "/" + FileName + "_Converted/data/" + mapFile.getName();
-                        //System.out.println(Paths.get(PathToUse));
-                        final NBTOutputStream output = new NBTOutputStream(Files.newOutputStream(Paths.get((new File(Paths.get(PathToUse)
+                        String pathToUse = p + "/" + fileName + "_Converted/data/" + mapFile.getName();
+                        //System.out.println(Paths.get(pathToUse));
+                        final NBTOutputStream output = new NBTOutputStream(Files.newOutputStream(Paths.get((new File(Paths.get(pathToUse)
                                                                                                                              .toString())).getAbsolutePath())));
                         output.writeTag(newTopLevelTag);
                         output.close();
@@ -91,9 +87,8 @@ public class DataFolder implements Convertor {
                             Optional<IntTag> newMap = tag.map(shortTag -> new IntTag("map", shortTag.getValue()));
                             if (newMap.isPresent()) {
                                 final CompoundTag newTopLevelTag = new CompoundTag("", Util.createCompoundMapWithContents(new CompoundTag("data", Util.createCompoundMapWithContents(newMap.get())), new IntTag("DataVersion", 2586)));
-                                String PathToUse = p + "/" + FileName + "_Converted/data/idcounts.dat";
-                                //System.out.println(Paths.get(PathToUse));
-                                final NBTOutputStream output = new NBTOutputStream(Files.newOutputStream(Paths.get((new File(Paths.get(PathToUse)
+                                String pathToUse = p + "/" + fileName + "_Converted/data/idcounts.dat";
+                                final NBTOutputStream output = new NBTOutputStream(Files.newOutputStream(Paths.get((new File(Paths.get(pathToUse)
                                                                                                                                      .toString())).getAbsolutePath())), NBTInputStream.NO_COMPRESSION);
                                 output.writeTag(newTopLevelTag);
                                 output.close();

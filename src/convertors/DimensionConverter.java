@@ -43,15 +43,14 @@ public class DimensionConverter implements Convertor {
 
     /**
      * @param p        {@link Path} path to use
-     * @param FileName {@link String} filename to use
+     * @param fileName {@link String} filename to use
      * @throws IOException When something fails
      */
-    //modifies the information to be compatible
-    public void modifier(Path p, String FileName) throws IOException {
-        File currentFolder = new File(Paths.get(p + "/" + FileName + this.currentFolder).toString());
+    public void modifier(Path p, String fileName) throws IOException {
+        File currentFolder = new File(Paths.get(p + "/" + fileName + this.currentFolder).toString());
 
         for (String s : this.cdStrings) {
-            Files.createDirectory(Paths.get(p + "/" + FileName + s));
+            Files.createDirectory(Paths.get(p + "/" + fileName + s));
         }
         if (currentFolder.exists()) {
             File[] curDirList = currentFolder.listFiles();
@@ -68,21 +67,18 @@ public class DimensionConverter implements Convertor {
                             chunks.put(j, regionFile.loadChunk(j));
                         }
                         regionFile.close();
-                        String PathToUse = p + "/" + FileName + this.cdStrings[this.cdStrings.length - 1] + '/' + mapFile.getName();
-                        //System.out.println(Paths.get(PathToUse));
-                        RegionFile new_Region = RegionFile.createNew(Paths.get(PathToUse));
+                        String pathToUse = p + "/" + fileName + this.cdStrings[this.cdStrings.length - 1] + '/' + mapFile.getName();
+                        RegionFile newRegion = RegionFile.createNew(Paths.get(pathToUse));
 
                         //TODO: Start using multithreading here
                         HashMap<Integer, Chunk> result = fixers.regionFixer(chunks);
-                        new_Region.writeChunks(result);
+                        newRegion.writeChunks(result);
                     } catch (Exception e) {
                         e.printStackTrace();
                         throw new IOException(this.exceptionMessage);
                     }
                     stringCache.printLine("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + this.singleFileMessage, true);
-                    //System.out.println("Converted " + (i - 1) + "/" + Objects.requireNonNull(curDirList).length + this.SingleFileMessage);
                 }
-
                 stringCache.printLine(this.doneMessage, false);
             }
         }
