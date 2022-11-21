@@ -1,0 +1,5741 @@
+{
+  "BlockMappings": {
+    "minecraft:air": {
+      "0": {
+        "name": "minecraft:air"
+      }
+    },
+    "minecraft:stone": {
+      "0": {
+        "name": "minecraft:stone"
+      }
+    },
+    "minecraft:grass": {
+      "0": {
+        "name": "minecraft:grass_block"
+      }
+    },
+    "minecraft:dirt": {
+      "0": {
+        "name": "minecraft:dirt"
+      },
+      "1": {
+        "name": "minecraft:coarse_dirt"
+      },
+      "2": {
+        "name": "minecraft:podzol"
+      }
+    },
+    "minecraft:cobblestone": {
+      "0": {
+        "name": "minecraft:cobblestone"
+      }
+    },
+    "minecraft:planks": {
+      "0": {
+        "name": "minecraft:oak_planks"
+      },
+      "1": {
+        "name": "minecraft:spruce_planks"
+      },
+      "2": {
+        "name": "minecraft:birch_planks"
+      },
+      "3": {
+        "name": "minecraft:jungle_planks"
+      },
+      "4": {
+        "name": "minecraft:acacia_planks"
+      },
+      "5": {
+        "name": "minecraft:dark_oak_planks"
+      }
+    },
+    "minecraft:sapling": {
+      "0": {
+        "name": "minecraft:oak_sapling",
+        "properties": {
+          "stage": "0"
+        }
+      },
+      "1": {
+        "name": "minecraft:spruce_sapling",
+        "properties": {
+          "stage": "0"
+        }
+      },
+      "2": {
+        "name": "minecraft:birch_sapling",
+        "properties": {
+          "stage": "0"
+        }
+      },
+      "3": {
+        "name": "minecraft:jungle_sapling",
+        "properties": {
+          "stage": "0"
+        }
+      },
+      "4": {
+        "name": "minecraft:acacia_sapling",
+        "properties": {
+          "stage": "0"
+        }
+      },
+      "5": {
+        "name": "minecraft:dark_oak_sapling",
+        "properties": {
+          "stage": "0"
+        }
+      },
+      "6": {
+        "name": "minecraft:dark_oak_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      },
+      "8": {
+        "name": "minecraft:oak_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      },
+      "9": {
+        "name": "minecraft:spruce_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      },
+      "10": {
+        "name": "minecraft:birch_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      },
+      "11": {
+        "name": "minecraft:jungle_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      },
+      "12": {
+        "name": "minecraft:acacia_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      }
+    },
+    "minecraft:bedrock": {
+      "0": {
+        "name": "minecraft:bedrock"
+      }
+    },
+    "minecraft:flowing_water": {
+      "comment": "TODO"
+    },
+    "minecraft:water": {
+      "0": {
+        "name": "minecraft:water"
+      }
+    },
+    "minecraft:flowing_lava": {
+      "comment": "TODO"
+    },
+    "minecraft:lava": {
+      "0": {
+        "name": "minecraft:lava"
+      }
+    },
+    "minecraft:sand": {
+      "0": {
+        "name": "minecraft:sand"
+      },
+      "1": {
+        "name": "minecraft:red_sand"
+      }
+    },
+    "minecraft:gravel": {
+      "0": {
+        "name": "minecraft:gravel"
+      }
+    },
+    "minecraft:gold_ore": {
+      "0": {
+        "name": "minecraft:gold_ore"
+      }
+    },
+    "minecraft:iron_ore": {
+      "0": {
+        "name": "minecraft:iron_ore"
+      }
+    },
+    "minecraft:coal_ore": {
+      "0": {
+        "name": "minecraft:coal_ore"
+      }
+    },
+    "minecraft:log": {
+      "0": {
+        "name": "minecraft:oak_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "1": {
+        "name": "minecraft:spruce_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "2": {
+        "name": "minecraft:birch_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "3": {
+        "name": "minecraft:jungle_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "4": {
+        "name": "minecraft:oak_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "5": {
+        "name": "minecraft:spruce_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "6": {
+        "name": "minecraft:birch_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "7": {
+        "name": "minecraft:jungle_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "8": {
+        "name": "minecraft:oak_log",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "9": {
+        "name": "minecraft:spruce_log",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "10": {
+        "name": "minecraft:birch_log",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "11": {
+        "name": "minecraft:jungle_log",
+        "properties": {
+          "axis": "z"
+        }
+      }
+    },
+    "minecraft:leaves": {
+      "comment": "TODO"
+    },
+    "minecraft:sponge": {
+      "0": {
+        "name": "minecraft:sponge"
+      }
+    },
+    "minecraft:glass": {
+      "0": {
+        "name": "minecraft:glass"
+      }
+    },
+    "minecraft:lapis_ore": {
+      "0": {
+        "name": "minecraft:lapis_ore"
+      }
+    },
+    "minecraft:lapis_block": {
+      "0": {
+        "name": "minecraft:lapis_block"
+      }
+    },
+    "minecraft:dispenser": {
+      "comment": "TODO"
+    },
+    "minecraft:sandstone": {
+      "0": {
+        "name": "minecraft:sandstone"
+      }
+    },
+    "minecraft:noteblock": {
+      "comment": "TODO"
+    },
+    "minecraft:bed": {
+      "comment": "TODO"
+    },
+    "minecraft:golden_rail": {
+      "comment": "TODO"
+    },
+    "minecraft:detector_rail": {
+      "comment": "TODO"
+    },
+    "minecraft:sticky_piston": {
+      "comment": "TODO"
+    },
+    "minecraft:web": {
+      "0": {
+        "name": "minecraft:web"
+      }
+    },
+    "minecraft:tallgrass": {
+      "comment": "TODO"
+    },
+    "minecraft:deadbush": {
+      "0": {
+        "name": "minecraft:dead_bush"
+      }
+    },
+    "minecraft:piston": {
+      "comment": "TODO"
+    },
+    "minecraft:piston_head": {
+      "comment": "TODO"
+    },
+    "minecraft:wool": {
+      "0": {
+        "name": "minecraft:white_wool"
+      },
+      "1": {
+        "name": "minecraft:orange_wool"
+      },
+      "2": {
+        "name": "minecraft:magenta_wool"
+      },
+      "3": {
+        "name": "minecraft:light_blue_wool"
+      },
+      "4": {
+        "name": "minecraft:yellow_wool"
+      },
+      "5": {
+        "name": "minecraft:lime_wool"
+      },
+      "6": {
+        "name": "minecraft:pink_wool"
+      },
+      "7": {
+        "name": "minecraft:gray_wool"
+      },
+      "8": {
+        "name": "minecraft:light_gray_wool"
+      },
+      "9": {
+        "name": "minecraft:cyan_wool"
+      },
+      "10": {
+        "name": "minecraft:purple_wool"
+      },
+      "11": {
+        "name": "minecraft:blue_wool"
+      },
+      "12": {
+        "name": "minecraft:brown_wool"
+      },
+      "13": {
+        "name": "minecraft:green_wool"
+      },
+      "14": {
+        "name": "minecraft:red_wool"
+      },
+      "15": {
+        "name": "minecraft:black_wool"
+      }
+    },
+    "minecraft:piston_extension": {
+      "comment": "TODO"
+    },
+    "minecraft:yellow_flower": {
+      "0": {
+        "name": "minecraft:dandelion"
+      }
+    },
+    "minecraft:red_flower": {
+      "0": {
+        "name": "minecraft:poppy"
+      },
+      "1": {
+        "name": "minecraft:blue_orchid"
+      },
+      "2": {
+        "name": "minecraft:allium"
+      },
+      "3": {
+        "name": "minecraft:azure_bluet"
+      },
+      "4": {
+        "name": "minecraft:red_tulip"
+      },
+      "5": {
+        "name": "minecraft:white_tulip"
+      },
+      "6": {
+        "name": "minecraft:pink_tulip"
+      },
+      "7": {
+        "name": "minecraft:oxeye_daisy"
+      }
+    },
+    "minecraft:brown_mushroom": {
+      "comment": "TODO"
+    },
+    "minecraft:red_mushroom": {
+      "comment": "TODO"
+    },
+    "minecraft:gold_block": {
+      "0": {
+        "name": "minecraft:gold_block"
+      }
+    },
+    "minecraft:iron_block": {
+      "0": {
+        "name": "minecraft:iron_block"
+      }
+    },
+    "minecraft:double_stone_slab": {
+      "comment": "TODO"
+    },
+    "minecraft:stone_slab": {
+      "comment": "TODO"
+    },
+    "minecraft:brick_block": {
+      "0": {
+        "name": "minecraft:bricks"
+      }
+    },
+    "minecraft:tnt": {
+      "comment": "TODO"
+    },
+    "minecraft:bookshelf": {
+      "0": {
+        "name": "minecraft:bookshelf"
+      }
+    },
+    "minecraft:mossy_cobblestone": {
+      "0": {
+        "name": "minecraft:mossy_cobblestone"
+      }
+    },
+    "minecraft:obsidian": {
+      "0": {
+        "name": "minecraft:obsidian"
+      }
+    },
+    "minecraft:torch": {
+      "comment": "TODO"
+    },
+    "minecraft:fire": {
+      "comment": "TODO"
+    },
+    "minecraft:mob_spawner": {
+      "comment": "TODO"
+    },
+    "minecraft:oak_stairs": {
+      "0": {
+        "name": "minecraft:oak_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:oak_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:oak_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:oak_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:oak_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:oak_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:oak_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:oak_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "minecraft:chest": {
+      "comment": "TODO"
+    },
+    "minecraft:redstone_wire": {
+      "comment": "TODO"
+    },
+    "minecraft:diamond_ore": {
+      "0": {
+        "name": "minecraft:diamond_ore"
+      }
+    },
+    "minecraft:diamond_block": {
+      "0": {
+        "name": "minecraft:diamond_block"
+      }
+    },
+    "minecraft:crafting_table": {
+      "0": {
+        "name": "minecraft:crafting_table"
+      }
+    },
+    "minecraft:wheat": {
+      "comment": "TODO"
+    },
+    "minecraft:farmland": {
+      "0": {
+        "name": "minecraft:farmland",
+        "properties": {
+          "moisture": "0"
+        }
+      },
+      "1": {
+        "name": "minecraft:farmland",
+        "properties": {
+          "moisture": "1"
+        }
+      },
+      "2": {
+        "name": "minecraft:farmland",
+        "properties": {
+          "moisture": "2"
+        }
+      },
+      "3": {
+        "name": "minecraft:farmland",
+        "properties": {
+          "moisture": "3"
+        }
+      },
+      "4": {
+        "name": "minecraft:farmland",
+        "properties": {
+          "moisture": "4"
+        }
+      },
+      "5": {
+        "name": "minecraft:farmland",
+        "properties": {
+          "moisture": "5"
+        }
+      },
+      "6": {
+        "name": "minecraft:farmland",
+        "properties": {
+          "moisture": "6"
+        }
+      },
+      "7": {
+        "name": "minecraft:farmland",
+        "properties": {
+          "moisture": "7"
+        }
+      }
+    },
+    "minecraft:furnace": {
+      "comment": "TODO"
+    },
+    "minecraft:lit_furnace": {
+      "comment": "TODO"
+    },
+    "minecraft:standing_sign": {
+      "comment": "TODO"
+    },
+    "minecraft:wooden_door": {
+      "comment": "TODO"
+    },
+    "minecraft:ladder": {
+      "comment": "TODO"
+    },
+    "minecraft:rail": {
+      "comment": "TODO"
+    },
+    "minecraft:stone_stairs": {
+      "0": {
+        "name": "minecraft:cobblestone_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:cobblestone_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:cobblestone_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:cobblestone_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:cobblestone_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:cobblestone_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:cobblestone_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:cobblestone_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "minecraft:wall_sign": {
+      "comment": "TODO"
+    },
+    "minecraft:lever": {
+    },
+    "minecraft:stone_pressure_plate": {
+    },
+    "minecraft:iron_door": {
+    },
+    "minecraft:wooden_pressure_plate": {
+    },
+    "minecraft:redstone_ore": {
+      "0": {
+        "name": "minecraft:redstone_ore",
+        "properties": {
+          "lit": "false"
+        }
+      }
+    },
+    "minecraft:lit_redstone_ore": {
+      "0": {
+        "name": "minecraft:redstone_ore",
+        "properties": {
+          "lit": "true"
+        }
+      }
+    },
+    "minecraft:unlit_redstone_torch": {
+    },
+    "minecraft:redstone_torch": {
+    },
+    "minecraft:stone_button": {
+      "1": {
+        "name": "minecraft:stone_button",
+        "properties": {
+          "face": "wall",
+          "facing": "west",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:stone_button",
+        "properties": {
+          "face": "wall",
+          "facing": "east",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:stone_button",
+        "properties": {
+          "face": "wall",
+          "facing": "north",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:stone_button",
+        "properties": {
+          "face": "wall",
+          "facing": "south",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:stone_button",
+        "properties": {
+          "face": "wall",
+          "facing": "west",
+          "powered": "true"
+        }
+      },
+      "9": {
+        "name": "minecraft:stone_button",
+        "properties": {
+          "face": "wall",
+          "facing": "west",
+          "powered": "true"
+        }
+      },
+      "10": {
+        "name": "minecraft:stone_button",
+        "properties": {
+          "face": "wall",
+          "facing": "east",
+          "powered": "true"
+        }
+      },
+      "11": {
+        "name": "minecraft:stone_button",
+        "properties": {
+          "face": "wall",
+          "facing": "north",
+          "powered": "true"
+        }
+      },
+      "12": {
+        "name": "minecraft:stone_button",
+        "properties": {
+          "face": "wall",
+          "facing": "south",
+          "powered": "true"
+        }
+      }
+    },
+    "minecraft:snow_layer": {
+    },
+    "minecraft:ice": {
+      "0": {
+        "name": "minecraft:ice"
+      }
+    },
+    "minecraft:snow": {
+    },
+    "minecraft:cactus": {
+    },
+    "minecraft:clay": {
+      "0": {
+        "name": "minecraft:clay"
+      }
+    },
+    "minecraft:reeds": {
+    },
+    "minecraft:jukebox": {
+    },
+    "minecraft:fence": {
+    },
+    "minecraft:pumpkin": {
+    },
+    "minecraft:netherrack": {
+      "0": {
+        "name": "minecraft:netherrack"
+      }
+    },
+    "minecraft:soul_sand": {
+      "0": {
+        "name": "minecraft:soul_sand"
+      }
+    },
+    "minecraft:glowstone": {
+      "0": {
+        "name": "minecraft:glowstone"
+      }
+    },
+    "minecraft:portal": {
+    },
+    "minecraft:lit_pumpkin": {
+    },
+    "minecraft:cake": {
+    },
+    "minecraft:unpowered_repeater": {
+    },
+    "minecraft:powered_repeater": {
+    },
+    "minecraft:stained_glass": {
+      "0": {
+        "name": "minecraft:white_stained_glass"
+      },
+      "1": {
+        "name": "minecraft:orange_stained_glass"
+      },
+      "2": {
+        "name": "minecraft:magenta_stained_glass"
+      },
+      "3": {
+        "name": "minecraft:light_blue_stained_glass"
+      },
+      "4": {
+        "name": "minecraft:yellow_stained_glass"
+      },
+      "5": {
+        "name": "minecraft:lime_stained_glass"
+      },
+      "6": {
+        "name": "minecraft:pink_stained_glass"
+      },
+      "7": {
+        "name": "minecraft:gray_stained_glass"
+      },
+      "8": {
+        "name": "minecraft:light_gray_stained_glass"
+      },
+      "9": {
+        "name": "minecraft:cyan_stained_glass"
+      },
+      "10": {
+        "name": "minecraft:purple_stained_glass"
+      },
+      "11": {
+        "name": "minecraft:blue_stained_glass"
+      },
+      "12": {
+        "name": "minecraft:brown_stained_glass"
+      },
+      "13": {
+        "name": "minecraft:green_stained_glass"
+      },
+      "14": {
+        "name": "minecraft:red_stained_glass"
+      },
+      "15": {
+        "name": "minecraft:black_stained_glass"
+      }
+    },
+    "minecraft:trapdoor": {
+    },
+    "minecraft:stonebrick": {
+      "0": {
+        "name": "minecraft:stone_bricks"
+      },
+      "1": {
+        "name": "minecraft:mossy_stone_bricks"
+      },
+      "2": {
+        "name": "minecraft:cracked_stone_bricks"
+      },
+      "3": {
+        "name": "minecraft:chiseled_stone_bricks"
+      }
+    },
+    "minecraft:brown_mushroom_block": {
+    },
+    "minecraft:red_mushroom_block": {
+    },
+    "minecraft:iron_bars": {
+      "0": {
+        "name": "minecraft:iron_bars"
+      }
+    },
+    "minecraft:glass_pane": {
+      "0": {
+        "name": "minecraft:glass_pane"
+      }
+    },
+    "minecraft:melon_block": {
+    },
+    "minecraft:pumpkin_stem": {
+    },
+    "minecraft:melon_stem": {
+    },
+    "minecraft:vine": {
+    },
+    "minecraft:fence_gate": {
+    },
+    "minecraft:brick_stairs": {
+      "0": {
+        "name": "minecraft:brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "minecraft:stone_brick_stairs": {
+      "0": {
+        "name": "minecraft:stone_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:stone_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:stone_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:stone_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:stone_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:stone_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:stone_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:stone_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "minecraft:mycelium": {
+    },
+    "minecraft:waterlily": {
+    },
+    "minecraft:nether_brick": {
+      "0": {
+        "name": "minecraft:nether_bricks"
+      }
+    },
+    "minecraft:nether_brick_fence": {
+    },
+    "minecraft:nether_brick_stairs": {
+      "0": {
+        "name": "minecraft:nether_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:nether_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:nether_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:nether_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:nether_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:nether_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:nether_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:nether_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "minecraft:nether_wart": {
+    },
+    "minecraft:enchanting_table": {
+    },
+    "minecraft:brewing_stand": {
+    },
+    "minecraft:cauldron": {
+    },
+    "minecraft:end_portal": {
+    },
+    "minecraft:end_portal_frame": {
+    },
+    "minecraft:end_stone": {
+      "0": {
+        "name": "minecraft:end_stone"
+      }
+    },
+    "minecraft:dragon_egg": {
+    },
+    "minecraft:redstone_lamp": {
+    },
+    "minecraft:lit_redstone_lamp": {
+    },
+    "minecraft:double_wooden_slab": {
+    },
+    "minecraft:wooden_slab": {
+    },
+    "minecraft:cocoa": {
+    },
+    "minecraft:sandstone_stairs": {
+    },
+    "minecraft:emerald_ore": {
+      "0": {
+        "name": "minecraft:emerald_ore"
+      }
+    },
+    "minecraft:ender_chest": {
+      "0": {
+        "name": "minecraft:ender_chest"
+      }
+    },
+    "minecraft:tripwire_hook": {
+    },
+    "minecraft:tripwire": {
+    },
+    "minecraft:emerald_block": {
+      "0": {
+        "name": "minecraft:block"
+      }
+    },
+    "minecraft:spruce_stairs": {
+      "0": {
+        "name": "minecraft:spruce_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:spruce_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:spruce_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:spruce_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:spruce_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:spruce_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:spruce_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:spruce_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "minecraft:birch_stairs": {
+      "0": {
+        "name": "minecraft:birch_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:birch_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:birch_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:birch_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:birch_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:birch_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:birch_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:birch_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "minecraft:jungle_stairs": {
+      "0": {
+        "name": "minecraft:jungle_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:jungle_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:jungle_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:jungle_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:jungle_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:jungle_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:jungle_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:jungle_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "minecraft:command_block": {
+    },
+    "minecraft:beacon": {
+    },
+    "minecraft:cobblestone_wall": {
+    },
+    "minecraft:flower_pot": {
+    },
+    "minecraft:carrots": {
+    },
+    "minecraft:potatoes": {
+    },
+    "minecraft:wooden_button": {
+    },
+    "minecraft:skull": {
+    },
+    "minecraft:anvil": {
+    },
+    "minecraft:trapped_chest": {
+    },
+    "minecraft:light_weighted_pressure_plate": {
+    },
+    "minecraft:heavy_weighted_pressure_plate": {
+    },
+    "minecraft:unpowered_comparator": {
+    },
+    "minecraft:powered_comparator": {
+    },
+    "minecraft:daylight_detector": {
+    },
+    "minecraft:redstone_block": {
+      "0": {
+        "name": "minecraft:redstone_block"
+      }
+    },
+    "minecraft:quartz_ore": {
+      "0": {
+        "name": "minecraft:quartz_ore"
+      }
+    },
+    "minecraft:hopper": {
+    },
+    "minecraft:quartz_block": {
+      "0": {
+        "name": "minecraft:quartz_block"
+      }
+    },
+    "minecraft:quartz_stairs": {
+      "0": {
+        "name": "minecraft:quartz_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:quartz_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:quartz_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:quartz_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:quartz_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:quartz_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:quartz_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:quartz_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "minecraft:activator_rail": {
+    },
+    "minecraft:dropper": {
+    },
+    "minecraft:stained_hardened_clay": {
+      "0": {
+        "name": "minecraft:white_terracotta"
+      },
+      "1": {
+        "name": "minecraft:orange_terracotta"
+      },
+      "2": {
+        "name": "minecraft:magenta_terracotta"
+      },
+      "3": {
+        "name": "minecraft:light_blue_terracotta"
+      },
+      "4": {
+        "name": "minecraft:yellow_terracotta"
+      },
+      "5": {
+        "name": "minecraft:lime_terracotta"
+      },
+      "6": {
+        "name": "minecraft:pink_terracotta"
+      },
+      "7": {
+        "name": "minecraft:gray_terracotta"
+      },
+      "8": {
+        "name": "minecraft:light_gray_terracotta"
+      },
+      "9": {
+        "name": "minecraft:cyan_terracotta"
+      },
+      "10": {
+        "name": "minecraft:purple_terracotta"
+      },
+      "11": {
+        "name": "minecraft:blue_terracotta"
+      },
+      "12": {
+        "name": "minecraft:brown_terracotta"
+      },
+      "13": {
+        "name": "minecraft:green_terracotta"
+      },
+      "14": {
+        "name": "minecraft:red_terracotta"
+      },
+      "15": {
+        "name": "minecraft:black_terracotta"
+      }
+    },
+    "minecraft:stained_glass_pane": {
+      "0": {
+        "name": "minecraft:white_stained_glass_pine"
+      },
+      "1": {
+        "name": "minecraft:orange_stained_glass_pine"
+      },
+      "2": {
+        "name": "minecraft:magenta_stained_glass_pine"
+      },
+      "3": {
+        "name": "minecraft:light_blue_stained_glass_pine"
+      },
+      "4": {
+        "name": "minecraft:yellow_stained_glass_pine"
+      },
+      "5": {
+        "name": "minecraft:lime_stained_glass_pine"
+      },
+      "6": {
+        "name": "minecraft:pink_stained_glass_pine"
+      },
+      "7": {
+        "name": "minecraft:gray_stained_glass_pine"
+      },
+      "8": {
+        "name": "minecraft:light_gray_stained_glass_pine"
+      },
+      "9": {
+        "name": "minecraft:cyan_stained_glass_pine"
+      },
+      "10": {
+        "name": "minecraft:purple_stained_glass_pine"
+      },
+      "11": {
+        "name": "minecraft:blue_stained_glass_pine"
+      },
+      "12": {
+        "name": "minecraft:brown_stained_glass_pine"
+      },
+      "13": {
+        "name": "minecraft:green_stained_glass_pine"
+      },
+      "14": {
+        "name": "minecraft:red_stained_glass_pine"
+      },
+      "15": {
+        "name": "minecraft:black_stained_glass_pine"
+      }
+    },
+    "minecraft:leaves2": {
+    },
+    "minecraft:log2": {
+      "0": {
+        "name": "minecraft:acacia_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "1": {
+        "name": "minecraft:dark_oak_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "4": {
+        "name": "minecraft:acacia_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "5": {
+        "name": "minecraft:dark_oak_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "8": {
+        "name": "minecraft:acacia_log",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "9": {
+        "name": "minecraft:dark_oak_log",
+        "properties": {
+          "axis": "z"
+        }
+      }
+    },
+    "minecraft:acacia_stairs": {
+      "0": {
+        "name": "minecraft:acacia_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:acacia_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:acacia_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:acacia_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:acacia_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:acacia_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:acacia_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:acacia_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "minecraft:dark_oak_stairs": {
+      "0": {
+        "name": "minecraft:dark_oak_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:dark_oak_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:dark_oak_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:dark_oak_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:dark_oak_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:dark_oak_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:dark_oak_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:dark_oak_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.rock": {
+      "0": {
+        "name": "lotr:mordor_rock"
+      },
+      "1": {
+        "name": "lotr:gondor_rock"
+      },
+      "2": {
+        "name": "lotr:rohan_rock"
+      },
+      "3": {
+        "name": "lotr:blue_rock"
+      },
+      "4": {
+        "name": "lotr:red_rock"
+      },
+      "5": {
+        "name": "lotr:chalk"
+      }
+    },
+    "lotr:tile.oreCopper": {
+      "0": {
+        "name": "lotr:copper_ore"
+      }
+    },
+    "lotr:tile.oreTin": {
+      "0": {
+        "name": "lotr:tin_ore"
+      }
+    },
+    "lotr:tile.oreSilver": {
+      "0": {
+        "name": "lotr:silver_ore"
+      }
+    },
+    "lotr:tile.oreMithril": {
+      "0": {
+        "name": "lotr:mithril_ore"
+      }
+    },
+    "minecraft:hay_block": {
+    },
+    "minecraft:carpet": {
+      "0": {
+        "name": "minecraft:white_carpet"
+      },
+      "1": {
+        "name": "minecraft:orange_carpet"
+      },
+      "2": {
+        "name": "minecraft:magenta_carpet"
+      },
+      "3": {
+        "name": "minecraft:light_blue_carpet"
+      },
+      "4": {
+        "name": "minecraft:yellow_carpet"
+      },
+      "5": {
+        "name": "minecraft:lime_carpet"
+      },
+      "6": {
+        "name": "minecraft:pink_carpet"
+      },
+      "7": {
+        "name": "minecraft:gray_carpet"
+      },
+      "8": {
+        "name": "minecraft:light_gray_carpet"
+      },
+      "9": {
+        "name": "minecraft:cyan_carpet"
+      },
+      "10": {
+        "name": "minecraft:purple_carpet"
+      },
+      "11": {
+        "name": "minecraft:blue_carpet"
+      },
+      "12": {
+        "name": "minecraft:brown_carpet"
+      },
+      "13": {
+        "name": "minecraft:green_carpet"
+      },
+      "14": {
+        "name": "minecraft:red_carpet"
+      },
+      "15": {
+        "name": "minecraft:black_carpet"
+      }
+    },
+    "minecraft:hardened_clay": {
+      "0": {
+        "name": "minecraft:white_terracotta"
+      },
+      "1": {
+        "name": "minecraft:orange_terracotta"
+      },
+      "2": {
+        "name": "minecraft:magenta_terracotta"
+      },
+      "3": {
+        "name": "minecraft:light_blue_terracotta"
+      },
+      "4": {
+        "name": "minecraft:yellow_terracotta"
+      },
+      "5": {
+        "name": "minecraft:lime_terracotta"
+      },
+      "6": {
+        "name": "minecraft:pink_terracotta"
+      },
+      "7": {
+        "name": "minecraft:gray_terracotta"
+      },
+      "8": {
+        "name": "minecraft:light_gray_terracotta"
+      },
+      "9": {
+        "name": "minecraft:cyan_terracotta"
+      },
+      "10": {
+        "name": "minecraft:purple_terracotta"
+      },
+      "11": {
+        "name": "minecraft:blue_terracotta"
+      },
+      "12": {
+        "name": "minecraft:brown_terracotta"
+      },
+      "13": {
+        "name": "minecraft:green_terracotta"
+      },
+      "14": {
+        "name": "minecraft:red_terracotta"
+      },
+      "15": {
+        "name": "minecraft:black_terracotta"
+      }
+    },
+    "minecraft:coal_block": {
+      "0": {
+        "name": "minecraft:coal_block"
+      }
+    },
+    "minecraft:packed_ice": {
+      "0": {
+        "name": "minecraft:packed_ice"
+      }
+    },
+    "minecraft:double_plant": {
+      "0": {
+        "name": "minecraft:sunflower"
+      },
+      "1": {
+        "name": "minecraft:lilac"
+      },
+      "2": {
+        "name": "minecraft:tall_grass"
+      },
+      "3": {
+        "name": "minecraft:large_fern"
+      },
+      "4": {
+        "name": "minecraft:rose_bush"
+      },
+      "5": {
+        "name": "minecraft:peony"
+      }
+    },
+    "lotr:tile.beacon": {
+    },
+    "lotr:tile.simbelmyne": {
+      "0": {
+        "name": {
+          "name": "lotr:simbelmyne"
+        }
+      }
+    },
+    "lotr:tile.wood": {
+      "0": {
+        "name": "lotr:pine_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "1": {
+        "name": "lotr:mallorn_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "2": {
+        "name": "lotr:mirk_oak_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "3": {
+        "name": "lotr:charred_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "4": {
+        "name": "lotr:pine_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "5": {
+        "name": "lotr:mallorn_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "6": {
+        "name": "lotr:mirk_oak_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "7": {
+        "name": "lotr:charred_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "8": {
+        "name": "lotr:pine_log",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "9": {
+        "name": "lotr:mallorn_log",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "10": {
+        "name": "lotr:mirk_oak_log",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "11": {
+        "name": "lotr:charred_log",
+        "properties": {
+          "axis": "z"
+        }
+      }
+    },
+    "lotr:tile.leaves": {
+    },
+    "lotr:tile.planks": {
+      "0": {
+        "name": "lotr:pine_planks"
+      },
+      "1": {
+        "name": "lotr:mallorn_planks"
+      },
+      "2": {
+        "name": "lotr:mirk_oak_planks"
+      },
+      "3": {
+        "name": "lotr:charred_planks"
+      },
+      "4": {
+        "name": "lotr:apple_planks"
+      },
+      "5": {
+        "name": "lotr:pear_planks"
+      },
+      "6": {
+        "name": "lotr:cherry_planks"
+      },
+      "8": {
+        "name": "lotr:lebethron_planks"
+      },
+      "9": {
+        "name": "lotr:beech_planks"
+      },
+      "10": {
+        "name": "lotr:holly_planks"
+      },
+      "12": {
+        "name": "lotr:maple_planks"
+      },
+      "13": {
+        "name": "lotr:larch_planks"
+      }
+    },
+    "lotr:tile.sapling": {
+    },
+    "lotr:tile.woodSlabSingle": {
+    },
+    "lotr:tile.woodSlabDouble": {
+    },
+    "lotr:tile.stairsPine": {
+      "0": {
+        "name": "lotr:pine_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:pine_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:pine_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:pine_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:pine_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:pine_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:pine_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:pine_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.shireHeather": {
+      "0": {
+        "name": "lotr:shire_heather"
+      }
+    },
+    "lotr:tile.brick": {
+      "0": {
+        "name": "lotr:mordor_brick"
+      },
+      "1": {
+        "name": "lotr:gondor_brick"
+      },
+      "2": {
+        "name": "lotr:mossy_gondor_brick"
+      },
+      "3": {
+        "name": "lotr:cracked_gondor_brick"
+      },
+      "4": {
+        "name": "lotr:rohan_brick"
+      },
+      "5": {
+        "name": "lotr:carved_gondor_brick"
+      },
+      "6": {
+        "name": "lotr:dwarven_brick"
+      },
+      "7": {
+        "name": "lotr:cracked_mordor_brick"
+      },
+      "8": {
+        "name": "lotr:silver_trimmed_dwarven_brick"
+      },
+      "9": {
+        "name": "lotr:gold_trimmed_dwarven_brick"
+      },
+      "10": {
+        "name": "lotr:mithril_trimmed_dwarven_brick"
+      },
+      "11": {
+        "name": "lotr:galadhrim_brick"
+      },
+      "12": {
+        "name": "lotr:mossy_galadhrim_brick"
+      },
+      "13": {
+        "name": "lotr:cracked_galadhrim_brick"
+      },
+      "14": {
+        "name": "lotr:blue_brick"
+      },
+      "15": {
+        "name": "lotr:harad_brick"
+      }
+    },
+    "lotr:tile.appleCrumble": {
+    },
+    "lotr:tile.hobbitOven": {
+    },
+    "lotr:tile.oreStorage": {
+      "0": {
+        "name": "lotr:copper_block"
+      },
+      "1": {
+        "name": "lotr:tim_block"
+      },
+      "2": {
+        "name": "lotr:bronze_block"
+      },
+      "3": {
+        "name": "lotr:silver_block"
+      },
+      "4": {
+        "name": "lotr:mithril_block"
+      },
+      "5": {
+        "name": "lotr:orc_steel_block"
+      },
+      "6": {
+        "name": "lotr:edhelvir_block"
+      },
+      "7": {
+        "name": "lotr:dwarven_steel_block"
+      },
+      "9": {
+        "name": "lotr:uruk_steel_block"
+      },
+      "10": {
+        "name": "lotr:durnor_block"
+      },
+      "11": {
+        "name": "lotr:gulduril_block"
+      },
+      "13": {
+        "name": "lotr:sulfur_block"
+      },
+      "14": {
+        "name": "lotr:niter_block"
+      },
+      "15": {
+        "name": "lotr:dwarven_steel_block"
+      }
+    },
+    "lotr:tile.oreNaurite": {
+      "0": {
+        "name": "lotr:durnor_ore"
+      }
+    },
+    "lotr:tile.oreMorgulIron": {
+      "0": {
+        "name": "lotr:morgul_iron_ore_stone"
+      },
+      "1": {
+        "name": "lotr:morgul_iron_ore_mordor"
+      }
+    },
+    "lotr:tile.morgulCraftingTable": {
+      "0": {
+        "name": "lotr:mordor_crafting_table"
+      }
+    },
+    "lotr:tile.chandelier": {
+      "0": {
+        "name": "lotr:bronze_chandelier"
+      },
+      "1": {
+        "name": "lotr:iron_chandelier"
+      },
+      "2": {
+        "name": "lotr:silver_chandelier"
+      },
+      "3": {
+        "name": "lotr:gold_chandelier"
+      },
+      "4": {
+        "name": "lotr:mithril_chandelier"
+      }
+    },
+    "lotr:tile.pipeweedPlant": {
+      "0": {
+        "name": "lotr:pipeweed"
+      }
+    },
+    "lotr:tile.pipeweed": {
+      "0": {
+        "name": "lotr:wild_pipeweed"
+      }
+    },
+    "lotr:tile.slabSingle": {
+    },
+    "lotr:tile.slabDouble": {
+    },
+    "lotr:tile.stairsMordorBrick": {
+      "0": {
+        "name": "lotr:mordor_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:mordor_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:mordor_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:mordor_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:mordor_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:mordor_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:mordor_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:mordor_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.stairsGondorBrick": {
+      "0": {
+        "name": "lotr:gondor_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:gondor_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:gondor_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:gondor_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:gondor_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:gondor_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:gondor_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:gondor_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.wallStone": {
+    },
+    "lotr:tile.barrel": {
+    },
+    "lotr:tile.lettuce": {
+    },
+    "lotr:tile.orcBomb": {
+    },
+    "lotr:tile.orcTorch": {
+    },
+    "lotr:tile.elanor": {
+      "0": {
+        "name": "lotr:elanor"
+      }
+    },
+    "lotr:tile.niphredil": {
+      "0": {
+        "name": "lotr:niphredil"
+      }
+    },
+    "lotr:tile.stairsMallorn": {
+      "0": {
+        "name": "lotr:mallorn_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:mallorn_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:mallorn_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:mallorn_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:mallorn_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:mallorn_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:mallorn_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:mallorn_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.elvenCraftingTable": {
+      "0": {
+        "name": "lotr:galadhrim_crafting_table"
+      }
+    },
+    "lotr:tile.mobSpawner": {
+    },
+    "lotr:tile.mallornLadder": {
+    },
+    "lotr:tile.plate": {
+    },
+    "lotr:tile.orcSteelBars": {
+      "0": {
+        "name": "lotr:orc_bars"
+      }
+    },
+    "lotr:tile.stairsGondorBrickMossy": {
+      "0": {
+        "name": "lotr:mossy_gondor_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:mossy_gondor_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:mossy_gondor_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:mossy_gondor_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:mossy_gondor_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:mossy_gondor_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:mossy_gondor_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:mossy_gondor_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.stairsGondorBrickCracked": {
+      "0": {
+        "name": "lotr:cracked_gondor_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:cracked_gondor_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:cracked_gondor_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:cracked_gondor_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:cracked_gondor_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:cracked_gondor_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:cracked_gondor_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:cracked_gondor_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.athelas": {
+    },
+    "lotr:tile.stalactite": {
+    },
+    "lotr:tile.stairsRohanBrick": {
+      "0": {
+        "name": "lotr:rohan_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:rohan_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:rohan_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:rohan_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:rohan_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:rohan_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:rohan_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:rohan_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.oreQuendite": {
+    },
+    "lotr:tile.mallornTorch": {
+    },
+    "lotr:tile.spawnerChest": {
+    },
+    "lotr:tile.quenditeGrass": {
+    },
+    "lotr:tile.pressurePlateMordorRock": {
+    },
+    "lotr:tile.pressurePlateGondorRock": {
+    },
+    "lotr:tile.buttonMordorRock": {
+    },
+    "lotr:tile.buttonGondorRock": {
+    },
+    "lotr:tile.elvenPortal": {
+    },
+    "lotr:tile.flowerPot": {
+    },
+    "lotr:tile.stairsDwarvenBrick": {
+      "0": {
+        "name": "lotr:dwarven_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:dwarven_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:dwarven_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:dwarven_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:dwarven_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:dwarven_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:dwarven_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:dwarven_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.elvenBed": {
+    },
+    "lotr:tile.pillar": {
+    },
+    "lotr:tile.oreGlowstone": {
+    },
+    "lotr:tile.fruitWood": {
+    },
+    "lotr:tile.fruitLeaves": {
+    },
+    "lotr:tile.fruitSapling": {
+    },
+    "lotr:tile.stairsApple": {
+      "0": {
+        "name": "lotr:apple_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:apple_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:apple_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:apple_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:apple_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:apple_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:apple_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:apple_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.stairsPear": {
+      "0": {
+        "name": "lotr:pear_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:pear_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:pear_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:pear_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:pear_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:pear_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:pear_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:pear_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.stairsCherry": {
+      "comment": "missing"
+    },
+    "lotr:tile.dwarvenCraftingTable": {
+      "0": {
+        "name": "lotr:dwarven_crafting_table"
+      }
+    },
+    "lotr:tile.bluebell": {
+      "0": {
+        "name": "lotr:bluebell"
+      }
+    },
+    "lotr:tile.dwarvenForge": {
+    },
+    "lotr:tile.hearth": {
+      "0": {
+        "name": "lotr:hearth"
+      }
+    },
+    "lotr:tile.morgulShroom": {
+    },
+    "lotr:tile.urukCraftingTable": {
+      "0": {
+        "name": "lotr:uruk_crafting_table"
+      }
+    },
+    "lotr:tile.cherryPie": {
+    },
+    "lotr:tile.clover": {
+    },
+    "lotr:tile.slabSingle2": {
+    },
+    "lotr:tile.slabDouble2": {
+    },
+    "lotr:tile.stairsMirkOak": {
+      "0": {
+        "name": "lotr:mirk_oak_stairs"
+      }
+    },
+    "lotr:tile.webUngoliant": {
+    },
+    "lotr:tile.woodElvenCraftingTable": {
+      "0": {
+        "name": "lotr:wood_elven_crafting_table"
+      }
+    },
+    "lotr:tile.woodElvenBed": {
+    },
+    "lotr:tile.gondorianCraftingTable": {
+      "0": {
+        "name": "lotr:gondorian_crafting_table"
+      }
+    },
+    "lotr:tile.woodElvenTorch": {
+    },
+    "lotr:tile.marshLights": {
+    },
+    "lotr:tile.rohirricCraftingTable": {
+      "0": {
+        "name": "lotr:rohan_crafting_table"
+      }
+    },
+    "lotr:tile.pressurePlateRohanRock": {
+    },
+    "lotr:tile.remains": {
+    },
+    "lotr:tile.deadMarshPlant": {
+    },
+    "lotr:tile.oreGulduril": {
+      "0": {
+        "name": "lotr:gulduril_ore_stone"
+      },
+      "1": {
+        "name": "lotr:gulduril_ore_mordor"
+      }
+    },
+    "lotr:tile.guldurilBrick": {
+    },
+    "lotr:tile.dwarvenDoor": {
+    },
+    "lotr:tile.stairsCharred": {
+      "0": {
+        "name": "lotr:charred_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:charred_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:charred_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:charred_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:charred_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:charred_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:charred_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:charred_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.dwarvenBed": {
+    },
+    "lotr:tile.morgulPortal": {
+    },
+    "lotr:tile.armorStand": {
+    },
+    "lotr:tile.buttonRohanRock": {
+    },
+    "lotr:tile.asphodel": {
+      "0": {
+        "name": "lotr:asphodel"
+      }
+    },
+    "lotr:tile.wood2": {
+      "0": {
+        "name": "lotr:lebethron_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "1": {
+        "name": "lotr:beech_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "2": {
+        "name": "lotr:holly_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "4": {
+        "name": "lotr:lebethron_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "5": {
+        "name": "lotr:beech_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "6": {
+        "name": "lotr:holly_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "8": {
+        "name": "lotr:lebethron_log",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "9": {
+        "name": "lotr:beech_log",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "10": {
+        "name": "lotr:holly_log",
+        "properties": {
+          "axis": "z"
+        }
+      }
+    },
+    "lotr:tile.leaves2": {
+    },
+    "lotr:tile.sapling2": {
+    },
+    "lotr:tile.stairsLebethron": {
+      "0": {
+        "name": "lotr:lebethron_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:lebethron_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:lebethron_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:lebethron_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:lebethron_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:lebethron_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:lebethron_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:lebethron_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.woodSlabSingle2": {
+    },
+    "lotr:tile.woodSlabDouble2": {
+    },
+    "lotr:tile.dwarfHerb": {
+      "0": {
+        "name": "lotr:dwarfwort"
+      }
+    },
+    "lotr:tile.mug": {
+    },
+    "lotr:tile.dunlendingCraftingTable": {
+      "0": {
+        "name": "lotr:dunlending_crafting_table"
+      }
+    },
+    "lotr:tile.stairsBeech": {
+      "0": {
+        "name": "lotr:beech_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:beech_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:beech_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:beech_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:beech_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:beech_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:beech_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:beech_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.entJar": {
+    },
+    "lotr:tile.mordorThorn": {
+      "0": {
+        "name": "lotr:mordor_thorn"
+      }
+    },
+    "lotr:tile.mordorMoss": {
+      "0": {
+        "name": "lotr:mordor_moss"
+      }
+    },
+    "lotr:tile.stairsMordorBrickCracked": {
+      "0": {
+        "name": "lotr:cracked_mordor_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:cracked_mordor_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:cracked_mordor_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:cracked_mordor_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:cracked_mordor_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:cracked_mordor_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:cracked_mordor_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:cracked_mordor_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.orcForge": {
+    },
+    "lotr:tile.trollTotem": {
+    },
+    "lotr:tile.orcBed": {
+    },
+    "lotr:tile.stairsElvenBrick": {
+      "0": {
+        "name": "lotr:galadhrim_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:galadhrim_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:galadhrim_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:galadhrim_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:galadhrim_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:galadhrim_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:galadhrim_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:galadhrim_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.stairsElvenBrickMossy": {
+      "0": {
+        "name": "lotr:mossy_galadhrim_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:mossy_galadhrim_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:mossy_galadhrim_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:mossy_galadhrim_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:mossy_galadhrim_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:mossy_galadhrim_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:mossy_galadhrim_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:mossy_galadhrim_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.stairsElvenBrickCracked": {
+      "0": {
+        "name": "lotr:cracked_galadhrim_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:cracked_galadhrim_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:cracked_galadhrim_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:cracked_galadhrim_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:cracked_galadhrim_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:cracked_galadhrim_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:cracked_galadhrim_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:cracked_galadhrim_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.stairsHolly": {
+      "0": {
+        "name": "lotr:holly_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:holly_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:holly_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:holly_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:holly_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:holly_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:holly_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:holly_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.pressurePlateBlueRock": {
+    },
+    "lotr:tile.buttonBlueRock": {
+    },
+    "lotr:tile.slabSingle3": {
+    },
+    "lotr:tile.slabDouble3": {
+    },
+    "lotr:tile.stairsBlueRockBrick": {
+      "0": {
+        "name": "lotr:blue_rock_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:blue_rock_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:blue_rock_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:blue_rock_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:blue_rock_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:blue_rock_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:blue_rock_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:blue_rock_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.fence": {
+    },
+    "lotr:tile.doubleFlower": {
+    },
+    "lotr:tile.oreSulfur": {
+      "0": {
+        "name": "lotr:sulfur_ore"
+      }
+    },
+    "lotr:tile.oreSaltpeter": {
+      "0": {
+        "name": "lotr:niter_ore"
+      }
+    },
+    "lotr:tile.quagmire": {
+      "0": {
+        "name": "lotr:quagmire"
+      }
+    },
+    "lotr:tile.angmarCraftingTable": {
+      "0": {
+        "name": "lotr:angmar_crafting_table"
+      }
+    },
+    "lotr:tile.brick2": {
+      "0": {
+        "name": "lotr:angmar_brick"
+      },
+      "1": {
+        "name": "lotr:cracked_angmar_brick"
+      },
+      "2": {
+        "name": "lotr:red_brick"
+      },
+      "3": {
+        "name": "lotr:arnor_brick"
+      },
+      "4": {
+        "name": "lotr:mossy_arnor_brick"
+      },
+      "5": {
+        "name": "lotr:cracked_arnor_brick"
+      },
+      "6": {
+        "name": "lotr:carved_arnor_brick"
+      },
+      "7": {
+        "name": "lotr:uruk_brick"
+      },
+      "10": {
+        "name": "lotr:carved_mordor_brick"
+      },
+      "11": {
+        "name": "lotr:numenorean_brick"
+      },
+      "12": {
+        "name": "lotr:lotr:carved_dwarven_brick"
+      },
+      "13": {
+        "name": "lotr:carved_high_elven_brick"
+      },
+      "14": {
+        "name": "lotr:carved_wood_elven_brick"
+      },
+      "15": {
+        "name": "lotr:carved_galadhrim_brick"
+      }
+    },
+    "lotr:tile.wallStone2": {
+    },
+    "lotr:tile.stairsAngmarBrick": {
+      "0": {
+        "name": "lotr:angmar_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:angmar_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:angmar_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:angmar_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:angmar_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:angmar_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:angmar_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:angmar_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.stairsAngmarBrickCracked": {
+      "0": {
+        "name": "lotr:cracked_angmar_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:cracked_angmar_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:cracked_angmar_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:cracked_angmar_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:cracked_angmar_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:cracked_angmar_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:cracked_angmar_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:cracked_angmar_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.stairsMango": {
+      "comment": "not in yet"
+    },
+    "lotr:tile.stairsBanana": {
+      "comment": "not in yet"
+    },
+    "lotr:tile.banana": {
+      "comment": "not in yet"
+    },
+    "lotr:tile.bananaCake": {
+      "comment": "not in yet"
+    },
+    "lotr:tile.lionBed": {
+      "comment": "not in yet"
+    },
+    "lotr:tile.wood3": {
+      "0": {
+        "name": "lotr:maple_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "1": {
+        "name": "lotr:larch_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "4": {
+        "name": "lotr:maple_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "5": {
+        "name": "lotr:larch_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "8": {
+        "name": "lotr:maple_log",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "9": {
+        "name": "lotr:larch_log",
+        "properties": {
+          "axis": "z"
+        }
+      }
+    },
+    "lotr:tile.leaves3": {
+    },
+    "lotr:tile.sapling3": {
+    },
+    "lotr:tile.stairsMaple": {
+      "0": {
+        "name": "lotr:maple_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:maple_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:maple_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:maple_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:maple_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:maple_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:maple_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:maple_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.stairsLarch": {
+      "0": {
+        "name": "lotr:larch_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:larch_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:larch_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:larch_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:larch_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:larch_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:larch_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:larch_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.nearHaradCraftingTable": {
+      "0": {
+        "name": "lotr:harad_crafting_table"
+      }
+    },
+    "lotr:tile.highElvenCraftingTable": {
+      "0": {
+        "name": "lotr:lindon_crafting_table"
+      }
+    },
+    "lotr:tile.highElvenTorch": {
+    },
+    "lotr:tile.highElvenBed": {
+    },
+    "lotr:tile.pressurePlateRedRock": {
+    },
+    "lotr:tile.buttonRedRock": {
+    },
+    "lotr:tile.stairsRedRockBrick": {
+      "0": {
+        "name": "lotr:red_rock_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:red_rock_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:red_rock_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:red_rock_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:red_rock_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:red_rock_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:red_rock_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:red_rock_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.slabSingle4": {
+    },
+    "lotr:tile.slabDouble4": {
+    },
+    "lotr:tile.stairsNearHaradBrick": {
+      "0": {
+        "name": "lotr:harad_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:harad_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:harad_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:harad_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:harad_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:harad_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:harad_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:harad_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.stairsDatePalm": {
+    },
+    "lotr:tile.date": {
+    },
+    "lotr:tile.blueDwarvenCraftingTable": {
+      "0": {
+        "name": "lotr:blue_dwarven_crafting_table"
+      }
+    },
+    "lotr:tile.goran": {
+    },
+    "lotr:tile.thatch": {
+      "0": {
+        "name": "lotr:thatch"
+      },
+      "1": {
+        "name": "lotr:reed_thatch"
+      }
+    },
+    "lotr:tile.slabSingleThatch": {
+    },
+    "lotr:tile.slabDoubleThatch": {
+    },
+    "lotr:tile.stairsThatch": {
+      "0": {
+        "name": "lotr:thatch_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:thatch_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:thatch_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:thatch_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:thatch_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:thatch_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:thatch_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:thatch_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.fangornPlant": {
+    },
+    "lotr:tile.fangornRiverweed": {
+    },
+    "lotr:tile.morgulTorch": {
+    },
+    "lotr:tile.rangerCraftingTable": {
+      "0": {
+        "name": "lotr:ranger_crafting_table"
+      }
+    },
+    "lotr:tile.stairsArnorBrick": {
+    },
+    "lotr:tile.stairsArnorBrickMossy": {
+    },
+    "lotr:tile.stairsArnorBrickCracked": {
+    },
+    "lotr:tile.stairsUrukBrick": {
+    },
+    "lotr:tile.strawBed": {
+    },
+    "lotr:tile.stairsDolGuldurBrick": {
+    },
+    "lotr:tile.stairsDolGuldurBrickCracked": {
+    },
+    "lotr:tile.dolGuldurCraftingTable": {
+    },
+    "lotr:tile.fallenLeaves": {
+    },
+    "lotr:tile.fallenLeavesLOTR": {
+    },
+    "lotr:tile.gundabadCraftingTable": {
+    },
+    "lotr:tile.thatchFloor": {
+    },
+    "lotr:tile.dalishPastry": {
+    },
+    "lotr:tile.aridGrass": {
+    },
+    "lotr:tile.termiteMound": {
+    },
+    "lotr:tile.utumnoBrick": {
+    },
+    "lotr:tile.utumnoPortal": {
+    },
+    "lotr:tile.utumnoPillar": {
+    },
+    "lotr:tile.slabSingle5": {
+    },
+    "lotr:tile.slabDouble5": {
+    },
+    "lotr:tile.stairsMangrove": {
+    },
+    "lotr:tile.tallGrass": {
+    },
+    "lotr:tile.haradFlower": {
+    },
+    "lotr:tile.flaxPlant": {
+    },
+    "lotr:tile.flax": {
+    },
+    "lotr:tile.berryBush": {
+    },
+    "lotr:tile.planks2": {
+    },
+    "lotr:tile.fence2": {
+    },
+    "lotr:tile.woodSlabSingle3": {
+    },
+    "lotr:tile.woodSlabDouble3": {
+    },
+    "lotr:tile.wood4": {
+    },
+    "lotr:tile.leaves4": {
+    },
+    "lotr:tile.sapling4": {
+    },
+    "lotr:tile.stairsChestnut": {
+    },
+    "lotr:tile.stairsBaobab": {
+    },
+    "lotr:tile.fallenLeavesLOTR2": {
+    },
+    "lotr:tile.stairsCedar": {
+    },
+    "lotr:tile.rottenLog": {
+    },
+    "lotr:tile.oreStorage2": {
+    },
+    "lotr:tile.mordorGrass": {
+    },
+    "lotr:tile.mordorDirt": {
+    },
+    "lotr:tile.mordorGravel": {
+    },
+    "lotr:tile.utumnoReturnPortal": {
+    },
+    "lotr:tile.utumnoReturnLight": {
+    },
+    "lotr:tile.utumnoReturnPortalBase": {
+    },
+    "lotr:tile.commandTable": {
+    },
+    "lotr:tile.halfTrollCraftingTable": {
+    },
+    "lotr:tile.butterflyJar": {
+    },
+    "lotr:tile.berryPie": {
+    },
+    "lotr:tile.stairsBlackGondorBrick": {
+    },
+    "lotr:tile.brick3": {
+    },
+    "lotr:tile.wallStone3": {
+    },
+    "lotr:tile.slabSingle6": {
+    },
+    "lotr:tile.slabDouble6": {
+    },
+    "lotr:tile.stairsHighElvenBrick": {
+    },
+    "lotr:tile.stairsHighElvenBrickMossy": {
+    },
+    "lotr:tile.stairsHighElvenBrickCracked": {
+    },
+    "lotr:tile.stairsWoodElvenBrick": {
+    },
+    "lotr:tile.stairsWoodElvenBrickMossy": {
+    },
+    "lotr:tile.stairsWoodElvenBrickCracked": {
+    },
+    "lotr:tile.elvenForge": {
+    },
+    "lotr:tile.dolAmrothCraftingTable": {
+    },
+    "lotr:tile.stairsDolAmrothBrick": {
+    },
+    "lotr:tile.stairsFir": {
+    },
+    "lotr:tile.wood5": {
+    },
+    "lotr:tile.leaves5": {
+    },
+    "lotr:tile.sapling5": {
+    },
+    "lotr:tile.stairsPinePine": {
+    },
+    "lotr:tile.moredainCraftingTable": {
+    },
+    "lotr:tile.slabSingle7": {
+    },
+    "lotr:tile.slabDouble7": {
+    },
+    "lotr:tile.stairsMoredainBrick": {
+    },
+    "lotr:tile.stairsNearHaradBrickCracked": {
+    },
+    "lotr:tile.unsmeltery": {
+    },
+    "lotr:tile.bronzeBars": {
+    },
+    "lotr:tile.goldBars": {
+    },
+    "lotr:tile.silverBars": {
+    },
+    "lotr:tile.mithrilBars": {
+    },
+    "lotr:tile.urukBars": {
+    },
+    "lotr:tile.highElfBars": {
+    },
+    "lotr:tile.galadhrimBars": {
+    },
+    "lotr:tile.woodElfBars": {
+    },
+    "lotr:tile.dwarfBars": {
+    },
+    "lotr:tile.blueDwarfBars": {
+    },
+    "lotr:tile.highElfWoodBars": {
+    },
+    "lotr:tile.galadhrimWoodBars": {
+    },
+    "lotr:tile.woodElfWoodBars": {
+    },
+    "lotr:tile.corruptMallorn": {
+    },
+    "lotr:tile.planksRotten": {
+    },
+    "lotr:tile.stairsRotten": {
+    },
+    "lotr:tile.rottenSlabSingle": {
+    },
+    "lotr:tile.rottenSlabDouble": {
+    },
+    "lotr:tile.fenceRotten": {
+    },
+    "lotr:tile.scorchedStone": {
+    },
+    "lotr:tile.scorchedSlabSingle": {
+    },
+    "lotr:tile.scorchedSlabDouble": {
+    },
+    "lotr:tile.stairsScorchedStone": {
+    },
+    "lotr:tile.scorchedWall": {
+    },
+    "lotr:tile.stairsLemon": {
+    },
+    "lotr:tile.lemonCake": {
+    },
+    "lotr:tile.stairsOrange": {
+    },
+    "lotr:tile.alloyForge": {
+    },
+    "lotr:tile.stairsLime": {
+    },
+    "lotr:tile.tauredainCraftingTable": {
+    },
+    "lotr:tile.brick4": {
+    },
+    "lotr:tile.wallStone4": {
+    },
+    "lotr:tile.slabSingle8": {
+    },
+    "lotr:tile.slabDouble8": {
+    },
+    "lotr:tile.stairsTauredainBrick": {
+    },
+    "lotr:tile.stairsTauredainBrickMossy": {
+    },
+    "lotr:tile.stairsTauredainBrickCracked": {
+    },
+    "lotr:tile.stairsTauredainBrickGold": {
+    },
+    "lotr:tile.stairsTauredainBrickObsidian": {
+    },
+    "lotr:tile.obsidianGravel": {
+    },
+    "lotr:tile.tauredainDartTrap": {
+    },
+    "lotr:tile.wood6": {
+    },
+    "lotr:tile.leaves6": {
+    },
+    "lotr:tile.sapling6": {
+    },
+    "lotr:tile.woodSlabSingle4": {
+    },
+    "lotr:tile.woodSlabDouble4": {
+    },
+    "lotr:tile.stairsMahogany": {
+    },
+    "lotr:tile.mud": {
+    },
+    "lotr:tile.mudGrass": {
+    },
+    "lotr:tile.chestStone": {
+    },
+    "lotr:tile.spawnerChestStone": {
+    },
+    "lotr:tile.mudFarmland": {
+    },
+    "lotr:tile.stairsNearHaradBrickRed": {
+    },
+    "lotr:tile.stairsNearHaradBrickRedCracked": {
+    },
+    "lotr:tile.redSandstone": {
+    },
+    "lotr:tile.stairsRedSandstone": {
+    },
+    "lotr:tile.stairsDwarvenBrickCracked": {
+    },
+    "lotr:tile.pillar2": {
+    },
+    "lotr:tile.hithlainLadder": {
+    },
+    "lotr:tile.reeds": {
+    },
+    "lotr:tile.stairsReed": {
+    },
+    "lotr:tile.tauredainDoubleTorch": {
+    },
+    "lotr:tile.woodBeamV1": {
+    },
+    "lotr:tile.reedBars": {
+    },
+    "lotr:tile.woodBeamV2": {
+    },
+    "lotr:tile.woodBeam1": {
+    },
+    "lotr:tile.tauredainDartTrapGold": {
+    },
+    "lotr:tile.weaponRack": {
+    },
+    "lotr:tile.cornStalk": {
+    },
+    "lotr:tile.wasteBlock": {
+    },
+    "lotr:tile.stairsDwarvenBrickObsidian": {
+    },
+    "lotr:tile.dirtPath": {
+    },
+    "lotr:tile.stairsWillow": {
+    },
+    "lotr:tile.willowVines": {
+    },
+    "lotr:tile.woodBeam2": {
+    },
+    "lotr:tile.woodBeamFruit": {
+    },
+    "lotr:tile.woodBeam3": {
+    },
+    "lotr:tile.woodBeam4": {
+    },
+    "lotr:tile.woodBeam5": {
+    },
+    "lotr:tile.woodBeam6": {
+    },
+    "lotr:tile.woodBeamRotten": {
+    },
+    "lotr:tile.gateWooden": {
+    },
+    "lotr:tile.gateIronBars": {
+    },
+    "lotr:tile.gateBronzeBars": {
+    },
+    "lotr:tile.gateWoodenCross": {
+    },
+    "lotr:tile.gateOrc": {
+    },
+    "lotr:tile.stairsChalkBrick": {
+    },
+    "lotr:tile.slabSingle9": {
+    },
+    "lotr:tile.slabDouble9": {
+    },
+    "lotr:tile.gateElven": {
+    },
+    "lotr:tile.gateDwarven": {
+    },
+    "lotr:tile.gateGondor": {
+    },
+    "lotr:tile.pressurePlateChalk": {
+    },
+    "lotr:tile.buttonChalk": {
+    },
+    "lotr:tile.wallStoneV": {
+    },
+    "lotr:tile.stairsStoneBrickMossy": {
+    },
+    "lotr:tile.stairsStoneBrickCracked": {
+    },
+    "lotr:tile.slabSingleV": {
+    },
+    "lotr:tile.slabDoubleV": {
+    },
+    "lotr:tile.stairsStone": {
+    },
+    "lotr:tile.stairsMordorRock": {
+    },
+    "lotr:tile.stairsGondorRock": {
+    },
+    "lotr:tile.stairsRohanRock": {
+    },
+    "lotr:tile.stairsBlueRock": {
+    },
+    "lotr:tile.stairsRedRock": {
+    },
+    "lotr:tile.stairsChalk": {
+    },
+    "lotr:tile.gateHighElven": {
+    },
+    "lotr:tile.gateWoodElven": {
+    },
+    "lotr:tile.gateNearHarad": {
+    },
+    "lotr:tile.clayTile": {
+    },
+    "lotr:tile.clayTileDyed": {
+    },
+    "lotr:tile.slabClayTileSingle": {
+    },
+    "lotr:tile.slabClayTileDouble": {
+    },
+    "lotr:tile.slabClayTileDyedSingle": {
+    },
+    "lotr:tile.slabClayTileDyedDouble": {
+    },
+    "lotr:tile.slabClayTileDyedSingle2": {
+    },
+    "lotr:tile.slabClayTileDyedDouble2": {
+    },
+    "lotr:tile.stairsClayTile": {
+    },
+    "lotr:tile.stairsClayTileDyedWhite": {
+    },
+    "lotr:tile.stairsClayTileDyedOrange": {
+    },
+    "lotr:tile.stairsClayTileDyedMagenta": {
+    },
+    "lotr:tile.stairsClayTileDyedLightBlue": {
+    },
+    "lotr:tile.stairsClayTileDyedYellow": {
+    },
+    "lotr:tile.stairsClayTileDyedLime": {
+    },
+    "lotr:tile.stairsClayTileDyedPink": {
+    },
+    "lotr:tile.stairsClayTileDyedGray": {
+    },
+    "lotr:tile.stairsClayTileDyedLightGray": {
+    },
+    "lotr:tile.stairsClayTileDyedCyan": {
+    },
+    "lotr:tile.stairsClayTileDyedPurple": {
+    },
+    "lotr:tile.stairsClayTileDyedBlue": {
+    },
+    "lotr:tile.stairsClayTileDyedBrown": {
+    },
+    "lotr:tile.stairsClayTileDyedGreen": {
+    },
+    "lotr:tile.stairsClayTileDyedRed": {
+    },
+    "lotr:tile.stairsClayTileDyedBlack": {
+    },
+    "lotr:tile.wargFurBed": {
+    },
+    "lotr:tile.slabUtumnoSingle": {
+    },
+    "lotr:tile.slabUtumnoDouble": {
+    },
+    "lotr:tile.stairsUtumnoBrickFire": {
+    },
+    "lotr:tile.stairsUtumnoBrickIce": {
+    },
+    "lotr:tile.stairsUtumnoBrickObsidian": {
+    },
+    "lotr:tile.wallUtumno": {
+    },
+    "lotr:tile.kebabStand": {
+    },
+    "lotr:tile.kebabStandSand": {
+    },
+    "lotr:tile.gateTauredain": {
+    },
+    "lotr:tile.gateDolAmroth": {
+    },
+    "lotr:tile.gateUruk": {
+    },
+    "lotr:tile.gateSilver": {
+    },
+    "lotr:tile.gateGold": {
+    },
+    "lotr:tile.gateMithril": {
+    },
+    "lotr:tile.brick5": {
+    },
+    "lotr:tile.stairsMudBrick": {
+    },
+    "lotr:tile.leek": {
+    },
+    "lotr:tile.turnip": {
+    },
+    "lotr:tile.stairsDaleBrick": {
+    },
+    "lotr:tile.stairsDorwinionBrick": {
+    },
+    "lotr:tile.daleCraftingTable": {
+    },
+    "lotr:tile.dorwinionCraftingTable": {
+    },
+    "lotr:tile.stairsCypress": {
+    },
+    "lotr:tile.stairsOlive": {
+    },
+    "lotr:tile.slabSingle10": {
+    },
+    "lotr:tile.slabDouble10": {
+    },
+    "lotr:tile.hobbitCraftingTable": {
+    },
+    "lotr:tile.gateHobbitGreen": {
+    },
+    "lotr:tile.gateHobbitBlue": {
+    },
+    "lotr:tile.gateHobbitRed": {
+    },
+    "lotr:tile.gateHobbitYellow": {
+    },
+    "lotr:tile.driedReeds": {
+    },
+    "lotr:tile.redBrick": {
+    },
+    "lotr:tile.stairsBrickMossy": {
+    },
+    "lotr:tile.stairsBrickCracked": {
+    },
+    "lotr:tile.grapevine": {
+    },
+    "lotr:tile.grapevineRed": {
+    },
+    "lotr:tile.grapevineWhite": {
+    },
+    "lotr:tile.stairsDorwinionBrickMossy": {
+    },
+    "lotr:tile.stairsDorwinionBrickCracked": {
+    },
+    "lotr:tile.stairsDorwinionBrickFlowers": {
+    },
+    "lotr:tile.wood7": {
+    },
+    "lotr:tile.leaves7": {
+    },
+    "lotr:tile.sapling7": {
+    },
+    "lotr:tile.woodBeam7": {
+    },
+    "lotr:tile.stairsAspen": {
+    },
+    "lotr:tile.mirkVines": {
+    },
+    "lotr:tile.stairsGreenOak": {
+    },
+    "lotr:tile.stairsLairelosse": {
+    },
+    "lotr:tile.stairsAlmond": {
+    },
+    "lotr:tile.slabSingleDirt": {
+    },
+    "lotr:tile.slabDoubleDirt": {
+    },
+    "lotr:tile.slabSingleSand": {
+    },
+    "lotr:tile.slabDoubleSand": {
+    },
+    "lotr:tile.slabSingleGravel": {
+    },
+    "lotr:tile.slabDoubleGravel": {
+    },
+    "lotr:tile.morgulFlower": {
+    },
+    "lotr:tile.blackroot": {
+    },
+    "lotr:tile.wood8": {
+    },
+    "lotr:tile.leaves8": {
+    },
+    "lotr:tile.sapling8": {
+    },
+    "lotr:tile.planks3": {
+    },
+    "lotr:tile.fence3": {
+    },
+    "lotr:tile.woodSlabSingle5": {
+    },
+    "lotr:tile.woodSlabDouble5": {
+    },
+    "lotr:tile.woodBeam8": {
+    },
+    "lotr:tile.stairsPlum": {
+    },
+    "lotr:tile.fallenLeavesLOTR3": {
+    },
+    "lotr:tile.stairsGondorBrickRustic": {
+    },
+    "lotr:tile.stairsGondorBrickRusticMossy": {
+    },
+    "lotr:tile.stairsGondorBrickRusticCracked": {
+    },
+    "lotr:tile.slabSingle11": {
+    },
+    "lotr:tile.slabDouble11": {
+    },
+    "lotr:tile.whiteSand": {
+    },
+    "lotr:tile.whiteSandstone": {
+    },
+    "lotr:tile.stairsWhiteSandstone": {
+    },
+    "lotr:tile.treasureCopper": {
+    },
+    "lotr:tile.treasureSilver": {
+    },
+    "lotr:tile.treasureGold": {
+    },
+    "lotr:tile.chestLebethron": {
+    },
+    "lotr:tile.chestBasket": {
+    },
+    "lotr:tile.marigold": {
+    },
+    "lotr:tile.rhunFlower": {
+    },
+    "lotr:tile.chestMallorn": {
+    },
+    "lotr:tile.stairsCobblestoneMossy": {
+    },
+    "lotr:tile.marzipanBlock": {
+    },
+    "lotr:tile.mallornTorchBlue": {
+    },
+    "lotr:tile.mallornTorchGold": {
+    },
+    "lotr:tile.mallornTorchGreen": {
+    },
+    "lotr:tile.wallClayTile": {
+    },
+    "lotr:tile.wallClayTileDyed": {
+    },
+    "lotr:tile.ceramicMug": {
+    },
+    "lotr:tile.gobletGold": {
+    },
+    "lotr:tile.gobletSilver": {
+    },
+    "lotr:tile.gobletCopper": {
+    },
+    "lotr:tile.gobletWood": {
+    },
+    "lotr:tile.skullCup": {
+    },
+    "lotr:tile.wineGlass": {
+    },
+    "lotr:tile.glassBottle": {
+    },
+    "lotr:tile.aleHorn": {
+    },
+    "lotr:tile.aleHornGold": {
+    },
+    "lotr:tile.woodBeamS": {
+    },
+    "lotr:tile.birdCage": {
+    },
+    "lotr:tile.birdCageWood": {
+    },
+    "lotr:tile.gateRohan": {
+    },
+    "lotr:tile.signCarved": {
+    },
+    "lotr:tile.signCarvedIthildin": {
+    },
+    "lotr:tile.dwarvenDoorIthildin": {
+    },
+    "lotr:tile.smoothStoneV": {
+    },
+    "lotr:tile.smoothStone": {
+    },
+    "lotr:tile.slabSingle12": {
+    },
+    "lotr:tile.slabDouble12": {
+    },
+    "lotr:tile.stairsRhunBrick": {
+    },
+    "lotr:tile.stairsRhunBrickMossy": {
+    },
+    "lotr:tile.stairsRhunBrickCracked": {
+    },
+    "lotr:tile.stairsRhunBrickFlowers": {
+    },
+    "lotr:tile.brick6": {
+    },
+    "lotr:tile.rhunCraftingTable": {
+    },
+    "lotr:tile.stairsRhunBrickRed": {
+    },
+    "lotr:tile.stairsRedwood": {
+    },
+    "lotr:tile.rhunFire": {
+    },
+    "lotr:tile.rhunFireJar": {
+    },
+    "lotr:tile.daub": {
+    },
+    "lotr:tile.gateRhun": {
+    },
+    "lotr:tile.yam": {
+    },
+    "lotr:tile.kebabBlock": {
+    },
+    "lotr:tile.stairsPomegranate": {
+    },
+    "lotr:tile.oreSalt": {
+    },
+    "lotr:tile.rivendellCraftingTable": {
+    },
+    "lotr:tile.fenceGateSpruce": {
+    },
+    "lotr:tile.fenceGateBirch": {
+    },
+    "lotr:tile.fenceGateJungle": {
+    },
+    "lotr:tile.fenceGateAcacia": {
+    },
+    "lotr:tile.fenceGateDarkOak": {
+    },
+    "lotr:tile.fenceGateShirePine": {
+    },
+    "lotr:tile.fenceGateMallorn": {
+    },
+    "lotr:tile.fenceGateMirkOak": {
+    },
+    "lotr:tile.fenceGateCharred": {
+    },
+    "lotr:tile.fenceGateApple": {
+    },
+    "lotr:tile.fenceGatePear": {
+    },
+    "lotr:tile.fenceGateCherry": {
+    },
+    "lotr:tile.fenceGateMango": {
+    },
+    "lotr:tile.fenceGateLebethron": {
+    },
+    "lotr:tile.fenceGateBeech": {
+    },
+    "lotr:tile.fenceGateHolly": {
+    },
+    "lotr:tile.fenceGateBanana": {
+    },
+    "lotr:tile.fenceGateMaple": {
+    },
+    "lotr:tile.fenceGateLarch": {
+    },
+    "lotr:tile.fenceGateDatePalm": {
+    },
+    "lotr:tile.fenceGateMangrove": {
+    },
+    "lotr:tile.fenceGateChestnut": {
+    },
+    "lotr:tile.fenceGateBaobab": {
+    },
+    "lotr:tile.fenceGateCedar": {
+    },
+    "lotr:tile.fenceGateFir": {
+    },
+    "lotr:tile.fenceGatePine": {
+    },
+    "lotr:tile.fenceGateLemon": {
+    },
+    "lotr:tile.fenceGateOrange": {
+    },
+    "lotr:tile.fenceGateLime": {
+    },
+    "lotr:tile.fenceGateMahogany": {
+    },
+    "lotr:tile.fenceGateWillow": {
+    },
+    "lotr:tile.fenceGateCypress": {
+    },
+    "lotr:tile.fenceGateOlive": {
+    },
+    "lotr:tile.fenceGateAspen": {
+    },
+    "lotr:tile.fenceGateGreenOak": {
+    },
+    "lotr:tile.fenceGateLairelosse": {
+    },
+    "lotr:tile.fenceGateAlmond": {
+    },
+    "lotr:tile.fenceGateRotten": {
+    },
+    "lotr:tile.fenceGatePlum": {
+    },
+    "lotr:tile.fenceGateRedwood": {
+    },
+    "lotr:tile.fenceGatePomegranate": {
+    },
+    "lotr:tile.stalactiteIce": {
+    },
+    "lotr:tile.stalactiteObsidian": {
+    },
+    "lotr:tile.slabUtumnoSingle2": {
+    },
+    "lotr:tile.slabUtumnoDouble2": {
+    },
+    "lotr:tile.stairsUtumnoTileIce": {
+    },
+    "lotr:tile.stairsUtumnoTileObsidian": {
+    },
+    "lotr:tile.stairsUtumnoTileFire": {
+    },
+    "lotr:tile.millstone": {
+    },
+    "lotr:tile.oreGem": {
+    },
+    "lotr:tile.blockGem": {
+    },
+    "lotr:tile.coralReef": {
+    },
+    "lotr:tile.bookshelfStorage": {
+    },
+    "lotr:tile.glass": {
+    },
+    "lotr:tile.glassPane": {
+    },
+    "lotr:tile.stainedGlass": {
+    },
+    "lotr:tile.stainedGlassPane": {
+    },
+    "lotr:tile.rope": {
+    },
+    "lotr:tile.tauredainDartTrapObsidian": {
+    },
+    "lotr:tile.slabSingle13": {
+    },
+    "lotr:tile.slabDouble13": {
+    },
+    "lotr:tile.stairsDaleBrickMossy": {
+    },
+    "lotr:tile.stairsDaleBrickCracked": {
+    },
+    "lotr:tile.umbarCraftingTable": {
+    },
+    "lotr:tile.gulfCraftingTable": {
+    },
+    "lotr:tile.stairsPalm": {
+    },
+    "lotr:tile.fenceGatePalm": {
+    },
+    "lotr:tile.wood9": {
+    },
+    "lotr:tile.leaves9": {
+    },
+    "lotr:tile.sapling9": {
+    },
+    "lotr:tile.woodBeam9": {
+    },
+    "lotr:tile.stairsDragon": {
+    },
+    "lotr:tile.fenceGateDragon": {
+    },
+    "lotr:tile.woodPlate": {
+    },
+    "lotr:tile.ceramicPlate": {
+    },
+    "lotr:tile.wallStone5": {
+    },
+    "lotr:tile.stairsUmbarBrick": {
+    },
+    "lotr:tile.stairsUmbarBrickCracked": {
+    },
+    "lotr:tile.doorSpruce": {
+    },
+    "lotr:tile.doorBirch": {
+    },
+    "lotr:tile.doorJungle": {
+    },
+    "lotr:tile.doorAcacia": {
+    },
+    "lotr:tile.doorDarkOak": {
+    },
+    "lotr:tile.doorShirePine": {
+    },
+    "lotr:tile.doorMallorn": {
+    },
+    "lotr:tile.doorMirkOak": {
+    },
+    "lotr:tile.doorCharred": {
+    },
+    "lotr:tile.doorApple": {
+    },
+    "lotr:tile.doorPear": {
+    },
+    "lotr:tile.doorCherry": {
+    },
+    "lotr:tile.doorMango": {
+    },
+    "lotr:tile.doorLebethron": {
+    },
+    "lotr:tile.doorBeech": {
+    },
+    "lotr:tile.doorHolly": {
+    },
+    "lotr:tile.doorBanana": {
+    },
+    "lotr:tile.doorMaple": {
+    },
+    "lotr:tile.doorLarch": {
+    },
+    "lotr:tile.doorDatePalm": {
+    },
+    "lotr:tile.doorMangrove": {
+    },
+    "lotr:tile.doorChestnut": {
+    },
+    "lotr:tile.doorBaobab": {
+    },
+    "lotr:tile.doorCedar": {
+    },
+    "lotr:tile.doorFir": {
+    },
+    "lotr:tile.doorPine": {
+    },
+    "lotr:tile.doorLemon": {
+    },
+    "lotr:tile.doorOrange": {
+    },
+    "lotr:tile.doorLime": {
+    },
+    "lotr:tile.doorMahogany": {
+    },
+    "lotr:tile.doorWillow": {
+    },
+    "lotr:tile.doorCypress": {
+    },
+    "lotr:tile.doorOlive": {
+    },
+    "lotr:tile.doorAspen": {
+    },
+    "lotr:tile.doorGreenOak": {
+    },
+    "lotr:tile.doorLairelosse": {
+    },
+    "lotr:tile.doorAlmond": {
+    },
+    "lotr:tile.doorPlum": {
+    },
+    "lotr:tile.doorRedwood": {
+    },
+    "lotr:tile.doorPomegranate": {
+    },
+    "lotr:tile.doorPalm": {
+    },
+    "lotr:tile.doorDragon": {
+    },
+    "lotr:tile.doorRotten": {
+    },
+    "lotr:tile.boneBlock": {
+    },
+    "lotr:tile.slabBoneSingle": {
+    },
+    "lotr:tile.slabBoneDouble": {
+    },
+    "lotr:tile.stairsBone": {
+    },
+    "lotr:tile.wallBone": {
+    },
+    "lotr:tile.chestAncientHarad": {
+    },
+    "lotr:tile.spawnerChestAncientHarad": {
+    },
+    "lotr:tile.redClay": {
+    },
+    "lotr:tile.orcChain": {
+    },
+    "lotr:tile.utumnoBrickEntrance": {
+    },
+    "lotr:tile.stairsAngmarBrickSnow": {
+    },
+    "lotr:tile.stairsKanuka": {
+    },
+    "lotr:tile.fenceGateKanuka": {
+    },
+    "lotr:tile.doorKanuka": {
+    },
+    "lotr:tile.slabSingle14": {
+    },
+    "lotr:tile.slabDouble14": {
+    },
+    "lotr:tile.cobblebrick": {
+    },
+    "lotr:tile.trapdoorSpruce": {
+    },
+    "lotr:tile.trapdoorBirch": {
+    },
+    "lotr:tile.trapdoorJungle": {
+    },
+    "lotr:tile.trapdoorAcacia": {
+    },
+    "lotr:tile.trapdoorDarkOak": {
+    },
+    "lotr:tile.trapdoorShirePine": {
+    },
+    "lotr:tile.trapdoorMallorn": {
+    },
+    "lotr:tile.trapdoorMirkOak": {
+    },
+    "lotr:tile.trapdoorCharred": {
+    },
+    "lotr:tile.trapdoorApple": {
+    },
+    "lotr:tile.trapdoorPear": {
+    },
+    "lotr:tile.trapdoorCherry": {
+    },
+    "lotr:tile.trapdoorMango": {
+    },
+    "lotr:tile.trapdoorLebethron": {
+    },
+    "lotr:tile.trapdoorBeech": {
+    },
+    "lotr:tile.trapdoorHolly": {
+    },
+    "lotr:tile.trapdoorBanana": {
+    },
+    "lotr:tile.trapdoorMaple": {
+    },
+    "lotr:tile.trapdoorLarch": {
+    },
+    "lotr:tile.trapdoorDatePalm": {
+    },
+    "lotr:tile.trapdoorMangrove": {
+    },
+    "lotr:tile.trapdoorChestnut": {
+    },
+    "lotr:tile.trapdoorBaobab": {
+    },
+    "lotr:tile.trapdoorCedar": {
+    },
+    "lotr:tile.trapdoorFir": {
+    },
+    "lotr:tile.trapdoorPine": {
+    },
+    "lotr:tile.trapdoorLemon": {
+    },
+    "lotr:tile.trapdoorOrange": {
+    },
+    "lotr:tile.trapdoorLime": {
+    },
+    "lotr:tile.trapdoorMahogany": {
+    },
+    "lotr:tile.trapdoorWillow": {
+    },
+    "lotr:tile.trapdoorCypress": {
+    },
+    "lotr:tile.trapdoorOlive": {
+    },
+    "lotr:tile.trapdoorAspen": {
+    },
+    "lotr:tile.trapdoorGreenOak": {
+    },
+    "lotr:tile.trapdoorLairelosse": {
+    },
+    "lotr:tile.trapdoorAlmond": {
+    },
+    "lotr:tile.trapdoorPlum": {
+    },
+    "lotr:tile.trapdoorRedwood": {
+    },
+    "lotr:tile.trapdoorPomegranate": {
+    },
+    "lotr:tile.trapdoorPalm": {
+    },
+    "lotr:tile.trapdoorDragon": {
+    },
+    "lotr:tile.trapdoorKanuka": {
+    },
+    "lotr:tile.trapdoorRotten": {
+    },
+    "lotr:tile.breeCraftingTable": {
+    },
+    "lotr:tile.orcPlating": {
+    },
+    "lotr:tile.lavender": {
+    },
+    "lotr:tile.mechanisedRailOn": {
+    },
+    "lotr:tile.mechanisedRailOff": {
+    },
+    "lotr:tile.stairsDolGuldurBrickMossy": {
+    },
+    "lotr:tile.stairsMorwaithBrickCracked": {
+    },
+    "lotr:tile.pillar3": {
+    }
+  }
+}
