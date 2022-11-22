@@ -130,17 +130,13 @@
         "name": "minecraft:bedrock"
       }
     },
-    "minecraft:flowing_water": {
-      "comment": "TODO"
-    },
+    "minecraft:flowing_water": null,
     "minecraft:water": {
       "0": {
         "name": "minecraft:water"
       }
     },
-    "minecraft:flowing_lava": {
-      "comment": "TODO"
-    },
+    "minecraft:flowing_lava":  null,
     "minecraft:lava": {
       "0": {
         "name": "minecraft:lava"
@@ -4682,10 +4678,226 @@
       }
     },
     "lotr:tile.stairsArnorBrick": {
+      "0": {
+        "name": "lotr:arnor_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:arnor_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:arnor_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:arnor_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:arnor_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:arnor_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:arnor_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:arnor_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
     },
     "lotr:tile.stairsArnorBrickMossy": {
+      "0": {
+        "name": "lotr:mossy_arnor_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:mossy_arnor_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:mossy_arnor_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:mossy_arnor_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:mossy_arnor_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:mossy_arnor_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:mossy_arnor_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:mossy_arnor_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
     },
     "lotr:tile.stairsArnorBrickCracked": {
+      "0": {
+        "name": "lotr:cracked_arnor_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:cracked_arnor_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:cracked_arnor_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:cracked_arnor_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:cracked_arnor_brick_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:cracked_arnor_brick_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:cracked_arnor_brick_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:cracked_arnor_brick_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
     },
     "lotr:tile.stairsUrukBrick": {
     },
@@ -4704,6 +4916,9 @@
     "lotr:tile.gundabadCraftingTable": {
     },
     "lotr:tile.thatchFloor": {
+      "0": {
+        "name": "lotr:thatch_flooring"
+      }
     },
     "lotr:tile.dalishPastry": {
     },
@@ -4742,6 +4957,42 @@
     "lotr:tile.woodSlabDouble3": {
     },
     "lotr:tile.wood4": {
+      "2": {
+        "name": "minecraft:cedar_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "3": {
+        "name": "minecraft:fir_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "6": {
+        "name": "minecraft:cedar_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "7": {
+        "name": "minecraft:fir_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "10": {
+        "name": "minecraft:cedar_log",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "11": {
+        "name": "minecraft:fir_log",
+        "properties": {
+          "axis": "z"
+        }
+      }
     },
     "lotr:tile.leaves4": {
     },
@@ -4754,10 +5005,88 @@
     "lotr:tile.fallenLeavesLOTR2": {
     },
     "lotr:tile.stairsCedar": {
+      "0": {
+        "name": "lotr:cedar_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:cedar_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:cedar_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:cedar_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:cedar_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:cedar_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:cedar_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:cedar_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
     },
     "lotr:tile.rottenLog": {
     },
     "lotr:tile.oreStorage2": {
+      "1": {
+        "name": "lotr:elven_steel_brick"
+      },
+      "3": {
+        "name": "lotr:salt_block"
+      }
     },
     "lotr:tile.mordorGrass": {
     },

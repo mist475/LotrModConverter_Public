@@ -1693,8 +1693,11 @@ public class Fixers {
                                     }
                                      */
                                     if (DATA.blockMappings.containsKey(legacyId)) {
-                                        byte neededValue = Util.nibble4(DataByteArray, DataCounter);
-                                        BlockPaletteReferences[DataCounter] = addPaletteEntryIfNecessary(DATA.blockMappings.get(legacyId), PaletteCheckerList, PaletteBuilderList, neededValue);
+                                        Map<String, Conversions.BlockMapping> blockMapping = DATA.blockMappings.get(legacyId);
+                                        if (blockMapping != null) {
+                                            byte neededValue = Util.nibble4(DataByteArray, DataCounter);
+                                            BlockPaletteReferences[DataCounter] = addPaletteEntryIfNecessary(blockMapping, PaletteCheckerList, PaletteBuilderList, neededValue);
+                                        }
                                     }
                                 }
                             }
