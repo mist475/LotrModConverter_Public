@@ -907,13 +907,13 @@ public class Fixers {
     /**
      * Fixes the level.dat compoundMap using the existing map and a map from a renewed world
      *
-     * @param newData              {@link CompoundMap} of the level.dat file
-     * @param originalTopLevelTag1 {@link CompoundTag} of a renewed level.dat file
+     * @param newData         {@link CompoundMap} of the level.dat file
+     * @param renewedLevelDat {@link CompoundTag} of a renewed level.dat file
      * @throws IOException when something goes wrong
      */
-    public void levelDatFixer(CompoundMap newData, CompoundTag originalTopLevelTag1) throws IOException {
+    public void levelDatFixer(CompoundMap newData, CompoundTag renewedLevelDat) throws IOException {
         Optional<Tag<?>> OData = Util.getAsTagIfExists(newData, TagType.TAG_COMPOUND, "Data");
-        Optional<Tag<?>> OData1 = Util.getAsTagIfExists(originalTopLevelTag1.getValue(), TagType.TAG_COMPOUND, "Data");
+        Optional<Tag<?>> OData1 = Util.getAsTagIfExists(renewedLevelDat.getValue(), TagType.TAG_COMPOUND, "Data");
 
         if (OData.isPresent() && OData1.isPresent()) {
             CompoundMap Data = (CompoundMap) OData.get().getValue();
@@ -1657,8 +1657,13 @@ public class Fixers {
                             } else OPerSectionEdgeCases = Optional.empty();
                              */
                             for (int DataCounter = 0; DataCounter < 4096; DataCounter++) {
-
                                 int blockId = Util.combine(BlocksByteArray[DataCounter], Util.nibble4(AddByteArray, DataCounter));
+
+                                /*
+                                if (firstByte == (byte) 0B11010101 || firstByte == 0b0011101) {
+                                    System.out.println("breakpoint");
+                                }
+                                 */
 
                                 if (DATA.legacyIds.containsKey(blockId)) {
                                     String legacyId = DATA.legacyIds.get(blockId);

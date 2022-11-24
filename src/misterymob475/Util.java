@@ -185,8 +185,8 @@ public class Util {
      * Get the blockId of a block
      * A blockId uses 12 bits. 8 Being in the first id and 4 in the second
      */
-    public static int combine(byte blockID_a, byte blockId_b) {
-        return blockID_a + (blockId_b << 8);
+    public static int combine(byte id1, byte id2) {
+        return Byte.toUnsignedInt(id1) | (Byte.toUnsignedInt(id2) << 8);
     }
 
     /**

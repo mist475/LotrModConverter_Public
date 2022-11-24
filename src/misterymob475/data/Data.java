@@ -70,48 +70,6 @@ public class Data {
     }
 
     /**
-     * Dynamically creates and returns a map containing the new string ids and the new int ids
-     *
-     * @param levelDat Path of the new level.dat file
-     * @return Map with key String and value Integer containing the new string ids and the new int ids (used for blocks)
-     * @throws IOException if something fails
-     */
-    @SuppressWarnings("unchecked")
-    public static HashMap<String, Integer> renewedIds(String levelDat) throws IOException {
-        HashMap<String, Integer> RenewedIds = new HashMap<>();
-        try {
-            final NBTInputStream input = new NBTInputStream(Files.newInputStream(Paths.get(levelDat)));
-            final CompoundTag originalTopLevelTag = (CompoundTag) input.readTag();
-            input.close();
-
-            CompoundMap originalData = originalTopLevelTag.getValue();
-            CompoundTag fml = (CompoundTag) originalData.get("fml");
-            CompoundTag Registries = (CompoundTag) fml.getValue().get("Registries");
-            CompoundTag minecraft_item = (CompoundTag) Registries.getValue().get("minecraft:block");
-            ListTag<CompoundTag> ids = (ListTag<CompoundTag>) minecraft_item.getValue().get("ids");
-            List<CompoundTag> ids_List = ids.getValue();
-            //showcase Map<String, Tag> originalData = originalTopLevelTag.getValue();
-            //showcase CompoundTag fml = (CompoundTag) originalData.get("fml");
-            //showcase CompoundTag Registries = (CompoundTag) fml.getValue().get("Registries");
-            //showcase CompoundTag minecraft_item = (CompoundTag) Registries.getValue().get("minecraft:item");
-            //showcase ListTag ids = (ListTag) minecraft_item.getValue().get("ids");
-            //showcase List<Tag> ids_List = ids.getValue();
-            //showcase List<Tag> ItemDataList = ((ListTag) ((CompoundTag) (originalTopLevelTag.getValue()).get("FML")).getValue().get("ItemData")).getValue();
-            for (CompoundTag t : ids_List) {
-                RenewedIds.put(((StringTag) t.getValue().get("K")).getValue(), ((IntTag) t.getValue()
-                        .get("V")).getValue());
-            }
-
-            System.out.println("got renewed id's");
-        }
-        //took this out of an example I found, changed it as my ide wanted me to
-        catch (final ClassCastException | NullPointerException ex) {
-            throw new IOException("Error during renewed id gathering");
-        }
-        return RenewedIds;
-    }
-
-    /**
      * Dynamically creates and returns a Map containing the int ids and the old string ids
      *
      * @param levelDat Path of the old level.dat file
