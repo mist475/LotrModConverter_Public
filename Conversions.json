@@ -901,7 +901,80 @@
     "minecraft:pumpkin_stem": null,
     "minecraft:melon_stem": null,
     "minecraft:vine": null,
-    "minecraft:fence_gate": null,
+    "minecraft:fence_gate": {
+      "0": {
+        "name": "minecraft:oak_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:oak_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:oak_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:oak_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:oak_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:oak_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:oak_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:oak_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    }	  ,
     "minecraft:brick_stairs": {
       "0": {
         "name": "minecraft:brick_stairs",
@@ -9641,44 +9714,1869 @@
     "lotr:tile.stairsPomegranate": null,
     "lotr:tile.oreSalt": null,
     "lotr:tile.rivendellCraftingTable": null,
-    "lotr:tile.fenceGateSpruce": null,
-    "lotr:tile.fenceGateBirch": null,
-    "lotr:tile.fenceGateJungle": null,
-    "lotr:tile.fenceGateAcacia": null,
-    "lotr:tile.fenceGateDarkOak": null,
-    "lotr:tile.fenceGateShirePine": null,
-    "lotr:tile.fenceGateMallorn": null,
-    "lotr:tile.fenceGateMirkOak": null,
-    "lotr:tile.fenceGateCharred": null,
-    "lotr:tile.fenceGateApple": null,
-    "lotr:tile.fenceGatePear": null,
-    "lotr:tile.fenceGateCherry": null,
+    "lotr:tile.fenceGateSpruce": {
+      "0": {
+        "name": "minecraft:spruce_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:spruce_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:spruce_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:spruce_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:spruce_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:spruce_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:spruce_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:spruce_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    },
+    "lotr:tile.fenceGateBirch": {
+      "0": {
+        "name": "minecraft:birch_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:birch_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:birch_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:birch_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:birch_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:birch_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:birch_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:birch_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    },
+    "lotr:tile.fenceGateJungle": {
+      "0": {
+        "name": "minecraft:jungle_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:jungle_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:jungle_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:jungle_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:jungle_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:jungle_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:jungle_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:jungle_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    },
+    "lotr:tile.fenceGateAcacia": {
+      "0": {
+        "name": "minecraft:acacia_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:acacia_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:acacia_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:acacia_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:acacia_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:acacia_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:acacia_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:acacia_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    },
+    "lotr:tile.fenceGateDarkOak": {
+      "0": {
+        "name": "minecraft:dark_oak_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:dark_oak_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:dark_oak_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:dark_oak_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:dark_oak_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:dark_oak_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:dark_oak_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:dark_oak_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    },
+    "lotr:tile.fenceGateShirePine": {
+      "0": {
+        "name": "lotr:pine_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:pine_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:pine_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:pine_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:pine_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:pine_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:pine_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:pine_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    }	  ,
+    "lotr:tile.fenceGateMallorn": {
+      "0": {
+        "name": "lotr:mallorn_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:mallorn_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:mallorn_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:mallorn_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:mallorn_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:mallorn_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:mallorn_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:mallorn_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    }	  ,
+    "lotr:tile.fenceGateMirkOak": {
+      "0": {
+        "name": "lotr:mirk_oak_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:mirk_oak_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:mirk_oak_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:mirk_oak_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:mirk_oak_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:mirk_oak_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:mirk_oak_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:mirk_oak_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    }	  ,
+    "lotr:tile.fenceGateCharred": {
+      "0": {
+        "name": "lotr:charred_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:charred_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:charred_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:charred_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:charred_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:charred_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:charred_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:charred_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    }	  ,
+    "lotr:tile.fenceGateApple": {
+      "0": {
+        "name": "lotr:apple_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:apple_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:apple_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:apple_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:apple_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:apple_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:apple_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:apple_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    }	  ,
+    "lotr:tile.fenceGatePear": {
+      "0": {
+        "name": "lotr:pear_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:pear_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:pear_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:pear_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:pear_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:pear_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:pear_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:pear_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    }	  ,
+    "lotr:tile.fenceGateCherry": {
+      "0": {
+        "name": "lotr:cherry_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:cherry_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:cherry_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:cherry_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:cherry_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:cherry_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:cherry_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:cherry_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    }	  ,
     "lotr:tile.fenceGateMango": null,
-    "lotr:tile.fenceGateLebethron": null,
-    "lotr:tile.fenceGateBeech": null,
-    "lotr:tile.fenceGateHolly": null,
+    "lotr:tile.fenceGateLebethron": {
+      "0": {
+        "name": "lotr:lebethron_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:lebethron_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:lebethron_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:lebethron_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:lebethron_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:lebethron_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:lebethron_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:lebethron_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    }	  ,
+    "lotr:tile.fenceGateBeech": {
+      "0": {
+        "name": "lotr:beech_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:beech_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:beech_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:beech_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:beech_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:beech_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:beech_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:beech_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    }	  ,
+    "lotr:tile.fenceGateHolly": {
+      "0": {
+        "name": "lotr:holly_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:holly_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:holly_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:holly_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:holly_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:holly_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:holly_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:holly_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    }	  ,
     "lotr:tile.fenceGateBanana": null,
-    "lotr:tile.fenceGateMaple": null,
-    "lotr:tile.fenceGateLarch": null,
+    "lotr:tile.fenceGateMaple": {
+      "0": {
+        "name": "lotr:maple_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:maple_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:maple_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:maple_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:maple_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:maple_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:maple_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:maple_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    }	  ,
+    "lotr:tile.fenceGateLarch": {
+      "0": {
+        "name": "lotr:larch_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:larch_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:larch_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:larch_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:larch_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:larch_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:larch_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:larch_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    }	  ,
     "lotr:tile.fenceGateDatePalm": null,
     "lotr:tile.fenceGateMangrove": null,
     "lotr:tile.fenceGateChestnut": null,
     "lotr:tile.fenceGateBaobab": null,
-    "lotr:tile.fenceGateCedar": null,
-    "lotr:tile.fenceGateFir": null,
-    "lotr:tile.fenceGatePine": null,
+    "lotr:tile.fenceGateCedar": {
+      "0": {
+        "name": "lotr:cedar_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:cedar_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:cedar_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:cedar_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:cedar_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:cedar_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:cedar_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:cedar_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    }	  ,
+    "lotr:tile.fenceGateFir": {
+      "0": {
+        "name": "lotr:fir_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:fir_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:fir_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:fir_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:fir_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:fir_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:fir_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:fir_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    }	  ,
+    "lotr:tile.fenceGatePine": {
+      "0": {
+        "name": "lotr:pine_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:pine_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:pine_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:pine_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:pine_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:pine_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:pine_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:pine_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    }	  ,
     "lotr:tile.fenceGateLemon": null,
     "lotr:tile.fenceGateOrange": null,
     "lotr:tile.fenceGateLime": null,
     "lotr:tile.fenceGateMahogany": null,
     "lotr:tile.fenceGateWillow": null,
-    "lotr:tile.fenceGateCypress": null,
+    "lotr:tile.fenceGateCypress": {
+      "0": {
+        "name": "lotr:cypress_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:cypress_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:cypress_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:cypress_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:cypress_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:cypress_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:cypress_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:cypress_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    }	  ,
     "lotr:tile.fenceGateOlive": null,
-    "lotr:tile.fenceGateAspen": null,
-    "lotr:tile.fenceGateGreenOak": null,
-    "lotr:tile.fenceGateLairelosse": null,
+    "lotr:tile.fenceGateAspen": {
+      "0": {
+        "name": "lotr:aspen_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:aspen_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:aspen_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:aspen_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:aspen_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:aspen_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:aspen_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:aspen_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    }	  ,
+    "lotr:tile.fenceGateGreenOak": {
+      "0": {
+        "name": "lotr:green_oak_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:green_oak_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:green_oak_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:green_oak_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:green_oak_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:green_oak_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:green_oak_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:green_oak_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    }	  ,
+    "lotr:tile.fenceGateLairelosse": {
+      "0": {
+        "name": "lotr:lairelosse_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:lairelosse_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:lairelosse_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:lairelosse_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:lairelosse_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:lairelosse_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:lairelosse_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:lairelosse_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    }	  ,
     "lotr:tile.fenceGateAlmond": null,
-    "lotr:tile.fenceGateRotten": null,
+    "lotr:tile.fenceGateRotten": {
+      "0": {
+        "name": "lotr:rotten_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:rotten_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:rotten_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:rotten_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:rotten_fence_gate",
+        "properties": {
+          "facing": "south",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:rotten_fence_gate",
+        "properties": {
+          "facing": "west",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:rotten_fence_gate",
+        "properties": {
+          "facing": "north",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:rotten_fence_gate",
+        "properties": {
+          "facing": "east",
+          "in_wall": "false",
+          "open": "true",
+          "powered": "false"
+        }
+      }
+    }	  ,
     "lotr:tile.fenceGatePlum": null,
     "lotr:tile.fenceGateRedwood": null,
     "lotr:tile.fenceGatePomegranate": null,
