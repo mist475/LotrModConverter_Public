@@ -870,7 +870,168 @@
         "name": "minecraft:black_stained_glass"
       }
     },
-    "minecraft:trapdoor": null,
+    "minecraft:trapdoor": {
+      "0": {
+        "name": "minecraft:oak_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:oak_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:oak_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:oak_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:oak_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:oak_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:oak_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:oak_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "minecraft:oak_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "minecraft:oak_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "minecraft:oak_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "minecraft:oak_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "minecraft:oak_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "minecraft:oak_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "minecraft:oak_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "minecraft:oak_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
     "minecraft:stonebrick": {
       "0": {
         "name": "minecraft:stone_bricks"
@@ -974,7 +1135,7 @@
           "powered": "false"
         }
       }
-    }	  ,
+    },
     "minecraft:brick_stairs": {
       "0": {
         "name": "minecraft:brick_stairs",
@@ -10157,7 +10318,7 @@
           "powered": "false"
         }
       }
-    }	  ,
+    },
     "lotr:tile.fenceGateMallorn": {
       "0": {
         "name": "lotr:mallorn_fence_gate",
@@ -10231,7 +10392,7 @@
           "powered": "false"
         }
       }
-    }	  ,
+    },
     "lotr:tile.fenceGateMirkOak": {
       "0": {
         "name": "lotr:mirk_oak_fence_gate",
@@ -10305,7 +10466,7 @@
           "powered": "false"
         }
       }
-    }	  ,
+    },
     "lotr:tile.fenceGateCharred": {
       "0": {
         "name": "lotr:charred_fence_gate",
@@ -10379,7 +10540,7 @@
           "powered": "false"
         }
       }
-    }	  ,
+    },
     "lotr:tile.fenceGateApple": {
       "0": {
         "name": "lotr:apple_fence_gate",
@@ -10453,7 +10614,7 @@
           "powered": "false"
         }
       }
-    }	  ,
+    },
     "lotr:tile.fenceGatePear": {
       "0": {
         "name": "lotr:pear_fence_gate",
@@ -10527,7 +10688,7 @@
           "powered": "false"
         }
       }
-    }	  ,
+    },
     "lotr:tile.fenceGateCherry": {
       "0": {
         "name": "lotr:cherry_fence_gate",
@@ -10601,7 +10762,7 @@
           "powered": "false"
         }
       }
-    }	  ,
+    },
     "lotr:tile.fenceGateMango": null,
     "lotr:tile.fenceGateLebethron": {
       "0": {
@@ -10676,7 +10837,7 @@
           "powered": "false"
         }
       }
-    }	  ,
+    },
     "lotr:tile.fenceGateBeech": {
       "0": {
         "name": "lotr:beech_fence_gate",
@@ -10750,7 +10911,7 @@
           "powered": "false"
         }
       }
-    }	  ,
+    },
     "lotr:tile.fenceGateHolly": {
       "0": {
         "name": "lotr:holly_fence_gate",
@@ -10824,7 +10985,7 @@
           "powered": "false"
         }
       }
-    }	  ,
+    },
     "lotr:tile.fenceGateBanana": null,
     "lotr:tile.fenceGateMaple": {
       "0": {
@@ -10899,7 +11060,7 @@
           "powered": "false"
         }
       }
-    }	  ,
+    },
     "lotr:tile.fenceGateLarch": {
       "0": {
         "name": "lotr:larch_fence_gate",
@@ -10973,7 +11134,7 @@
           "powered": "false"
         }
       }
-    }	  ,
+    },
     "lotr:tile.fenceGateDatePalm": null,
     "lotr:tile.fenceGateMangrove": null,
     "lotr:tile.fenceGateChestnut": null,
@@ -11051,7 +11212,7 @@
           "powered": "false"
         }
       }
-    }	  ,
+    },
     "lotr:tile.fenceGateFir": {
       "0": {
         "name": "lotr:fir_fence_gate",
@@ -11125,7 +11286,7 @@
           "powered": "false"
         }
       }
-    }	  ,
+    },
     "lotr:tile.fenceGatePine": {
       "0": {
         "name": "lotr:pine_fence_gate",
@@ -11199,7 +11360,7 @@
           "powered": "false"
         }
       }
-    }	  ,
+    },
     "lotr:tile.fenceGateLemon": null,
     "lotr:tile.fenceGateOrange": null,
     "lotr:tile.fenceGateLime": null,
@@ -11278,7 +11439,7 @@
           "powered": "false"
         }
       }
-    }	  ,
+    },
     "lotr:tile.fenceGateOlive": null,
     "lotr:tile.fenceGateAspen": {
       "0": {
@@ -11353,7 +11514,7 @@
           "powered": "false"
         }
       }
-    }	  ,
+    },
     "lotr:tile.fenceGateGreenOak": {
       "0": {
         "name": "lotr:green_oak_fence_gate",
@@ -11427,7 +11588,7 @@
           "powered": "false"
         }
       }
-    }	  ,
+    },
     "lotr:tile.fenceGateLairelosse": {
       "0": {
         "name": "lotr:lairelosse_fence_gate",
@@ -11501,7 +11662,7 @@
           "powered": "false"
         }
       }
-    }	  ,
+    },
     "lotr:tile.fenceGateAlmond": null,
     "lotr:tile.fenceGateRotten": {
       "0": {
@@ -11576,7 +11737,7 @@
           "powered": "false"
         }
       }
-    }	  ,
+    },
     "lotr:tile.fenceGatePlum": null,
     "lotr:tile.fenceGateRedwood": null,
     "lotr:tile.fenceGatePomegranate": null,
@@ -12042,42 +12203,3906 @@
     "lotr:tile.slabSingle14": null,
     "lotr:tile.slabDouble14": null,
     "lotr:tile.cobblebrick": null,
-    "lotr:tile.trapdoorSpruce": null,
-    "lotr:tile.trapdoorBirch": null,
-    "lotr:tile.trapdoorJungle": null,
-    "lotr:tile.trapdoorAcacia": null,
-    "lotr:tile.trapdoorDarkOak": null,
-    "lotr:tile.trapdoorShirePine": null,
-    "lotr:tile.trapdoorMallorn": null,
-    "lotr:tile.trapdoorMirkOak": null,
-    "lotr:tile.trapdoorCharred": null,
-    "lotr:tile.trapdoorApple": null,
-    "lotr:tile.trapdoorPear": null,
-    "lotr:tile.trapdoorCherry": null,
+    "lotr:tile.trapdoorSpruce": {
+      "0": {
+        "name": "minecraft:spruce_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:spruce_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:spruce_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:spruce_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:spruce_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:spruce_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:spruce_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:spruce_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "minecraft:spruce_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "minecraft:spruce_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "minecraft:spruce_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "minecraft:spruce_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "minecraft:spruce_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "minecraft:spruce_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "minecraft:spruce_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "minecraft:spruce_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.trapdoorBirch": {
+      "0": {
+        "name": "minecraft:birch_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:birch_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:birch_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:birch_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:birch_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:birch_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:birch_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:birch_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "minecraft:birch_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "minecraft:birch_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "minecraft:birch_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "minecraft:birch_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "minecraft:birch_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "minecraft:birch_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "minecraft:birch_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "minecraft:birch_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.trapdoorJungle": {
+      "0": {
+        "name": "minecraft:jungle_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:jungle_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:jungle_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:jungle_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:jungle_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:jungle_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:jungle_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:jungle_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "minecraft:jungle_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "minecraft:jungle_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "minecraft:jungle_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "minecraft:jungle_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "minecraft:jungle_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "minecraft:jungle_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "minecraft:jungle_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "minecraft:jungle_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.trapdoorAcacia": {
+      "0": {
+        "name": "minecraft:acacia_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:acacia_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:acacia_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:acacia_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:acacia_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:acacia_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:acacia_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:acacia_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "minecraft:acacia_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "minecraft:acacia_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "minecraft:acacia_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "minecraft:acacia_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "minecraft:acacia_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "minecraft:acacia_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "minecraft:acacia_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "minecraft:acacia_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.trapdoorDarkOak": {
+      "0": {
+        "name": "minecraft:dark_oak_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:dark_oak_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:dark_oak_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:dark_oak_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:dark_oak_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:dark_oak_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:dark_oak_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:dark_oak_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "minecraft:dark_oak_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "minecraft:dark_oak_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "minecraft:dark_oak_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "minecraft:dark_oak_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "minecraft:dark_oak_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "minecraft:dark_oak_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "minecraft:dark_oak_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "minecraft:dark_oak_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.trapdoorShirePine": {
+      "0": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.trapdoorMallorn": {
+      "0": {
+        "name": "lotr:mallorn_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:mallorn_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:mallorn_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:mallorn_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:mallorn_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:mallorn_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:mallorn_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:mallorn_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:mallorn_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:mallorn_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:mallorn_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:mallorn_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:mallorn_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:mallorn_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:mallorn_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:mallorn_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.trapdoorMirkOak": {
+      "0": {
+        "name": "lotr:mirk_oak_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:mirk_oak_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:mirk_oak_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:mirk_oak_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:mirk_oak_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:mirk_oak_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:mirk_oak_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:mirk_oak_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:mirk_oak_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:mirk_oak_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:mirk_oak_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:mirk_oak_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:mirk_oak_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:mirk_oak_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:mirk_oak_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:mirk_oak_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.trapdoorCharred": {
+      "0": {
+        "name": "lotr:charred_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:charred_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:charred_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:charred_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:charred_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:charred_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:charred_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:charred_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:charred_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:charred_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:charred_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:charred_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:charred_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:charred_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:charred_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:charred_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.trapdoorApple": {
+      "0": {
+        "name": "lotr:apple_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:apple_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:apple_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:apple_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:apple_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:apple_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:apple_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:apple_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:apple_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:apple_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:apple_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:apple_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:apple_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:apple_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:apple_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:apple_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.trapdoorPear": {
+      "0": {
+        "name": "lotr:pear_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:pear_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:pear_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:pear_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:pear_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:pear_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:pear_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:pear_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:pear_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:pear_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:pear_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:pear_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:pear_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:pear_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:pear_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:pear_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.trapdoorCherry": {
+      "0": {
+        "name": "lotr:cherry_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:cherry_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:cherry_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:cherry_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:cherry_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:cherry_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:cherry_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:cherry_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:cherry_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:cherry_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:cherry_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:cherry_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:cherry_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:cherry_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:cherry_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:cherry_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.trapdoorMango": null,
-    "lotr:tile.trapdoorLebethron": null,
-    "lotr:tile.trapdoorBeech": null,
-    "lotr:tile.trapdoorHolly": null,
+    "lotr:tile.trapdoorLebethron": {
+      "0": {
+        "name": "lotr:lebethron_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:lebethron_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:lebethron_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:lebethron_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:lebethron_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:lebethron_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:lebethron_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:lebethron_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:lebethron_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:lebethron_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:lebethron_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:lebethron_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:lebethron_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:lebethron_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:lebethron_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:lebethron_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.trapdoorBeech": {
+      "0": {
+        "name": "lotr:beech_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:beech_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:beech_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:beech_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:beech_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:beech_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:beech_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:beech_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:beech_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:beech_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:beech_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:beech_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:beech_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:beech_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:beech_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:beech_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.trapdoorHolly": {
+      "0": {
+        "name": "lotr:holly_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:holly_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:holly_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:holly_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:holly_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:holly_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:holly_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:holly_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:holly_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:holly_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:holly_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:holly_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:holly_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:holly_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:holly_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:holly_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.trapdoorBanana": null,
-    "lotr:tile.trapdoorMaple": null,
-    "lotr:tile.trapdoorLarch": null,
+    "lotr:tile.trapdoorMaple": {
+      "0": {
+        "name": "lotr:maple_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:maple_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:maple_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:maple_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:maple_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:maple_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:maple_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:maple_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:maple_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:maple_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:maple_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:maple_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:maple_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:maple_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:maple_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:maple_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.trapdoorLarch": {
+      "0": {
+        "name": "lotr:larch_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:larch_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:larch_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:larch_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:larch_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:larch_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:larch_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:larch_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:larch_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:larch_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:larch_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:larch_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:larch_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:larch_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:larch_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:larch_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.trapdoorDatePalm": null,
     "lotr:tile.trapdoorMangrove": null,
     "lotr:tile.trapdoorChestnut": null,
     "lotr:tile.trapdoorBaobab": null,
-    "lotr:tile.trapdoorCedar": null,
-    "lotr:tile.trapdoorFir": null,
-    "lotr:tile.trapdoorPine": null,
+    "lotr:tile.trapdoorCedar": {
+      "0": {
+        "name": "lotr:cedar_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:cedar_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:cedar_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:cedar_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:cedar_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:cedar_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:cedar_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:cedar_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:cedar_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:cedar_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:cedar_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:cedar_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:cedar_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:cedar_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:cedar_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:cedar_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.trapdoorFir": {
+      "0": {
+        "name": "lotr:fir_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:fir_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:fir_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:fir_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:fir_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:fir_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:fir_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:fir_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:fir_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:fir_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:fir_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:fir_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:fir_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:fir_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:fir_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:fir_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.trapdoorPine": {
+      "0": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:pine_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.trapdoorLemon": null,
     "lotr:tile.trapdoorOrange": null,
     "lotr:tile.trapdoorLime": null,
     "lotr:tile.trapdoorMahogany": null,
     "lotr:tile.trapdoorWillow": null,
-    "lotr:tile.trapdoorCypress": null,
+    "lotr:tile.trapdoorCypress": {
+      "0": {
+        "name": "lotr:cypress_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:cypress_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:cypress_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:cypress_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:cypress_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:cypress_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:cypress_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:cypress_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:cypress_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:cypress_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:cypress_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:cypress_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:cypress_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:cypress_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:cypress_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:cypress_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.trapdoorOlive": null,
-    "lotr:tile.trapdoorAspen": null,
-    "lotr:tile.trapdoorGreenOak": null,
-    "lotr:tile.trapdoorLairelosse": null,
+    "lotr:tile.trapdoorAspen": {
+      "0": {
+        "name": "lotr:aspen_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:aspen_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:aspen_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:aspen_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:aspen_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:aspen_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:aspen_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:aspen_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:aspen_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:aspen_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:aspen_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:aspen_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:aspen_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:aspen_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:aspen_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:aspen_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.trapdoorGreenOak": {
+      "0": {
+        "name": "lotr:green_oak_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:green_oak_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:green_oak_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:green_oak_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:green_oak_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:green_oak_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:green_oak_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:green_oak_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:green_oak_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:green_oak_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:green_oak_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:green_oak_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:green_oak_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:green_oak_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:green_oak_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:green_oak_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.trapdoorLairelosse": {
+      "0": {
+        "name": "lotr:lairelosse_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:lairelosse_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:lairelosse_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:lairelosse_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:lairelosse_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:lairelosse_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:lairelosse_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:lairelosse_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:lairelosse_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:lairelosse_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:lairelosse_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:lairelosse_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:lairelosse_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:lairelosse_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:lairelosse_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:lairelosse_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.trapdoorAlmond": null,
     "lotr:tile.trapdoorPlum": null,
     "lotr:tile.trapdoorRedwood": null,
@@ -12085,7 +16110,168 @@
     "lotr:tile.trapdoorPalm": null,
     "lotr:tile.trapdoorDragon": null,
     "lotr:tile.trapdoorKanuka": null,
-    "lotr:tile.trapdoorRotten": null,
+    "lotr:tile.trapdoorRotten": {
+      "0": {
+        "name": "lotr:rotten_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:rotten_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:rotten_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:rotten_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:rotten_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:rotten_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:rotten_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:rotten_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:rotten_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:rotten_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:rotten_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:rotten_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "false",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:rotten_trapdoor",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:rotten_trapdoor",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:rotten_trapdoor",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:rotten_trapdoor",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "open": "true",
+          "powered": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.breeCraftingTable": null,
     "lotr:tile.orcPlating": null,
     "lotr:tile.lavender": null,
