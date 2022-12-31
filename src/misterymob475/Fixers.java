@@ -421,7 +421,8 @@ public class Fixers {
                 STRINGCACHE.printLine("Maximum set recursion depth reached (default = 7, defined in JSON)", false);
             }
             return itemListBuilder;
-        } catch (final ClassCastException | NullPointerException ex) {
+        }
+        catch (final ClassCastException | NullPointerException ex) {
             throw new IOException(exceptionMessage);
         }
     }
@@ -777,7 +778,8 @@ public class Fixers {
                     STRINGCACHE.printLine("Empty tag found, skipping", false);
                 }
             }
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             System.out.println(exceptionMessage);
         }
         return Optional.empty();

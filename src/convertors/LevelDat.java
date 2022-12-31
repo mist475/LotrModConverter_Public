@@ -60,7 +60,8 @@ public class LevelDat implements Convertor {
             output.close();
 
             stringCache.printLine("Converted the level.dat file");
-        } catch (final ClassCastException | NullPointerException ex) {
+        }
+        catch (final ClassCastException | NullPointerException ex) {
             throw new IOException("Error during level.dat fixing");
         }
     }

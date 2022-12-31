@@ -97,7 +97,8 @@ public class DataFolder implements Convertor {
                         }
                     }
 
-                } catch (IOException e) {
+                }
+                catch (IOException e) {
                     e.printStackTrace();
                 }
             }

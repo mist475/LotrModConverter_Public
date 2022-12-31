@@ -63,7 +63,8 @@ public class Util {
                 try {
                     int input = myScanner.nextInt();
                     return Optional.of(pathNames[input - 1]);
-                } catch (Exception e) {
+                }
+                catch (Exception e) {
                     System.out.println("Invalid selection");
                     return renewedWorldSelector();
                 }
@@ -110,7 +111,8 @@ public class Util {
                 try {
                     int input = myScanner.nextInt();
                     return Optional.of(pathNames[input - 1]);
-                } catch (Exception e) {
+                }
+                catch (Exception e) {
                     System.out.println("Invalid selection");
                     return legacyWorldSelector();
                 }

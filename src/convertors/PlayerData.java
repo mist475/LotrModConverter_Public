@@ -59,7 +59,8 @@ public class PlayerData implements Convertor {
                                                                                                                          .toString())).getAbsolutePath())));
                     output.writeTag(topLevelTag);
                     output.close();
-                } catch (Exception e) {
+                }
+                catch (Exception e) {
                     e.printStackTrace();
                     stringCache.printLine("Something went wrong during playerdata conversion");
                 }

@@ -58,7 +58,8 @@ public class LotrData implements Convertor {
                 output.close();
                 stringCache.printLine("converted LOTR.dat");
             }
-        } catch (final ClassCastException | NullPointerException ex) {
+        }
+        catch (final ClassCastException | NullPointerException ex) {
             throw new IOException("Error during LOTR.dat fix");
         }
 

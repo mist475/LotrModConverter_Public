@@ -43,7 +43,8 @@ public class Main {
                     Thread t = new Thread(() -> {
                         try {
                             c.modifier(launchDir, selectedWorld.getName());
-                        } catch (IOException e) {
+                        }
+                        catch (IOException e) {
                             e.printStackTrace();
                         }
                     });
@@ -56,9 +57,11 @@ public class Main {
                 }
                 System.out.println("Done!");
             }
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             System.out.println("IO Error (Read/Write Related)");
-        } catch (JsonSyntaxException | JsonIOException | InterruptedException e) {
+        }
+        catch (JsonSyntaxException | JsonIOException | InterruptedException e) {
             System.out.println("Error during JSON Reading/Writing");
         }
     }

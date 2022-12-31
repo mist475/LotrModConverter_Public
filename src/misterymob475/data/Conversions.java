@@ -12,27 +12,27 @@ public class Conversions {
     @SerializedName("AuthorBlacklist")
     private final List<String> authorBlackList;
     @SerializedName("BlockEntityMappings")
-    private final Map<String,String> blockEntityMappings;
+    private final Map<String, String> blockEntityMappings;
 
     @SerializedName("BlockMappings")
-    private final Map<String,Map<String,BlockMapping>> blockMappings;
+    private final Map<String, Map<String, BlockMapping>> blockMappings;
 
     @SerializedName("Colours")
-    private final Map<String,String> colours;
+    private final Map<String, String> colours;
     @SerializedName("Enchantments")
-    private final Map<String,String> enchantmentIds;
+    private final Map<String, String> enchantmentIds;
     @SerializedName("Entities")
-    private final Map<String,String> entities;
+    private final Map<String, String> entities;
     @SerializedName("Factions")
-    private final Map<String,String> factions;
+    private final Map<String, String> factions;
     @SerializedName("Items")
-    private final Map<String,List<String>> items;
+    private final Map<String, List<String>> items;
     @SerializedName("Mod_mob_ids")
-    private final Map<String,String> lotrModMobIds;
+    private final Map<String, String> lotrModMobIds;
     @SerializedName("Potions")
-    private final Map<String,Potion> potions;
+    private final Map<String, Potion> potions;
     @SerializedName("Regions")
-    private final Map<String,String> regions;
+    private final Map<String, String> regions;
 
     @SerializedName("Settings")
     private final Settings settings;
@@ -41,9 +41,9 @@ public class Conversions {
     @SerializedName("TitleBlacklist")
     private final List<String> titleBlacklist;
     @SerializedName("Vanilla_mob_ids")
-    private final Map<String,String> vanillaMobIds;
+    private final Map<String, String> vanillaMobIds;
     @SerializedName("Waypoints")
-    private final Map<String,String> waypoints;
+    private final Map<String, String> waypoints;
 
     public Conversions(String comments, List<String> authorBlackList, Map<String, String> blockEntityMappings, Map<String, Map<String, BlockMapping>> blockMappings, Map<String, String> colours, Map<String, String> enchantmentIds, Map<String, String> entities, Map<String, String> factions, Map<String, List<String>> items, Map<String, String> lotrModMobIds, Map<String, Potion> potions, Map<String, String> regions, Settings settings, Map<String, Object> textFormatting, List<String> titleBlacklist, Map<String, String> vanillaMobIds, Map<String, String> waypoints) {
         this.comments = comments;
@@ -152,7 +152,7 @@ public class Conversions {
         @SerializedName("name")
         private final String name;
         @SerializedName("properties")
-        private final Map<String,Object> properties;
+        private final Map<String, Object> properties;
 
         public BlockMapping(String name, Map<String, Object> properties) {
             this.name = name;

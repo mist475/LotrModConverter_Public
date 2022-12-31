@@ -73,7 +73,8 @@ public class DimensionConverter implements Convertor {
                         //TODO: Start using multithreading here
                         HashMap<Integer, Chunk> result = fixers.regionFixer(chunks);
                         newRegion.writeChunks(result);
-                    } catch (Exception e) {
+                    }
+                    catch (Exception e) {
                         e.printStackTrace();
                         throw new IOException(this.exceptionMessage);
                     }

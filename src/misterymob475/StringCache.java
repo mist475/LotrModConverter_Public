@@ -45,30 +45,37 @@ public class StringCache {
                 if (cacheDebug) {
                     try {
                         actualPrint(msg);
-                    } catch (IOException e) {
+                    }
+                    catch (IOException e) {
                         e.printStackTrace();
                     }
-                } else {
+                }
+                else {
                     try {
                         fasterPrint(msg);
-                    } catch (IOException e) {
+                    }
+                    catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
 
-            } else if (debugLevel == 1.0) {
+            }
+            else if (debugLevel == 1.0) {
                 if (!extended) {
                     if (cacheDebug) {
                         try {
                             actualPrint(msg);
-                        } catch (IOException e) {
+                        }
+                        catch (IOException e) {
                             e.printStackTrace();
                         }
                     }
-                } else {
+                }
+                else {
                     try {
                         fasterPrint(msg);
-                    } catch (IOException e) {
+                    }
+                    catch (IOException e) {
                         e.printStackTrace();
                     }
                 }

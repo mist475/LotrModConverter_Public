@@ -1,7 +1,10 @@
 package misterymob475.data;
 
 import com.google.gson.Gson;
-import de.piegames.nbt.*;
+import de.piegames.nbt.CompoundTag;
+import de.piegames.nbt.IntTag;
+import de.piegames.nbt.ListTag;
+import de.piegames.nbt.StringTag;
 import de.piegames.nbt.stream.NBTInputStream;
 
 import java.io.IOException;
@@ -57,7 +60,8 @@ public class Data {
             this.blockMappings = conversions.getBlockMappings();
             this.blockEntityMappings = conversions.getBlockEntityMappings();
             reader.close();
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             throw new RuntimeException("Error initializing json file, closing program");
         }
     }
