@@ -8189,10 +8189,109 @@
         }
       }
     },
-    "lotr:tile.barrel": null,
-    "lotr:tile.lettuce": null,
+    "lotr:tile.barrel": {
+      "2": {
+        "name": "lotr:keg",
+        "properties": {
+          "facing": "north",
+          "open": "false",
+          "up": "false",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:keg",
+        "properties": {
+          "facing": "south",
+          "open": "false",
+          "up": "false",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:keg",
+        "properties": {
+          "facing": "west",
+          "open": "false",
+          "up": "false",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:keg",
+        "properties": {
+          "facing": "east",
+          "open": "false",
+          "up": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.lettuce": {
+      "0": {
+        "name": "lotr:lettuce",
+        "properties": {
+          "age": "0"
+        }
+      },
+      "1": {
+        "name": "lotr:lettuce",
+        "properties": {
+          "age": "1"
+        }
+      },
+      "2": {
+        "name": "lotr:lettuce",
+        "properties": {
+          "age": "2"
+        }
+      },
+      "3": {
+        "name": "lotr:lettuce",
+        "properties": {
+          "age": "3"
+        }
+      },
+      "4": {
+        "name": "lotr:lettuce",
+        "properties": {
+          "age": "4"
+        }
+      },
+      "5": {
+        "name": "lotr:lettuce",
+        "properties": {
+          "age": "5"
+        }
+      },
+      "6": {
+        "name": "lotr:lettuce",
+        "properties": {
+          "age": "6"
+        }
+      },
+      "7": {
+        "name": "lotr:lettuce",
+        "properties": {
+          "age": "7"
+        }
+      }
+    },
     "lotr:tile.orcBomb": null,
-    "lotr:tile.orcTorch": null,
+    "lotr:tile.orcTorch": {
+      "0": {
+        "name": "lotr:orc_torch",
+        "properties": {
+          "half": "lower"
+        }
+      },
+      "1": {
+        "name": "lotr:orc_torch",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
     "lotr:tile.elanor": {
       "0": {
         "name": "lotr:elanor"
@@ -11565,7 +11664,11 @@
       }
     },
     "lotr:tile.elvenForge": null,
-    "lotr:tile.dolAmrothCraftingTable": null,
+    "lotr:tile.dolAmrothCraftingTable": {
+      "0": {
+        "name": "lotr:dol_amroth_crafting_table"
+      }
+    },
     "lotr:tile.stairsDolAmrothBrick": {
       "0": {
         "name": "lotr:dol_amroth_brick_stairs",
@@ -14579,8 +14682,16 @@
         }
       }
     },
-    "lotr:tile.daleCraftingTable": null,
-    "lotr:tile.dorwinionCraftingTable": null,
+    "lotr:tile.daleCraftingTable": {
+      "0": {
+        "name": "lotr:dale_crafting_table"
+      }
+    },
+    "lotr:tile.dorwinionCraftingTable": {
+      "0": {
+        "name": "lotr:dorwinion_crafting_table"
+      }
+    },
     "lotr:tile.stairsCypress": {
       "0": {
         "name": "lotr:cypress_stairs",
@@ -14658,7 +14769,11 @@
     "lotr:tile.stairsOlive": null,
     "lotr:tile.slabSingle10": null,
     "lotr:tile.slabDouble10": null,
-    "lotr:tile.hobbitCraftingTable": null,
+    "lotr:tile.hobbitCraftingTable": {
+      "0": {
+        "name": "lotr:hobbit_crafting_table"
+      }
+    },
     "lotr:tile.gateHobbitGreen": null,
     "lotr:tile.gateHobbitBlue": null,
     "lotr:tile.gateHobbitRed": null,
@@ -15272,8 +15387,16 @@
     "lotr:tile.slabDoubleSand": null,
     "lotr:tile.slabSingleGravel": null,
     "lotr:tile.slabDoubleGravel": null,
-    "lotr:tile.morgulFlower": null,
-    "lotr:tile.blackroot": null,
+    "lotr:tile.morgulFlower": {
+      "0": {
+        "name": "lotr:morgul_flower"
+      }
+    },
+    "lotr:tile.blackroot": {
+      "0": {
+        "name": "lotr:blackroot"
+      }
+    },
     "lotr:tile.wood8": null,
     "lotr:tile.leaves8": null,
     "lotr:tile.sapling8": null,
@@ -15508,8 +15631,16 @@
     },
     "lotr:tile.slabSingle11": null,
     "lotr:tile.slabDouble11": null,
-    "lotr:tile.whiteSand": null,
-    "lotr:tile.whiteSandstone": null,
+    "lotr:tile.whiteSand": {
+      "0": {
+        "name": "lotr:white_sand"
+      }
+    },
+    "lotr:tile.whiteSandstone": {
+      "0": {
+        "name": "lotr:white_sandstone"
+      }
+    },
     "lotr:tile.stairsWhiteSandstone": {
       "0": {
         "name": "lotr:white_sandstone_stairs",
@@ -15589,7 +15720,11 @@
     "lotr:tile.treasureGold": null,
     "lotr:tile.chestLebethron": null,
     "lotr:tile.chestBasket": null,
-    "lotr:tile.marigold": null,
+    "lotr:tile.marigold": {
+      "0": {
+        "name": "lotr:marigold"
+      }
+    },
     "lotr:tile.rhunFlower": null,
     "lotr:tile.chestMallorn": null,
     "lotr:tile.stairsCobblestoneMossy": {
@@ -15897,8 +16032,16 @@
     "lotr:tile.yam": null,
     "lotr:tile.kebabBlock": null,
     "lotr:tile.stairsPomegranate": null,
-    "lotr:tile.oreSalt": null,
-    "lotr:tile.rivendellCraftingTable": null,
+    "lotr:tile.oreSalt": {
+      "0": {
+        "name": "lotr:rock_salt"
+      }
+    },
+    "lotr:tile.rivendellCraftingTable": {
+      "0": {
+        "name": "lotr:rivendell_crafting_table"
+      }
+    },
     "lotr:tile.fenceGateSpruce": {
       "0": {
         "name": "minecraft:spruce_fence_gate",
@@ -17776,7 +17919,11 @@
     "lotr:tile.oreGem": null,
     "lotr:tile.blockGem": null,
     "lotr:tile.coralReef": null,
-    "lotr:tile.bookshelfStorage": null,
+    "lotr:tile.bookshelfStorage": {
+      "0": {
+        "name": "minecraft:bookshelf"
+      }
+    },
     "lotr:tile.glass": null,
     "lotr:tile.glassPane": null,
     "lotr:tile.stainedGlass": null,
@@ -17933,7 +18080,11 @@
         }
       }
     },
-    "lotr:tile.umbarCraftingTable": null,
+    "lotr:tile.umbarCraftingTable": {
+      "0": {
+        "name": "lotr:umbar_crafting_table"
+      }
+    },
     "lotr:tile.gulfCraftingTable": null,
     "lotr:tile.stairsPalm": null,
     "lotr:tile.fenceGatePalm": null,
@@ -17943,8 +18094,16 @@
     "lotr:tile.woodBeam9": null,
     "lotr:tile.stairsDragon": null,
     "lotr:tile.fenceGateDragon": null,
-    "lotr:tile.woodPlate": null,
-    "lotr:tile.ceramicPlate": null,
+    "lotr:tile.woodPlate": {
+      "0": {
+        "name": "lotr:wooden_plate"
+      }
+    },
+    "lotr:tile.ceramicPlate": {
+      "0": {
+        "name": "lotr:stoneware_plate"
+      }
+    },
     "lotr:tile.wallStone5": {
       "0": {
         "name": "lotr:umbar_brick_wall",
@@ -20485,7 +20644,14 @@
         }
       }
     },
-    "lotr:tile.boneBlock": null,
+    "lotr:tile.boneBlock": {
+      "0": {
+        "name": "minecraft:bone_block",
+        "properties": {
+          "axis": "y"
+        }
+      }
+    },
     "lotr:tile.slabBoneSingle": null,
     "lotr:tile.slabBoneDouble": null,
     "lotr:tile.stairsBone": null,
@@ -20493,7 +20659,14 @@
     "lotr:tile.chestAncientHarad": null,
     "lotr:tile.spawnerChestAncientHarad": null,
     "lotr:tile.redClay": null,
-    "lotr:tile.orcChain": null,
+    "lotr:tile.orcChain": {
+      "0": {
+        "name": "minecraft:chain",
+        "properties": {
+          "axis": "y"
+        }
+      }
+    },
     "lotr:tile.utumnoBrickEntrance": null,
     "lotr:tile.stairsAngmarBrickSnow": {
       "0": {
@@ -24644,9 +24817,24 @@
         }
       }
     },
-    "lotr:tile.breeCraftingTable": null,
-    "lotr:tile.orcPlating": null,
-    "lotr:tile.lavender": null,
+    "lotr:tile.breeCraftingTable": {
+      "0": {
+        "name": "lotr:bree_crafting_table"
+      }
+    },
+    "lotr:tile.orcPlating": {
+      "0": {
+        "name": "lotr:orc_plating"
+      },
+      "1": {
+        "name": "lotr:rusted_orc_plating"
+      }
+    },
+    "lotr:tile.lavender": {
+      "0": {
+        "name": "lotr:lavender"
+      }
+    },
     "lotr:tile.mechanisedRailOn": null,
     "lotr:tile.mechanisedRailOff": null,
     "lotr:tile.stairsDolGuldurBrickMossy": null,
