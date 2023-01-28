@@ -482,9 +482,264 @@
         }
       }
     },
-    "minecraft:golden_rail": null,
-    "minecraft:detector_rail": null,
-    "minecraft:sticky_piston": null,
+    "minecraft:golden_rail": {
+      "0": {
+        "name": "minecraft:powered_rail",
+        "properties": {
+          "shape": "north_south",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:powered_rail",
+        "properties": {
+          "shape": "east_west",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:powered_rail",
+        "properties": {
+          "shape": "ascending_east",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:powered_rail",
+        "properties": {
+          "shape": "ascending_west",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:powered_rail",
+        "properties": {
+          "shape": "ascending_north",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:powered_rail",
+        "properties": {
+          "shape": "ascending_south",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "minecraft:powered_rail",
+        "properties": {
+          "shape": "north_south",
+          "powered": "true"
+        }
+      },
+      "9": {
+        "name": "minecraft:powered_rail",
+        "properties": {
+          "shape": "east_west",
+          "powered": "true"
+        }
+      },
+      "10": {
+        "name": "minecraft:powered_rail",
+        "properties": {
+          "shape": "ascending_east",
+          "powered": "true"
+        }
+      },
+      "11": {
+        "name": "minecraft:powered_rail",
+        "properties": {
+          "shape": "ascending_west",
+          "powered": "true"
+        }
+      },
+      "12": {
+        "name": "minecraft:powered_rail",
+        "properties": {
+          "shape": "ascending_north",
+          "powered": "true"
+        }
+      },
+      "13": {
+        "name": "minecraft:powered_rail",
+        "properties": {
+          "shape": "ascending_south",
+          "powered": "true"
+        }
+      }
+    },
+    "minecraft:detector_rail": {
+      "0": {
+        "name": "minecraft:detector_rail",
+        "properties": {
+          "shape": "north_south",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:detector_rail",
+        "properties": {
+          "shape": "east_west",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:detector_rail",
+        "properties": {
+          "shape": "ascending_east",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:detector_rail",
+        "properties": {
+          "shape": "ascending_west",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:detector_rail",
+        "properties": {
+          "shape": "ascending_north",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:detector_rail",
+        "properties": {
+          "shape": "ascending_south",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "minecraft:detector_rail",
+        "properties": {
+          "shape": "north_south",
+          "powered": "true"
+        }
+      },
+      "9": {
+        "name": "minecraft:detector_rail",
+        "properties": {
+          "shape": "east_west",
+          "powered": "true"
+        }
+      },
+      "10": {
+        "name": "minecraft:detector_rail",
+        "properties": {
+          "shape": "ascending_east",
+          "powered": "true"
+        }
+      },
+      "11": {
+        "name": "minecraft:detector_rail",
+        "properties": {
+          "shape": "ascending_west",
+          "powered": "true"
+        }
+      },
+      "12": {
+        "name": "minecraft:detector_rail",
+        "properties": {
+          "shape": "ascending_north",
+          "powered": "true"
+        }
+      },
+      "13": {
+        "name": "minecraft:detector_rail",
+        "properties": {
+          "shape": "ascending_south",
+          "powered": "true"
+        }
+      }
+    },
+    "minecraft:sticky_piston": {
+      "0": {
+        "name": "minecraft:sticky_piston",
+        "properties": {
+          "extended": "false",
+          "facing": "down"
+        }
+      },
+      "1": {
+        "name": "minecraft:sticky_piston",
+        "properties": {
+          "extended": "false",
+          "facing": "up"
+        }
+      },
+      "2": {
+        "name": "minecraft:sticky_piston",
+        "properties": {
+          "extended": "false",
+          "facing": "north"
+        }
+      },
+      "3": {
+        "name": "minecraft:sticky_piston",
+        "properties": {
+          "extended": "false",
+          "facing": "south"
+        }
+      },
+      "4": {
+        "name": "minecraft:sticky_piston",
+        "properties": {
+          "extended": "false",
+          "facing": "west"
+        }
+      },
+      "5": {
+        "name": "minecraft:sticky_piston",
+        "properties": {
+          "extended": "false",
+          "facing": "east"
+        }
+      },
+      "8": {
+        "name": "minecraft:sticky_piston",
+        "properties": {
+          "extended": "true",
+          "facing": "down"
+        }
+      },
+      "9": {
+        "name": "minecraft:sticky_piston",
+        "properties": {
+          "extended": "true",
+          "facing": "up"
+        }
+      },
+      "10": {
+        "name": "minecraft:sticky_piston",
+        "properties": {
+          "extended": "true",
+          "facing": "north"
+        }
+      },
+      "11": {
+        "name": "minecraft:sticky_piston",
+        "properties": {
+          "extended": "true",
+          "facing": "south"
+        }
+      },
+      "12": {
+        "name": "minecraft:sticky_piston",
+        "properties": {
+          "extended": "true",
+          "facing": "west"
+        }
+      },
+      "13": {
+        "name": "minecraft:sticky_piston",
+        "properties": {
+          "extended": "true",
+          "facing": "east"
+        }
+      }
+    },
     "minecraft:web": {
       "0": {
         "name": "minecraft:web"
@@ -503,8 +758,190 @@
         "name": "minecraft:dead_bush"
       }
     },
-    "minecraft:piston": null,
-    "minecraft:piston_head": null,
+    "minecraft:piston": {
+      "0": {
+        "name": "minecraft:piston",
+        "properties": {
+          "extended": "false",
+          "facing": "down"
+        }
+      },
+      "1": {
+        "name": "minecraft:piston",
+        "properties": {
+          "extended": "false",
+          "facing": "up"
+        }
+      },
+      "2": {
+        "name": "minecraft:piston",
+        "properties": {
+          "extended": "false",
+          "facing": "north"
+        }
+      },
+      "3": {
+        "name": "minecraft:piston",
+        "properties": {
+          "extended": "false",
+          "facing": "south"
+        }
+      },
+      "4": {
+        "name": "minecraft:piston",
+        "properties": {
+          "extended": "false",
+          "facing": "east"
+        }
+      },
+      "5": {
+        "name": "minecraft:piston",
+        "properties": {
+          "extended": "false",
+          "facing": "west"
+        }
+      },
+      "8": {
+        "name": "minecraft:piston",
+        "properties": {
+          "extended": "true",
+          "facing": "down"
+        }
+      },
+      "9": {
+        "name": "minecraft:piston",
+        "properties": {
+          "extended": "true",
+          "facing": "up"
+        }
+      },
+      "10": {
+        "name": "minecraft:piston",
+        "properties": {
+          "extended": "true",
+          "facing": "north"
+        }
+      },
+      "11": {
+        "name": "minecraft:piston",
+        "properties": {
+          "extended": "true",
+          "facing": "south"
+        }
+      },
+      "12": {
+        "name": "minecraft:piston",
+        "properties": {
+          "extended": "true",
+          "facing": "west"
+        }
+      },
+      "13": {
+        "name": "minecraft:piston",
+        "properties": {
+          "extended": "true",
+          "facing": "east"
+        }
+      }
+    },
+    "minecraft:piston_head": {
+      "0": {
+        "name": "minecraft:piston_head",
+        "properties": {
+          "facing": "down",
+          "short": "false",
+          "type": "normal"
+        }
+      },
+      "1": {
+        "name": "minecraft:piston_head",
+        "properties": {
+          "facing": "up",
+          "short": "false",
+          "type": "normal"
+        }
+      },
+      "2": {
+        "name": "minecraft:piston_head",
+        "properties": {
+          "facing": "north",
+          "short": "false",
+          "type": "normal"
+        }
+      },
+      "3": {
+        "name": "minecraft:piston_head",
+        "properties": {
+          "facing": "south",
+          "short": "false",
+          "type": "normal"
+        }
+      },
+      "4": {
+        "name": "minecraft:piston_head",
+        "properties": {
+          "facing": "west",
+          "short": "false",
+          "type": "normal"
+        }
+      },
+      "5": {
+        "name": "minecraft:piston_head",
+        "properties": {
+          "facing": "east",
+          "short": "false",
+          "type": "normal"
+        }
+      },
+      "8": {
+        "name": "minecraft:piston_head",
+        "properties": {
+          "facing": "down",
+          "short": "false",
+          "type": "sticky"
+        }
+      },
+      "9": {
+        "name": "minecraft:piston_head",
+        "properties": {
+          "facing": "up",
+          "short": "false",
+          "type": "sticky"
+        }
+      },
+      "10": {
+        "name": "minecraft:piston_head",
+        "properties": {
+          "facing": "north",
+          "short": "false",
+          "type": "sticky"
+        }
+      },
+      "11": {
+        "name": "minecraft:piston_head",
+        "properties": {
+          "facing": "south",
+          "short": "false",
+          "type": "sticky"
+        }
+      },
+      "12": {
+        "name": "minecraft:piston_head",
+        "properties": {
+          "facing": "west",
+          "short": "false",
+          "type": "sticky"
+        }
+      },
+      "13": {
+        "name": "minecraft:piston_head",
+        "properties": {
+          "facing": "east",
+          "short": "false",
+          "type": "sticky"
+        }
+      }
+    },
     "minecraft:wool": {
       "0": {
         "name": "minecraft:white_wool"
@@ -555,7 +992,104 @@
         "name": "minecraft:black_wool"
       }
     },
-    "minecraft:piston_extension": null,
+    "minecraft:piston_extension": {
+      "0": {
+        "name": "minecraft:piston_head",
+        "properties": {
+          "facing": "down",
+          "short": "false",
+          "type": "normal"
+        }
+      },
+      "1": {
+        "name": "minecraft:piston_head",
+        "properties": {
+          "facing": "up",
+          "short": "false",
+          "type": "normal"
+        }
+      },
+      "2": {
+        "name": "minecraft:piston_head",
+        "properties": {
+          "facing": "north",
+          "short": "false",
+          "type": "normal"
+        }
+      },
+      "3": {
+        "name": "minecraft:piston_head",
+        "properties": {
+          "facing": "south",
+          "short": "false",
+          "type": "normal"
+        }
+      },
+      "4": {
+        "name": "minecraft:piston_head",
+        "properties": {
+          "facing": "west",
+          "short": "false",
+          "type": "normal"
+        }
+      },
+      "5": {
+        "name": "minecraft:piston_head",
+        "properties": {
+          "facing": "east",
+          "short": "false",
+          "type": "normal"
+        }
+      },
+      "8": {
+        "name": "minecraft:piston_head",
+        "properties": {
+          "facing": "down",
+          "short": "false",
+          "type": "sticky"
+        }
+      },
+      "9": {
+        "name": "minecraft:piston_head",
+        "properties": {
+          "facing": "up",
+          "short": "false",
+          "type": "sticky"
+        }
+      },
+      "10": {
+        "name": "minecraft:piston_head",
+        "properties": {
+          "facing": "north",
+          "short": "false",
+          "type": "sticky"
+        }
+      },
+      "11": {
+        "name": "minecraft:piston_head",
+        "properties": {
+          "facing": "south",
+          "short": "false",
+          "type": "sticky"
+        }
+      },
+      "12": {
+        "name": "minecraft:piston_head",
+        "properties": {
+          "facing": "west",
+          "short": "false",
+          "type": "sticky"
+        }
+      },
+      "13": {
+        "name": "minecraft:piston_head",
+        "properties": {
+          "facing": "east",
+          "short": "false",
+          "type": "sticky"
+        }
+      }
+    },
     "minecraft:yellow_flower": {
       "0": {
         "name": "minecraft:dandelion"
@@ -607,7 +1141,64 @@
         "name": "minecraft:iron_block"
       }
     },
-    "minecraft:double_stone_slab": null,
+    "minecraft:double_stone_slab": {
+      "0": {
+        "name": "minecraft:smooth_stone_slab",
+        "properties": {
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:sandstone_slab",
+        "properties": {
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:petrified_oak_slab",
+        "properties": {
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:cobblestone_slab",
+        "properties": {
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:brick_slab",
+        "properties": {
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:stone_brick_slab",
+        "properties": {
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:nether_brick_slab",
+        "properties": {
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:quartz_slab",
+        "properties": {
+          "type": "double",
+          "waterlogged": "false"
+        }
+      }
+    },
     "minecraft:stone_slab": {
       "0": {
         "name": "minecraft:smooth_stone_slab",
@@ -662,6 +1253,62 @@
         "name": "minecraft:quartz_slab",
         "properties": {
           "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "minecraft:smooth_stone_slab",
+        "properties": {
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "minecraft:sandstone_slab",
+        "properties": {
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "minecraft:petrified_oak_slab",
+        "properties": {
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "minecraft:cobblestone_slab",
+        "properties": {
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "minecraft:brick_slab",
+        "properties": {
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "minecraft:stone_brick_slab",
+        "properties": {
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "minecraft:nether_brick_slab",
+        "properties": {
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "minecraft:quartz_slab",
+        "properties": {
+          "type": "top",
           "waterlogged": "false"
         }
       }
@@ -805,7 +1452,36 @@
         }
       }
     },
-    "minecraft:chest": null,
+    "minecraft:chest": {
+      "2": {
+        "name": "minecraft:chest",
+        "properties": {
+          "facing": "north",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:chest",
+        "properties": {
+          "facing": "south",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:chest",
+        "properties": {
+          "facing": "west",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:chest",
+        "properties": {
+          "facing": "east",
+          "waterlogged": "false"
+        }
+      }
+    },
     "minecraft:redstone_wire": {
       "0": {
         "name": "minecraft:redstone_wire",
@@ -1257,7 +1933,100 @@
         }
       }
     },
-    "minecraft:wooden_door": null,
+    "minecraft:wooden_door": {
+      "0": {
+        "name": "minecraft:oak_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:oak_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:oak_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:oak_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:oak_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:oak_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:oak_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:oak_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "minecraft:oak_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "minecraft:oak_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
     "minecraft:ladder": {
       "2": {
         "name": "minecraft:ladder",
@@ -1598,7 +2367,100 @@
         }
       }
     },
-    "minecraft:iron_door": null,
+    "minecraft:iron_door": {
+      "0": {
+        "name": "minecraft:iron_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:iron_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:iron_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:iron_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:iron_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:iron_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:iron_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:iron_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "minecraft:iron_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "minecraft:iron_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
     "minecraft:wooden_pressure_plate": {
       "0": {
         "name": "minecraft:oak_pressure_plate",
@@ -5557,8 +6419,178 @@
         }
       }
     },
-    "minecraft:activator_rail": null,
-    "minecraft:dropper": null,
+    "minecraft:activator_rail": {
+      "0": {
+        "name": "minecraft:activator_rail",
+        "properties": {
+          "shape": "north_south",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:activator_rail",
+        "properties": {
+          "shape": "east_west",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:activator_rail",
+        "properties": {
+          "shape": "ascending_east",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:activator_rail",
+        "properties": {
+          "shape": "ascending_west",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:activator_rail",
+        "properties": {
+          "shape": "ascending_north",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:activator_rail",
+        "properties": {
+          "shape": "ascending_south",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "minecraft:activator_rail",
+        "properties": {
+          "shape": "north_south",
+          "powered": "true"
+        }
+      },
+      "9": {
+        "name": "minecraft:activator_rail",
+        "properties": {
+          "shape": "east_west",
+          "powered": "true"
+        }
+      },
+      "10": {
+        "name": "minecraft:activator_rail",
+        "properties": {
+          "shape": "ascending_east",
+          "powered": "true"
+        }
+      },
+      "11": {
+        "name": "minecraft:activator_rail",
+        "properties": {
+          "shape": "ascending_west",
+          "powered": "true"
+        }
+      },
+      "12": {
+        "name": "minecraft:activator_rail",
+        "properties": {
+          "shape": "ascending_north",
+          "powered": "true"
+        }
+      },
+      "13": {
+        "name": "minecraft:activator_rail",
+        "properties": {
+          "shape": "ascending_south",
+          "powered": "true"
+        }
+      }
+    },
+    "minecraft:dropper": {
+      "0": {
+        "name": "minecraft:dropper",
+        "properties": {
+          "facing": "down",
+          "triggered": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:dropper",
+        "properties": {
+          "facing": "up",
+          "triggered": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:dropper",
+        "properties": {
+          "facing": "north",
+          "triggered": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:dropper",
+        "properties": {
+          "facing": "south",
+          "triggered": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:dropper",
+        "properties": {
+          "facing": "west",
+          "triggered": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:dropper",
+        "properties": {
+          "facing": "east",
+          "triggered": "false"
+        }
+      },
+      "8": {
+        "name": "minecraft:dropper",
+        "properties": {
+          "facing": "down",
+          "triggered": "true"
+        }
+      },
+      "9": {
+        "name": "minecraft:dropper",
+        "properties": {
+          "facing": "up",
+          "triggered": "true"
+        }
+      },
+      "10": {
+        "name": "minecraft:dropper",
+        "properties": {
+          "facing": "north",
+          "triggered": "true"
+        }
+      },
+      "11": {
+        "name": "minecraft:dropper",
+        "properties": {
+          "facing": "south",
+          "triggered": "true"
+        }
+      },
+      "12": {
+        "name": "minecraft:dropper",
+        "properties": {
+          "facing": "west",
+          "triggered": "true"
+        }
+      },
+      "13": {
+        "name": "minecraft:dropper",
+        "properties": {
+          "facing": "east",
+          "triggered": "true"
+        }
+      }
+    },
     "minecraft:stained_hardened_clay": {
       "0": {
         "name": "minecraft:white_terracotta"
@@ -5886,7 +6918,26 @@
         "name": "lotr:mithril_ore"
       }
     },
-    "minecraft:hay_block": null,
+    "minecraft:hay_block": {
+      "0": {
+        "name": "minecraft:hay_block",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "4": {
+        "name": "minecraft:hay_block",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "8": {
+        "name": "minecraft:hay_block",
+        "properties": {
+          "axis": "z"
+        }
+      }
+    },
     "minecraft:carpet": {
       "0": {
         "name": "minecraft:white_carpet"
@@ -6035,7 +7086,12 @@
         }
       }
     },
-    "lotr:tile.beacon": null,
+    "lotr:tile.beacon": {
+      "name": "lotr:gondor_beacon",
+      "properties": {
+        "lit": "false"
+      }
+    },
     "lotr:tile.simbelmyne": {
       "0": {
         "name": "lotr:simbelmyne"
