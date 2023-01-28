@@ -5417,10 +5417,26 @@
     },
     "minecraft:cobblestone_wall": {
       "0": {
-        "name": "minecraft:cobblestone_wall"
+        "name": "minecraft:cobblestone_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
       },
       "1": {
-        "name": "minecraft:mossy_cobblestone_wall"
+        "name": "minecraft:mossy_cobblestone_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
       }
     },
     "minecraft:flower_pot": {
@@ -7087,9 +7103,11 @@
       }
     },
     "lotr:tile.beacon": {
-      "name": "lotr:gondor_beacon",
-      "properties": {
-        "lit": "false"
+      "0": {
+        "name": "lotr:gondor_beacon",
+        "properties": {
+          "lit": "false"
+        }
       }
     },
     "lotr:tile.simbelmyne": {
@@ -7211,8 +7229,178 @@
       }
     },
     "lotr:tile.sapling": null,
-    "lotr:tile.woodSlabSingle": null,
-    "lotr:tile.woodSlabDouble": null,
+    "lotr:tile.woodSlabSingle": {
+      "0": {
+        "name": "lotr:pine_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:mallorn_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:mirk_oak_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:charred_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:apple_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:pear_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:cherry_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:pine_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:mallorn_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:mirk_oak_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:charred_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:apple_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:pear_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:cherry_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.woodSlabDouble": {
+      "0": {
+        "name": "lotr:pine_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:mallorn_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:mirk_oak_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:charred_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:apple_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:pear_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:cherry_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.stairsPine": {
       "0": {
         "name": "lotr:pine_stairs",
@@ -7343,7 +7531,64 @@
       }
     },
     "lotr:tile.appleCrumble": null,
-    "lotr:tile.hobbitOven": null,
+    "lotr:tile.hobbitOven": {
+      "2": {
+        "name": "lotr:hobbit_oven",
+        "properties": {
+          "facing": "north",
+          "lit": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:hobbit_oven",
+        "properties": {
+          "facing": "south",
+          "lit": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:hobbit_oven",
+        "properties": {
+          "facing": "west",
+          "lit": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:hobbit_oven",
+        "properties": {
+          "facing": "east",
+          "lit": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:hobbit_oven",
+        "properties": {
+          "facing": "north",
+          "lit": "true"
+        }
+      },
+      "11": {
+        "name": "lotr:hobbit_oven",
+        "properties": {
+          "facing": "south",
+          "lit": "true"
+        }
+      },
+      "12": {
+        "name": "lotr:hobbit_oven",
+        "properties": {
+          "facing": "west",
+          "lit": "true"
+        }
+      },
+      "13": {
+        "name": "lotr:hobbit_oven",
+        "properties": {
+          "facing": "east",
+          "lit": "true"
+        }
+      }
+    },
     "lotr:tile.oreStorage": {
       "0": {
         "name": "lotr:copper_block"
@@ -7433,8 +7678,202 @@
         "name": "lotr:wild_pipeweed"
       }
     },
-    "lotr:tile.slabSingle": null,
-    "lotr:tile.slabDouble": null,
+    "lotr:tile.slabSingle": {
+      "0": {
+        "name": "lotr:smooth_mordor_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:mordor_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:gondor_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:gondor_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:mossy_gondor_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:cracked_gondor_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:rohan_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:dwarven_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:smooth_mordor_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:mordor_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:gondor_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:gondor_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:mossy_gondor_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:cracked_gondor_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:rohan_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:dwarven_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.slabDouble": {
+      "0": {
+        "name": "lotr:smooth_mordor_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:mordor_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:gondor_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:gondor_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:mossy_gondor_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:cracked_gondor_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:rohan_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:dwarven_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.stairsMordorBrick": {
       "0": {
         "name": "lotr:mordor_brick_stairs",
@@ -7583,7 +8022,173 @@
         }
       }
     },
-    "lotr:tile.wallStone": null,
+    "lotr:tile.wallStone": {
+      "0": {
+        "name": "lotr:mordor_rock_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "1": {
+        "name": "lotr:mordor_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "2": {
+        "name": "lotr:gondor_rock_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "3": {
+        "name": "lotr:gondor_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "4": {
+        "name": "lotr:mossy_gondor_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "5": {
+        "name": "lotr:cracked_gondor_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "6": {
+        "name": "lotr:rohan_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "7": {
+        "name": "lotr:dwarven_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "8": {
+        "name": "lotr:rohan_rock_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "9": {
+        "name": "lotr:cracked_mordor_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "10": {
+        "name": "lotr:galadhrim_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "11": {
+        "name": "lotr:mossy_galadhrim_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "12": {
+        "name": "lotr:cracked_galadhrim_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "13": {
+        "name": "lotr:blue_rock_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "14": {
+        "name": "lotr:blue_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      }
+    },
     "lotr:tile.barrel": null,
     "lotr:tile.lettuce": null,
     "lotr:tile.orcBomb": null,
@@ -9114,7 +9719,151 @@
         "name": "lotr:carved_galadhrim_brick"
       }
     },
-    "lotr:tile.wallStone2": null,
+    "lotr:tile.wallStone2": {
+      "0": {
+        "name": "lotr:angmar_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "1": {
+        "name": "lotr:cracked_angmar_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "2": {
+        "name": "lotr:red_rock_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "3": {
+        "name": "lotr:red_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "4": {
+        "name": "lotr:angmar_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "5": {
+        "name": "lotr:mossy_angmar_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "6": {
+        "name": "lotr:cracked_angmar_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "7": {
+        "name": "lotr:uruk_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "10": {
+        "name": "lotr:numenorean_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "11": {
+        "name": "lotr:high_elven_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "12": {
+        "name": "lotr:mossy_high_elven_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "13": {
+        "name": "lotr:cracked_high_elven_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "14": {
+        "name": "lotr:dol_amroth_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      }
+    },
     "lotr:tile.stairsAngmarBrick": {
       "0": {
         "name": "lotr:angmar_brick_stairs",
@@ -10257,7 +11006,118 @@
       }
     },
     "lotr:tile.brick3": null,
-    "lotr:tile.wallStone3": null,
+    "lotr:tile.wallStone3": {
+      "0": {
+        "name": "lotr:wood_elven_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "1": {
+        "name": "lotr:mossy_wood_elven_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "2": {
+        "name": "lotr:cracked_wood_elven_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "6": {
+        "name": "lotr:chalk_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "7": {
+        "name": "lotr:chalk_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "9": {
+        "name": "lotr:dale_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "10": {
+        "name": "lotr:dorwinion_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "11": {
+        "name": "lotr:mossy_dorwinion_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "12": {
+        "name": "lotr:cracked_dorwinion_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "14": {
+        "name": "lotr:white_sandstone_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      }
+    },
     "lotr:tile.slabSingle6": null,
     "lotr:tile.slabDouble6": null,
     "lotr:tile.stairsHighElvenBrick": {
@@ -11041,7 +11901,74 @@
     "lotr:tile.stairsLime": null,
     "lotr:tile.tauredainCraftingTable": null,
     "lotr:tile.brick4": null,
-    "lotr:tile.wallStone4": null,
+    "lotr:tile.wallStone4": {
+      "5": {
+        "name": "lotr:cracked_dwarven_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "7": {
+        "name": "lotr:gondor_cobblebrick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "8": {
+        "name": "lotr:mossy_gondor_cobblebrick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "9": {
+        "name": "lotr:cracked_gondor_cobblebrick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "14": {
+        "name": "lotr:mossy_dale_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "15": {
+        "name": "lotr:cracked_dale_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      }
+    },
     "lotr:tile.slabSingle8": null,
     "lotr:tile.slabDouble8": null,
     "lotr:tile.stairsTauredainBrick": null,
@@ -11469,7 +12396,85 @@
     "lotr:tile.gateGondor": null,
     "lotr:tile.pressurePlateChalk": null,
     "lotr:tile.buttonChalk": null,
-    "lotr:tile.wallStoneV": null,
+    "lotr:tile.wallStoneV": {
+      "0": {
+        "name": "lotr:stone_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "1": {
+        "name": "minecraft:stone_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "2": {
+        "name": "minecraft:mossy_stone_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "3": {
+        "name": "minecraft:cracked_stone_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "4": {
+        "name": "minecraft:sandstone_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "5": {
+        "name": "minecraft:red_sandstone_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "6": {
+        "name": "minecraft:brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      }
+    },
     "lotr:tile.stairsStoneBrickMossy": {
       "0": {
         "name": "minecraft:mossy_stone_brick_stairs",
@@ -14665,8 +15670,197 @@
     "lotr:tile.mallornTorchBlue": null,
     "lotr:tile.mallornTorchGold": null,
     "lotr:tile.mallornTorchGreen": null,
-    "lotr:tile.wallClayTile": null,
-    "lotr:tile.wallClayTileDyed": null,
+    "lotr:tile.wallClayTile": {
+      "0": {
+        "name": "lotr:clay_tiling_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      }
+    },
+    "lotr:tile.wallClayTileDyed": {
+      "0": {
+        "name": "lotr:white_clay_tiling_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "1": {
+        "name": "lotr:orange_clay_tiling_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "2": {
+        "name": "lotr:magenta_clay_tiling_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "3": {
+        "name": "lotr:light_blue_clay_tiling_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "4": {
+        "name": "lotr:yellow_clay_tiling_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "5": {
+        "name": "lotr:lime_clay_tiling_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "6": {
+        "name": "lotr:pink_clay_tiling_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "7": {
+        "name": "lotr:gray_clay_tiling_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "8": {
+        "name": "lotr:light_gray_clay_tiling_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "9": {
+        "name": "lotr:cyan_clay_tiling_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "10": {
+        "name": "lotr:purple_clay_tiling_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "11": {
+        "name": "lotr:blue_clay_tiling_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "12": {
+        "name": "lotr:brown_clay_tiling_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "13": {
+        "name": "lotr:green_clay_tiling_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "14": {
+        "name": "lotr:red_clay_tiling_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "15": {
+        "name": "lotr:black_clay_tiling_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      }
+    },
     "lotr:tile.ceramicMug": null,
     "lotr:tile.gobletGold": null,
     "lotr:tile.gobletSilver": null,
@@ -16751,7 +17945,30 @@
     "lotr:tile.fenceGateDragon": null,
     "lotr:tile.woodPlate": null,
     "lotr:tile.ceramicPlate": null,
-    "lotr:tile.wallStone5": null,
+    "lotr:tile.wallStone5": {
+      "0": {
+        "name": "lotr:umbar_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "1": {
+        "name": "lotr:cracked_umbar_brick_wall",
+        "properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      }
+    },
     "lotr:tile.stairsUmbarBrick": {
       "0": {
         "name": "lotr:umbar_brick_stairs",
@@ -16900,49 +18117,2374 @@
         }
       }
     },
-    "lotr:tile.doorSpruce": null,
-    "lotr:tile.doorBirch": null,
-    "lotr:tile.doorJungle": null,
-    "lotr:tile.doorAcacia": null,
-    "lotr:tile.doorDarkOak": null,
-    "lotr:tile.doorShirePine": null,
-    "lotr:tile.doorMallorn": null,
-    "lotr:tile.doorMirkOak": null,
-    "lotr:tile.doorCharred": null,
-    "lotr:tile.doorApple": null,
-    "lotr:tile.doorPear": null,
-    "lotr:tile.doorCherry": null,
+    "lotr:tile.doorSpruce": {
+      "0": {
+        "name": "minecraft:spruce_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:spruce_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:spruce_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:spruce_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:spruce_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:spruce_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:spruce_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:spruce_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "minecraft:spruce_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "minecraft:spruce_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
+    "lotr:tile.doorBirch": {
+      "0": {
+        "name": "minecraft:birch_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:birch_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:birch_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:birch_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:birch_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:birch_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:birch_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:birch_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "minecraft:birch_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "minecraft:birch_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
+    "lotr:tile.doorJungle": {
+      "0": {
+        "name": "minecraft:jungle_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:jungle_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:jungle_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:jungle_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:jungle_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:jungle_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:jungle_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:jungle_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "minecraft:jungle_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "minecraft:jungle_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
+    "lotr:tile.doorAcacia": {
+      "0": {
+        "name": "minecraft:acacia_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:acacia_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:acacia_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:acacia_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:acacia_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:acacia_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:acacia_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:acacia_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "minecraft:acacia_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "minecraft:acacia_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
+    "lotr:tile.doorDarkOak": {
+      "0": {
+        "name": "minecraft:dark_oak_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:dark_oak_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:dark_oak_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:dark_oak_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:dark_oak_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:dark_oak_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "minecraft:dark_oak_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "minecraft:dark_oak_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "minecraft:dark_oak_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "minecraft:dark_oak_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
+    "lotr:tile.doorShirePine": {
+      "0": {
+        "name": "lotr:shire_pine_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:shire_pine_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:shire_pine_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:shire_pine_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:shire_pine_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:shire_pine_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:shire_pine_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:shire_pine_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:shire_pine_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "lotr:shire_pine_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
+    "lotr:tile.doorMallorn": {
+      "0": {
+        "name": "lotr:mallorn_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:mallorn_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:mallorn_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:mallorn_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:mallorn_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:mallorn_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:mallorn_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:mallorn_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:mallorn_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "lotr:mallorn_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
+    "lotr:tile.doorMirkOak": {
+      "0": {
+        "name": "lotr:mirk_oak_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:mirk_oak_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:mirk_oak_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:mirk_oak_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:mirk_oak_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:mirk_oak_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:mirk_oak_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:mirk_oak_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:mirk_oak_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "lotr:mirk_oak_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
+    "lotr:tile.doorCharred": {
+      "0": {
+        "name": "lotr:charred_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:charred_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:charred_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:charred_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:charred_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:charred_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:charred_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:charred_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:charred_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "lotr:charred_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
+    "lotr:tile.doorApple": {
+      "0": {
+        "name": "lotr:apple_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:apple_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:apple_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:apple_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:apple_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:apple_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:apple_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:apple_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:apple_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "lotr:apple_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
+    "lotr:tile.doorPear": {
+      "0": {
+        "name": "lotr:pear_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:pear_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:pear_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:pear_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:pear_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:pear_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:pear_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:pear_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:pear_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "lotr:pear_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
+    "lotr:tile.doorCherry": {
+      "0": {
+        "name": "lotr:cherry_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:cherry_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:cherry_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:cherry_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:cherry_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:cherry_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:cherry_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:cherry_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:cherry_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "lotr:cherry_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
     "lotr:tile.doorMango": null,
-    "lotr:tile.doorLebethron": null,
-    "lotr:tile.doorBeech": null,
-    "lotr:tile.doorHolly": null,
+    "lotr:tile.doorLebethron": {
+      "0": {
+        "name": "lotr:lebethron_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:lebethron_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:lebethron_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:lebethron_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:lebethron_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:lebethron_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:lebethron_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:lebethron_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:lebethron_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "lotr:lebethron_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
+    "lotr:tile.doorBeech": {
+      "0": {
+        "name": "lotr:beech_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:beech_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:beech_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:beech_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:beech_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:beech_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:beech_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:beech_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:beech_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "lotr:beech_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
+    "lotr:tile.doorHolly": {
+      "0": {
+        "name": "lotr:holly_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:holly_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:holly_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:holly_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:holly_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:holly_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:holly_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:holly_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:holly_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "lotr:holly_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
     "lotr:tile.doorBanana": null,
-    "lotr:tile.doorMaple": null,
-    "lotr:tile.doorLarch": null,
+    "lotr:tile.doorMaple": {
+      "0": {
+        "name": "lotr:maple_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:maple_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:maple_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:maple_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:maple_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:maple_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:maple_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:maple_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:maple_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "lotr:maple_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
+    "lotr:tile.doorLarch": {
+      "0": {
+        "name": "lotr:larch_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:larch_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:larch_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:larch_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:larch_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:larch_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:larch_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:larch_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:larch_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "lotr:larch_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
     "lotr:tile.doorDatePalm": null,
     "lotr:tile.doorMangrove": null,
     "lotr:tile.doorChestnut": null,
     "lotr:tile.doorBaobab": null,
-    "lotr:tile.doorCedar": null,
-    "lotr:tile.doorFir": null,
-    "lotr:tile.doorPine": null,
+    "lotr:tile.doorCedar": {
+      "0": {
+        "name": "lotr:cedar_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:cedar_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:cedar_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:cedar_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:cedar_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:cedar_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:cedar_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:cedar_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:cedar_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "lotr:cedar_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
+    "lotr:tile.doorFir": {
+      "0": {
+        "name": "lotr:fir_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:fir_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:fir_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:fir_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:fir_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:fir_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:fir_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:fir_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:fir_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "lotr:fir_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
+    "lotr:tile.doorPine": {
+      "0": {
+        "name": "lotr:pine_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:pine_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:pine_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:pine_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:pine_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:pine_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:pine_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:pine_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:pine_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "lotr:pine_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
     "lotr:tile.doorLemon": null,
     "lotr:tile.doorOrange": null,
     "lotr:tile.doorLime": null,
     "lotr:tile.doorMahogany": null,
     "lotr:tile.doorWillow": null,
-    "lotr:tile.doorCypress": null,
+    "lotr:tile.doorCypress": {
+      "0": {
+        "name": "lotr:cypress_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:cypress_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:cypress_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:cypress_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:cypress_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:cypress_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:cypress_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:cypress_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:cypress_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "lotr:cypress_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
     "lotr:tile.doorOlive": null,
-    "lotr:tile.doorAspen": null,
-    "lotr:tile.doorGreenOak": null,
-    "lotr:tile.doorLairelosse": null,
+    "lotr:tile.doorAspen": {
+      "0": {
+        "name": "lotr:aspen_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:aspen_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:aspen_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:aspen_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:aspen_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:aspen_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:aspen_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:aspen_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:aspen_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "lotr:aspen_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
+    "lotr:tile.doorGreenOak": {
+      "0": {
+        "name": "lotr:green_oak_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:green_oak_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:green_oak_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:green_oak_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:green_oak_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:green_oak_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:green_oak_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:green_oak_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:green_oak_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "lotr:green_oak_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
+    "lotr:tile.doorLairelosse": {
+      "0": {
+        "name": "lotr:lairelosse_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:lairelosse_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:lairelosse_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:lairelosse_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:lairelosse_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:lairelosse_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:lairelosse_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:lairelosse_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:lairelosse_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "lotr:lairelosse_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
     "lotr:tile.doorAlmond": null,
     "lotr:tile.doorPlum": null,
     "lotr:tile.doorRedwood": null,
     "lotr:tile.doorPomegranate": null,
     "lotr:tile.doorPalm": null,
     "lotr:tile.doorDragon": null,
-    "lotr:tile.doorRotten": null,
+    "lotr:tile.doorRotten": {
+      "0": {
+        "name": "lotr:rotten_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:rotten_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:rotten_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:rotten_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "false",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:rotten_door",
+        "properties": {
+          "facing": "west",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:rotten_door",
+        "properties": {
+          "facing": "north",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:rotten_door",
+        "properties": {
+          "facing": "east",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:rotten_door",
+        "properties": {
+          "facing": "south",
+          "half": "lower",
+          "hinge": "left",
+          "open": "true",
+          "powered": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:rotten_door",
+        "properties": {
+          "half": "upper"
+        }
+      },
+      "9": {
+        "name": "lotr:rotten_door",
+        "properties": {
+          "half": "upper"
+        }
+      }
+    },
     "lotr:tile.boneBlock": null,
     "lotr:tile.slabBoneSingle": null,
     "lotr:tile.slabBoneDouble": null,
@@ -17845,7 +21387,7 @@
     },
     "lotr:tile.trapdoorShirePine": {
       "0": {
-        "name": "lotr:pine_trapdoor",
+        "name": "lotr:shire_pine_trapdoor",
         "properties": {
           "facing": "south",
           "half": "bottom",
@@ -17855,7 +21397,7 @@
         }
       },
       "1": {
-        "name": "lotr:pine_trapdoor",
+        "name": "lotr:shire_pine_trapdoor",
         "properties": {
           "facing": "north",
           "half": "bottom",
@@ -17865,7 +21407,7 @@
         }
       },
       "2": {
-        "name": "lotr:pine_trapdoor",
+        "name": "lotr:shire_pine_trapdoor",
         "properties": {
           "facing": "east",
           "half": "bottom",
@@ -17875,7 +21417,7 @@
         }
       },
       "3": {
-        "name": "lotr:pine_trapdoor",
+        "name": "lotr:shire_pine_trapdoor",
         "properties": {
           "facing": "west",
           "half": "bottom",
@@ -17885,7 +21427,7 @@
         }
       },
       "4": {
-        "name": "lotr:pine_trapdoor",
+        "name": "lotr:shire_pine_trapdoor",
         "properties": {
           "facing": "south",
           "half": "bottom",
@@ -17895,7 +21437,7 @@
         }
       },
       "5": {
-        "name": "lotr:pine_trapdoor",
+        "name": "lotr:shire_pine_trapdoor",
         "properties": {
           "facing": "north",
           "half": "bottom",
@@ -17905,7 +21447,7 @@
         }
       },
       "6": {
-        "name": "lotr:pine_trapdoor",
+        "name": "lotr:shire_pine_trapdoor",
         "properties": {
           "facing": "east",
           "half": "bottom",
@@ -17915,7 +21457,7 @@
         }
       },
       "7": {
-        "name": "lotr:pine_trapdoor",
+        "name": "lotr:shire_pine_trapdoor",
         "properties": {
           "facing": "west",
           "half": "bottom",
@@ -17925,7 +21467,7 @@
         }
       },
       "8": {
-        "name": "lotr:pine_trapdoor",
+        "name": "lotr:shire_pine_trapdoor",
         "properties": {
           "facing": "south",
           "half": "top",
@@ -17935,7 +21477,7 @@
         }
       },
       "9": {
-        "name": "lotr:pine_trapdoor",
+        "name": "lotr:shire_pine_trapdoor",
         "properties": {
           "facing": "north",
           "half": "top",
@@ -17945,7 +21487,7 @@
         }
       },
       "10": {
-        "name": "lotr:pine_trapdoor",
+        "name": "lotr:shire_pine_trapdoor",
         "properties": {
           "facing": "east",
           "half": "top",
@@ -17955,7 +21497,7 @@
         }
       },
       "11": {
-        "name": "lotr:pine_trapdoor",
+        "name": "lotr:shire_pine_trapdoor",
         "properties": {
           "facing": "west",
           "half": "top",
@@ -17965,7 +21507,7 @@
         }
       },
       "12": {
-        "name": "lotr:pine_trapdoor",
+        "name": "lotr:shire_pine_trapdoor",
         "properties": {
           "facing": "south",
           "half": "top",
@@ -17975,7 +21517,7 @@
         }
       },
       "13": {
-        "name": "lotr:pine_trapdoor",
+        "name": "lotr:shire_pine_trapdoor",
         "properties": {
           "facing": "north",
           "half": "top",
@@ -17985,7 +21527,7 @@
         }
       },
       "14": {
-        "name": "lotr:pine_trapdoor",
+        "name": "lotr:shire_pine_trapdoor",
         "properties": {
           "facing": "east",
           "half": "top",
@@ -17995,7 +21537,7 @@
         }
       },
       "15": {
-        "name": "lotr:pine_trapdoor",
+        "name": "lotr:shire_pine_trapdoor",
         "properties": {
           "facing": "west",
           "half": "top",
@@ -27466,7 +31008,14 @@
       ""
     ],
     "lotr:tile.slabSingle": [
-      ""
+      "lotr:smooth_mordor_rock_slab",
+      "lotr:mordor_brick_slab",
+      "lotr:gondor_rock_slab",
+      "lotr:gondor_brick_slab",
+      "lotr:mossy_gondor_brick_slab",
+      "lotr:cracked_gondor_brick_slab",
+      "lotr:rohan_brick_slab",
+      "lotr:dwarven_brick_slab"
     ],
     "minecraft:acacia_stairs": [
       "minecraft:acacia_stairs"
@@ -27687,7 +31236,7 @@
       "minecraft:fishing_rod"
     ],
     "lotr:tile.trapdoorShirePine": [
-      "lotr:pine_trapdoor"
+      "lotr:shire_pine_trapdoor"
     ],
     "lotr:tile.alloyForge": [
       "lotr:alloy_forge"
