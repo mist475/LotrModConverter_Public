@@ -297,6 +297,30 @@
         "properties": {
           "axis": "z"
         }
+      },
+      "12": {
+        "name": "minecraft:oak_wood",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "13": {
+        "name": "minecraft:spruce_wood",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "14": {
+        "name": "minecraft:birch_wood",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "15": {
+        "name": "minecraft:jungle_wood",
+        "properties": {
+          "axis": "y"
+        }
       }
     },
     "minecraft:leaves": null,
@@ -6359,6 +6383,27 @@
     "minecraft:quartz_block": {
       "0": {
         "name": "minecraft:quartz_block"
+      },
+      "1": {
+        "name": "minecraft:chiseled_quartz_block"
+      },
+      "2": {
+        "name": "minecraft:quartz_pillar",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "3": {
+        "name": "minecraft:quartz_pillar",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "4": {
+        "name": "minecraft:quartz_pillar",
+        "properties": {
+          "axis": "z"
+        }
       }
     },
     "minecraft:quartz_stairs": {
@@ -6743,6 +6788,18 @@
         "name": "minecraft:dark_oak_log",
         "properties": {
           "axis": "z"
+        }
+      },
+      "12": {
+        "name": "minecraft:acacia_wood",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "13": {
+        "name": "minecraft:dark_oak_wood",
+        "properties": {
+          "axis": "y"
         }
       }
     },
@@ -7186,6 +7243,30 @@
         "name": "lotr:charred_log",
         "properties": {
           "axis": "z"
+        }
+      },
+      "12": {
+        "name": "lotr:pine_wood",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "13": {
+        "name": "lotr:mallorn_wood",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "14": {
+        "name": "lotr:mirk_oak_wood",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "15": {
+        "name": "lotr:charred_wood",
+        "properties": {
+          "axis": "y"
         }
       }
     },
@@ -8382,8 +8463,41 @@
       }
     },
     "lotr:tile.mobSpawner": null,
-    "lotr:tile.mallornLadder": null,
-    "lotr:tile.plate": null,
+    "lotr:tile.mallornLadder": {
+      "2": {
+        "name": "lotr:mallorn_ladder",
+        "properties": {
+          "facing": "north",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:mallorn_ladder",
+        "properties": {
+          "facing": "south",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:mallorn_ladder",
+        "properties": {
+          "facing": "west",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:mallorn_ladder",
+        "properties": {
+          "facing": "east",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.plate": {
+      "0": {
+        "name": "lotr:fine_plate"
+      }
+    },
     "lotr:tile.orcSteelBars": {
       "0": {
         "name": "lotr:orc_bars"
@@ -8537,8 +8651,27 @@
         }
       }
     },
-    "lotr:tile.athelas": null,
-    "lotr:tile.stalactite": null,
+    "lotr:tile.athelas": {
+      "0": {
+        "name": "lotr:athelas"
+      }
+    },
+    "lotr:tile.stalactite": {
+      "0": {
+        "name": "lotr:dripstone",
+        "properties": {
+          "type": "stalactite",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:dripstone",
+        "properties": {
+          "type": "stalagmite",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.stairsRohanBrick": {
       "0": {
         "name": "lotr:rohan_brick_stairs",
@@ -8613,16 +8746,224 @@
         }
       }
     },
-    "lotr:tile.oreQuendite": null,
-    "lotr:tile.mallornTorch": null,
+    "lotr:tile.oreQuendite": {
+      "0": {
+        "name": "lotr:edhelvir_ore"
+      }
+    },
+    "lotr:tile.mallornTorch": {
+      "1": {
+        "name": "lotr:silver_mallorn_wall_torch",
+        "properties": {
+          "facing": "east"
+        }
+      },
+      "2": {
+        "name": "lotr:silver_mallorn_wall_torch",
+        "properties": {
+          "facing": "west"
+        }
+      },
+      "3": {
+        "name": "lotr:silver_mallorn_wall_torch",
+        "properties": {
+          "facing": "south"
+        }
+      },
+      "4": {
+        "name": "lotr:silver_mallorn_wall_torch",
+        "properties": {
+          "facing": "north"
+        }
+      },
+      "5": {
+        "name": "lotr:silver_mallorn_torch"
+      }
+    },
     "lotr:tile.spawnerChest": null,
     "lotr:tile.quenditeGrass": null,
-    "lotr:tile.pressurePlateMordorRock": null,
-    "lotr:tile.pressurePlateGondorRock": null,
-    "lotr:tile.buttonMordorRock": null,
-    "lotr:tile.buttonGondorRock": null,
+    "lotr:tile.pressurePlateMordorRock": {
+      "0": {
+        "name": "lotr:mordor_rock_pressure_plate",
+        "properties": {
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:mordor_rock_pressure_plate",
+        "properties": {
+          "powered": "true"
+        }
+      }
+    },
+    "lotr:tile.pressurePlateGondorRock": {
+      "0": {
+        "name": "lotr:gondor_rock_pressure_plate",
+        "properties": {
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:gondor_rock_pressure_plate",
+        "properties": {
+          "powered": "true"
+        }
+      }
+    },
+    "lotr:tile.buttonMordorRock": {
+      "1": {
+        "name": "lotr:mordor_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "east",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:mordor_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "west",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:mordor_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "south",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:mordor_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "north",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:mordor_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "east",
+          "powered": "true"
+        }
+      },
+      "9": {
+        "name": "lotr:mordor_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "east",
+          "powered": "true"
+        }
+      },
+      "10": {
+        "name": "lotr:mordor_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "west",
+          "powered": "true"
+        }
+      },
+      "11": {
+        "name": "lotr:mordor_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "south",
+          "powered": "true"
+        }
+      },
+      "12": {
+        "name": "lotr:mordor_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "north",
+          "powered": "true"
+        }
+      }
+    },
+    "lotr:tile.buttonGondorRock": {
+      "1": {
+        "name": "lotr:gondor_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "east",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:gondor_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "west",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:gondor_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "south",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:gondor_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "north",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:gondor_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "east",
+          "powered": "true"
+        }
+      },
+      "9": {
+        "name": "lotr:gondor_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "east",
+          "powered": "true"
+        }
+      },
+      "10": {
+        "name": "lotr:gondor_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "west",
+          "powered": "true"
+        }
+      },
+      "11": {
+        "name": "lotr:gondor_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "south",
+          "powered": "true"
+        }
+      },
+      "12": {
+        "name": "lotr:gondor_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "north",
+          "powered": "true"
+        }
+      }
+    },
     "lotr:tile.elvenPortal": null,
-    "lotr:tile.flowerPot": null,
+    "lotr:tile.flowerPot": {
+      "0": {
+        "name": "minecraft:flower_pot"
+      }
+    },
     "lotr:tile.stairsDwarvenBrick": {
       "0": {
         "name": "lotr:dwarven_brick_stairs",
@@ -8698,8 +9039,85 @@
       }
     },
     "lotr:tile.elvenBed": null,
-    "lotr:tile.pillar": null,
-    "lotr:tile.oreGlowstone": null,
+    "lotr:tile.pillar": {
+      "0": {
+        "name": "lotr:dwarven_pillar",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "1": {
+        "name": "lotr:galadhrim_pillar",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "3": {
+        "name": "lotr:blue_pillar",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "4": {
+        "name": "lotr:red_pillar",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "5": {
+        "name": "lotr:harad_pillar",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "6": {
+        "name": "lotr:gondor_pillar",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "7": {
+        "name": "lotr:mordor_pillar",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "8": {
+        "name": "lotr:rohan_pillar",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "9": {
+        "name": "lotr:numenorean_pillar",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "10": {
+        "name": "lotr:high_elven_pillar",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "12": {
+        "name": "lotr:wood_elven_pillar",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "15": {
+        "name": "lotr:red_harad_pillar",
+        "properties": {
+          "axis": "y"
+        }
+      }
+    },
+    "lotr:tile.oreGlowstone": {
+      "0": {
+        "name": "lotr:glowstone_ore"
+      }
+    },
     "lotr:tile.fruitWood": null,
     "lotr:tile.fruitLeaves": null,
     "lotr:tile.fruitSapling": null,
@@ -9169,7 +9587,20 @@
         "name": "lotr:rohan_crafting_table"
       }
     },
-    "lotr:tile.pressurePlateRohanRock": null,
+    "lotr:tile.pressurePlateRohanRock": {
+      "0": {
+        "name": "lotr:rohan_rock_pressure_plate",
+        "properties": {
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:rohan_rock_pressure_plate",
+        "properties": {
+          "powered": "true"
+        }
+      }
+    },
     "lotr:tile.remains": null,
     "lotr:tile.deadMarshPlant": null,
     "lotr:tile.oreGulduril": {
@@ -9259,7 +9690,80 @@
     "lotr:tile.dwarvenBed": null,
     "lotr:tile.morgulPortal": null,
     "lotr:tile.armorStand": null,
-    "lotr:tile.buttonRohanRock": null,
+    "lotr:tile.buttonRohanRock": {
+      "1": {
+        "name": "lotr:rohan_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "east",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:rohan_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "west",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:rohan_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "south",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:rohan_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "north",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:rohan_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "east",
+          "powered": "true"
+        }
+      },
+      "9": {
+        "name": "lotr:rohan_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "east",
+          "powered": "true"
+        }
+      },
+      "10": {
+        "name": "lotr:rohan_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "west",
+          "powered": "true"
+        }
+      },
+      "11": {
+        "name": "lotr:rohan_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "south",
+          "powered": "true"
+        }
+      },
+      "12": {
+        "name": "lotr:rohan_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "north",
+          "powered": "true"
+        }
+      }
+    },
     "lotr:tile.asphodel": {
       "0": {
         "name": "lotr:asphodel"
@@ -9318,6 +9822,24 @@
         "name": "lotr:holly_log",
         "properties": {
           "axis": "z"
+        }
+      },
+      "12": {
+        "name": "lotr:lebethron_wood",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "13": {
+        "name": "lotr:beech_wood",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "14": {
+        "name": "lotr:holly_wood",
+        "properties": {
+          "axis": "y"
         }
       }
     },
@@ -9990,8 +10512,94 @@
         }
       }
     },
-    "lotr:tile.pressurePlateBlueRock": null,
-    "lotr:tile.buttonBlueRock": null,
+    "lotr:tile.pressurePlateBlueRock": {
+      "0": {
+        "name": "lotr:blue_rock_pressure_plate",
+        "properties": {
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:blue_rock_pressure_plate",
+        "properties": {
+          "powered": "true"
+        }
+      }
+    },
+    "lotr:tile.buttonBlueRock": {
+      "1": {
+        "name": "lotr:blue_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "east",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:blue_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "west",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:blue_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "south",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:blue_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "north",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:blue_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "east",
+          "powered": "true"
+        }
+      },
+      "9": {
+        "name": "lotr:blue_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "east",
+          "powered": "true"
+        }
+      },
+      "10": {
+        "name": "lotr:blue_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "west",
+          "powered": "true"
+        }
+      },
+      "11": {
+        "name": "lotr:blue_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "south",
+          "powered": "true"
+        }
+      },
+      "12": {
+        "name": "lotr:blue_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "north",
+          "powered": "true"
+        }
+      }
+    },
     "lotr:tile.slabSingle3": {
       "0": {
         "name": "lotr:smooth_blue_rock_slab",
@@ -10662,6 +11270,18 @@
         "properties": {
           "axis": "z"
         }
+      },
+      "12": {
+        "name": "lotr:maple_wood",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "13": {
+        "name": "lotr:larch_wood",
+        "properties": {
+          "axis": "y"
+        }
       }
     },
     "lotr:tile.leaves3": null,
@@ -10824,10 +11444,124 @@
         "name": "lotr:lindon_crafting_table"
       }
     },
-    "lotr:tile.highElvenTorch": null,
+    "lotr:tile.highElvenTorch": {
+      "1": {
+        "name": "lotr:high_elven_wall_torch",
+        "properties": {
+          "facing": "east"
+        }
+      },
+      "2": {
+        "name": "lotr:high_elven_wall_torch",
+        "properties": {
+          "facing": "west"
+        }
+      },
+      "3": {
+        "name": "lotr:high_elven_wall_torch",
+        "properties": {
+          "facing": "south"
+        }
+      },
+      "4": {
+        "name": "lotr:high_elven_wall_torch",
+        "properties": {
+          "facing": "north"
+        }
+      },
+      "5": {
+        "name": "lotr:high_elven_torch"
+      }
+    },
     "lotr:tile.highElvenBed": null,
-    "lotr:tile.pressurePlateRedRock": null,
-    "lotr:tile.buttonRedRock": null,
+    "lotr:tile.pressurePlateRedRock": {
+      "0": {
+        "name": "lotr:red_rock_pressure_plate",
+        "properties": {
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:red_rock_pressure_plate",
+        "properties": {
+          "powered": "true"
+        }
+      }
+    },
+    "lotr:tile.buttonRedRock": {
+      "1": {
+        "name": "lotr:red_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "east",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:red_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "west",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:red_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "south",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:red_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "north",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:red_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "east",
+          "powered": "true"
+        }
+      },
+      "9": {
+        "name": "lotr:red_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "east",
+          "powered": "true"
+        }
+      },
+      "10": {
+        "name": "lotr:red_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "west",
+          "powered": "true"
+        }
+      },
+      "11": {
+        "name": "lotr:red_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "south",
+          "powered": "true"
+        }
+      },
+      "12": {
+        "name": "lotr:red_rock_button",
+        "properties": {
+          "face": "wall",
+          "facing": "north",
+          "powered": "true"
+        }
+      }
+    },
     "lotr:tile.stairsRedRockBrick": {
       "0": {
         "name": "lotr:red_rock_stairs",
@@ -11880,6 +12614,18 @@
         "properties": {
           "axis": "z"
         }
+      },
+      "14": {
+        "name": "lotr:cedar_wood",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "15": {
+        "name": "lotr:fir_wood",
+        "properties": {
+          "axis": "y"
+        }
       }
     },
     "lotr:tile.leaves4": null,
@@ -12913,7 +13659,32 @@
         }
       }
     },
-    "lotr:tile.wood5": null,
+    "lotr:tile.wood5": {
+      "0": {
+        "name": "lotr:pine_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "4": {
+        "name": "lotr:pine_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "8": {
+        "name": "lotr:pine_log",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "12": {
+        "name": "lotr:pine_wood",
+        "properties": {
+          "axis": "y"
+        }
+      }
+    },
     "lotr:tile.leaves5": null,
     "lotr:tile.sapling5": null,
     "lotr:tile.stairsPinePine": {
@@ -13348,7 +14119,32 @@
     "lotr:tile.stairsTauredainBrickObsidian": null,
     "lotr:tile.obsidianGravel": null,
     "lotr:tile.tauredainDartTrap": null,
-    "lotr:tile.wood6": null,
+    "lotr:tile.wood6": {
+      "2": {
+        "name": "lotr:cypress_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "6": {
+        "name": "lotr:cypress_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "10": {
+        "name": "lotr:cypress_log",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "14": {
+        "name": "lotr:cypress_wood",
+        "properties": {
+          "axis": "y"
+        }
+      }
+    },
     "lotr:tile.leaves6": null,
     "lotr:tile.sapling6": null,
     "lotr:tile.woodSlabSingle4": {
@@ -13681,7 +14477,74 @@
         }
       }
     },
-    "lotr:tile.pillar2": null,
+    "lotr:tile.pillar2": {
+      "0": {
+        "name": "lotr:cracked_dwarven_pillar",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "1": {
+        "name": "lotr:chalk_pillar",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "2": {
+        "name": "lotr:stone_pillar",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "3": {
+        "name": "lotr:brick_pillar",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "4": {
+        "name": "lotr:angmar_pillar",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "5": {
+        "name": "lotr:dale_pillar",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "6": {
+        "name": "lotr:dorwinion_pillar",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "10": {
+        "name": "lotr:umbar_pillar",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "13": {
+        "name": "lotr:arnor_pillar",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "14": {
+        "name": "lotr:cracked_arnor_pillar",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "15": {
+        "name": "lotr:uruk_pillar",
+        "properties": {
+          "axis": "y"
+        }
+      }
+    },
     "lotr:tile.hithlainLadder": null,
     "lotr:tile.reeds": null,
     "lotr:tile.stairsReed": {
@@ -13759,25 +14622,453 @@
       }
     },
     "lotr:tile.tauredainDoubleTorch": null,
-    "lotr:tile.woodBeamV1": null,
+    "lotr:tile.woodBeamV1": {
+      "0": {
+        "name": "lotr:oak_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "1": {
+        "name": "lotr:spruce_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "2": {
+        "name": "lotr:birch_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "3": {
+        "name": "lotr:jungle_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "4": {
+        "name": "lotr:oak_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "5": {
+        "name": "lotr:spruce_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "6": {
+        "name": "lotr:birch_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "7": {
+        "name": "lotr:jungle_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "8": {
+        "name": "lotr:oak_beam",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "9": {
+        "name": "lotr:spruce_beam",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "10": {
+        "name": "lotr:birch_beam",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "11": {
+        "name": "lotr:jungle_beam",
+        "properties": {
+          "axis": "z"
+        }
+      }
+    },
     "lotr:tile.reedBars": null,
-    "lotr:tile.woodBeamV2": null,
-    "lotr:tile.woodBeam1": null,
+    "lotr:tile.woodBeamV2": {
+      "0": {
+        "name": "lotr:acacia_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "1": {
+        "name": "lotr:dark_oak_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "4": {
+        "name": "lotr:acacia_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "5": {
+        "name": "lotr:dark_oak_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "8": {
+        "name": "lotr:acacia_beam",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "9": {
+        "name": "lotr:dark_oak_beam",
+        "properties": {
+          "axis": "z"
+        }
+      }
+    },
+    "lotr:tile.woodBeam1": {
+      "0": {
+        "name": "lotr:pine_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "1": {
+        "name": "lotr:mallorn_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "2": {
+        "name": "lotr:mirk_oak_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "3": {
+        "name": "lotr:charred_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "4": {
+        "name": "lotr:pine_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "5": {
+        "name": "lotr:mallorn_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "6": {
+        "name": "lotr:mirk_oak_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "7": {
+        "name": "lotr:charred_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "8": {
+        "name": "lotr:pine_beam",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "9": {
+        "name": "lotr:mallorn_beam",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "10": {
+        "name": "lotr:mirk_oak_beam",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "11": {
+        "name": "lotr:charred_beam",
+        "properties": {
+          "axis": "z"
+        }
+      }
+    },
     "lotr:tile.tauredainDartTrapGold": null,
     "lotr:tile.weaponRack": null,
     "lotr:tile.cornStalk": null,
     "lotr:tile.wasteBlock": null,
     "lotr:tile.stairsDwarvenBrickObsidian": null,
-    "lotr:tile.dirtPath": null,
+    "lotr:tile.dirtPath": {
+      "0": {
+        "name": "minecraft:grass_path"
+      }
+    },
     "lotr:tile.stairsWillow": null,
     "lotr:tile.willowVines": null,
-    "lotr:tile.woodBeam2": null,
-    "lotr:tile.woodBeamFruit": null,
-    "lotr:tile.woodBeam3": null,
-    "lotr:tile.woodBeam4": null,
-    "lotr:tile.woodBeam5": null,
-    "lotr:tile.woodBeam6": null,
-    "lotr:tile.woodBeamRotten": null,
+    "lotr:tile.woodBeam2": {
+      "0": {
+        "name": "lotr:lebethron_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "1": {
+        "name": "lotr:beech_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "2": {
+        "name": "lotr:holly_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "4": {
+        "name": "lotr:lebethron_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "5": {
+        "name": "lotr:beech_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "6": {
+        "name": "lotr:holly_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "8": {
+        "name": "lotr:lebethron_beam",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "9": {
+        "name": "lotr:beech_beam",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "10": {
+        "name": "lotr:holly_beam",
+        "properties": {
+          "axis": "z"
+        }
+      }
+    },
+    "lotr:tile.woodBeamFruit": {
+      "0": {
+        "name": "lotr:apple_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "1": {
+        "name": "lotr:pear_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "2": {
+        "name": "lotr:cherry_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "4": {
+        "name": "lotr:apple_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "5": {
+        "name": "lotr:pear_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "6": {
+        "name": "lotr:cherry_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "8": {
+        "name": "lotr:apple_beam",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "9": {
+        "name": "lotr:pear_beam",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "10": {
+        "name": "lotr:cherry_beam",
+        "properties": {
+          "axis": "z"
+        }
+      }
+    },
+    "lotr:tile.woodBeam3": {
+      "0": {
+        "name": "lotr:maple_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "1": {
+        "name": "lotr:larch_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "4": {
+        "name": "lotr:maple_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "5": {
+        "name": "lotr:larch_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "8": {
+        "name": "lotr:maple_beam",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "9": {
+        "name": "lotr:larch_beam",
+        "properties": {
+          "axis": "z"
+        }
+      }
+    },
+    "lotr:tile.woodBeam4": {
+      "2": {
+        "name": "lotr:cedar_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "3": {
+        "name": "lotr:fir_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "6": {
+        "name": "lotr:cedar_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "7": {
+        "name": "lotr:fir_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "10": {
+        "name": "lotr:cedar_beam",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "11": {
+        "name": "lotr:fir_beam",
+        "properties": {
+          "axis": "z"
+        }
+      }
+    },
+    "lotr:tile.woodBeam5": {
+      "0": {
+        "name": "lotr:pine_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "4": {
+        "name": "lotr:pine_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "8": {
+        "name": "lotr:pine_beam",
+        "properties": {
+          "axis": "z"
+        }
+      }
+    },
+    "lotr:tile.woodBeam6": {
+      "2": {
+        "name": "lotr:cypress_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "6": {
+        "name": "lotr:cypress_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "10": {
+        "name": "lotr:cypress_beam",
+        "properties": {
+          "axis": "z"
+        }
+      }
+    },
+    "lotr:tile.woodBeamRotten": {
+      "0": {
+        "name": "lotr:rotten_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "4": {
+        "name": "lotr:rotten_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "8": {
+        "name": "lotr:rotten_beam",
+        "properties": {
+          "axis": "z"
+        }
+      }
+    },
     "lotr:tile.gateWooden": null,
     "lotr:tile.gateIronBars": null,
     "lotr:tile.gateBronzeBars": null,
@@ -14032,8 +15323,94 @@
     "lotr:tile.gateElven": null,
     "lotr:tile.gateDwarven": null,
     "lotr:tile.gateGondor": null,
-    "lotr:tile.pressurePlateChalk": null,
-    "lotr:tile.buttonChalk": null,
+    "lotr:tile.pressurePlateChalk": {
+      "0": {
+        "name": "lotr:chalk_pressure_plate",
+        "properties": {
+          "powered": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:chalk_pressure_plate",
+        "properties": {
+          "powered": "true"
+        }
+      }
+    },
+    "lotr:tile.buttonChalk": {
+      "1": {
+        "name": "lotr:chalk_button",
+        "properties": {
+          "face": "wall",
+          "facing": "east",
+          "powered": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:chalk_button",
+        "properties": {
+          "face": "wall",
+          "facing": "west",
+          "powered": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:chalk_button",
+        "properties": {
+          "face": "wall",
+          "facing": "south",
+          "powered": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:chalk_button",
+        "properties": {
+          "face": "wall",
+          "facing": "north",
+          "powered": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:chalk_button",
+        "properties": {
+          "face": "wall",
+          "facing": "east",
+          "powered": "true"
+        }
+      },
+      "9": {
+        "name": "lotr:chalk_button",
+        "properties": {
+          "face": "wall",
+          "facing": "east",
+          "powered": "true"
+        }
+      },
+      "10": {
+        "name": "lotr:chalk_button",
+        "properties": {
+          "face": "wall",
+          "facing": "west",
+          "powered": "true"
+        }
+      },
+      "11": {
+        "name": "lotr:chalk_button",
+        "properties": {
+          "face": "wall",
+          "facing": "south",
+          "powered": "true"
+        }
+      },
+      "12": {
+        "name": "lotr:chalk_button",
+        "properties": {
+          "face": "wall",
+          "facing": "north",
+          "powered": "true"
+        }
+      }
+    },
     "lotr:tile.wallStoneV": {
       "0": {
         "name": "lotr:stone_wall",
@@ -17334,10 +18711,138 @@
         }
       }
     },
-    "lotr:tile.wood7": null,
+    "lotr:tile.wood7": {
+      "0": {
+        "name": "lotr:aspen_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "1": {
+        "name": "lotr:green_oak_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "2": {
+        "name": "lotr:lairelosse_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "4": {
+        "name": "lotr:aspen_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "5": {
+        "name": "lotr:green_oak_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "6": {
+        "name": "lotr:lairelosse_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "8": {
+        "name": "lotr:aspen_log",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "9": {
+        "name": "lotr:green_oak_log",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "10": {
+        "name": "lotr:lairelosse_log",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "12": {
+        "name": "lotr:aspen_wood",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "13": {
+        "name": "lotr:green_oak_wood",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "14": {
+        "name": "lotr:lairelosse_wood",
+        "properties": {
+          "axis": "y"
+        }
+      }
+    },
     "lotr:tile.leaves7": null,
     "lotr:tile.sapling7": null,
-    "lotr:tile.woodBeam7": null,
+    "lotr:tile.woodBeam7": {
+      "0": {
+        "name": "lotr:aspen_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "1": {
+        "name": "lotr:green_oak_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "2": {
+        "name": "lotr:lairelosse_beam",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "4": {
+        "name": "lotr:aspen_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "5": {
+        "name": "lotr:green_oak_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "6": {
+        "name": "lotr:lairelosse_beam",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "8": {
+        "name": "lotr:aspen_beam",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "9": {
+        "name": "lotr:green_oak_beam",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "10": {
+        "name": "lotr:lairelosse_beam",
+        "properties": {
+          "axis": "z"
+        }
+      }
+    },
     "lotr:tile.stairsAspen": {
       "0": {
         "name": "lotr:aspen_stairs",
@@ -18177,9 +19682,93 @@
       }
     },
     "lotr:tile.marzipanBlock": null,
-    "lotr:tile.mallornTorchBlue": null,
-    "lotr:tile.mallornTorchGold": null,
-    "lotr:tile.mallornTorchGreen": null,
+    "lotr:tile.mallornTorchBlue": {
+      "1": {
+        "name": "lotr:blue_mallorn_wall_torch",
+        "properties": {
+          "facing": "east"
+        }
+      },
+      "2": {
+        "name": "lotr:blue_mallorn_wall_torch",
+        "properties": {
+          "facing": "west"
+        }
+      },
+      "3": {
+        "name": "lotr:blue_mallorn_wall_torch",
+        "properties": {
+          "facing": "south"
+        }
+      },
+      "4": {
+        "name": "lotr:blue_mallorn_wall_torch",
+        "properties": {
+          "facing": "north"
+        }
+      },
+      "5": {
+        "name": "lotr:blue_mallorn_torch"
+      }
+    },
+    "lotr:tile.mallornTorchGold": {
+      "1": {
+        "name": "lotr:gold_mallorn_wall_torch",
+        "properties": {
+          "facing": "east"
+        }
+      },
+      "2": {
+        "name": "lotr:gold_mallorn_wall_torch",
+        "properties": {
+          "facing": "west"
+        }
+      },
+      "3": {
+        "name": "lotr:gold_mallorn_wall_torch",
+        "properties": {
+          "facing": "south"
+        }
+      },
+      "4": {
+        "name": "lotr:gold_mallorn_wall_torch",
+        "properties": {
+          "facing": "north"
+        }
+      },
+      "5": {
+        "name": "lotr:gold_mallorn_torch"
+      }
+    },
+    "lotr:tile.mallornTorchGreen": {
+      "1": {
+        "name": "lotr:green_mallorn_wall_torch",
+        "properties": {
+          "facing": "east"
+        }
+      },
+      "2": {
+        "name": "lotr:green_mallorn_wall_torch",
+        "properties": {
+          "facing": "west"
+        }
+      },
+      "3": {
+        "name": "lotr:green_mallorn_wall_torch",
+        "properties": {
+          "facing": "south"
+        }
+      },
+      "4": {
+        "name": "lotr:green_mallorn_wall_torch",
+        "properties": {
+          "facing": "north"
+        }
+      },
+      "5": {
+        "name": "lotr:green_mallorn_torch"
+      }
+    },
     "lotr:tile.wallClayTile": {
       "0": {
         "name": "lotr:clay_tiling_wall",
@@ -20310,7 +21899,22 @@
     "lotr:tile.fenceGateRedwood": null,
     "lotr:tile.fenceGatePomegranate": null,
     "lotr:tile.stalactiteIce": null,
-    "lotr:tile.stalactiteObsidian": null,
+    "lotr:tile.stalactiteObsidian": {
+      "0": {
+        "name": "lotr:obsidian_dripstone",
+        "properties": {
+          "type": "stalactite",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:obsidian_dripstone",
+        "properties": {
+          "type": "stalagmite",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.slabUtumnoSingle2": null,
     "lotr:tile.slabUtumnoDouble2": null,
     "lotr:tile.stairsUtumnoTileIce": null,
@@ -32612,7 +34216,9 @@
       ""
     ],
     "minecraft:quartz_block": [
-      "minecraft:quartz_block"
+      "minecraft:quartz_block",
+      "minecraft:chiseled_quartz_block",
+      "minecraft:quartz_pillar"
     ],
     "minecraft:bone": [
       "minecraft:bone"
