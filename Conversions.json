@@ -8949,8 +8949,202 @@
     },
     "lotr:tile.cherryPie": null,
     "lotr:tile.clover": null,
-    "lotr:tile.slabSingle2": null,
-    "lotr:tile.slabDouble2": null,
+    "lotr:tile.slabSingle2": {
+      "0": {
+        "name": "lotr:dwarven_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:smooth_rohan_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:cracked_mordor_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:galadhrim_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:mossy_galadhrim_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:cracked_galadhrim_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:galadhrim_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:cracked_galadhrim_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:dwarven_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:smooth_rohan_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:cracked_mordor_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:galadhrim_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:mossy_galadhrim_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:cracked_galadhrim_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:galadhrim_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:cracked_galadhrim_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.slabDouble2": {
+      "0": {
+        "name": "lotr:dwarven_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:smooth_rohan_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:cracked_mordor_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:galadhrim_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:mossy_galadhrim_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:cracked_galadhrim_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:galadhrim_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:cracked_galadhrim_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.stairsMirkOak": {
       "0": {
         "name": "lotr:mirk_oak_stairs"
@@ -9203,8 +9397,130 @@
         }
       }
     },
-    "lotr:tile.woodSlabSingle2": null,
-    "lotr:tile.woodSlabDouble2": null,
+    "lotr:tile.woodSlabSingle2": {
+      "0": {
+        "name": "lotr:lebethron_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:beech_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:holly_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:maple_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:larch_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:lebethron_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:beech_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:holly_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:maple_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:larch_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.woodSlabDouble2": {
+      "0": {
+        "name": "lotr:lebethron_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:beech_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:holly_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:maple_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:larch_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.dwarfHerb": {
       "0": {
         "name": "lotr:dwarfwort"
@@ -9676,8 +9992,202 @@
     },
     "lotr:tile.pressurePlateBlueRock": null,
     "lotr:tile.buttonBlueRock": null,
-    "lotr:tile.slabSingle3": null,
-    "lotr:tile.slabDouble3": null,
+    "lotr:tile.slabSingle3": {
+      "0": {
+        "name": "lotr:smooth_blue_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:blue_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:blue_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:angmar_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:cracked_angmar_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:smooth_red_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:red_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:red_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:smooth_blue_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:blue_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:blue_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:angmar_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:cracked_angmar_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:smooth_red_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:red_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:red_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.slabDouble3": {
+      "0": {
+        "name": "lotr:smooth_blue_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:blue_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:blue_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:angmar_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:cracked_angmar_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:smooth_red_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:red_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:red_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.stairsBlueRockBrick": {
       "0": {
         "name": "lotr:blue_rock_stairs",
@@ -10392,8 +10902,130 @@
         }
       }
     },
-    "lotr:tile.slabSingle4": null,
-    "lotr:tile.slabDouble4": null,
+    "lotr:tile.slabSingle4": {
+      "0": {
+        "name": "lotr:harad_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:cracked_arnor_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:mossy_arnor_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:lotr:uruk_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:harad_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:harad_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:cracked_arnor_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:mossy_arnor_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:lotr:uruk_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:harad_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.slabDouble4": {
+      "0": {
+        "name": "lotr:harad_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:cracked_arnor_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:mossy_arnor_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:lotr:uruk_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:harad_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.stairsNearHaradBrick": {
       "0": {
         "name": "lotr:harad_brick_stairs",
@@ -10484,8 +11116,58 @@
         "name": "lotr:reed_thatch"
       }
     },
-    "lotr:tile.slabSingleThatch": null,
-    "lotr:tile.slabDoubleThatch": null,
+    "lotr:tile.slabSingleThatch": {
+      "0": {
+        "name": "lotr:thatch_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:reed_thatch_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:thatch_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:reed_thatch_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.slabDoubleThatch": {
+      "0": {
+        "name": "lotr:thatch_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:reed_thatch_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.stairsThatch": {
       "0": {
         "name": "lotr:thatch_stairs",
@@ -10882,8 +11564,202 @@
     "lotr:tile.utumnoBrick": null,
     "lotr:tile.utumnoPortal": null,
     "lotr:tile.utumnoPillar": null,
-    "lotr:tile.slabSingle5": null,
-    "lotr:tile.slabDouble5": null,
+    "lotr:tile.slabSingle5": {
+      "0": {
+        "name": "lotr:gondor_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:mordor_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:rohan_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:numenorean_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:numenorean_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:high_elven_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:mossy_high_elven_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:cracked_high_elven_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:gondor_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:mordor_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:rohan_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:numenorean_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:numenorean_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:high_elven_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:mossy_high_elven_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:cracked_high_elven_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.slabDouble5": {
+      "0": {
+        "name": "lotr:gondor_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:mordor_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:rohan_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:numenorean_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:numenorean_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:high_elven_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:mossy_high_elven_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:cracked_high_elven_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.stairsMangrove": null,
     "lotr:tile.tallGrass": null,
     "lotr:tile.haradFlower": null,
@@ -10892,8 +11768,82 @@
     "lotr:tile.berryBush": null,
     "lotr:tile.planks2": null,
     "lotr:tile.fence2": null,
-    "lotr:tile.woodSlabSingle3": null,
-    "lotr:tile.woodSlabDouble3": null,
+    "lotr:tile.woodSlabSingle3": {
+      "2": {
+        "name": "lotr:cedar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:fir_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:pine_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:cedar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:fir_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:pine_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.woodSlabDouble3": {
+      "2": {
+        "name": "lotr:cedar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:fir_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:pine_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.wood4": {
       "2": {
         "name": "minecraft:cedar_log",
@@ -11217,8 +12167,154 @@
         }
       }
     },
-    "lotr:tile.slabSingle6": null,
-    "lotr:tile.slabDouble6": null,
+    "lotr:tile.slabSingle6": {
+      "0": {
+        "name": "lotr:high_elven_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:wood_elven_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:mossy_wood_elven_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:cracked_wood_elven_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:wood_elven_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:dol_amroth_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:high_elven_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:wood_elven_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:mossy_wood_elven_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:cracked_wood_elven_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:wood_elven_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:dol_amroth_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.slabDouble6": {
+      "0": {
+        "name": "lotr:high_elven_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:wood_elven_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:mossy_wood_elven_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:cracked_wood_elven_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:wood_elven_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:dol_amroth_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.stairsHighElvenBrick": {
       "0": {
         "name": "lotr:high_elven_brick_stairs",
@@ -11895,8 +12991,127 @@
       }
     },
     "lotr:tile.moredainCraftingTable": null,
-    "lotr:tile.slabSingle7": null,
-    "lotr:tile.slabDouble7": null,
+    "lotr:tile.slabSingle7": {
+      "2": {
+        "name": "lotr:red_harad_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:red_harad_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:red_sandstone_slab",
+        "properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:cracked_dwarven_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:cracked_dwarven_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:red_harad_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:red_harad_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "minecraft:red_sandstone_slab",
+        "properties": {
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:cracked_dwarven_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:cracked_dwarven_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.slabDouble7": {
+      "2": {
+        "name": "lotr:red_harad_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:red_harad_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:red_sandstone_slab",
+        "properties": {
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:cracked_dwarven_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:cracked_dwarven_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.stairsMoredainBrick": null,
     "lotr:tile.stairsNearHaradBrickCracked": null,
     "lotr:tile.unsmeltery": null,
@@ -11989,8 +13204,34 @@
         }
       }
     },
-    "lotr:tile.rottenSlabSingle": null,
-    "lotr:tile.rottenSlabDouble": null,
+    "lotr:tile.rottenSlabSingle": {
+      "0": {
+        "name": "lotr:rotten_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:rotten_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.rottenSlabDouble": {
+      "0": {
+        "name": "lotr:rotten_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.fenceRotten": null,
     "lotr:tile.scorchedStone": null,
     "lotr:tile.scorchedSlabSingle": null,
@@ -12072,8 +13313,34 @@
         }
       }
     },
-    "lotr:tile.slabSingle8": null,
-    "lotr:tile.slabDouble8": null,
+    "lotr:tile.slabSingle8": {
+      "7": {
+        "name": "lotr:smooth_chalk_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:smooth_chalk_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.slabDouble8": {
+      "7": {
+        "name": "lotr:smooth_chalk_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.stairsTauredainBrick": null,
     "lotr:tile.stairsTauredainBrickMossy": null,
     "lotr:tile.stairsTauredainBrickCracked": null,
@@ -12084,8 +13351,106 @@
     "lotr:tile.wood6": null,
     "lotr:tile.leaves6": null,
     "lotr:tile.sapling6": null,
-    "lotr:tile.woodSlabSingle4": null,
-    "lotr:tile.woodSlabDouble4": null,
+    "lotr:tile.woodSlabSingle4": {
+      "2": {
+        "name": "lotr:cypress_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:aspen_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:green_oak_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:lairelosse_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:cypress_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:aspen_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:green_oak_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:lairelosse_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.woodSlabDouble4": {
+      "2": {
+        "name": "lotr:cypress_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:aspen_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:green_oak_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:lairelosse_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.stairsMahogany": null,
     "lotr:tile.mud": null,
     "lotr:tile.mudGrass": null,
@@ -12492,8 +13857,178 @@
         }
       }
     },
-    "lotr:tile.slabSingle9": null,
-    "lotr:tile.slabDouble9": null,
+    "lotr:tile.slabSingle9": {
+      "0": {
+        "name": "lotr:chalk_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:chalk_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:stone_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:brick_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:angmar_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:dale_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:dorwinion_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:chalk_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:chalk_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:stone_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:brick_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:angmar_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:dale_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:dorwinion_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.slabDouble9": {
+      "0": {
+        "name": "lotr:chalk_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:chalk_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:stone_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:brick_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:angmar_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:dale_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:dorwinion_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.gateElven": null,
     "lotr:tile.gateDwarven": null,
     "lotr:tile.gateGondor": null,
@@ -12726,8 +14261,94 @@
         }
       }
     },
-    "lotr:tile.slabSingleV": null,
-    "lotr:tile.slabDoubleV": null,
+    "lotr:tile.slabSingleV": {
+      "0": {
+        "name": "minecraft:mossy_stone_brick_slab",
+        "properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:cracked_stone_brick_slab",
+        "properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:mossy_cobblestone_slab",
+        "properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:stone_slab",
+        "properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "minecraft:mossy_stone_brick_slab",
+        "properties": {
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "minecraft:cracked_stone_brick_slab",
+        "properties": {
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "minecraft:mossy_cobblestone_slab",
+        "properties": {
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "minecraft:stone_slab",
+        "properties": {
+          "type": "top",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.slabDoubleV": {
+      "0": {
+        "name": "minecraft:mossy_stone_brick_slab",
+        "properties": {
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:cracked_stone_brick_slab",
+        "properties": {
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:mossy_cobblestone_slab",
+        "properties": {
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "minecraft:stone_slab",
+        "properties": {
+          "type": "double",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.stairsStone": {
       "0": {
         "name": "minecraft:stone_stairs",
@@ -13251,12 +14872,426 @@
     "lotr:tile.gateNearHarad": null,
     "lotr:tile.clayTile": null,
     "lotr:tile.clayTileDyed": null,
-    "lotr:tile.slabClayTileSingle": null,
-    "lotr:tile.slabClayTileDouble": null,
-    "lotr:tile.slabClayTileDyedSingle": null,
-    "lotr:tile.slabClayTileDyedDouble": null,
-    "lotr:tile.slabClayTileDyedSingle2": null,
-    "lotr:tile.slabClayTileDyedDouble2": null,
+    "lotr:tile.slabClayTileSingle": {
+      "0": {
+        "name": "lotr:clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.slabClayTileDouble": {
+      "0": {
+        "name": "lotr:clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.slabClayTileDyedSingle": {
+      "0": {
+        "name": "lotr:white_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:orange_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:magenta_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:light_blue_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:yellow_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:lime_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:pink_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:gray_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:white_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:orange_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:magenta_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:light_blue_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:yellow_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:lime_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:pink_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:gray_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.slabClayTileDyedDouble": {
+      "0": {
+        "name": "lotr:white_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:orange_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:magenta_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:light_blue_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:yellow_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:lime_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:pink_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:gray_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.slabClayTileDyedSingle2": {
+      "0": {
+        "name": "lotr:light_gray_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:cyan_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:purple_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:blue_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:brown_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:green_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:red_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:black_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:light_gray_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:cyan_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:purple_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:blue_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:brown_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:green_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:red_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:black_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.slabClayTileDyedDouble2": {
+      "0": {
+        "name": "lotr:light_gray_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:cyan_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:purple_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:blue_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:brown_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:green_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:red_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:black_clay_tiling_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.stairsClayTile": {
       "0": {
         "name": "lotr:clay_tiling_stairs",
@@ -14767,8 +16802,154 @@
       }
     },
     "lotr:tile.stairsOlive": null,
-    "lotr:tile.slabSingle10": null,
-    "lotr:tile.slabDouble10": null,
+    "lotr:tile.slabSingle10": {
+      "0": {
+        "name": "lotr:dale_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:mossy_dorwinion_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:cracked_dorwinion_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:dorwinion_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:smooth_white_sandstone_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:mordor_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:dale_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:mossy_dorwinion_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:cracked_dorwinion_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:dorwinion_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:smooth_white_sandstone_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:mordor_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.slabDouble10": {
+      "0": {
+        "name": "lotr:dale_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:mossy_dorwinion_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:cracked_dorwinion_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:dorwinion_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:smooth_white_sandstone_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:mordor_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.hobbitCraftingTable": {
       "0": {
         "name": "lotr:hobbit_crafting_table"
@@ -15629,8 +17810,202 @@
         }
       }
     },
-    "lotr:tile.slabSingle11": null,
-    "lotr:tile.slabDouble11": null,
+    "lotr:tile.slabSingle11": {
+      "0": {
+        "name": "lotr:gondor_cobblebrick",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:mossy_gondor_cobblebrick",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:cracked_gondor_cobblebrick",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:gondor_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:rohan_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:blue_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:red_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:chalk_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:gondor_cobblebrick",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:mossy_gondor_cobblebrick",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:cracked_gondor_cobblebrick",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:gondor_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:rohan_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:blue_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "14": {
+        "name": "lotr:red_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:chalk_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.slabDouble11": {
+      "0": {
+        "name": "lotr:gondor_cobblebrick",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:mossy_gondor_cobblebrick",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:cracked_gondor_cobblebrick",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:gondor_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:rohan_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:blue_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:red_rock_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:chalk_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.whiteSand": {
       "0": {
         "name": "lotr:white_sand"
@@ -16015,8 +18390,34 @@
     "lotr:tile.dwarvenDoorIthildin": null,
     "lotr:tile.smoothStoneV": null,
     "lotr:tile.smoothStone": null,
-    "lotr:tile.slabSingle12": null,
-    "lotr:tile.slabDouble12": null,
+    "lotr:tile.slabSingle12": {
+      "7": {
+        "name": "lotr:snowy_angmar_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:snowy_angmar_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.slabDouble12": {
+      "7": {
+        "name": "lotr:snowy_angmar_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.stairsRhunBrick": null,
     "lotr:tile.stairsRhunBrickMossy": null,
     "lotr:tile.stairsRhunBrickCracked": null,
@@ -17930,8 +20331,154 @@
     "lotr:tile.stainedGlassPane": null,
     "lotr:tile.rope": null,
     "lotr:tile.tauredainDartTrapObsidian": null,
-    "lotr:tile.slabSingle13": null,
-    "lotr:tile.slabDouble13": null,
+    "lotr:tile.slabSingle13": {
+      "0": {
+        "name": "lotr:mossy_dale_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:cracked_dale_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:umbar_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:cracked_umbar_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:umbar_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:arnor_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:mossy_dale_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:cracked_dale_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:umbar_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:cracked_umbar_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:umbar_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "15": {
+        "name": "lotr:arnor_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.slabDouble13": {
+      "0": {
+        "name": "lotr:mossy_dale_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:cracked_dale_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:umbar_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:cracked_umbar_brick_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:umbar_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:arnor_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.stairsDaleBrickMossy": {
       "0": {
         "name": "lotr:mossy_dale_brick_stairs",
@@ -20745,9 +23292,65 @@
     "lotr:tile.stairsKanuka": null,
     "lotr:tile.fenceGateKanuka": null,
     "lotr:tile.doorKanuka": null,
-    "lotr:tile.slabSingle14": null,
-    "lotr:tile.slabDouble14": null,
-    "lotr:tile.cobblebrick": null,
+    "lotr:tile.slabSingle14": {
+      "0": {
+        "name": "lotr:cracked_arnor_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:uruk_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:cracked_arnor_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:uruk_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "top",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.slabDouble14": {
+      "0": {
+        "name": "lotr:cracked_arnor_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:uruk_pillar_slab",
+        "properties": {
+          "axis": "y",
+          "type": "double",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.cobblebrick": {
+      "0": {
+        "name": "lotr:drystone",
+        "properties": {
+        }
+      }
+    },
     "lotr:tile.trapdoorSpruce": {
       "0": {
         "name": "minecraft:spruce_trapdoor",
@@ -26406,15 +29009,7 @@
       "lotr:yellow_clay_tiling_slab",
       "lotr:lime_clay_tiling_slab",
       "lotr:pink_clay_tiling_slab",
-      "lotr:gray_clay_tiling_slab",
-      "lotr:light_gray_clay_tiling_slab",
-      "lotr:cyan_clay_tiling_slab",
-      "lotr:purple_clay_tiling_slab",
-      "lotr:blue_clay_tiling_slab",
-      "lotr:brown_clay_tiling_slab",
-      "lotr:green_clay_tiling_slab",
-      "lotr:red_clay_tiling_slab",
-      "lotr:black_clay_tiling_slab"
+      "lotr:gray_clay_tiling_slab"
     ],
     "lotr:item.mugVodka": [
       "lotr:vodka"
@@ -27107,6 +29702,7 @@
     "lotr:tile.slabSingle10": [
       "lotr:dale_pillar_slab",
       "lotr:mossy_dorwinion_brick_slab",
+      "lotr:cracked_dorwinion_brick_slab",
       "",
       "lotr:dorwinion_pillar_slab",
       "",
@@ -27406,7 +30002,7 @@
       "lotr:cypress_planks",
       "",
       "lotr:aspen_planks",
-      "lotr_green_oak_planks",
+      "lotr:green_oak_planks",
       "lotr:lairelosse_planks",
       ""
     ],
@@ -29200,7 +31796,7 @@
       "lotr:harad_brick_slab",
       "lotr:cracked_arnor_brick_slab",
       "lotr:mossy_arnor_brick_slab",
-      "lotr_uruk_brick_slab",
+      "lotr:uruk_brick_slab",
       "",
       "",
       "",
@@ -29282,7 +31878,7 @@
       "lotr:chalk_pillar_slab",
       "lotr:stone_pillar_slab",
       "lotr:brick_pillar_slab",
-      "lotr_angmar_pillar_slab",
+      "lotr:angmar_pillar_slab",
       "",
       "lotr:dale_brick_slab",
       "lotr:dorwinion_brick_slab"
