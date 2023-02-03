@@ -143,12 +143,6 @@
           "stage": "0"
         }
       },
-      "6": {
-        "name": "minecraft:dark_oak_sapling",
-        "properties": {
-          "stage": "1"
-        }
-      },
       "8": {
         "name": "minecraft:oak_sapling",
         "properties": {
@@ -175,6 +169,12 @@
       },
       "12": {
         "name": "minecraft:acacia_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      },
+      "13": {
+        "name": "minecraft:dark_oak_sapling",
         "properties": {
           "stage": "1"
         }
@@ -1808,7 +1808,7 @@
       "5": {
         "name": "minecraft:furnace",
         "properties": {
-          "facing": "west",
+          "facing": "east",
           "lit": "false"
         }
       }
@@ -1838,7 +1838,7 @@
       "5": {
         "name": "minecraft:furnace",
         "properties": {
-          "facing": "west",
+          "facing": "east",
           "lit": "true"
         }
       }
@@ -7309,7 +7309,56 @@
         "name": "lotr:larch_planks"
       }
     },
-    "lotr:tile.sapling": null,
+    "lotr:tile.sapling": {
+      "0": {
+        "name": "lotr:pine_sapling",
+        "properties": {
+          "stage": "0"
+        }
+      },
+      "1": {
+        "name": "lotr:mallorn_sapling",
+        "properties": {
+          "stage": "0"
+        }
+      },
+      "2": {
+        "name": "lotr:mirk_oak_sapling",
+        "properties": {
+          "stage": "0"
+        }
+      },
+      "3": {
+        "name": "lotr:red_oak_sapling",
+        "properties": {
+          "stage": "0"
+        }
+      },
+      "8": {
+        "name": "lotr:pine_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      },
+      "9": {
+        "name": "lotr:mallorn_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      },
+      "10": {
+        "name": "lotr:mirk_oak_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      },
+      "11": {
+        "name": "lotr:red_oak_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      }
+    },
     "lotr:tile.woodSlabSingle": {
       "0": {
         "name": "lotr:pine_slab",
@@ -9118,9 +9167,119 @@
         "name": "lotr:glowstone_ore"
       }
     },
-    "lotr:tile.fruitWood": null,
+    "lotr:tile.fruitWood": {
+      "0": {
+        "name": "lotr:apple_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "1": {
+        "name": "lotr:pear_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "2": {
+        "name": "lotr:cherry_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "4": {
+        "name": "lotr:apple_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "5": {
+        "name": "lotr:pear_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "6": {
+        "name": "lotr:cherry_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "8": {
+        "name": "lotr:apple_log",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "9": {
+        "name": "lotr:pear_log",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "10": {
+        "name": "lotr:cherry_log",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "12": {
+        "name": "lotr:apple_wood",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "13": {
+        "name": "lotr:pear_wood",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "14": {
+        "name": "lotr:cherry_wood",
+        "properties": {
+          "axis": "y"
+        }
+      }
+    },
     "lotr:tile.fruitLeaves": null,
-    "lotr:tile.fruitSapling": null,
+    "lotr:tile.fruitSapling": {
+      "0": {
+        "name": "lotr:apple_sapling",
+        "properties": {
+          "stage": "0"
+        }
+      },
+      "1": {
+        "name": "lotr:pear_sapling",
+        "properties": {
+          "stage": "0"
+        }
+      },
+      "2": {
+        "name": "lotr:cherry_sapling",
+        "properties": {
+          "stage": "0"
+        }
+      },
+      "8": {
+        "name": "lotr:apple_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      },
+      "9": {
+        "name": "lotr:pear_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      },
+      "10": {
+        "name": "lotr:cherry_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      }
+    },
     "lotr:tile.stairsApple": {
       "0": {
         "name": "lotr:apple_stairs",
@@ -9565,7 +9724,76 @@
     },
     "lotr:tile.stairsMirkOak": {
       "0": {
-        "name": "lotr:mirk_oak_stairs"
+        "name": "lotr:mirk_oak_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:mirk_oak_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:mirk_oak_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:mirk_oak_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:mirk_oak_stairs",
+        "properties": {
+          "facing": "east",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:mirk_oak_stairs",
+        "properties": {
+          "facing": "west",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:mirk_oak_stairs",
+        "properties": {
+          "facing": "south",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:mirk_oak_stairs",
+        "properties": {
+          "facing": "north",
+          "half": "top",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
       }
     },
     "lotr:tile.webUngoliant": null,
@@ -9844,7 +10072,44 @@
       }
     },
     "lotr:tile.leaves2": null,
-    "lotr:tile.sapling2": null,
+    "lotr:tile.sapling2": {
+      "0": {
+        "name": "lotr:lebethron_sapling",
+        "properties": {
+          "stage": "0"
+        }
+      },
+      "1": {
+        "name": "lotr:beech_sapling",
+        "properties": {
+          "stage": "0"
+        }
+      },
+      "2": {
+        "name": "lotr:holly_sapling",
+        "properties": {
+          "stage": "0"
+        }
+      },
+      "8": {
+        "name": "lotr:lebethron_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      },
+      "9": {
+        "name": "lotr:beech_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      },
+      "10": {
+        "name": "lotr:holly_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      }
+    },
     "lotr:tile.stairsLebethron": {
       "0": {
         "name": "lotr:lebethron_stairs",
@@ -10870,7 +11135,44 @@
         }
       }
     },
-    "lotr:tile.fence": null,
+    "lotr:tile.fence": {
+      "0": {
+        "name": "lotr:pine_fence"
+      },
+      "1": {
+        "name": "lotr:mallorn_fence"
+      },
+      "2": {
+        "name": "lotr:mirk_oak_fence"
+      },
+      "3": {
+        "name": "lotr:charred_fence"
+      },
+      "4": {
+        "name": "lotr:apple_fence"
+      },
+      "5": {
+        "name": "lotr:pear_fence"
+      },
+      "6": {
+        "name": "lotr:cherry_fence"
+      },
+      "8": {
+        "name": "lotr:lebethron_fence"
+      },
+      "9": {
+        "name": "lotr:beech_fence"
+      },
+      "10": {
+        "name": "lotr:holly_fence"
+      },
+      "12": {
+        "name": "lotr:maple_fence"
+      },
+      "13": {
+        "name": "lotr:larch_fence"
+      }
+    },
     "lotr:tile.doubleFlower": null,
     "lotr:tile.oreSulfur": {
       "0": {
@@ -10924,7 +11226,7 @@
         "name": "lotr:numenorean_brick"
       },
       "12": {
-        "name": "lotr:lotr:carved_dwarven_brick"
+        "name": "lotr:carved_dwarven_brick"
       },
       "13": {
         "name": "lotr:carved_high_elven_brick"
@@ -11285,7 +11587,32 @@
       }
     },
     "lotr:tile.leaves3": null,
-    "lotr:tile.sapling3": null,
+    "lotr:tile.sapling3": {
+      "0": {
+        "name": "lotr:maple_sapling",
+        "properties": {
+          "stage": "0"
+        }
+      },
+      "1": {
+        "name": "lotr:larch_sapling",
+        "properties": {
+          "stage": "0"
+        }
+      },
+      "8": {
+        "name": "lotr:maple_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      },
+      "9": {
+        "name": "lotr:larch_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      }
+    },
     "lotr:tile.stairsMaple": {
       "0": {
         "name": "lotr:maple_stairs",
@@ -11662,7 +11989,7 @@
         }
       },
       "3": {
-        "name": "lotr:lotr:uruk_brick_slab",
+        "name": "lotr:uruk_brick_slab",
         "properties": {
           "axis": "y",
           "type": "bottom",
@@ -11702,7 +12029,7 @@
         }
       },
       "11": {
-        "name": "lotr:lotr:uruk_brick_slab",
+        "name": "lotr:uruk_brick_slab",
         "properties": {
           "axis": "y",
           "type": "top",
@@ -11744,7 +12071,7 @@
         }
       },
       "3": {
-        "name": "lotr:lotr:uruk_brick_slab",
+        "name": "lotr:uruk_brick_slab",
         "properties": {
           "axis": "y",
           "type": "double",
@@ -12501,7 +12828,29 @@
     "lotr:tile.flax": null,
     "lotr:tile.berryBush": null,
     "lotr:tile.planks2": null,
-    "lotr:tile.fence2": null,
+    "lotr:tile.fence2": {
+      "2": {
+        "name": "lotr:cedar_fence"
+      },
+      "3": {
+        "name": "lotr:fir_fence"
+      },
+      "4": {
+        "name": "lotr:pine_fence"
+      },
+      "10": {
+        "name": "lotr:cypress_fence"
+      },
+      "12": {
+        "name": "lotr:aspen_fence"
+      },
+      "13": {
+        "name": "lotr:green_oak_fence"
+      },
+      "14": {
+        "name": "lotr:lairelosse_fence"
+      }
+    },
     "lotr:tile.woodSlabSingle3": {
       "2": {
         "name": "lotr:cedar_slab",
@@ -12580,37 +12929,37 @@
     },
     "lotr:tile.wood4": {
       "2": {
-        "name": "minecraft:cedar_log",
+        "name": "lotr:cedar_log",
         "properties": {
           "axis": "y"
         }
       },
       "3": {
-        "name": "minecraft:fir_log",
+        "name": "lotr:fir_log",
         "properties": {
           "axis": "y"
         }
       },
       "6": {
-        "name": "minecraft:cedar_log",
+        "name": "lotr:cedar_log",
         "properties": {
           "axis": "x"
         }
       },
       "7": {
-        "name": "minecraft:fir_log",
+        "name": "lotr:fir_log",
         "properties": {
           "axis": "x"
         }
       },
       "10": {
-        "name": "minecraft:cedar_log",
+        "name": "lotr:cedar_log",
         "properties": {
           "axis": "z"
         }
       },
       "11": {
-        "name": "minecraft:fir_log",
+        "name": "lotr:fir_log",
         "properties": {
           "axis": "z"
         }
@@ -12629,7 +12978,32 @@
       }
     },
     "lotr:tile.leaves4": null,
-    "lotr:tile.sapling4": null,
+    "lotr:tile.sapling4": {
+      "2": {
+        "name": "lotr:cedar_sapling",
+        "properties": {
+          "stage": "0"
+        }
+      },
+      "3": {
+        "name": "lotr:fir_sapling",
+        "properties": {
+          "stage": "0"
+        }
+      },
+      "10": {
+        "name": "lotr:cedar_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      },
+      "11": {
+        "name": "lotr:fir_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      }
+    },
     "lotr:tile.stairsChestnut": null,
     "lotr:tile.stairsBaobab": null,
     "lotr:tile.fallenLeavesLOTR2": null,
@@ -13686,7 +14060,20 @@
       }
     },
     "lotr:tile.leaves5": null,
-    "lotr:tile.sapling5": null,
+    "lotr:tile.sapling5": {
+      "0": {
+        "name": "lotr:pine_sapling",
+        "properties": {
+          "stage": "0"
+        }
+      },
+      "8": {
+        "name": "lotr:pine_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      }
+    },
     "lotr:tile.stairsPinePine": {
       "0": {
         "name": "lotr:pine_stairs",
@@ -14003,7 +14390,11 @@
         }
       }
     },
-    "lotr:tile.fenceRotten": null,
+    "lotr:tile.fenceRotten": {
+      "0": {
+        "name": "lotr:rotten_fence"
+      }
+    },
     "lotr:tile.scorchedStone": null,
     "lotr:tile.scorchedSlabSingle": null,
     "lotr:tile.scorchedSlabDouble": null,
@@ -14146,7 +14537,20 @@
       }
     },
     "lotr:tile.leaves6": null,
-    "lotr:tile.sapling6": null,
+    "lotr:tile.sapling6": {
+      "2": {
+        "name": "lotr:cypress_sapling",
+        "properties": {
+          "stage": "0"
+        }
+      },
+      "10": {
+        "name": "lotr:cypress_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      }
+    },
     "lotr:tile.woodSlabSingle4": {
       "2": {
         "name": "lotr:cypress_slab",
@@ -18786,7 +19190,44 @@
       }
     },
     "lotr:tile.leaves7": null,
-    "lotr:tile.sapling7": null,
+    "lotr:tile.sapling7": {
+      "0": {
+        "name": "lotr:aspen_sapling",
+        "properties": {
+          "stage": "0"
+        }
+      },
+      "1": {
+        "name": "lotr:green_oak_sapling",
+        "properties": {
+          "stage": "0"
+        }
+      },
+      "2": {
+        "name": "lotr:lairelosse_sapling",
+        "properties": {
+          "stage": "0"
+        }
+      },
+      "8": {
+        "name": "lotr:aspen_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      },
+      "9": {
+        "name": "lotr:green_oak_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      },
+      "10": {
+        "name": "lotr:lairelosse_sapling",
+        "properties": {
+          "stage": "1"
+        }
+      }
+    },
     "lotr:tile.woodBeam7": {
       "0": {
         "name": "lotr:aspen_beam",
@@ -31499,7 +31940,7 @@
       ""
     ],
     "minecraft:boat": [
-      "minecraft_oak_boat"
+      "minecraft:oak_boat"
     ],
     "lotr:item.swordGulfHarad": [
       ""
@@ -32341,7 +32782,7 @@
       "",
       "lotr:carved_mordor_brick",
       "lotr:numenorean_brick",
-      "lotr:lotr:carved_dwarven_brick",
+      "lotr:carved_dwarven_brick",
       "lotr:carved_high_elven_brick",
       "lotr:carved_wood_elven_brick",
       "lotr:carved_galadhrim_brick"
