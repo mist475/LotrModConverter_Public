@@ -9789,7 +9789,64 @@
         "name": "lotr:bluebell"
       }
     },
-    "lotr:tile.dwarvenForge": null,
+    "lotr:tile.dwarvenForge": {
+      "2": {
+        "name": "lotr:dwarven_forge",
+        "properties": {
+          "facing": "north",
+          "lit": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:dwarven_forge",
+        "properties": {
+          "facing": "south",
+          "lit": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:dwarven_forge",
+        "properties": {
+          "facing": "west",
+          "lit": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:dwarven_forge",
+        "properties": {
+          "facing": "east",
+          "lit": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:dwarven_forge",
+        "properties": {
+          "facing": "north",
+          "lit": "true"
+        }
+      },
+      "11": {
+        "name": "lotr:dwarven_forge",
+        "properties": {
+          "facing": "south",
+          "lit": "true"
+        }
+      },
+      "12": {
+        "name": "lotr:dwarven_forge",
+        "properties": {
+          "facing": "west",
+          "lit": "true"
+        }
+      },
+      "13": {
+        "name": "lotr:dwarven_forge",
+        "properties": {
+          "facing": "east",
+          "lit": "true"
+        }
+      }
+    },
     "lotr:tile.hearth": {
       "0": {
         "name": "lotr:hearth"
@@ -10819,7 +10876,64 @@
         }
       }
     },
-    "lotr:tile.orcForge": null,
+    "lotr:tile.orcForge": {
+      "2":{
+        "name":"lotr:orc_forge",
+        "properties": {
+          "facing":"north",
+          "lit":"false"
+        }
+      },
+      "3":{
+        "name":"lotr:orc_forge",
+        "properties": {
+          "facing":"south",
+          "lit":"false"
+        }
+      },
+      "4":{
+        "name":"lotr:orc_forge",
+        "properties": {
+          "facing":"west",
+          "lit":"false"
+        }
+      },
+      "5":{
+        "name":"lotr:orc_forge",
+        "properties": {
+          "facing":"east",
+          "lit":"false"
+        }
+      },
+      "10":{
+        "name":"lotr:orc_forge",
+        "properties": {
+          "facing":"north",
+          "lit":"true"
+        }
+      },
+      "11":{
+        "name":"lotr:orc_forge",
+        "properties": {
+          "facing":"south",
+          "lit":"true"
+        }
+      },
+      "12":{
+        "name":"lotr:orc_forge",
+        "properties": {
+          "facing":"west",
+          "lit":"true"
+        }
+      },
+      "13":{
+        "name":"lotr:orc_forge",
+        "properties": {
+          "facing":"east",
+          "lit":"true"
+        }
+      }
+    },
     "lotr:tile.trollTotem": null,
     "lotr:tile.orcBed": null,
     "lotr:tile.stairsElvenBrick": {
@@ -14306,7 +14420,64 @@
         }
       }
     },
-    "lotr:tile.elvenForge": null,
+    "lotr:tile.elvenForge": {
+      "2":{
+        "name":"lotr:elven_forge",
+        "properties": {
+          "facing":"north",
+          "lit":"false"
+        }
+      },
+      "3":{
+        "name":"lotr:elven_forge",
+        "properties": {
+          "facing":"south",
+          "lit":"false"
+        }
+      },
+      "4":{
+        "name":"lotr:elven_forge",
+        "properties": {
+          "facing":"west",
+          "lit":"false"
+        }
+      },
+      "5":{
+        "name":"lotr:elven_forge",
+        "properties": {
+          "facing":"east",
+          "lit":"false"
+        }
+      },
+      "10":{
+        "name":"lotr:elven_forge",
+        "properties": {
+          "facing":"north",
+          "lit":"true"
+        }
+      },
+      "11":{
+        "name":"lotr:elven_forge",
+        "properties": {
+          "facing":"south",
+          "lit":"true"
+        }
+      },
+      "12":{
+        "name":"lotr:elven_forge",
+        "properties": {
+          "facing":"west",
+          "lit":"true"
+        }
+      },
+      "13":{
+        "name":"lotr:elven_forge",
+        "properties": {
+          "facing":"east",
+          "lit":"true"
+        }
+      }
+    },
     "lotr:tile.dolAmrothCraftingTable": {
       "0": {
         "name": "lotr:dol_amroth_crafting_table"
@@ -14852,7 +15023,64 @@
     "lotr:tile.stairsLemon": null,
     "lotr:tile.lemonCake": null,
     "lotr:tile.stairsOrange": null,
-    "lotr:tile.alloyForge": null,
+    "lotr:tile.alloyForge": {
+      "2":{
+        "name":"lotr:alloy_forge",
+        "properties": {
+          "facing":"north",
+          "lit":"false"
+        }
+      },
+      "3":{
+        "name":"lotr:alloy_forge",
+        "properties": {
+          "facing":"south",
+          "lit":"false"
+        }
+      },
+      "4":{
+        "name":"lotr:alloy_forge",
+        "properties": {
+          "facing":"west",
+          "lit":"false"
+        }
+      },
+      "5":{
+        "name":"lotr:alloy_forge",
+        "properties": {
+          "facing":"east",
+          "lit":"false"
+        }
+      },
+      "10":{
+        "name":"lotr:alloy_forge",
+        "properties": {
+          "facing":"north",
+          "lit":"true"
+        }
+      },
+      "11":{
+        "name":"lotr:alloy_forge",
+        "properties": {
+          "facing":"south",
+          "lit":"true"
+        }
+      },
+      "12":{
+        "name":"lotr:alloy_forge",
+        "properties": {
+          "facing":"west",
+          "lit":"true"
+        }
+      },
+      "13":{
+        "name":"lotr:alloy_forge",
+        "properties": {
+          "facing":"east",
+          "lit":"true"
+        }
+      }
+    },
     "lotr:tile.stairsLime": null,
     "lotr:tile.tauredainCraftingTable": null,
     "lotr:tile.brick4": null,
