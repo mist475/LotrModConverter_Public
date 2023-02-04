@@ -5728,20 +5728,32 @@
       }
     },
     "minecraft:skull": {
-      "0": {
+      "1": {
         "name": "minecraft:skeleton_skull"
       },
-      "1": {
-        "name": "minecraft:wither_skeleton_skull"
-      },
       "2": {
-        "name": "minecraft:creeper_head"
+        "name": "minecraft:skeleton_wall_skull",
+        "properties": {
+          "facing": "north"
+        }
       },
       "3": {
-        "name": "minecraft:player_head"
+        "name": "minecraft:skeleton_wall_skull",
+        "properties": {
+          "facing": "south"
+        }
       },
       "4": {
-        "name": "minecraft:creeper_head"
+        "name": "minecraft:skeleton_wall_skull",
+        "properties": {
+          "facing": "west"
+        }
+      },
+      "5": {
+        "name": "minecraft:skeleton_wall_skull",
+        "properties": {
+          "facing": "east"
+        }
       }
     },
     "minecraft:anvil": {
@@ -10877,60 +10889,60 @@
       }
     },
     "lotr:tile.orcForge": {
-      "2":{
-        "name":"lotr:orc_forge",
+      "2": {
+        "name": "lotr:orc_forge",
         "properties": {
-          "facing":"north",
-          "lit":"false"
+          "facing": "north",
+          "lit": "false"
         }
       },
-      "3":{
-        "name":"lotr:orc_forge",
+      "3": {
+        "name": "lotr:orc_forge",
         "properties": {
-          "facing":"south",
-          "lit":"false"
+          "facing": "south",
+          "lit": "false"
         }
       },
-      "4":{
-        "name":"lotr:orc_forge",
+      "4": {
+        "name": "lotr:orc_forge",
         "properties": {
-          "facing":"west",
-          "lit":"false"
+          "facing": "west",
+          "lit": "false"
         }
       },
-      "5":{
-        "name":"lotr:orc_forge",
+      "5": {
+        "name": "lotr:orc_forge",
         "properties": {
-          "facing":"east",
-          "lit":"false"
+          "facing": "east",
+          "lit": "false"
         }
       },
-      "10":{
-        "name":"lotr:orc_forge",
+      "10": {
+        "name": "lotr:orc_forge",
         "properties": {
-          "facing":"north",
-          "lit":"true"
+          "facing": "north",
+          "lit": "true"
         }
       },
-      "11":{
-        "name":"lotr:orc_forge",
+      "11": {
+        "name": "lotr:orc_forge",
         "properties": {
-          "facing":"south",
-          "lit":"true"
+          "facing": "south",
+          "lit": "true"
         }
       },
-      "12":{
-        "name":"lotr:orc_forge",
+      "12": {
+        "name": "lotr:orc_forge",
         "properties": {
-          "facing":"west",
-          "lit":"true"
+          "facing": "west",
+          "lit": "true"
         }
       },
-      "13":{
-        "name":"lotr:orc_forge",
+      "13": {
+        "name": "lotr:orc_forge",
         "properties": {
-          "facing":"east",
-          "lit":"true"
+          "facing": "east",
+          "lit": "true"
         }
       }
     },
@@ -14421,60 +14433,60 @@
       }
     },
     "lotr:tile.elvenForge": {
-      "2":{
-        "name":"lotr:elven_forge",
+      "2": {
+        "name": "lotr:elven_forge",
         "properties": {
-          "facing":"north",
-          "lit":"false"
+          "facing": "north",
+          "lit": "false"
         }
       },
-      "3":{
-        "name":"lotr:elven_forge",
+      "3": {
+        "name": "lotr:elven_forge",
         "properties": {
-          "facing":"south",
-          "lit":"false"
+          "facing": "south",
+          "lit": "false"
         }
       },
-      "4":{
-        "name":"lotr:elven_forge",
+      "4": {
+        "name": "lotr:elven_forge",
         "properties": {
-          "facing":"west",
-          "lit":"false"
+          "facing": "west",
+          "lit": "false"
         }
       },
-      "5":{
-        "name":"lotr:elven_forge",
+      "5": {
+        "name": "lotr:elven_forge",
         "properties": {
-          "facing":"east",
-          "lit":"false"
+          "facing": "east",
+          "lit": "false"
         }
       },
-      "10":{
-        "name":"lotr:elven_forge",
+      "10": {
+        "name": "lotr:elven_forge",
         "properties": {
-          "facing":"north",
-          "lit":"true"
+          "facing": "north",
+          "lit": "true"
         }
       },
-      "11":{
-        "name":"lotr:elven_forge",
+      "11": {
+        "name": "lotr:elven_forge",
         "properties": {
-          "facing":"south",
-          "lit":"true"
+          "facing": "south",
+          "lit": "true"
         }
       },
-      "12":{
-        "name":"lotr:elven_forge",
+      "12": {
+        "name": "lotr:elven_forge",
         "properties": {
-          "facing":"west",
-          "lit":"true"
+          "facing": "west",
+          "lit": "true"
         }
       },
-      "13":{
-        "name":"lotr:elven_forge",
+      "13": {
+        "name": "lotr:elven_forge",
         "properties": {
-          "facing":"east",
-          "lit":"true"
+          "facing": "east",
+          "lit": "true"
         }
       }
     },
@@ -15024,60 +15036,60 @@
     "lotr:tile.lemonCake": null,
     "lotr:tile.stairsOrange": null,
     "lotr:tile.alloyForge": {
-      "2":{
-        "name":"lotr:alloy_forge",
+      "2": {
+        "name": "lotr:alloy_forge",
         "properties": {
-          "facing":"north",
-          "lit":"false"
+          "facing": "north",
+          "lit": "false"
         }
       },
-      "3":{
-        "name":"lotr:alloy_forge",
+      "3": {
+        "name": "lotr:alloy_forge",
         "properties": {
-          "facing":"south",
-          "lit":"false"
+          "facing": "south",
+          "lit": "false"
         }
       },
-      "4":{
-        "name":"lotr:alloy_forge",
+      "4": {
+        "name": "lotr:alloy_forge",
         "properties": {
-          "facing":"west",
-          "lit":"false"
+          "facing": "west",
+          "lit": "false"
         }
       },
-      "5":{
-        "name":"lotr:alloy_forge",
+      "5": {
+        "name": "lotr:alloy_forge",
         "properties": {
-          "facing":"east",
-          "lit":"false"
+          "facing": "east",
+          "lit": "false"
         }
       },
-      "10":{
-        "name":"lotr:alloy_forge",
+      "10": {
+        "name": "lotr:alloy_forge",
         "properties": {
-          "facing":"north",
-          "lit":"true"
+          "facing": "north",
+          "lit": "true"
         }
       },
-      "11":{
-        "name":"lotr:alloy_forge",
+      "11": {
+        "name": "lotr:alloy_forge",
         "properties": {
-          "facing":"south",
-          "lit":"true"
+          "facing": "south",
+          "lit": "true"
         }
       },
-      "12":{
-        "name":"lotr:alloy_forge",
+      "12": {
+        "name": "lotr:alloy_forge",
         "properties": {
-          "facing":"west",
-          "lit":"true"
+          "facing": "west",
+          "lit": "true"
         }
       },
-      "13":{
-        "name":"lotr:alloy_forge",
+      "13": {
+        "name": "lotr:alloy_forge",
         "properties": {
-          "facing":"east",
-          "lit":"true"
+          "facing": "east",
+          "lit": "true"
         }
       }
     },
