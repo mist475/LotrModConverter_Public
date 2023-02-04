@@ -323,7 +323,92 @@
         }
       }
     },
-    "minecraft:leaves": null,
+    "minecraft:leaves": {
+      "0": {
+        "name": "minecraft:oak_leaves",
+        "properties": {
+          "distance": "4",
+          "persistent": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:spruce_leaves",
+        "properties": {
+          "distance": "4",
+          "persistent": "false"
+        }
+      },
+      "2": {
+        "name": "minecraft:birch_leaves",
+        "properties": {
+          "distance": "4",
+          "persistent": "false"
+        }
+      },
+      "3": {
+        "name": "minecraft:jungle_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:oak_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "true"
+        }
+      },
+      "5": {
+        "name": "minecraft:spruce_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "true"
+        }
+      },
+      "6": {
+        "name": "minecraft:birch_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "true"
+        }
+      },
+      "7": {
+        "name": "minecraft:jungle_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "true"
+        }
+      },
+      "8": {
+        "name": "minecraft:oak_leaves",
+        "properties": {
+          "distance": "1",
+          "persistent": "false"
+        }
+      },
+      "9": {
+        "name": "minecraft:spruce_leaves",
+        "properties": {
+          "distance": "1",
+          "persistent": "false"
+        }
+      },
+      "10": {
+        "name": "minecraft:birch_leaves",
+        "properties": {
+          "distance": "1",
+          "persistent": "false"
+        }
+      },
+      "11": {
+        "name": "minecraft:jungle_leaves",
+        "properties": {
+          "distance": "1",
+          "persistent": "false"
+        }
+      }
+    },
     "minecraft:sponge": {
       "0": {
         "name": "minecraft:sponge"
@@ -6752,7 +6837,50 @@
         "name": "minecraft:black_stained_glass_pine"
       }
     },
-    "minecraft:leaves2": null,
+    "minecraft:leaves2": {
+      "0": {
+        "name": "minecraft:acacia_leaves",
+        "properties": {
+          "distance": "4",
+          "persistent": "false"
+        }
+      },
+      "1": {
+        "name": "minecraft:dark_oak_leaves",
+        "properties": {
+          "distance": "4",
+          "persistent": "false"
+        }
+      },
+      "4": {
+        "name": "minecraft:acacia_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "true"
+        }
+      },
+      "5": {
+        "name": "minecraft:dark_oak_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "true"
+        }
+      },
+      "8": {
+        "name": "minecraft:acacia_leaves",
+        "properties": {
+          "distance": "1",
+          "persistent": "false"
+        }
+      },
+      "9": {
+        "name": "minecraft:dark_oak_leaves",
+        "properties": {
+          "distance": "1",
+          "persistent": "false"
+        }
+      }
+    },
     "minecraft:log2": {
       "0": {
         "name": "minecraft:acacia_log",
@@ -7270,7 +7398,92 @@
         }
       }
     },
-    "lotr:tile.leaves": null,
+    "lotr:tile.leaves": {
+      "0": {
+        "name": "lotr:pine_leaves",
+        "properties": {
+          "distance": "4",
+          "persistent": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:mallorn_leaves",
+        "properties": {
+          "distance": "4",
+          "persistent": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:mirk_oak_leaves",
+        "properties": {
+          "distance": "4",
+          "persistent": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:red_oak_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:pine_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "true"
+        }
+      },
+      "5": {
+        "name": "lotr:mallorn_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "true"
+        }
+      },
+      "6": {
+        "name": "lotr:mirk_oak_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "true"
+        }
+      },
+      "7": {
+        "name": "lotr:red_oak_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "true"
+        }
+      },
+      "8": {
+        "name": "lotr:pine_leaves",
+        "properties": {
+          "distance": "1",
+          "persistent": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:mallorn_leaves",
+        "properties": {
+          "distance": "1",
+          "persistent": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:mirk_oak_leaves",
+        "properties": {
+          "distance": "1",
+          "persistent": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:red_oak_leaves",
+        "properties": {
+          "distance": "1",
+          "persistent": "false"
+        }
+      }
+    },
     "lotr:tile.planks": {
       "0": {
         "name": "lotr:pine_planks"
@@ -9241,7 +9454,71 @@
         }
       }
     },
-    "lotr:tile.fruitLeaves": null,
+    "lotr:tile.fruitLeaves": {
+      "0": {
+        "name": "lotr:apple_leaves",
+        "properties": {
+          "distance": "4",
+          "persistent": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:pear_leaves",
+        "properties": {
+          "distance": "4",
+          "persistent": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:cherry_leaves",
+        "properties": {
+          "distance": "4",
+          "persistent": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:apple_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "true"
+        }
+      },
+      "5": {
+        "name": "lotr:pear_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "true"
+        }
+      },
+      "6": {
+        "name": "lotr:cherry_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "true"
+        }
+      },
+      "8": {
+        "name": "lotr:apple_leaves",
+        "properties": {
+          "distance": "1",
+          "persistent": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:pear_leaves",
+        "properties": {
+          "distance": "1",
+          "persistent": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:cherry_leaves",
+        "properties": {
+          "distance": "1",
+          "persistent": "false"
+        }
+      }
+    },
     "lotr:tile.fruitSapling": {
       "0": {
         "name": "lotr:apple_sapling",
@@ -10071,7 +10348,71 @@
         }
       }
     },
-    "lotr:tile.leaves2": null,
+    "lotr:tile.leaves2": {
+      "0": {
+        "name": "lotr:lebethron_leaves",
+        "properties": {
+          "distance": "4",
+          "persistent": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:beech_leaves",
+        "properties": {
+          "distance": "4",
+          "persistent": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:holly_leaves",
+        "properties": {
+          "distance": "4",
+          "persistent": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:lebethron_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "true"
+        }
+      },
+      "5": {
+        "name": "lotr:beech_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "true"
+        }
+      },
+      "6": {
+        "name": "lotr:holly_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "true"
+        }
+      },
+      "8": {
+        "name": "lotr:lebethron_leaves",
+        "properties": {
+          "distance": "1",
+          "persistent": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:beech_leaves",
+        "properties": {
+          "distance": "1",
+          "persistent": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:holly_leaves",
+        "properties": {
+          "distance": "1",
+          "persistent": "false"
+        }
+      }
+    },
     "lotr:tile.sapling2": {
       "0": {
         "name": "lotr:lebethron_sapling",
@@ -11586,7 +11927,50 @@
         }
       }
     },
-    "lotr:tile.leaves3": null,
+    "lotr:tile.leaves3": {
+      "0": {
+        "name": "lotr:maple_leaves",
+        "properties": {
+          "distance": "4",
+          "persistent": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:larch_leaves",
+        "properties": {
+          "distance": "4",
+          "persistent": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:maple_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "true"
+        }
+      },
+      "5": {
+        "name": "lotr:larch_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "true"
+        }
+      },
+      "8": {
+        "name": "lotr:maple_leaves",
+        "properties": {
+          "distance": "1",
+          "persistent": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:larch_leaves",
+        "properties": {
+          "distance": "1",
+          "persistent": "false"
+        }
+      }
+    },
     "lotr:tile.sapling3": {
       "0": {
         "name": "lotr:maple_sapling",
@@ -12977,7 +13361,50 @@
         }
       }
     },
-    "lotr:tile.leaves4": null,
+    "lotr:tile.leaves4": {
+      "2": {
+        "name": "lotr:cedar_leaves",
+        "properties": {
+          "distance": "4",
+          "persistent": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:fir_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:cedar_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "true"
+        }
+      },
+      "7": {
+        "name": "lotr:fir_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "true"
+        }
+      },
+      "10": {
+        "name": "lotr:cedar_leaves",
+        "properties": {
+          "distance": "1",
+          "persistent": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:fir_leaves",
+        "properties": {
+          "distance": "1",
+          "persistent": "false"
+        }
+      }
+    },
     "lotr:tile.sapling4": {
       "2": {
         "name": "lotr:cedar_sapling",
@@ -14059,7 +14486,29 @@
         }
       }
     },
-    "lotr:tile.leaves5": null,
+    "lotr:tile.leaves5": {
+      "0": {
+        "name": "lotr:pine_leaves",
+        "properties": {
+          "distance": "4",
+          "persistent": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:pine_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "true"
+        }
+      },
+      "8": {
+        "name": "lotr:pine_leaves",
+        "properties": {
+          "distance": "1",
+          "persistent": "false"
+        }
+      }
+    },
     "lotr:tile.sapling5": {
       "0": {
         "name": "lotr:pine_sapling",
@@ -14536,7 +14985,29 @@
         }
       }
     },
-    "lotr:tile.leaves6": null,
+    "lotr:tile.leaves6": {
+      "2": {
+        "name": "lotr:cypress_leaves",
+        "properties": {
+          "distance": "4",
+          "persistent": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:cypress_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "true"
+        }
+      },
+      "10": {
+        "name": "lotr:cypress_leaves",
+        "properties": {
+          "distance": "1",
+          "persistent": "false"
+        }
+      }
+    },
     "lotr:tile.sapling6": {
       "2": {
         "name": "lotr:cypress_sapling",
@@ -19189,7 +19660,71 @@
         }
       }
     },
-    "lotr:tile.leaves7": null,
+    "lotr:tile.leaves7": {
+      "0": {
+        "name": "lotr:aspen_leaves",
+        "properties": {
+          "distance": "4",
+          "persistent": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:green_oak_leaves",
+        "properties": {
+          "distance": "4",
+          "persistent": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:lairelosse_leaves",
+        "properties": {
+          "distance": "4",
+          "persistent": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:aspen_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "true"
+        }
+      },
+      "5": {
+        "name": "lotr:green_oak_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "true"
+        }
+      },
+      "6": {
+        "name": "lotr:lairelosse_leaves",
+        "properties": {
+          "distance": "7",
+          "persistent": "true"
+        }
+      },
+      "8": {
+        "name": "lotr:aspen_leaves",
+        "properties": {
+          "distance": "1",
+          "persistent": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:green_oak_leaves",
+        "properties": {
+          "distance": "1",
+          "persistent": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:lairelosse_leaves",
+        "properties": {
+          "distance": "1",
+          "persistent": "false"
+        }
+      }
+    },
     "lotr:tile.sapling7": {
       "0": {
         "name": "lotr:aspen_sapling",
@@ -36155,7 +36690,7 @@
       "lotr:uruk_dagger"
     ],
     "lotr:tile.stairsStone": [
-      "minecraft:stone-stairs"
+      "minecraft:stone_stairs"
     ],
     "lotr:item.helmetWoodElven": [
       "lotr:wood_elven_helmet"
@@ -36201,7 +36736,7 @@
     ],
     "lotr:tile.leaves": [
       "lotr:pine_leaves",
-      "lotr:mallorn-leaves",
+      "lotr:mallorn_leaves",
       "lotr:mirk_oak_leaves",
       "lotr:red_oak_leaves"
     ],
