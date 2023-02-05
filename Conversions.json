@@ -7885,7 +7885,44 @@
         "name": "lotr:harad_brick"
       }
     },
-    "lotr:tile.appleCrumble": null,
+    "lotr:tile.appleCrumble": {
+      "0": {
+        "name": "lotr:apple_crumble",
+        "properties": {
+          "bites": "0"
+        }
+      },
+      "1": {
+        "name": "lotr:apple_crumble",
+        "properties": {
+          "bites": "1"
+        }
+      },
+      "2": {
+        "name": "lotr:apple_crumble",
+        "properties": {
+          "bites": "2"
+        }
+      },
+      "3": {
+        "name": "lotr:apple_crumble",
+        "properties": {
+          "bites": "3"
+        }
+      },
+      "4": {
+        "name": "lotr:apple_crumble",
+        "properties": {
+          "bites": "4"
+        }
+      },
+      "5": {
+        "name": "lotr:apple_crumble",
+        "properties": {
+          "bites": "6"
+        }
+      }
+    },
     "lotr:tile.hobbitOven": {
       "2": {
         "name": "lotr:hobbit_oven",
@@ -9864,14 +9901,65 @@
         "name": "lotr:hearth"
       }
     },
-    "lotr:tile.morgulShroom": null,
+    "lotr:tile.morgulShroom": {
+      "0": {
+        "name": "lotr:morgul_shroom"
+      }
+    },
     "lotr:tile.urukCraftingTable": {
       "0": {
         "name": "lotr:uruk_crafting_table"
       }
     },
-    "lotr:tile.cherryPie": null,
-    "lotr:tile.clover": null,
+    "lotr:tile.cherryPie": {
+      "0": {
+        "name": "lotr:cherry_pie",
+        "properties": {
+          "bites": "0"
+        }
+      },
+      "1": {
+        "name": "lotr:cherry_pie",
+        "properties": {
+          "bites": "1"
+        }
+      },
+      "2": {
+        "name": "lotr:cherry_pie",
+        "properties": {
+          "bites": "2"
+        }
+      },
+      "3": {
+        "name": "lotr:cherry_pie",
+        "properties": {
+          "bites": "3"
+        }
+      },
+      "4": {
+        "name": "lotr:cherry_pie",
+        "properties": {
+          "bites": "4"
+        }
+      },
+      "5": {
+        "name": "lotr:cherry_pie",
+        "properties": {
+          "bites": "6"
+        }
+      }
+    },
+    "lotr:tile.clover": {
+      "0": {
+        "name": "lotr:clover",
+        "properties": {
+          "clovers": "1"
+        }
+      },
+      "1": {
+        "name": "lotr:four_leaf_clover"
+      }
+    },
     "lotr:tile.slabSingle2": {
       "0": {
         "name": "lotr:dwarven_pillar_slab",
@@ -10723,7 +10811,32 @@
         "name": "lotr:dwarfwort"
       }
     },
-    "lotr:tile.mug": null,
+    "lotr:tile.mug": {
+      "0": {
+        "name": "lotr:wooden_mug",
+        "properties": {
+          "facing": "east"
+        }
+      },
+      "1": {
+        "name": "lotr:wooden_mug",
+        "properties": {
+          "facing": "south"
+        }
+      },
+      "2": {
+        "name": "lotr:wooden_mug",
+        "properties": {
+          "facing": "west"
+        }
+      },
+      "3": {
+        "name": "lotr:wooden_mug",
+        "properties": {
+          "facing": "north"
+        }
+      }
+    },
     "lotr:tile.dunlendingCraftingTable": {
       "0": {
         "name": "lotr:dunlending_crafting_table"
@@ -11640,7 +11753,26 @@
         "name": "lotr:larch_fence"
       }
     },
-    "lotr:tile.doubleFlower": null,
+    "lotr:tile.doubleFlower": {
+      "1": {
+        "name": "lotr:yellow_iris",
+        "properties": {
+          "half": "lower"
+        }
+      },
+      "2": {
+        "name": "lotr:hibiscus",
+        "properties": {
+          "half": "lower"
+        }
+      },
+      "3": {
+        "name": "lotr:flame_of_harad",
+        "properties": {
+          "half": "lower"
+        }
+      }
+    },
     "lotr:tile.oreSulfur": {
       "0": {
         "name": "lotr:sulfur_ore"
@@ -13121,8 +13253,64 @@
     "lotr:tile.stairsDolGuldurBrick": null,
     "lotr:tile.stairsDolGuldurBrickCracked": null,
     "lotr:tile.dolGuldurCraftingTable": null,
-    "lotr:tile.fallenLeaves": null,
-    "lotr:tile.fallenLeavesLOTR": null,
+    "lotr:tile.fallenLeaves": {
+      "0": {
+        "name": "lotr:fallen_oak_leaves"
+      },
+      "1": {
+        "name": "lotr:fallen_spruce_leaves"
+      },
+      "2": {
+        "name": "lotr:fallen_birch_leaves"
+      },
+      "3": {
+        "name": "lotr:fallen_jungle_leaves"
+      },
+      "4": {
+        "name": "lotr:fallen_acacia_leaves"
+      },
+      "5": {
+        "name": "lotr:fallen_dark_oak_leaves"
+      }
+    },
+    "lotr:tile.fallenLeavesLOTR": {
+      "0": {
+        "name": "lotr:fallen_pine_leaves"
+      },
+      "1": {
+        "name": "lotr:fallen_mallorn_leaves"
+      },
+      "2": {
+        "name": "lotr:fallen_mirk_oak_leaves"
+      },
+      "3": {
+        "name": "lotr:fallen_red_oak_leaves"
+      },
+      "4": {
+        "name": "lotr:fallen_apple_leaves"
+      },
+      "5": {
+        "name": "lotr:fallen_pear_leaves"
+      },
+      "6": {
+        "name": "lotr:fallen_cheery_leaves"
+      },
+      "8": {
+        "name": "lotr:fallen_lebethron_leaves"
+      },
+      "9": {
+        "name": "lotr:fallen_beech_leaves"
+      },
+      "10": {
+        "name": "lotr:fallen_holly_leaves"
+      },
+      "12": {
+        "name": "lotr:fallen_maple_leaves"
+      },
+      "13": {
+        "name": "lotr:fallen_larch_leaves"
+      }
+    },
     "lotr:tile.gundabadCraftingTable": null,
     "lotr:tile.thatchFloor": {
       "0": {
@@ -13130,7 +13318,11 @@
       }
     },
     "lotr:tile.dalishPastry": null,
-    "lotr:tile.aridGrass": null,
+    "lotr:tile.aridGrass": {
+      "0": {
+        "name": "lotr_arid_grass"
+      }
+    },
     "lotr:tile.termiteMound": null,
     "lotr:tile.utumnoBrick": null,
     "lotr:tile.utumnoPortal": null,
@@ -13332,12 +13524,119 @@
       }
     },
     "lotr:tile.stairsMangrove": null,
-    "lotr:tile.tallGrass": null,
-    "lotr:tile.haradFlower": null,
-    "lotr:tile.flaxPlant": null,
-    "lotr:tile.flax": null,
+    "lotr:tile.tallGrass": {
+      "0": {
+        "name": "lotr:short_grass"
+      },
+      "1": {
+        "name": "lotr:flowery_grass"
+      },
+      "2": {
+        "name": "lotr:tall_wheatgrass"
+      },
+      "3": {
+        "name": "lotr:thistle"
+      },
+      "4": {
+        "name": "lotr:nettles"
+      }
+    },
+    "lotr:tile.haradFlower": {
+      "0": {
+        "name": "lotr:red_sand_gem"
+      },
+      "1": {
+        "name": "lotr:yellow_sand_gem"
+      },
+      "2": {
+        "name": "lotr:harad_daisy"
+      },
+      "3": {
+        "name": "lotr:southbell"
+      }
+    },
+    "lotr:tile.flaxPlant": {
+      "0": {
+        "name": "lotr:wild_flax"
+      }
+    },
+    "lotr:tile.flax": {
+      "0": {
+        "name": "lotr:flax_crop",
+        "properties": {
+          "age": "0"
+        }
+      },
+      "1": {
+        "name": "lotr:flax_crop",
+        "properties": {
+          "age": "1"
+        }
+      },
+      "2": {
+        "name": "lotr:flax_crop",
+        "properties": {
+          "age": "2"
+        }
+      },
+      "3": {
+        "name": "lotr:flax_crop",
+        "properties": {
+          "age": "3"
+        }
+      },
+      "4": {
+        "name": "lotr:flax_crop",
+        "properties": {
+          "age": "4"
+        }
+      },
+      "5": {
+        "name": "lotr:flax_crop",
+        "properties": {
+          "age": "5"
+        }
+      },
+      "6": {
+        "name": "lotr:flax_crop",
+        "properties": {
+          "age": "6"
+        }
+      },
+      "7": {
+        "name": "lotr:flax_crop",
+        "properties": {
+          "age": "7"
+        }
+      }
+    },
     "lotr:tile.berryBush": null,
-    "lotr:tile.planks2": null,
+    "lotr:tile.planks2": {
+      "0": {
+        "name": "lotr:chestnut_planks"
+      },
+      "2": {
+        "name": "lotr:cedar_planks"
+      },
+      "3": {
+        "name": "lotr:fir_planks"
+      },
+      "4": {
+        "name": "lotr:pine_planks"
+      },
+      "10": {
+        "name": "lotr:cypress_planks"
+      },
+      "12": {
+        "name": "lotr:aspen_planks"
+      },
+      "13": {
+        "name": "lotr:green_oak_planks"
+      },
+      "14": {
+        "name": "lotr:lairelosse_planks"
+      }
+    },
     "lotr:tile.fence2": {
       "2": {
         "name": "lotr:cedar_fence"
@@ -13559,7 +13858,29 @@
     },
     "lotr:tile.stairsChestnut": null,
     "lotr:tile.stairsBaobab": null,
-    "lotr:tile.fallenLeavesLOTR2": null,
+    "lotr:tile.fallenLeavesLOTR2": {
+      "2": {
+        "name": "lotr:fallen_cedar_leaves"
+      },
+      "3": {
+        "name": "lotr:fallen_fir_leaves"
+      },
+      "4": {
+        "name": "lotr:pine_leaves"
+      },
+      "10": {
+        "name": "lotr:cypress_leaves"
+      },
+      "12": {
+        "name": "lotr:fallen_aspen_leaves"
+      },
+      "13": {
+        "name": "lotr:fallen_green_oak_leaves"
+      },
+      "14": {
+        "name": "lotr:fallen_lairelosse_leaves"
+      }
+    },
     "lotr:tile.stairsCedar": {
       "0": {
         "name": "lotr:cedar_stairs",
@@ -21176,16 +21497,191 @@
         }
       }
     },
-    "lotr:tile.ceramicMug": null,
-    "lotr:tile.gobletGold": null,
-    "lotr:tile.gobletSilver": null,
-    "lotr:tile.gobletCopper": null,
-    "lotr:tile.gobletWood": null,
+    "lotr:tile.ceramicMug": {
+      "0": {
+        "name": "lotr:ceramic_mug",
+        "properties": {
+          "facing": "east"
+        }
+      },
+      "1": {
+        "name": "lotr:ceramic_mug",
+        "properties": {
+          "facing": "south"
+        }
+      },
+      "2": {
+        "name": "lotr:ceramic_mug",
+        "properties": {
+          "facing": "west"
+        }
+      },
+      "3": {
+        "name": "lotr:ceramic_mug",
+        "properties": {
+          "facing": "north"
+        }
+      }
+    },
+    "lotr:tile.gobletGold": {
+      "0": {
+        "name": "lotr:golden_goblet",
+        "properties": {
+          "facing": "east"
+        }
+      },
+      "1": {
+        "name": "lotr:golden_goblet",
+        "properties": {
+          "facing": "south"
+        }
+      },
+      "2": {
+        "name": "lotr:golden_goblet",
+        "properties": {
+          "facing": "west"
+        }
+      },
+      "3": {
+        "name": "lotr:golden_goblet",
+        "properties": {
+          "facing": "north"
+        }
+      }
+    },
+    "lotr:tile.gobletSilver": {
+      "0": {
+        "name": "lotr:silver_goblet",
+        "properties": {
+          "facing": "east"
+        }
+      },
+      "1": {
+        "name": "lotr:silver_goblet",
+        "properties": {
+          "facing": "south"
+        }
+      },
+      "2": {
+        "name": "lotr:silver_goblet",
+        "properties": {
+          "facing": "west"
+        }
+      },
+      "3": {
+        "name": "lotr:silver_goblet",
+        "properties": {
+          "facing": "north"
+        }
+      }
+    },
+    "lotr:tile.gobletCopper": {
+      "0": {
+        "name": "lotr:copper_goblet",
+        "properties": {
+          "facing": "east"
+        }
+      },
+      "1": {
+        "name": "lotr:copper_goblet",
+        "properties": {
+          "facing": "south"
+        }
+      },
+      "2": {
+        "name": "lotr:copper_goblet",
+        "properties": {
+          "facing": "west"
+        }
+      },
+      "3": {
+        "name": "lotr:copper_goblet",
+        "properties": {
+          "facing": "north"
+        }
+      }
+    },
+    "lotr:tile.gobletWood": {
+      "0": {
+        "name": "lotr:wooden_cup",
+        "properties": {
+          "facing": "east"
+        }
+      },
+      "1": {
+        "name": "lotr:wooden_cup",
+        "properties": {
+          "facing": "south"
+        }
+      },
+      "2": {
+        "name": "lotr:wooden_cup",
+        "properties": {
+          "facing": "west"
+        }
+      },
+      "3": {
+        "name": "lotr:wooden_cup",
+        "properties": {
+          "facing": "north"
+        }
+      }
+    },
     "lotr:tile.skullCup": null,
     "lotr:tile.wineGlass": null,
     "lotr:tile.glassBottle": null,
-    "lotr:tile.aleHorn": null,
-    "lotr:tile.aleHornGold": null,
+    "lotr:tile.aleHorn": {
+      "0": {
+        "name": "lotr:ale_horn",
+        "properties": {
+          "facing": "east"
+        }
+      },
+      "1": {
+        "name": "lotr:ale_horn",
+        "properties": {
+          "facing": "south"
+        }
+      },
+      "2": {
+        "name": "lotr:ale_horn",
+        "properties": {
+          "facing": "west"
+        }
+      },
+      "3": {
+        "name": "lotr:ale_horn",
+        "properties": {
+          "facing": "north"
+        }
+      }
+    },
+    "lotr:tile.aleHornGold": {
+      "0": {
+        "name": "lotr:golden_ale_horn",
+        "properties": {
+          "facing": "east"
+        }
+      },
+      "1": {
+        "name": "lotr:golden_ale_horn",
+        "properties": {
+          "facing": "south"
+        }
+      },
+      "2": {
+        "name": "lotr:golden_ale_horn",
+        "properties": {
+          "facing": "west"
+        }
+      },
+      "3": {
+        "name": "lotr:golden_ale_horn",
+        "properties": {
+          "facing": "north"
+        }
+      }
+    },
     "lotr:tile.woodBeamS": null,
     "lotr:tile.birdCage": null,
     "lotr:tile.birdCageWood": null,
@@ -32403,7 +32899,7 @@
     "lotr:tile.haradFlower": [
       "lotr:red_sand_gem",
       "lotr:yellow_sand_gem",
-      "",
+      "lotr:harad_daisy",
       "lotr:southbell"
     ],
     "lotr:item.daggerOrcPoisoned": [
@@ -33330,7 +33826,6 @@
       "lotr:fallen_cedar_leaves",
       "lotr:fallen_fir_leaves",
       "lotr:fallen_pine_leaves",
-      "",
       "",
       "",
       "",
