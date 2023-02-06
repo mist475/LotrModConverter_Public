@@ -13955,7 +13955,32 @@
         }
       }
     },
-    "lotr:tile.rottenLog": null,
+    "lotr:tile.rottenLog": {
+      "0": {
+        "name": "lotr:rotten_log",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "4": {
+        "name": "lotr:rotten_log",
+        "properties": {
+          "axis": "x"
+        }
+      },
+      "8": {
+        "name": "lotr:rotten_log",
+        "properties": {
+          "axis": "z"
+        }
+      },
+      "12": {
+        "name": "lotr:rotten_wood",
+        "properties": {
+          "axis": "y"
+        }
+      }
+    },
     "lotr:tile.oreStorage2": {
       "1": {
         "name": "lotr:elven_steel_brick"
@@ -13964,9 +13989,21 @@
         "name": "lotr:salt_block"
       }
     },
-    "lotr:tile.mordorGrass": null,
-    "lotr:tile.mordorDirt": null,
-    "lotr:tile.mordorGravel": null,
+    "lotr:tile.mordorGrass": {
+      "0": {
+        "name": "lotr:mordor_grass"
+      }
+    },
+    "lotr:tile.mordorDirt": {
+      "0": {
+        "name": "lotr:mordor_dirt"
+      }
+    },
+    "lotr:tile.mordorGravel": {
+      "0": {
+        "name": "lotr:mordor_gravel"
+      }
+    },
     "lotr:tile.utumnoReturnPortal": null,
     "lotr:tile.utumnoReturnLight": null,
     "lotr:tile.utumnoReturnPortalBase": null,
@@ -14048,7 +14085,41 @@
         }
       }
     },
-    "lotr:tile.brick3": null,
+    "lotr:tile.brick3": {
+      "0": {
+        "name": "lotr:carved_blue_brick"
+      },
+      "1": {
+        "name": "lotr:carved_red_brick"
+      },
+      "2": {
+        "name": "lotr:high_elven_brick"
+      },
+      "3": {
+        "name": "lotr:mossy_high_elven_brick"
+      },
+      "4": {
+        "name": "lotr:cracked_high_elven_brick"
+      },
+      "5": {
+        "name": "lotr:wood_elven_brick"
+      },
+      "6": {
+        "name": "lotr:mossy_wood_elven_brick"
+      },
+      "7": {
+        "name": "lotr:cracked_wood_elven_brick"
+      },
+      "9": {
+        "name": "lotr:dol_amroth_brick"
+      },
+      "12": {
+        "name": "lotr:glowing_dwarven_brick"
+      },
+      "13": {
+        "name": "lotr:red_harad_brick"
+      }
+    },
     "lotr:tile.wallStone3": {
       "0": {
         "name": "lotr:wood_elven_brick_wall",
@@ -15226,21 +15297,77 @@
     "lotr:tile.stairsMoredainBrick": null,
     "lotr:tile.stairsNearHaradBrickCracked": null,
     "lotr:tile.unsmeltery": null,
-    "lotr:tile.bronzeBars": null,
-    "lotr:tile.goldBars": null,
-    "lotr:tile.silverBars": null,
-    "lotr:tile.mithrilBars": null,
-    "lotr:tile.urukBars": null,
-    "lotr:tile.highElfBars": null,
-    "lotr:tile.galadhrimBars": null,
-    "lotr:tile.woodElfBars": null,
-    "lotr:tile.dwarfBars": null,
-    "lotr:tile.blueDwarfBars": null,
-    "lotr:tile.highElfWoodBars": null,
-    "lotr:tile.galadhrimWoodBars": null,
-    "lotr:tile.woodElfWoodBars": null,
+    "lotr:tile.bronzeBars": {
+      "0": {
+        "name": "lotr:bronze_bars"
+      }
+    },
+    "lotr:tile.goldBars": {
+      "0": {
+        "name": "lotr:gold_bars"
+      }
+    },
+    "lotr:tile.silverBars": {
+      "0": {
+        "name": "lotr:silver_bars"
+      }
+    },
+    "lotr:tile.mithrilBars": {
+      "0": {
+        "name": "lotr:mithril_bars"
+      }
+    },
+    "lotr:tile.urukBars": {
+      "0": {
+        "name": "lotr:uruk_bars"
+      }
+    },
+    "lotr:tile.highElfBars": {
+      "0": {
+        "name": "lotr:high_elven_bars"
+      }
+    },
+    "lotr:tile.galadhrimBars": {
+      "0": {
+        "name": "lotr:galadhrim_bars"
+      }
+    },
+    "lotr:tile.woodElfBars": {
+      "0": {
+        "name": "lotr:wood_elven_bars"
+      }
+    },
+    "lotr:tile.dwarfBars": {
+      "0": {
+        "name": "lotr:dwarven_bars"
+      }
+    },
+    "lotr:tile.blueDwarfBars": {
+      "0": {
+        "name": "lotr:blue_dwarven_bars"
+      }
+    },
+    "lotr:tile.highElfWoodBars": {
+      "0": {
+        "name": "lotr:high_elven_wood_bars"
+      }
+    },
+    "lotr:tile.galadhrimWoodBars": {
+      "0": {
+        "name": "lotr:galadhrim_wood_bars"
+      }
+    },
+    "lotr:tile.woodElfWoodBars": {
+      "0": {
+        "name": "lotr:wood_elven_bars"
+      }
+    },
     "lotr:tile.corruptMallorn": null,
-    "lotr:tile.planksRotten": null,
+    "lotr:tile.planksRotten": {
+      "0": {
+        "name": "lotr:rotten_planks"
+      }
+    },
     "lotr:tile.stairsRotten": {
       "0": {
         "name": "lotr:rotten_stairs",
@@ -15416,7 +15543,17 @@
     },
     "lotr:tile.stairsLime": null,
     "lotr:tile.tauredainCraftingTable": null,
-    "lotr:tile.brick4": null,
+    "lotr:tile.brick4": {
+      "5": {
+        "name": "lotr:cracked_dwarven_brick"
+      },
+      "6": {
+        "name": "lotr:carved_numenorean_brick"
+      },
+      "15": {
+        "name": "lotr:chalk_brick"
+      }
+    },
     "lotr:tile.wallStone4": {
       "5": {
         "name": "lotr:cracked_dwarven_brick_wall",
@@ -15764,7 +15901,11 @@
       }
     },
     "lotr:tile.stairsNearHaradBrickRedCracked": null,
-    "lotr:tile.redSandstone": null,
+    "lotr:tile.redSandstone": {
+      "0": {
+        "name": "minecraft:red_sandstone"
+      }
+    },
     "lotr:tile.stairsRedSandstone": {
       "0": {
         "name": "minecraft:red_sandstone_stairs",
@@ -16132,7 +16273,11 @@
         }
       }
     },
-    "lotr:tile.reedBars": null,
+    "lotr:tile.reedBars": {
+      "0": {
+        "name": "lotr:wicker_bars"
+      }
+    },
     "lotr:tile.woodBeamV2": {
       "0": {
         "name": "lotr:acacia_beam",
@@ -17683,8 +17828,61 @@
     "lotr:tile.gateHighElven": null,
     "lotr:tile.gateWoodElven": null,
     "lotr:tile.gateNearHarad": null,
-    "lotr:tile.clayTile": null,
-    "lotr:tile.clayTileDyed": null,
+    "lotr:tile.clayTile": {
+      "0": {
+        "name": "lotr:clay_tiling"
+      }
+    },
+    "lotr:tile.clayTileDyed": {
+      "0": {
+        "name": "lotr:white_clay_tiling"
+      },
+      "1": {
+        "name": "lotr:orange_clay_tiling"
+      },
+      "2": {
+        "name": "lotr:magenta_clay_tiling"
+      },
+      "3": {
+        "name": "lotr:light_blue_clay_tiling"
+      },
+      "4": {
+        "name": "lotr:yellow_clay_tiling"
+      },
+      "5": {
+        "name": "lotr:lime_clay_tiling"
+      },
+      "6": {
+        "name": "lotr:pink_clay_tiling"
+      },
+      "7": {
+        "name": "lotr:gray_clay_tiling"
+      },
+      "8": {
+        "name": "lotr:light_gray_clay_tiling"
+      },
+      "9": {
+        "name": "lotr:cyan_clay_tiling"
+      },
+      "10": {
+        "name": "lotr:purple_clay_tiling"
+      },
+      "11": {
+        "name": "lotr:blue_clay_tiling"
+      },
+      "12": {
+        "name": "lotr:brown_clay_tiling"
+      },
+      "13": {
+        "name": "lotr:green_clay_tiling"
+      },
+      "14": {
+        "name": "lotr:red_clay_tiling"
+      },
+      "15": {
+        "name": "lotr:black_clay_tiling"
+      }
+    },
     "lotr:tile.slabClayTileSingle": {
       "0": {
         "name": "lotr:clay_tiling_slab",
@@ -19378,7 +19576,32 @@
     "lotr:tile.gateSilver": null,
     "lotr:tile.gateGold": null,
     "lotr:tile.gateMithril": null,
-    "lotr:tile.brick5": null,
+    "lotr:tile.brick5": {
+      "1": {
+        "name": "lotr:dale_brick"
+      },
+      "2": {
+        "name": "lotr:dorwinion_brick"
+      },
+      "3": {
+        "name": "lotr:carved_rohan_brick"
+      },
+      "4": {
+        "name": "lotr:mossy_dorwinion_brick"
+      },
+      "5": {
+        "name": "lotr:cracked_dorwinion_brick"
+      },
+      "8": {
+        "name": "lotr:gondor_cobblebrick"
+      },
+      "9": {
+        "name": "lotr:mossy_gondor_cobblebrick"
+      },
+      "10": {
+        "name": "lotr:cracked_gondor_cobblebrick"
+      }
+    },
     "lotr:tile.stairsMudBrick": null,
     "lotr:tile.leek": null,
     "lotr:tile.turnip": null,
@@ -21132,9 +21355,204 @@
         }
       }
     },
-    "lotr:tile.treasureCopper": null,
-    "lotr:tile.treasureSilver": null,
-    "lotr:tile.treasureGold": null,
+    "lotr:tile.treasureCopper": {
+      "0": {
+        "name": "lotr:copper_treasure_pile",
+        "properties": {
+          "level": "1",
+          "such_wealth": "true",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:copper_treasure_pile",
+        "properties": {
+          "level": "2",
+          "such_wealth": "true",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:copper_treasure_pile",
+        "properties": {
+          "level": "3",
+          "such_wealth": "true",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:copper_treasure_pile",
+        "properties": {
+          "level": "4",
+          "such_wealth": "true",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:copper_treasure_pile",
+        "properties": {
+          "level": "5",
+          "such_wealth": "true",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:copper_treasure_pile",
+        "properties": {
+          "level": "6",
+          "such_wealth": "true",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:copper_treasure_pile",
+        "properties": {
+          "level": "7",
+          "such_wealth": "true",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:copper_treasure_pile",
+        "properties": {
+          "level": "8",
+          "such_wealth": "true",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.treasureSilver": {
+      "0": {
+        "name": "lotr:silver_treasure_pile",
+        "properties": {
+          "level": "1",
+          "such_wealth": "true",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:silver_treasure_pile",
+        "properties": {
+          "level": "2",
+          "such_wealth": "true",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:silver_treasure_pile",
+        "properties": {
+          "level": "3",
+          "such_wealth": "true",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:silver_treasure_pile",
+        "properties": {
+          "level": "4",
+          "such_wealth": "true",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:silver_treasure_pile",
+        "properties": {
+          "level": "5",
+          "such_wealth": "true",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:silver_treasure_pile",
+        "properties": {
+          "level": "6",
+          "such_wealth": "true",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:silver_treasure_pile",
+        "properties": {
+          "level": "7",
+          "such_wealth": "true",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:silver_treasure_pile",
+        "properties": {
+          "level": "8",
+          "such_wealth": "true",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.treasureGold": {
+      "0": {
+        "name": "lotr:gold_treasure_pile",
+        "properties": {
+          "level": "1",
+          "such_wealth": "true",
+          "waterlogged": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:gold_treasure_pile",
+        "properties": {
+          "level": "2",
+          "such_wealth": "true",
+          "waterlogged": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:gold_treasure_pile",
+        "properties": {
+          "level": "3",
+          "such_wealth": "true",
+          "waterlogged": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:gold_treasure_pile",
+        "properties": {
+          "level": "4",
+          "such_wealth": "true",
+          "waterlogged": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:gold_treasure_pile",
+        "properties": {
+          "level": "5",
+          "such_wealth": "true",
+          "waterlogged": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:gold_treasure_pile",
+        "properties": {
+          "level": "6",
+          "such_wealth": "true",
+          "waterlogged": "false"
+        }
+      },
+      "6": {
+        "name": "lotr:gold_treasure_pile",
+        "properties": {
+          "level": "7",
+          "such_wealth": "true",
+          "waterlogged": "false"
+        }
+      },
+      "7": {
+        "name": "lotr:gold_treasure_pile",
+        "properties": {
+          "level": "8",
+          "such_wealth": "true",
+          "waterlogged": "false"
+        }
+      }
+    },
     "lotr:tile.chestLebethron": null,
     "lotr:tile.chestBasket": null,
     "lotr:tile.marigold": {
@@ -21142,7 +21560,23 @@
         "name": "lotr:marigold"
       }
     },
-    "lotr:tile.rhunFlower": null,
+    "lotr:tile.rhunFlower": {
+      "0": {
+        "name": "lotr:red_chrysanthemum"
+      },
+      "1": {
+        "name": "lotr:orange_chrysanthemum"
+      },
+      "2": {
+        "name": "lotr:pink_chrysanthemum"
+      },
+      "3": {
+        "name": "lotr:yellow_chrysanthemum"
+      },
+      "4": {
+        "name": "lotr:white_chrysanthemum"
+      }
+    },
     "lotr:tile.chestMallorn": null,
     "lotr:tile.stairsCobblestoneMossy": {
       "0": {
@@ -21689,8 +22123,53 @@
     "lotr:tile.signCarved": null,
     "lotr:tile.signCarvedIthildin": null,
     "lotr:tile.dwarvenDoorIthildin": null,
-    "lotr:tile.smoothStoneV": null,
-    "lotr:tile.smoothStone": null,
+    "lotr:tile.smoothStoneV": {
+      "0": {
+        "name": "minecraft:smooth_stone_slab",
+        "properties": {
+          "type": "double",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "lotr:tile.smoothStone": {
+      "0": {
+        "name": "lotr:smooth_mordor_rock_slab",
+        "properties": {
+          "type": "double"
+        }
+      },
+      "1": {
+        "name": "lotr:smooth_gondor_rock_slab",
+        "properties": {
+          "type": "double"
+        }
+      },
+      "2": {
+        "name": "lotr:smooth_rohan_rock_slab",
+        "properties": {
+          "type": "double"
+        }
+      },
+      "3": {
+        "name": "lotr:smooth_blue_rock_slab",
+        "properties": {
+          "type": "double"
+        }
+      },
+      "4": {
+        "name": "lotr:smooth_red_rock_slab",
+        "properties": {
+          "type": "double"
+        }
+      },
+      "5": {
+        "name": "lotr:smooth_chalk_slab",
+        "properties": {
+          "type": "double"
+        }
+      }
+    },
     "lotr:tile.slabSingle12": {
       "7": {
         "name": "lotr:snowy_angmar_brick_slab",
@@ -21723,13 +22202,42 @@
     "lotr:tile.stairsRhunBrickMossy": null,
     "lotr:tile.stairsRhunBrickCracked": null,
     "lotr:tile.stairsRhunBrickFlowers": null,
-    "lotr:tile.brick6": null,
+    "lotr:tile.brick6": {
+      "3": {
+        "name": "lotr:mossy_dale_brick"
+      },
+      "4": {
+        "name": "lotr:cracked_dale_brick"
+      },
+      "5": {
+        "name": "lotr:carved_dale_brick"
+      },
+      "6": {
+        "name": "lotr:umbar_brick"
+      },
+      "7": {
+        "name": "lotr:cracked_umbar_brick"
+      },
+      "9": {
+        "name": "lotr:carved_numenorean_brick"
+      },
+      "10": {
+        "name": "lotr:snowy_angmar_brick"
+      }
+    },
     "lotr:tile.rhunCraftingTable": null,
     "lotr:tile.stairsRhunBrickRed": null,
     "lotr:tile.stairsRedwood": null,
     "lotr:tile.rhunFire": null,
     "lotr:tile.rhunFireJar": null,
-    "lotr:tile.daub": null,
+    "lotr:tile.daub": {
+      "0": {
+        "name": "lotr:wattle_and_daub",
+        "properties": {
+          "connected": "true"
+        }
+      }
+    },
     "lotr:tile.gateRhun": null,
     "lotr:tile.yam": null,
     "lotr:tile.kebabBlock": null,
@@ -23641,10 +24149,116 @@
         "name": "minecraft:bookshelf"
       }
     },
-    "lotr:tile.glass": null,
-    "lotr:tile.glassPane": null,
-    "lotr:tile.stainedGlass": null,
-    "lotr:tile.stainedGlassPane": null,
+    "lotr:tile.glass": {
+      "": {
+        "name": "lotr:fine_glass"
+      }
+    },
+    "lotr:tile.glassPane": {
+      "": {
+        "name": "lotr:fine_glass_pane"
+      }
+    },
+    "lotr:tile.stainedGlass": {
+      "0": {
+        "name": "lotr:white_fine_glass"
+      },
+      "1": {
+        "name": "lotr:orange_fine_glass"
+      },
+      "2": {
+        "name": "lotr:magenta_fine_glass"
+      },
+      "3": {
+        "name": "lotr:light_blue_fine_glass"
+      },
+      "4": {
+        "name": "lotr:yellow_fine_glass"
+      },
+      "5": {
+        "name": "lotr:lime_fine_glass"
+      },
+      "6": {
+        "name": "lotr:pink_fine_glass"
+      },
+      "7": {
+        "name": "lotr:gray_fine_glass"
+      },
+      "8": {
+        "name": "lotr:light_gray_fine_glass"
+      },
+      "9": {
+        "name": "lotr:cyan_fine_glass"
+      },
+      "10": {
+        "name": "lotr:purple_fine_glass"
+      },
+      "11": {
+        "name": "lotr:blue_fine_glass"
+      },
+      "12": {
+        "name": "lotr:brown_fine_glass"
+      },
+      "13": {
+        "name": "lotr:green_fine_glass"
+      },
+      "14": {
+        "name": "lotr:red_fine_glass"
+      },
+      "15": {
+        "name": "lotr:black_fine_glass"
+      }
+    },
+    "lotr:tile.stainedGlassPane": {
+      "0": {
+        "name": "lotr:white_fine_glass_pane"
+      },
+      "1": {
+        "name": "lotr:orange_fine_glass_pane"
+      },
+      "2": {
+        "name": "lotr:magenta_fine_glass_pane"
+      },
+      "3": {
+        "name": "lotr:light_blue_fine_glass_pane"
+      },
+      "4": {
+        "name": "lotr:yellow_fine_glass_pane"
+      },
+      "5": {
+        "name": "lotr:lime_fine_glass_pane"
+      },
+      "6": {
+        "name": "lotr:pink_fine_glass_pane"
+      },
+      "7": {
+        "name": "lotr:gray_fine_glass_pane"
+      },
+      "8": {
+        "name": "lotr:light_gray_fine_glass_pane"
+      },
+      "9": {
+        "name": "lotr:cyan_fine_glass_pane"
+      },
+      "10": {
+        "name": "lotr:purple_fine_glass_pane"
+      },
+      "11": {
+        "name": "lotr:blue_fine_glass_pane"
+      },
+      "12": {
+        "name": "lotr:brown_fine_glass_pane"
+      },
+      "13": {
+        "name": "lotr:green_fine_glass_pane"
+      },
+      "14": {
+        "name": "lotr:red_fine_glass_pane"
+      },
+      "15": {
+        "name": "lotr:black_fine_glass_pane"
+      }
+    },
     "lotr:tile.rope": null,
     "lotr:tile.tauredainDartTrapObsidian": null,
     "lotr:tile.slabSingle13": {
@@ -32735,7 +33349,7 @@
       "minecraft:clay"
     ],
     "lotr:tile.chestMallorn": [
-      "lotr;mallorn_chest"
+      ""
     ],
     "lotr:item.daggerArnorPoisoned": [
       "lotr:arnor_dagger"
@@ -33994,11 +34608,11 @@
       "lotr:gondor_cobblebrick",
       "lotr:mossy_gondor_cobblebrick",
       "lotr:cracked_gondor_cobblebrick",
-      "lotr:",
-      "lotr:",
-      "lotr:",
-      "lotr:",
-      "lotr:"
+      "",
+      "",
+      "",
+      "",
+      ""
     ],
     "lotr:tile.brick4": [
       "",
@@ -34598,7 +35212,7 @@
       ""
     ],
     "lotr:tile.stainedGlass": [
-      "lotr:gray_fine_glass",
+      "lotr:white_fine_glass",
       "lotr:orange_fine_glass",
       "lotr:magenta_fine_glass",
       "lotr:light_blue_fine_glass",
@@ -34744,7 +35358,7 @@
       "lotr:fur_boots"
     ],
     "lotr:tile.stainedGlassPane": [
-      "lotr:gray_fine_glass_pane",
+      "lotr:white_fine_glass_pane",
       "lotr:orange_fine_glass_pane",
       "lotr:magenta_fine_glass_pane",
       "lotr:light_blue_fine_glass_pane",
@@ -36473,7 +37087,6 @@
       ""
     ],
     "lotr:tile.smoothStone": [
-      "minecraft:smooth_stone",
       "lotr:smooth_mordor_rock",
       "lotr:smooth_gondor_rock",
       "lotr:smooth_rohan_rock",
