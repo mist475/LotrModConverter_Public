@@ -1143,7 +1143,7 @@ public class Fixers {
         Optional<Tag<?>> ODates = Util.getAsTagIfExists(originalData, TagType.TAG_COMPOUND, "Dates");
         if (ODates.isPresent()) {
             CompoundMap Dates = (CompoundMap) ODates.get().getValue();
-            if (Dates.containsKey("ShireData")) {
+            if (Dates.containsKey("ShireDate")) {
                 (Dates.get("ShireDate")
                         .getAsIntTag()).ifPresent(intTag -> originalData.replace("Dates", new CompoundTag("Dates", Util.createCompoundMapWithContents(new IntTag("CurrentDay", intTag.getValue())))));
             }
