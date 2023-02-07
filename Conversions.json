@@ -188,13 +188,199 @@
     "minecraft:flowing_water": null,
     "minecraft:water": {
       "0": {
-        "name": "minecraft:water"
+        "name": "minecraft:water",
+        "properties": {
+          "level": "0"
+        }
+      },
+      "1": {
+        "name": "minecraft:water",
+        "properties": {
+          "level": "1"
+        }
+      },
+      "2": {
+        "name": "minecraft:water",
+        "properties": {
+          "level": "2"
+        }
+      },
+      "3": {
+        "name": "minecraft:water",
+        "properties": {
+          "level": "3"
+        }
+      },
+      "4": {
+        "name": "minecraft:water",
+        "properties": {
+          "level": "4"
+        }
+      },
+      "5": {
+        "name": "minecraft:water",
+        "properties": {
+          "level": "5"
+        }
+      },
+      "6": {
+        "name": "minecraft:water",
+        "properties": {
+          "level": "6"
+        }
+      },
+      "7": {
+        "name": "minecraft:water",
+        "properties": {
+          "level": "7"
+        }
+      },
+      "8": {
+        "name": "minecraft:water",
+        "properties": {
+          "level": "8"
+        }
+      },
+      "9": {
+        "name": "minecraft:water",
+        "properties": {
+          "level": "9"
+        }
+      },
+      "10": {
+        "name": "minecraft:water",
+        "properties": {
+          "level": "10"
+        }
+      },
+      "11": {
+        "name": "minecraft:water",
+        "properties": {
+          "level": "11"
+        }
+      },
+      "12": {
+        "name": "minecraft:water",
+        "properties": {
+          "level": "12"
+        }
+      },
+      "13": {
+        "name": "minecraft:water",
+        "properties": {
+          "level": "13"
+        }
+      },
+      "14": {
+        "name": "minecraft:water",
+        "properties": {
+          "level": "14"
+        }
+      },
+      "15": {
+        "name": "minecraft:water",
+        "properties": {
+          "level": "15"
+        }
       }
     },
     "minecraft:flowing_lava": null,
     "minecraft:lava": {
       "0": {
-        "name": "minecraft:lava"
+        "name": "minecraft:lava",
+        "properties": {
+          "level": "0"
+        }
+      },
+      "1": {
+        "name": "minecraft:lava",
+        "properties": {
+          "level": "1"
+        }
+      },
+      "2": {
+        "name": "minecraft:lava",
+        "properties": {
+          "level": "2"
+        }
+      },
+      "3": {
+        "name": "minecraft:lava",
+        "properties": {
+          "level": "3"
+        }
+      },
+      "4": {
+        "name": "minecraft:lava",
+        "properties": {
+          "level": "4"
+        }
+      },
+      "5": {
+        "name": "minecraft:lava",
+        "properties": {
+          "level": "5"
+        }
+      },
+      "6": {
+        "name": "minecraft:lava",
+        "properties": {
+          "level": "6"
+        }
+      },
+      "7": {
+        "name": "minecraft:lava",
+        "properties": {
+          "level": "7"
+        }
+      },
+      "8": {
+        "name": "minecraft:lava",
+        "properties": {
+          "level": "8"
+        }
+      },
+      "9": {
+        "name": "minecraft:lava",
+        "properties": {
+          "level": "9"
+        }
+      },
+      "10": {
+        "name": "minecraft:lava",
+        "properties": {
+          "level": "10"
+        }
+      },
+      "11": {
+        "name": "minecraft:lava",
+        "properties": {
+          "level": "11"
+        }
+      },
+      "12": {
+        "name": "minecraft:lava",
+        "properties": {
+          "level": "12"
+        }
+      },
+      "13": {
+        "name": "minecraft:lava",
+        "properties": {
+          "level": "13"
+        }
+      },
+      "14": {
+        "name": "minecraft:lava",
+        "properties": {
+          "level": "14"
+        }
+      },
+      "15": {
+        "name": "minecraft:lava",
+        "properties": {
+          "level": "15"
+        }
       }
     },
     "minecraft:sand": {
@@ -16650,11 +16836,916 @@
         }
       }
     },
-    "lotr:tile.gateWooden": null,
-    "lotr:tile.gateIronBars": null,
-    "lotr:tile.gateBronzeBars": null,
-    "lotr:tile.gateWoodenCross": null,
-    "lotr:tile.gateOrc": null,
+    "lotr:tile.gateWooden": {
+      "0": {
+        "name": "lotr:wooden_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:wooden_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:wooden_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:wooden_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:wooden_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:wooden_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:wooden_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:wooden_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:wooden_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:wooden_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:wooden_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:wooden_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      }
+    },
+    "lotr:tile.gateIronBars": {
+      "0": {
+        "name": "lotr:iron_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:iron_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:iron_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:iron_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:iron_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:iron_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:iron_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:iron_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:iron_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:iron_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:iron_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:iron_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      }
+    },
+    "lotr:tile.gateBronzeBars": {
+      "0": {
+        "name": "lotr:bronze_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:bronze_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:bronze_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:bronze_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:bronze_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:bronze_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:bronze_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:bronze_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:bronze_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:bronze_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:bronze_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:bronze_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      }
+    },
+    "lotr:tile.gateWoodenCross": {
+      "0": {
+        "name": "lotr:wooden_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:wooden_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:wooden_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:wooden_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:wooden_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:wooden_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:wooden_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:wooden_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:wooden_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:wooden_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:wooden_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:wooden_portcullis",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      }
+    },
+    "lotr:tile.gateOrc": {
+      "0": {
+        "name": "lotr:orc_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:orc_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:orc_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:orc_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:orc_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:orc_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:orc_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:orc_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:orc_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:orc_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:orc_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:orc_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      }
+    },
     "lotr:tile.stairsChalkBrick": {
       "0": {
         "name": "lotr:chalk_brick_stairs",
@@ -16901,9 +17992,552 @@
         }
       }
     },
-    "lotr:tile.gateElven": null,
-    "lotr:tile.gateDwarven": null,
-    "lotr:tile.gateGondor": null,
+    "lotr:tile.gateElven": {
+      "0": {
+        "name": "lotr:galadhrim_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:galadhrim_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:galadhrim_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:galadhrim_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:galadhrim_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:galadhrim_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:galadhrim_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:galadhrim_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:galadhrim_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:galadhrim_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:galadhrim_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:galadhrim_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      }
+    },
+    "lotr:tile.gateDwarven": {
+      "0": {
+        "name": "lotr:dwarven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:dwarven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:dwarven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:dwarven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:dwarven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:dwarven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:dwarven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:dwarven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:dwarven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:dwarven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:dwarven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:dwarven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      }
+    },
+    "lotr:tile.gateGondor": {
+      "0": {
+        "name": "lotr:gondor_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:gondor_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:gondor_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:gondor_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:gondor_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:gondor_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:gondor_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:gondor_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:gondor_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:gondor_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:gondor_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:gondor_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      }
+    },
     "lotr:tile.pressurePlateChalk": {
       "0": {
         "name": "lotr:chalk_pressure_plate",
@@ -17825,9 +19459,552 @@
         }
       }
     },
-    "lotr:tile.gateHighElven": null,
-    "lotr:tile.gateWoodElven": null,
-    "lotr:tile.gateNearHarad": null,
+    "lotr:tile.gateHighElven": {
+      "0": {
+        "name": "lotr:high_elven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:high_elven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:high_elven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:high_elven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:high_elven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:high_elven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:high_elven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:high_elven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:high_elven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:high_elven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:high_elven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:high_elven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      }
+    },
+    "lotr:tile.gateWoodElven": {
+      "0": {
+        "name": "lotr:wood_elven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:wood_elven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:wood_elven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:wood_elven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:wood_elven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:wood_elven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:wood_elven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:wood_elven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:wood_elven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:wood_elven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:wood_elven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:wood_elven_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      }
+    },
+    "lotr:tile.gateNearHarad": {
+      "0": {
+        "name": "lotr:harad_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:harad_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:harad_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:harad_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:harad_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:harad_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:harad_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:harad_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:harad_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:harad_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:harad_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:harad_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      }
+    },
     "lotr:tile.clayTile": {
       "0": {
         "name": "lotr:clay_tiling"
@@ -19571,11 +21748,916 @@
     "lotr:tile.kebabStand": null,
     "lotr:tile.kebabStandSand": null,
     "lotr:tile.gateTauredain": null,
-    "lotr:tile.gateDolAmroth": null,
-    "lotr:tile.gateUruk": null,
-    "lotr:tile.gateSilver": null,
-    "lotr:tile.gateGold": null,
-    "lotr:tile.gateMithril": null,
+    "lotr:tile.gateDolAmroth": {
+      "0": {
+        "name": "lotr:dol_amroth_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:dol_amroth_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:dol_amroth_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:dol_amroth_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:dol_amroth_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:dol_amroth_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:dol_amroth_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:dol_amroth_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:dol_amroth_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:dol_amroth_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:dol_amroth_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:dol_amroth_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      }
+    },
+    "lotr:tile.gateUruk": {
+      "0": {
+        "name": "lotr:uruk_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:uruk_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:uruk_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:uruk_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:uruk_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:uruk_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:uruk_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:uruk_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:uruk_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:uruk_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:uruk_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:uruk_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      }
+    },
+    "lotr:tile.gateSilver": {
+      "0": {
+        "name": "lotr:silver_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:silver_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:silver_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:silver_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:silver_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:silver_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:silver_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:silver_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:silver_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:silver_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:silver_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:silver_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      }
+    },
+    "lotr:tile.gateGold": {
+      "0": {
+        "name": "lotr:golden_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:golden_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:golden_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:golden_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:golden_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:golden_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:golden_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:golden_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:golden_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:golden_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:golden_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:golden_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      }
+    },
+    "lotr:tile.gateMithril": {
+      "0": {
+        "name": "lotr:mithril_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:mithril_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:mithril_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:mithril_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:mithril_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:mithril_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:mithril_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:mithril_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:mithril_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:mithril_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:mithril_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:mithril_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      }
+    },
     "lotr:tile.brick5": {
       "1": {
         "name": "lotr:dale_brick"
@@ -19991,10 +23073,734 @@
         "name": "lotr:hobbit_crafting_table"
       }
     },
-    "lotr:tile.gateHobbitGreen": null,
-    "lotr:tile.gateHobbitBlue": null,
-    "lotr:tile.gateHobbitRed": null,
-    "lotr:tile.gateHobbitYellow": null,
+    "lotr:tile.gateHobbitGreen": {
+      "0": {
+        "name": "lotr:green_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:green_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:green_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:green_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:green_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:green_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:green_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:green_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:green_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:green_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:green_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:green_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      }
+    },
+    "lotr:tile.gateHobbitBlue": {
+      "0": {
+        "name": "lotr:blue_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:blue_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:blue_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:blue_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:blue_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:blue_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:blue_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:blue_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:blue_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:blue_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:blue_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:blue_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      }
+    },
+    "lotr:tile.gateHobbitRed": {
+      "0": {
+        "name": "lotr:red_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:red_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:red_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:red_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:red_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:red_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:red_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:red_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:red_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:red_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:red_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:red_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      }
+    },
+    "lotr:tile.gateHobbitYellow": {
+      "0": {
+        "name": "lotr:yellow_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:yellow_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:yellow_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:yellow_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:yellow_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:yellow_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:yellow_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:yellow_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:yellow_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:yellow_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:yellow_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:yellow_hobbit_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      }
+    },
     "lotr:tile.driedReeds": null,
     "lotr:tile.redBrick": null,
     "lotr:tile.stairsBrickMossy": {
@@ -22119,7 +25925,188 @@
     "lotr:tile.woodBeamS": null,
     "lotr:tile.birdCage": null,
     "lotr:tile.birdCageWood": null,
-    "lotr:tile.gateRohan": null,
+    "lotr:tile.gateRohan": {
+      "0": {
+        "name": "lotr:rohan_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "1": {
+        "name": "lotr:rohan_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "2": {
+        "name": "lotr:rohan_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "3": {
+        "name": "lotr:rohan_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "4": {
+        "name": "lotr:rohan_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "5": {
+        "name": "lotr:rohan_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "false",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "8": {
+        "name": "lotr:rohan_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "up",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "9": {
+        "name": "lotr:rohan_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "down",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "10": {
+        "name": "lotr:rohan_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "north",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "11": {
+        "name": "lotr:rohan_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "south",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "12": {
+        "name": "lotr:rohan_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "west",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      },
+      "13": {
+        "name": "lotr:rohan_gate",
+        "properties": {
+          "down": "false",
+          "east": "false",
+          "facing": "east",
+          "north": "false",
+          "open": "true",
+          "powered": "false",
+          "south": "false",
+          "up": "false",
+          "waterlogged": "false",
+          "west": "false"
+        }
+      }
+    },
     "lotr:tile.signCarved": null,
     "lotr:tile.signCarvedIthildin": null,
     "lotr:tile.dwarvenDoorIthildin": null,
