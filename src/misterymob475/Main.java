@@ -2,7 +2,15 @@ package misterymob475;
 
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
-import convertors.*;
+import convertors.Convertor;
+import convertors.DataFolder;
+import convertors.End;
+import convertors.LevelDat;
+import convertors.LotrData;
+import convertors.MiddleEarth;
+import convertors.Nether;
+import convertors.Overworld;
+import convertors.PlayerData;
 import misterymob475.data.Data;
 
 import java.io.File;
@@ -13,7 +21,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Optional;
 
-import static misterymob475.Util.*;
+import static misterymob475.Util.deleteDir;
+import static misterymob475.Util.legacyWorldSelector;
+import static misterymob475.Util.renewedWorldSelector;
 
 /**
  * Main class
@@ -55,6 +65,7 @@ public class Main {
                 for (Thread arrThread : arrThreads) {
                     arrThread.join();
                 }
+                StringCache.getInstance().stopLogging();
                 System.out.println("Done!");
             }
         }
