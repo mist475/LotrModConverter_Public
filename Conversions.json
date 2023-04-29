@@ -4841,7 +4841,7 @@
     },
     "minecraft:enchanting_table": {
       "0": {
-        "name": "minecraft:brewing_stand"
+        "name": "minecraft:enchanting_table"
       }
     },
     "minecraft:brewing_stand": {
@@ -8203,12 +8203,57 @@
     },
     "lotr:tile.pipeweedPlant": {
       "0": {
-        "name": "lotr:pipeweed"
+        "name": "lotr:wild_pipeweed"
       }
     },
     "lotr:tile.pipeweed": {
       "0": {
-        "name": "lotr:wild_pipeweed"
+        "name": "lotr:pipeweed_crop",
+        "properties": {
+          "age": "0"
+        }
+      },
+      "1": {
+        "name": "lotr:pipeweed_crop",
+        "properties": {
+          "age": "1"
+        }
+      },
+      "2": {
+        "name": "lotr:pipeweed_crop",
+        "properties": {
+          "age": "2"
+        }
+      },
+      "3": {
+        "name": "lotr:pipeweed_crop",
+        "properties": {
+          "age": "3"
+        }
+      },
+      "4": {
+        "name": "lotr:pipeweed_crop",
+        "properties": {
+          "age": "4"
+        }
+      },
+      "5": {
+        "name": "lotr:pipeweed_crop",
+        "properties": {
+          "age": "5"
+        }
+      },
+      "6": {
+        "name": "lotr:pipeweed_crop",
+        "properties": {
+          "age": "6"
+        }
+      },
+      "7": {
+        "name": "lotr:pipeweed_crop",
+        "properties": {
+          "age": "7"
+        }
       }
     },
     "lotr:tile.slabSingle": {
