@@ -30,6 +30,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Random;
 import java.util.UUID;
+import java.util.function.Consumer;
 
 /**
  * Functionally static class containing all the fixes that are applied*.
@@ -317,81 +318,95 @@ public class Fixers {
     /**
      * Fixes the player inventory
      *
-     * @param newData {@link Map} with key {@link String} and value {@link Tag} containing the to be fixed data
+     * @param data {@link Map} with key {@link String} and value {@link Tag} containing the to be fixed data
      * @throws IOException if something fails
      */
     @SuppressWarnings("unchecked")
-    public void playerFixer(CompoundMap newData) throws IOException {
+    public void playerFixer(CompoundMap data) throws IOException {
         boolean inUtumno = false;
         //not needed in renewed
-        newData.remove("ForgeData");
+        data.remove("ForgeData");
         //changed too much to bother with, especially as the game will recreate the property
-        newData.remove("Attributes");
+        data.remove("Attributes");
 
-        Optional<Tag<?>> ORiding = Util.getAsTagIfExists(newData, TagType.TAG_COMPOUND, "Riding");
+        Optional<Tag<?>> ORiding = Util.getAsTagIfExists(data, TagType.TAG_COMPOUND, "Riding");
         if (ORiding.isPresent()) {
             //call to entity fixer, this means the player is riding on a mount (fixer will temporarily replace said mount with a donkey)
             Optional<CompoundMap> Riding = riderEntityFixer((CompoundMap) ORiding.get().getValue());
             if (Riding.isPresent()) {
                 CompoundTag RootVehicle = new CompoundTag("RootVehicle", Riding.get());
-                newData.replace("Riding", RootVehicle);
+                data.replace("Riding", RootVehicle);
             }
-            else newData.remove("Riding");
+            else data.remove("Riding");
         }
 
-        if (data.settings.isCreativeSpawn()) {
-            newData.replace("playerGameType", new IntTag("playerGameType", 1));
+        if (Fixers.data.settings.isCreativeSpawn()) {
+            data.replace("playerGameType", new IntTag("playerGameType", 1));
         }
 
-        if (newData.containsKey("EnderItems")) {
-            newData.replace("EnderItems", new ListTag<>("EnderItems", TagType.TAG_COMPOUND, recurItemFixerList((((ListTag<CompoundTag>) newData.get("EnderItems")).getValue()), 0, "Exception during Ender chest conversion")));
+        if (data.containsKey("EnderItems")) {
+            data.replace("EnderItems", new ListTag<>("EnderItems", TagType.TAG_COMPOUND, recurItemFixerList((((ListTag<CompoundTag>) data.get("EnderItems")).getValue()), 0, "Exception during Ender chest conversion")));
         }
-        if (newData.containsKey("Inventory")) {
-            newData.replace("Inventory", new ListTag<>("Inventory", TagType.TAG_COMPOUND, recurItemFixerList((((ListTag<CompoundTag>) newData.get("Inventory")).getValue()), 0, "Exception during inventory conversion")));
-        }
-
-        newData.remove("Attack Time");
-        if (!newData.containsKey("DataVersion")) {
-            newData.put("DataVersion", new IntTag("DataVersion", 2586));
+        if (data.containsKey("Inventory")) {
+            data.replace("Inventory", new ListTag<>("Inventory", TagType.TAG_COMPOUND, recurItemFixerList((((ListTag<CompoundTag>) data.get("Inventory")).getValue()), 0, "Exception during inventory conversion")));
         }
 
-        Optional<Tag<?>> ODimension = Util.getAsTagIfExists(newData, TagType.TAG_INT, "Dimension");
+        data.remove("Attack Time");
+        if (!data.containsKey("DataVersion")) {
+            data.put("DataVersion", new IntTag("DataVersion", 2586));
+        }
+
+        Optional<Tag<?>> ODimension = Util.getAsTagIfExists(data, TagType.TAG_INT, "Dimension");
         if (ODimension.isPresent()) {
-            int Dimension = ((IntTag) ODimension.get()).getValue();
+            int dimension = ((IntTag) ODimension.get()).getValue();
             String newDimension;
-            if (Dimension == 0) newDimension = "minecraft:overworld";
-            else if (Dimension == 1) newDimension = "Minecraft:the_nether";
-            else if (Dimension == 2) newDimension = "Minecraft:the_end";
-            else if (Dimension == 100) newDimension = "lotr:middle_earth";
-            else if (Dimension == 101) {
-                newDimension = "lotr:middle_earth"; //utumno doesn't exist yet
-                inUtumno = true;
+            switch (dimension) {
+                case 1: {
+                    newDimension = "Minecraft:the_nether";
+                    break;
+                }
+                case -1: {
+                    newDimension = "Minecraft:the_end";
+                    break;
+                }
+                case 100: {
+                    newDimension = "lotr:middle_earth";
+                    break;
+                }
+                case 101: {
+                    //utumno doesn't exist yet
+                    newDimension = "lotr:middle_earth";
+                    inUtumno = true;
+                    break;
+                }
+                default: {
+                    newDimension = "minecraft:overworld";
+                    break;
+                }
             }
-            else newDimension = "minecraft:overworld";
-            newData.replace("Dimension", new StringTag("Dimension", newDimension));
+            data.replace("Dimension", new StringTag("Dimension", newDimension));
         }
 
         if (inUtumno) {
             //sets the player coordinates at the coordinates of the pit if they're currently in Utumno (roughly, they'll be moved in renewed I've heard)
-            //ListTag Pos1 = (ListTag) newData.get("Pos");
-            ArrayList<DoubleTag> Pos = new ArrayList<DoubleTag>(1) {
+            List<DoubleTag> pos = new ArrayList<DoubleTag>(1) {
             };
-            Pos.add(new DoubleTag("", 46158.0));
-            Pos.add(new DoubleTag("", 80.0));
-            Pos.add(new DoubleTag("", -40274.0));
-            newData.replace("Pos", new ListTag<>("Pos", TagType.TAG_DOUBLE, Pos));
+            pos.add(new DoubleTag("", 46158.0));
+            pos.add(new DoubleTag("", 80.0));
+            pos.add(new DoubleTag("", -40274.0));
+            data.replace("Pos", new ListTag<>("Pos", TagType.TAG_DOUBLE, pos));
 
         }
-        newData.remove("HealF");
-        newData.remove("Sleeping");
-        if (newData.containsKey("UUIDLeast")) {
-            Optional<LongTag> OUUIDMost = newData.get("UUIDMost").getAsLongTag();
-            Optional<LongTag> OUUIDLeast = newData.get("UUIDLeast").getAsLongTag();
+        data.remove("HealF");
+        data.remove("Sleeping");
+        if (data.containsKey("UUIDLeast")) {
+            Optional<LongTag> OUUIDMost = data.get("UUIDMost").getAsLongTag();
+            Optional<LongTag> OUUIDLeast = data.get("UUIDLeast").getAsLongTag();
             if (OUUIDMost.isPresent() && OUUIDLeast.isPresent()) {
-                newData.put("UUID", uuidFixer(OUUIDMost.get(), OUUIDLeast.get()));
+                data.put("UUID", uuidFixer(OUUIDMost.get(), OUUIDLeast.get()));
             }
-            newData.remove("UUIDLeast");
-            newData.remove("UUIDMost");
+            data.remove("UUIDLeast");
+            data.remove("UUIDMost");
         }
     }
 
@@ -856,20 +871,19 @@ public class Fixers {
      * @param filler {@link CompoundMap} to be fixed
      * @return fixed version of filler
      */
-    @SuppressWarnings("unchecked")
+    //@SuppressWarnings("unchecked")
     public CompoundMap baseTagItemFixer(CompoundMap filler) {
         if (filler.containsKey("display")) {
             (filler.get("display")
-                    .getAsCompoundTag()).ifPresent(compoundTag -> filler.replace("display", nameFixer(compoundTag)));
+                    .getAsCompoundTag())
+                    .ifPresent(compoundTag -> filler.replace("display", nameFixer(compoundTag)));
         }
 
-        //Optional<ListTag<?>> test = Util.GetAsTagTypeIfExists(filler,"LOTRPrevOwnerList",TagType.TAG_LIST);
-        Optional<Tag<?>> oPreviousOwners = Util.getAsTagIfExists(filler, TagType.TAG_LIST, "LOTRPreviousOwnerList");
-        if (oPreviousOwners.isPresent()) {
-            List<StringTag> ownerList = (List<StringTag>) oPreviousOwners.get().getValue();
+        Util.getAsTagIfExists(filler, TagType.TAG_LIST, "LOTRPreviousOwnerList").ifPresent(tag -> {
+            List<StringTag> ownerList = (List<StringTag>) tag.getValue();
             ownerList.replaceAll(stringTag -> new StringTag(stringTag.getName(), JSONTextFixer(stringTag.getValue())));
             filler.put(new CompoundTag("LOTROwnership", Util.createCompoundMapWithContents(new ListTag<>("PreviousOwners", TagType.TAG_STRING, ownerList))));
-        }
+        });
         return filler;
     }
 
