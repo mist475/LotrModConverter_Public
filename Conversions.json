@@ -28137,12 +28137,12 @@
       }
     },
     "lotr:tile.glass": {
-      "": {
+      "0": {
         "name": "lotr:fine_glass"
       }
     },
     "lotr:tile.glassPane": {
-      "": {
+      "0": {
         "name": "lotr:fine_glass_pane"
       }
     },
