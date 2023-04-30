@@ -42147,7 +42147,7 @@
       "lotr:bree_crafting_table"
     ],
     "minecraft:coal_block": [
-      ""
+      "minecraft:coal_block"
     ],
     "lotr:item.hoeRivendell": [
       "lotr:rivendell_hoe"
