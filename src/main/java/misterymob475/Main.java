@@ -40,11 +40,11 @@ public class Main {
         try {
             if (legacyWorld.isPresent() && renewedWorld.isPresent()) {
                 File selectedWorld = new File(legacyWorld.get());
-                if (new File("../" + selectedWorld.getName() + "_Converted").exists()) {
-                    deleteDir(new File("../" + selectedWorld.getName() + "_Converted"));
+                if (new File("./" + selectedWorld.getName() + "_Converted").exists()) {
+                    deleteDir(new File("./" + selectedWorld.getName() + "_Converted"));
                 }
-                Files.createDirectories(Paths.get("../" + selectedWorld.getName() + "_Converted"));
-                Path launchDir = Paths.get(".").toAbsolutePath().normalize().getParent();
+                Files.createDirectories(Paths.get("./" + selectedWorld.getName() + "_Converted"));
+                Path launchDir = Paths.get(".").toAbsolutePath().normalize();
                 Data.getInstance()
                         .legacyIds(Paths.get(launchDir + "/" + legacyWorld.get() + "/level.dat").toAbsolutePath()
                                            .toString());

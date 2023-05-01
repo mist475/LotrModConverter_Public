@@ -3,3 +3,7 @@
 /target/
 /.gradle/
 /build/
+#test worlds
+/reneweddatafeeder/
+/testworld/
+/testworld_Converted/

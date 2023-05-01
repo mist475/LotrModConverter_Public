@@ -35,7 +35,7 @@ public class Util {
      */
     public static Optional<String> renewedWorldSelector() {
         String[] pathNames;
-        File f = new File("../");
+        File f = new File("./");
         int i = 1;
         String selectOption = "Please select the new world you wan to use as the basis for your converted world:";
 
@@ -82,7 +82,7 @@ public class Util {
     public static Optional<String> legacyWorldSelector() {
         String[] pathNames;
 
-        File f = new File("../");
+        File f = new File("./");
 
         int i = 1;
         String selectOption = "Please select the world you want to convert,\nonce selected a copy of the world will be generated and the necessary fixes will be applied:";
