@@ -130,7 +130,7 @@ public class Fixers {
         if (inUtumno) {
             //sets the player coordinates at the coordinates of the pit if they're currently in Utumno (roughly, they'll be moved in renewed I've heard)
             //ListTag Pos1 = (ListTag) newData.get("Pos");
-            ArrayList<DoubleTag> Pos = new ArrayList<DoubleTag>(3) {
+            ArrayList<DoubleTag> Pos = new ArrayList<>(3) {
             };
             Pos.add(new DoubleTag("", 46158.0));
             Pos.add(new DoubleTag("", 80.0));
@@ -358,37 +358,24 @@ public class Fixers {
         Optional<Tag<?>> ODimension = Util.getAsTagIfExists(data, TagType.TAG_INT, "Dimension");
         if (ODimension.isPresent()) {
             int dimension = ((IntTag) ODimension.get()).getValue();
-            String newDimension;
-            switch (dimension) {
-                case 1: {
-                    newDimension = "Minecraft:the_nether";
-                    break;
-                }
-                case -1: {
-                    newDimension = "Minecraft:the_end";
-                    break;
-                }
-                case 100: {
-                    newDimension = "lotr:middle_earth";
-                    break;
-                }
-                case 101: {
+            String newDimension = switch (dimension) {
+                case 1 -> "Minecraft:the_nether";
+                case -1 -> "Minecraft:the_end";
+                case 100 -> "lotr:middle_earth";
+                case 101 -> {
                     //utumno doesn't exist yet
-                    newDimension = "lotr:middle_earth";
                     inUtumno = true;
-                    break;
+                    yield "lotr:middle_earth";
                 }
-                default: {
-                    newDimension = "minecraft:overworld";
-                    break;
-                }
-            }
+                default ->
+                    "minecraft:overworld";
+            };
             data.replace("Dimension", new StringTag("Dimension", newDimension));
         }
 
         if (inUtumno) {
             //sets the player coordinates at the coordinates of the pit if they're currently in Utumno (roughly, they'll be moved in renewed I've heard)
-            List<DoubleTag> pos = new ArrayList<DoubleTag>(1) {
+            List<DoubleTag> pos = new ArrayList<>(1) {
             };
             pos.add(new DoubleTag("", 46158.0));
             pos.add(new DoubleTag("", 80.0));
@@ -1202,7 +1189,7 @@ public class Fixers {
         //gets the values we want, note, = I'm doing the easy ones first (lists last)
         //originalData.get("something").
         Optional<Tag<?>> oAlignmentMap = Util.getAsTagIfExists(originalData, TagType.TAG_LIST, "AlignmentMap");
-        List<CompoundTag> alignmentMapBuilder = new ArrayList<CompoundTag>(1) {
+        List<CompoundTag> alignmentMapBuilder = new ArrayList<>(1) {
         };
         if (oAlignmentMap.isPresent()) {
             ListTag<CompoundTag> alignmentMapOld = (ListTag<CompoundTag>) oAlignmentMap.get();
@@ -1221,7 +1208,7 @@ public class Fixers {
         //ListTag AlignmentMap = new ListTag("AlignmentMap",CompoundTag.class, alignmentMapBuilder);
 
         ListTag<CompoundTag> factionStatsOld = (ListTag<CompoundTag>) originalData.get("FactionData");
-        List<CompoundTag> factionStatsBuilder = new ArrayList<CompoundTag>(1) {
+        List<CompoundTag> factionStatsBuilder = new ArrayList<>(1) {
         };
         for (CompoundTag tag : factionStatsOld.getValue()) {
             CompoundMap map = tag.getValue();
@@ -1239,7 +1226,7 @@ public class Fixers {
             }
         }
         ListTag<CompoundTag> prevRegionFactionsOld = (ListTag<CompoundTag>) originalData.get("PrevRegionFactions");
-        List<CompoundTag> prevRegionFactionsBuilder = new ArrayList<CompoundTag>(1) {
+        List<CompoundTag> prevRegionFactionsBuilder = new ArrayList<>(1) {
         };
         for (CompoundTag tag : prevRegionFactionsOld.getValue()) {
             CompoundMap map = tag.getValue();
@@ -1251,15 +1238,9 @@ public class Fixers {
                 if (data.facNames.containsKey(factionPRF)) {
                     final CompoundMap newDataPRF = Util.createCompoundMapWithContents(new StringTag("Faction", data.facNames.get(factionPRF)));
                     switch (regionPRF) {
-                        case "west":
-                            newDataPRF.put("Region", new StringTag("Region", "lotr:westlands"));
-                            break;
-                        case "east":
-                            newDataPRF.put("Region", new StringTag("Region", "lotr:rhun"));
-                            break;
-                        case "south":
-                            newDataPRF.put("Region", new StringTag("Region", "lotr:harad"));
-                            break;
+                        case "west" -> newDataPRF.put("Region", new StringTag("Region", "lotr:westlands"));
+                        case "east" -> newDataPRF.put("Region", new StringTag("Region", "lotr:rhun"));
+                        case "south" -> newDataPRF.put("Region", new StringTag("Region", "lotr:harad"));
                     }
                     prevRegionFactionsBuilder.add(new CompoundTag("", newDataPRF));
                 }
@@ -1887,31 +1868,19 @@ public class Fixers {
 
                 for (CompoundTag t : tileEntities.getValue()) {
                     TileEntityResult result = blockEntityFixer(t.getValue());
-                    if (result.getContent().isPresent()) {
-                        switch (result.getType()) {
-                            case Regular: {
-                                tileEntityBuilder.add(new CompoundTag("", result.getContent().get()));
-                                break;
-                            }
-                            case Armour_Stand:
-                            case Cauldron:
-                            case Ent_Jar:
-                            case Flower_Pot:
-                            case Note_Block: {
-                                edgeCases.add(result);
-                                break;
-                            }
-                            case ChestOrTrappedChest: {
-                                tileEntityBuilder.add(new CompoundTag("", result.getContent().get()));
-                                CompoundMap ChestOrTrappedChest = result.getContent().get();
+                    if (result.content().isPresent()) {
+                        switch (result.type()) {
+                            case Regular -> tileEntityBuilder.add(new CompoundTag("", result.content().get()));
+                            case Armour_Stand, Cauldron, Ent_Jar, Flower_Pot, Note_Block -> edgeCases.add(result);
+                            case ChestOrTrappedChest -> {
+                                tileEntityBuilder.add(new CompoundTag("", result.content().get()));
+                                CompoundMap ChestOrTrappedChest = result.content().get();
                                 //Computationally less heavy to do this than to pass the items (I hope)
                                 ChestOrTrappedChest.remove("Items");
                                 edgeCases.add(new TileEntityResult(Optional.of(ChestOrTrappedChest), TileEntityFixerReturnType.ChestOrTrappedChest));
-                                break;
                             }
-                            case Null: {
+                            case Null -> {
                                 //For unsupported Entities
-                                break;
                             }
                         }
                     }
