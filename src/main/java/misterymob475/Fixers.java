@@ -30,7 +30,6 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Random;
 import java.util.UUID;
-import java.util.function.Consumer;
 
 /**
  * Functionally static class containing all the fixes that are applied*.
@@ -871,7 +870,7 @@ public class Fixers {
      * @param filler {@link CompoundMap} to be fixed
      * @return fixed version of filler
      */
-    //@SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")
     public CompoundMap baseTagItemFixer(CompoundMap filler) {
         if (filler.containsKey("display")) {
             (filler.get("display")
