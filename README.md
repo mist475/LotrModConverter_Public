@@ -3,7 +3,7 @@ Public repository for the lotr world converter
 World fixer for the LOTR mod by Mevans. This converter modifies the .DAT files from old legacy lotr-mod worlds, so they can be read in the 1.16.5-version of the mod.
 
 Note:
-This project is temprarily put on hold as I'm too busy to work on it, once I have some more time on my hands finishing it shouldn't take too long
+This project is temporarily put on hold as I'm too busy to work on it, once I have some more time on my hands finishing it shouldn't take too long
 
 Currently working:
 - Player data (inventory, position, alignment, waypoint usages etc.)
@@ -24,11 +24,11 @@ Included in the zip-file:
 Prepping your world/inventory:
 - Get a mount with inventory slots, mounts get ported along with the player, so you can carry more stuff to renewed (If said mount hasn't been ported over it'll become a Donkey)
 - Put as many items as possible in pouches, these get turned into shulkerboxes with their inventory staying the same
-- In Utumno? No problem, you'll appear in Forodwaith at the rough Coordinates of where the pits are in Legacy, so bring fur armour)
+- In Utumno? No problem, you'll appear in Forodwaith at the rough Coordinates of where the pits are in Legacy, so bring fur armour
 - Lotr modifiers haven't been ported yet, if you want enchanted items get vanilla enchantments
 - If an item hasn't been ported over yet, it will get deleted (or changed to a similar item in some cases {poisoned Daggers to regular daggers})
 
-How To use:
+How to use:
 - Download the latest release of the Converter
 - Create a new World in the latest version of Renewed
 - Copy the world you want to Convert to the same folder as the world you just created
@@ -36,7 +36,7 @@ How To use:
 - Run the converter using the .bat file if you're on Windows or via the command line if you're on Linux or macOS(tested on linux)
 - The converted world will be in a folder called $worldname_Converted, open this in renewed to see if everything went well
 
-The Folder structure should look like this (only the last 2 folder matter, the rest can be ignored):
+The Folder structure should look like this (only the last 2 folders matter, the rest can be ignored):
 
 ![InstructionsConverter_1](https://user-images.githubusercontent.com/70655895/137728941-998e6bcf-83e9-45a1-b737-157df25eacee.png)
 
@@ -77,3 +77,14 @@ Edge cases:
 - Waypoint usages are supported, however, custom waypoint usages are not, as these waypoints will be invalid due to the stricter waypoint requirements anyway
 
 Have Fun in Renewed!
+
+# Contributing/ Developing
+If you want to help out, please join [my discord server](https://discord.gg/PmH7dNns5t) and discuss what you want to work on/help with.
+To use the converter in a dev environment put the contents of a world created in 1.16.5 lotr in the reneweddatafeeder directory  and the contents of the world you want to convert in the testworld directory (or use a different directory and make sure you don't accidentally commit it)
+Alternatively, run the build task. Copy the jar from build/libs/ to a directory, copy over the json file, and place you world in the same folder
+
+## Technical information:
+This project uses [piegamesde nbt](https://github.com/piegamesde/nbt) for nbt handling,
+[gson](https://github.com/google/gson) for the config files.
+
+One of the goals of this project is that it should work with java 8, to still be able to use newer java features we use [Jabel](https://github.com/bsideup/jabel)
